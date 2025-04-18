@@ -1,0 +1,319 @@
+{
+    "from-to": "Elements from {first} to {last} (total {totalRecords})",
+    "new" : "New",
+    "search": "Search",
+    "export": "Export",
+    "validate": "Validate",
+    "search": "Seach...",
+    "delete": "Delete",
+    "cancel": "Cancel",
+    "save": "Save",
+    "next": "Next",
+    "yes": "Yes",
+    "no": "No",
+    "actions": "Actions",
+    "confirm": "Confirm",
+    "creation": "Creation",
+    "list": "List",
+	"actionPermission":{
+        "reference": "Reference",
+        "libelle": "Libelle",
+        "actionPermission": "Action permission",
+        "tabPan": "Action permission",
+        "header": "Liste des action permissions",
+        "deleteActionPermissionConfirmationMessage": "Are you sure you want to delete action permission",
+        "deleteActionPermissionsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "modelPermissionUser":{
+        "actionPermission": "Action permission",
+        "actionPermissionPlaceHolder": "Select a Action permission",
+        "actionPermissionPlaceHolderFilter": "Search by Action permission",
+        "modelPermission": "Model permission",
+        "modelPermissionPlaceHolder": "Select a Model permission",
+        "modelPermissionPlaceHolderFilter": "Search by Model permission",
+        "value": "Value",
+        "user": "User",
+        "userPlaceHolder": "Select a User",
+        "userPlaceHolderFilter": "Search by User",
+        "subAttribute": "Sub attribute",
+        "modelPermissionUser": "Model permission user",
+        "tabPan": "Model permission user",
+        "header": "Liste des model permission users",
+        "deleteModelPermissionUserConfirmationMessage": "Are you sure you want to delete model permission user",
+        "deleteModelPermissionUsersConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+    "role":{
+        "authority": "Authority",
+        "role": "Role",
+        "tabPan": "Role",
+        "header": "Liste des roles",
+        "deleteRoleConfirmationMessage": "Are you sure you want to delete role",
+        "deleteRolesConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+
+    "roleUser":{
+        "role": "Role",
+        "rolePlaceHolder": "Select a Role",
+        "rolePlaceHolderFilter": "Search by Role",
+        "user": "User",
+        "userPlaceHolder": "Select a User",
+        "userPlaceHolderFilter": "Search by User",
+        "roleUser": "Role user",
+        "tabPan": "Role user",
+        "header": "Liste des role users",
+        "deleteRoleUserConfirmationMessage": "Are you sure you want to delete role user",
+        "deleteRoleUsersConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "user":{
+        "credentialsNonExpired": "Credentials non expired",
+        "enabled": "Enabled",
+        "email": "Email",
+        "accountNonExpired": "Account non expired",
+        "accountNonLocked": "Account non locked",
+        "username": "Username",
+        "password": "Password",
+        "passwordChanged": "Password changed",
+        "modelPermissionUsers": "Model permission users",
+        "roleUsers": "Role users",
+        "RoleUsersPlaceHolder": "Select multiple Roles",
+        "user": "User",
+        "tabPan": "User",
+        "header": "Liste des users",
+        "deleteUserConfirmationMessage": "Are you sure you want to delete user",
+        "deleteUsersConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "modelPermission":{
+        "reference": "Reference",
+        "libelle": "Libelle",
+        "modelPermission": "Model permission",
+        "tabPan": "Model permission",
+        "header": "Liste des model permissions",
+        "deleteModelPermissionConfirmationMessage": "Are you sure you want to delete model permission",
+        "deleteModelPermissionsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+
+    "etatReunion":{
+        "libelle": "Libelle",
+        "code": "Code",
+        "style": "Style",
+        "description": "Description",
+        "etatReunion": "Etat reunion",
+        "tabPan": "Etat reunion",
+        "header": "Liste des etat reunions",
+        "deleteEtatReunionConfirmationMessage": "Are you sure you want to delete etat reunion",
+        "deleteEtatReunionsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "reunion":{
+        "libelle": "Libelle",
+        "code": "Code",
+        "style": "Style",
+        "description": "Description",
+        "collaborateur": "Collaborateur",
+        "collaborateurPlaceHolder": "Select a Collaborateur",
+        "collaborateurPlaceHolderFilter": "Search by Collaborateur",
+        "etatReunion": "Etat reunion",
+        "etatReunionPlaceHolder": "Select a Etat reunion",
+        "etatReunionPlaceHolderFilter": "Search by Etat reunion",
+        "reunion": "Reunion",
+        "tabPan": "Reunion",
+        "header": "Liste des reunions",
+        "deleteReunionConfirmationMessage": "Are you sure you want to delete reunion",
+        "deleteReunionsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "etatInscription":{
+        "libelle": "Libelle",
+        "code": "Code",
+        "style": "Style",
+        "description": "Description",
+        "etatInscription": "Etat inscription",
+        "tabPan": "Etat inscription",
+        "header": "Liste des etat inscriptions",
+        "deleteEtatInscriptionConfirmationMessage": "Are you sure you want to delete etat inscription",
+        "deleteEtatInscriptionsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "langue":{
+        "libelle": "Libelle",
+        "code": "Code",
+        "style": "Style",
+        "description": "Description",
+        "langue": "Langue",
+        "tabPan": "Langue",
+        "header": "Liste des langues",
+        "deleteLangueConfirmationMessage": "Are you sure you want to delete langue",
+        "deleteLanguesConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "statusPaiement":{
+        "libelle": "Libelle",
+        "code": "Code",
+        "style": "Style",
+        "description": "Description",
+        "statusPaiement": "Status paiement",
+        "tabPan": "Status paiement",
+        "header": "Liste des status paiements",
+        "deleteStatusPaiementConfirmationMessage": "Are you sure you want to delete status paiement",
+        "deleteStatusPaiementsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "referentielMetier":{
+        "libelle": "Libelle",
+        "code": "Code",
+        "description": "Description",
+        "metier": "Metier",
+        "metierPlaceHolder": "Select a Metier",
+        "metierPlaceHolderFilter": "Search by Metier",
+        "nombreHeuresExperienceMin": "Nombre heures experience min",
+        "nombreHeuresExperienceMinMin": "Nombre heures experience min Min",
+        "nombreHeuresExperienceMinMax": "Nombre heures experience min Max",
+        "langue": "Langue",
+        "languePlaceHolder": "Select a Langue",
+        "languePlaceHolderFilter": "Search by Langue",
+        "niveauLangue": "Niveau langue",
+        "niveauLanguePlaceHolder": "Select a Niveau langue",
+        "niveauLanguePlaceHolderFilter": "Search by Niveau langue",
+        "scelleRouge": "Scelle rouge",
+        "referentielMetier": "Referentiel metier",
+        "tabPan": "Referentiel metier",
+        "header": "Liste des referentiel metiers",
+        "deleteReferentielMetierConfirmationMessage": "Are you sure you want to delete referentiel metier",
+        "deleteReferentielMetiersConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "inscription":{
+        "libelle": "Libelle",
+        "code": "Code",
+        "style": "Style",
+        "description": "Description",
+        "nom": "Nom",
+        "prenom": "Prenom",
+        "email": "Email",
+        "password": "Password",
+        "langue": "Langue",
+        "languePlaceHolder": "Select a Langue",
+        "languePlaceHolderFilter": "Search by Langue",
+        "niveauLangue": "Niveau langue",
+        "niveauLanguePlaceHolder": "Select a Niveau langue",
+        "niveauLanguePlaceHolderFilter": "Search by Niveau langue",
+        "metier": "Metier",
+        "metierPlaceHolder": "Select a Metier",
+        "metierPlaceHolderFilter": "Search by Metier",
+        "nombreHeureExperience": "Nombre heure experience",
+        "nombreHeureExperienceMin": "Nombre heure experience Min",
+        "nombreHeureExperienceMax": "Nombre heure experience Max",
+        "etatInscription": "Etat inscription",
+        "etatInscriptionPlaceHolder": "Select a Etat inscription",
+        "etatInscriptionPlaceHolderFilter": "Search by Etat inscription",
+        "collaborateur": "Collaborateur",
+        "collaborateurPlaceHolder": "Select a Collaborateur",
+        "collaborateurPlaceHolderFilter": "Search by Collaborateur",
+        "inscription": "Inscription",
+        "tabPan": "Inscription",
+        "header": "Liste des inscriptions",
+        "deleteInscriptionConfirmationMessage": "Are you sure you want to delete inscription",
+        "deleteInscriptionsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "paiement":{
+        "libelle": "Libelle",
+        "code": "Code",
+        "description": "Description",
+        "montant": "Montant",
+        "montantMin": "Montant Min",
+        "montantMax": "Montant Max",
+        "datePaiement": "Date paiement",
+        "datePaiementMin": "Date paiement Min",
+        "datePaiementMax": "Date paiement Max",
+        "moyenPaiement": "Moyen paiement",
+        "moyenPaiementPlaceHolder": "Select a Moyen paiement",
+        "moyenPaiementPlaceHolderFilter": "Search by Moyen paiement",
+        "statusPaiement": "Status paiement",
+        "statusPaiementPlaceHolder": "Select a Status paiement",
+        "statusPaiementPlaceHolderFilter": "Search by Status paiement",
+        "paiement": "Paiement",
+        "tabPan": "Paiement",
+        "header": "Liste des paiements",
+        "deletePaiementConfirmationMessage": "Are you sure you want to delete paiement",
+        "deletePaiementsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "moyenPaiement":{
+        "libelle": "Libelle",
+        "code": "Code",
+        "style": "Style",
+        "description": "Description",
+        "moyenPaiement": "Moyen paiement",
+        "tabPan": "Moyen paiement",
+        "header": "Liste des moyen paiements",
+        "deleteMoyenPaiementConfirmationMessage": "Are you sure you want to delete moyen paiement",
+        "deleteMoyenPaiementsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "collaborateur":{
+        "description": "Description",
+        "email": "Email",
+        "enabled": "Enabled",
+        "credentialsNonExpired": "Credentials non expired",
+        "accountNonExpired": "Account non expired",
+        "username": "Username",
+        "passwordChanged": "Password changed",
+        "accountNonLocked": "Account non locked",
+        "password": "Password",
+        "collaborateur": "Collaborateur",
+        "tabPan": "Collaborateur",
+        "header": "Liste des collaborateurs",
+        "deleteCollaborateurConfirmationMessage": "Are you sure you want to delete collaborateur",
+        "deleteCollaborateursConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "niveauLangue":{
+        "libelle": "Libelle",
+        "code": "Code",
+        "style": "Style",
+        "description": "Description",
+        "niveauLangue": "Niveau langue",
+        "tabPan": "Niveau langue",
+        "header": "Liste des niveau langues",
+        "deleteNiveauLangueConfirmationMessage": "Are you sure you want to delete niveau langue",
+        "deleteNiveauLanguesConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "metier":{
+        "libelle": "Libelle",
+        "code": "Code",
+        "style": "Style",
+        "description": "Description",
+        "metier": "Metier",
+        "tabPan": "Metier",
+        "header": "Liste des metiers",
+        "deleteMetierConfirmationMessage": "Are you sure you want to delete metier",
+        "deleteMetiersConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+"appName": "GED"
+}
+
+

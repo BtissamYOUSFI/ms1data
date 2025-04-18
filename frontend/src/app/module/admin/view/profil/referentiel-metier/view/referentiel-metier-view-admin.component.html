@@ -1,0 +1,60 @@
+
+<p-dialog [(visible)]="viewDialog" [style]="{width: '70vw'}" header="{{'referentielMetier.tabPan' | translate}}" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <p-tabView>
+            <p-tabPanel header="{{'referentielMetier.tabPan' | translate}}">
+                <div class="grid">
+                    <div class="field col-12 md:col-6">
+                        <label for="1">{{'referentielMetier.libelle' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'referentielMetier.libelle' | translate}}" autofocus  id="1" [ngModel]="item.libelle">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="2">{{'referentielMetier.code' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'referentielMetier.code' | translate}}" autofocus  id="2" [ngModel]="item.code">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="3">{{'referentielMetier.description' | translate}}</label>
+                        <textarea id="3" pInputTextarea rows="5" cols="30" [disabled]="true" placeholder="{{'referentielMetier.description' | translate}}"  [ngModel]="item.description"></textarea>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="4">{{'referentielMetier.metier' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'referentielMetier.metier' | translate}}" autofocus  id="4" [ngModel]="item.metier?.libelle">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="5">{{'referentielMetier.nombreHeuresExperienceMin' | translate}}</label>
+                        <p-inputNumber class="mb-2 mr-2" id="5" [disabled]="true" placeholder="{{'referentielMetier.nombreHeuresExperienceMin' | translate}}" [ngModel]="item.nombreHeuresExperienceMin"></p-inputNumber>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="6">{{'referentielMetier.langue' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'referentielMetier.langue' | translate}}" autofocus  id="6" [ngModel]="item.langue?.libelle">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="7">{{'referentielMetier.niveauLangue' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'referentielMetier.niveauLangue' | translate}}" autofocus  id="7" [ngModel]="item.niveauLangue?.libelle">
+                    </div>
+                    <div class="field align-inputswitch col-12  md:col-6">
+                        <div  class="label-inputswitch">
+                            <label for="8">{{'referentielMetier.scelleRouge' | translate}}</label>
+                        </div>
+                        <div class="input-switch">
+                            <p-inputSwitch id="8"  [disabled]="true" [ngModel]="item.scelleRouge"></p-inputSwitch>
+                        </div>
+                    </div>
+                </div>
+            </p-tabPanel>
+
+        </p-tabView>
+
+    </ng-template>
+
+    <ng-template pTemplate="footer" >
+        <div class="p-flexbox">
+            <div>
+                <button pButton pRipple label="Annuler" icon="pi pi-times" class="p-button-outlined" (click)="hideViewDialog()"></button>
+            </div>
+        </div>
+    </ng-template>
+</p-dialog>
+
+
+

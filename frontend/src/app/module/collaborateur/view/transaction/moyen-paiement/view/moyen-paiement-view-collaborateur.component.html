@@ -1,0 +1,40 @@
+
+<p-dialog [(visible)]="viewDialog" [style]="{width: '70vw'}" header="{{'moyenPaiement.tabPan' | translate}}" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <p-tabView>
+            <p-tabPanel header="{{'moyenPaiement.tabPan' | translate}}">
+                <div class="grid">
+                    <div class="field col-12 md:col-6">
+                        <label for="1">{{'moyenPaiement.libelle' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'moyenPaiement.libelle' | translate}}" autofocus  id="1" [ngModel]="item.libelle">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="2">{{'moyenPaiement.code' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'moyenPaiement.code' | translate}}" autofocus  id="2" [ngModel]="item.code">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="3">{{'moyenPaiement.style' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'moyenPaiement.style' | translate}}" autofocus  id="3" [ngModel]="item.style">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="4">{{'moyenPaiement.description' | translate}}</label>
+                        <textarea id="4" pInputTextarea rows="5" cols="30" [disabled]="true" placeholder="{{'moyenPaiement.description' | translate}}"  [ngModel]="item.description"></textarea>
+                    </div>
+                </div>
+            </p-tabPanel>
+
+        </p-tabView>
+
+    </ng-template>
+
+    <ng-template pTemplate="footer" >
+        <div class="p-flexbox">
+            <div>
+                <button pButton pRipple label="Annuler" icon="pi pi-times" class="p-button-outlined" (click)="hideViewDialog()"></button>
+            </div>
+        </div>
+    </ng-template>
+</p-dialog>
+
+
+

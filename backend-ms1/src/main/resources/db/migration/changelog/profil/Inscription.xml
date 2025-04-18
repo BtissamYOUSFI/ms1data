@@ -1,0 +1,107 @@
+<!-- db/changelog-1.1-container.xml -->
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
+
+  <!-- Create Container Table -->
+    <changeSet id="1" author="your-name">
+    <createTable tableName="inscription">
+      <column name="id" type="BIGINT">
+        <constraints primaryKey="true" nullable="false"/>
+      </column>
+        <column name="libelle" type="VARCHAR(500)"/>
+        <column name="code" type="VARCHAR(500)"/>
+        <column name="style" type="VARCHAR(500)"/>
+        <column name="description" type="VARCHAR(500)"/>
+        <column name="nom" type="VARCHAR(500)"/>
+        <column name="prenom" type="VARCHAR(500)"/>
+        <column name="email" type="VARCHAR(500)"/>
+        <column name="password" type="VARCHAR(500)"/>
+        <column name="nombre_heure_experience" type="BIGINT"/>
+
+        <column name="langue_id" type="BIGINT">
+          <constraints nullable="false"/>
+        </column>
+        <column name="niveau_langue_id" type="BIGINT">
+          <constraints nullable="false"/>
+        </column>
+        <column name="metier_id" type="BIGINT">
+          <constraints nullable="false"/>
+        </column>
+        <column name="etat_inscription_id" type="BIGINT">
+          <constraints nullable="false"/>
+        </column>
+        <column name="collaborateur_id" type="BIGINT">
+          <constraints nullable="false"/>
+        </column>
+
+    </createTable>
+  </changeSet>
+
+    <!-- Add foreign key constraint -->
+  <changeSet id="2" author="your-name">
+      <addForeignKeyConstraint
+              baseTableName="inscription"
+              baseColumnNames="langue_id"
+              referencedTableName="langue"
+              referencedColumnNames="id"
+              constraintName="fk_inscription_langue"/>
+      <addForeignKeyConstraint
+              baseTableName="inscription"
+              baseColumnNames="niveau_langue_id"
+              referencedTableName="niveau_langue"
+              referencedColumnNames="id"
+              constraintName="fk_inscription_niveau_langue"/>
+      <addForeignKeyConstraint
+              baseTableName="inscription"
+              baseColumnNames="metier_id"
+              referencedTableName="metier"
+              referencedColumnNames="id"
+              constraintName="fk_inscription_metier"/>
+      <addForeignKeyConstraint
+              baseTableName="inscription"
+              baseColumnNames="etat_inscription_id"
+              referencedTableName="etat_inscription"
+              referencedColumnNames="id"
+              constraintName="fk_inscription_etat_inscription"/>
+      <addForeignKeyConstraint
+              baseTableName="inscription"
+              baseColumnNames="collaborateur_id"
+              referencedTableName="collaborateur"
+              referencedColumnNames="id"
+              constraintName="fk_inscription_collaborateur"/>
+
+  </changeSet>
+
+    <!-- Create Sequence for ContainerType -->
+  <changeSet id="3" author="your-name">
+    <createSequence sequenceName="inscription_seq" startValue="1" incrementBy="1"/>
+  </changeSet>
+
+  <!-- Load Data from CSV -->
+  <changeSet id="4" author="your-name">
+    <loadData
+            file="classpath:/db/migration/data/profil/Inscription.csv"
+            tableName="inscription">
+      <column name="id" type="NUMERIC"/>
+          <column name="libelle" type="STRING"/>
+          <column name="code" type="STRING"/>
+          <column name="style" type="STRING"/>
+          <column name="description" type="STRING"/>
+          <column name="nom" type="STRING"/>
+          <column name="prenom" type="STRING"/>
+          <column name="email" type="STRING"/>
+          <column name="password" type="STRING"/>
+          <column name="nombre_heure_experience" type="NUMERIC"/>
+        <column name="langue" type="BIGINT"/>
+        <column name="niveau_langue" type="BIGINT"/>
+        <column name="metier" type="BIGINT"/>
+        <column name="etat_inscription" type="BIGINT"/>
+        <column name="collaborateur" type="BIGINT"/>
+    </loadData>
+  </changeSet>
+
+
+</databaseChangeLog>

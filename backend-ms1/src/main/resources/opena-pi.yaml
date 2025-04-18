@@ -1,0 +1,1044 @@
+openapi: 3.0.3
+info:
+  title: Title
+  description: Title
+  version: 1.0.0
+servers:
+  - url: 'https'
+paths:
+  /etatReunions:
+    get:
+      summary: List all etatReunions
+      operationId: listEtatReunions
+      tags:
+        - etatReunions
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of etatReunions
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/EtatReunions'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a etatReunion
+      operationId: createEtatReunions
+      tags:
+        - etatReunions
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /etatReunions/{etatReunionId}:
+    get:
+      summary: Info for a specific etatReunion
+      operationId: showEtatReunionById
+      tags:
+        - etatReunions
+      parameters:
+        - name: etatReunionId
+          in: path
+          required: true
+          description: The id of the etatReunion to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/EtatReunions'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /reunions:
+    get:
+      summary: List all reunions
+      operationId: listReunions
+      tags:
+        - reunions
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of reunions
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Reunions'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a reunion
+      operationId: createReunions
+      tags:
+        - reunions
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /reunions/{reunionId}:
+    get:
+      summary: Info for a specific reunion
+      operationId: showReunionById
+      tags:
+        - reunions
+      parameters:
+        - name: reunionId
+          in: path
+          required: true
+          description: The id of the reunion to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Reunions'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /etatInscriptions:
+    get:
+      summary: List all etatInscriptions
+      operationId: listEtatInscriptions
+      tags:
+        - etatInscriptions
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of etatInscriptions
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/EtatInscriptions'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a etatInscription
+      operationId: createEtatInscriptions
+      tags:
+        - etatInscriptions
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /etatInscriptions/{etatInscriptionId}:
+    get:
+      summary: Info for a specific etatInscription
+      operationId: showEtatInscriptionById
+      tags:
+        - etatInscriptions
+      parameters:
+        - name: etatInscriptionId
+          in: path
+          required: true
+          description: The id of the etatInscription to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/EtatInscriptions'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /langues:
+    get:
+      summary: List all langues
+      operationId: listLangues
+      tags:
+        - langues
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of langues
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Langues'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a langue
+      operationId: createLangues
+      tags:
+        - langues
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /langues/{langueId}:
+    get:
+      summary: Info for a specific langue
+      operationId: showLangueById
+      tags:
+        - langues
+      parameters:
+        - name: langueId
+          in: path
+          required: true
+          description: The id of the langue to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Langues'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /statusPaiements:
+    get:
+      summary: List all statusPaiements
+      operationId: listStatusPaiements
+      tags:
+        - statusPaiements
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of statusPaiements
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/StatusPaiements'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a statusPaiement
+      operationId: createStatusPaiements
+      tags:
+        - statusPaiements
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /statusPaiements/{statusPaiementId}:
+    get:
+      summary: Info for a specific statusPaiement
+      operationId: showStatusPaiementById
+      tags:
+        - statusPaiements
+      parameters:
+        - name: statusPaiementId
+          in: path
+          required: true
+          description: The id of the statusPaiement to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/StatusPaiements'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /referentielMetiers:
+    get:
+      summary: List all referentielMetiers
+      operationId: listReferentielMetiers
+      tags:
+        - referentielMetiers
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of referentielMetiers
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/ReferentielMetiers'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a referentielMetier
+      operationId: createReferentielMetiers
+      tags:
+        - referentielMetiers
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /referentielMetiers/{referentielMetierId}:
+    get:
+      summary: Info for a specific referentielMetier
+      operationId: showReferentielMetierById
+      tags:
+        - referentielMetiers
+      parameters:
+        - name: referentielMetierId
+          in: path
+          required: true
+          description: The id of the referentielMetier to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/ReferentielMetiers'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /inscriptions:
+    get:
+      summary: List all inscriptions
+      operationId: listInscriptions
+      tags:
+        - inscriptions
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of inscriptions
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Inscriptions'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a inscription
+      operationId: createInscriptions
+      tags:
+        - inscriptions
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /inscriptions/{inscriptionId}:
+    get:
+      summary: Info for a specific inscription
+      operationId: showInscriptionById
+      tags:
+        - inscriptions
+      parameters:
+        - name: inscriptionId
+          in: path
+          required: true
+          description: The id of the inscription to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Inscriptions'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /paiements:
+    get:
+      summary: List all paiements
+      operationId: listPaiements
+      tags:
+        - paiements
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of paiements
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Paiements'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a paiement
+      operationId: createPaiements
+      tags:
+        - paiements
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /paiements/{paiementId}:
+    get:
+      summary: Info for a specific paiement
+      operationId: showPaiementById
+      tags:
+        - paiements
+      parameters:
+        - name: paiementId
+          in: path
+          required: true
+          description: The id of the paiement to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Paiements'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /moyenPaiements:
+    get:
+      summary: List all moyenPaiements
+      operationId: listMoyenPaiements
+      tags:
+        - moyenPaiements
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of moyenPaiements
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/MoyenPaiements'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a moyenPaiement
+      operationId: createMoyenPaiements
+      tags:
+        - moyenPaiements
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /moyenPaiements/{moyenPaiementId}:
+    get:
+      summary: Info for a specific moyenPaiement
+      operationId: showMoyenPaiementById
+      tags:
+        - moyenPaiements
+      parameters:
+        - name: moyenPaiementId
+          in: path
+          required: true
+          description: The id of the moyenPaiement to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/MoyenPaiements'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /collaborateurs:
+    get:
+      summary: List all collaborateurs
+      operationId: listCollaborateurs
+      tags:
+        - collaborateurs
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of collaborateurs
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Collaborateurs'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a collaborateur
+      operationId: createCollaborateurs
+      tags:
+        - collaborateurs
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /collaborateurs/{collaborateurId}:
+    get:
+      summary: Info for a specific collaborateur
+      operationId: showCollaborateurById
+      tags:
+        - collaborateurs
+      parameters:
+        - name: collaborateurId
+          in: path
+          required: true
+          description: The id of the collaborateur to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Collaborateurs'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /niveauLangues:
+    get:
+      summary: List all niveauLangues
+      operationId: listNiveauLangues
+      tags:
+        - niveauLangues
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of niveauLangues
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/NiveauLangues'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a niveauLangue
+      operationId: createNiveauLangues
+      tags:
+        - niveauLangues
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /niveauLangues/{niveauLangueId}:
+    get:
+      summary: Info for a specific niveauLangue
+      operationId: showNiveauLangueById
+      tags:
+        - niveauLangues
+      parameters:
+        - name: niveauLangueId
+          in: path
+          required: true
+          description: The id of the niveauLangue to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/NiveauLangues'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /metiers:
+    get:
+      summary: List all metiers
+      operationId: listMetiers
+      tags:
+        - metiers
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of metiers
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Metiers'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a metier
+      operationId: createMetiers
+      tags:
+        - metiers
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /metiers/{metierId}:
+    get:
+      summary: Info for a specific metier
+      operationId: showMetierById
+      tags:
+        - metiers
+      parameters:
+        - name: metierId
+          in: path
+          required: true
+          description: The id of the metier to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Metiers'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  
+
+
+definitions:
+  EtatReunion:
+    type: "object"
+    required:
+      - id
+      - libelle
+      - code
+      - style
+      - description
+    properties:
+      id:
+        type: int
+      libelle:
+        type: string
+      code:
+        type: string
+      style:
+        type: string
+      description:
+        type: string
+  EtatReunions:
+    type: array
+    items:
+      $ref: '#/definitions/EtatReunion'
+  Reunion:
+    type: "object"
+    required:
+      - id
+      - libelle
+      - code
+      - style
+      - description
+    properties:
+      id:
+        type: int
+      libelle:
+        type: string
+      code:
+        type: string
+      style:
+        type: string
+      description:
+        type: string
+  Reunions:
+    type: array
+    items:
+      $ref: '#/definitions/Reunion'
+  EtatInscription:
+    type: "object"
+    required:
+      - id
+      - libelle
+      - code
+      - style
+      - description
+    properties:
+      id:
+        type: int
+      libelle:
+        type: string
+      code:
+        type: string
+      style:
+        type: string
+      description:
+        type: string
+  EtatInscriptions:
+    type: array
+    items:
+      $ref: '#/definitions/EtatInscription'
+  Langue:
+    type: "object"
+    required:
+      - id
+      - libelle
+      - code
+      - style
+      - description
+    properties:
+      id:
+        type: int
+      libelle:
+        type: string
+      code:
+        type: string
+      style:
+        type: string
+      description:
+        type: string
+  Langues:
+    type: array
+    items:
+      $ref: '#/definitions/Langue'
+  StatusPaiement:
+    type: "object"
+    required:
+      - id
+      - libelle
+      - code
+      - style
+      - description
+    properties:
+      id:
+        type: int
+      libelle:
+        type: string
+      code:
+        type: string
+      style:
+        type: string
+      description:
+        type: string
+  StatusPaiements:
+    type: array
+    items:
+      $ref: '#/definitions/StatusPaiement'
+  ReferentielMetier:
+    type: "object"
+    required:
+      - id
+      - libelle
+      - code
+      - description
+      - nombreHeuresExperienceMin
+      - scelleRouge
+    properties:
+      id:
+        type: int
+      libelle:
+        type: string
+      code:
+        type: string
+      description:
+        type: string
+      nombreHeuresExperienceMin:
+        type: int
+      scelleRouge:
+        type: boolean
+  ReferentielMetiers:
+    type: array
+    items:
+      $ref: '#/definitions/ReferentielMetier'
+  Inscription:
+    type: "object"
+    required:
+      - id
+      - libelle
+      - code
+      - style
+      - description
+      - nom
+      - prenom
+      - email
+      - password
+      - nombreHeureExperience
+    properties:
+      id:
+        type: int
+      libelle:
+        type: string
+      code:
+        type: string
+      style:
+        type: string
+      description:
+        type: string
+      nom:
+        type: string
+      prenom:
+        type: string
+      email:
+        type: string
+      password:
+        type: string
+      nombreHeureExperience:
+        type: int
+  Inscriptions:
+    type: array
+    items:
+      $ref: '#/definitions/Inscription'
+  Paiement:
+    type: "object"
+    required:
+      - id
+      - libelle
+      - code
+      - description
+      - montant
+      - datePaiement
+    properties:
+      id:
+        type: int
+      libelle:
+        type: string
+      code:
+        type: string
+      description:
+        type: string
+      montant:
+        type: number
+      datePaiement:
+        type: date
+  Paiements:
+    type: array
+    items:
+      $ref: '#/definitions/Paiement'
+  MoyenPaiement:
+    type: "object"
+    required:
+      - id
+      - libelle
+      - code
+      - style
+      - description
+    properties:
+      id:
+        type: int
+      libelle:
+        type: string
+      code:
+        type: string
+      style:
+        type: string
+      description:
+        type: string
+  MoyenPaiements:
+    type: array
+    items:
+      $ref: '#/definitions/MoyenPaiement'
+  Collaborateur:
+    type: "object"
+    required:
+      - id
+      - description
+      - email
+      - enabled
+      - credentialsNonExpired
+      - accountNonExpired
+      - username
+      - passwordChanged
+      - accountNonLocked
+      - password
+    properties:
+      id:
+        type: int
+      description:
+        type: string
+      email:
+        type: string
+      enabled:
+        type: boolean
+      credentialsNonExpired:
+        type: boolean
+      accountNonExpired:
+        type: boolean
+      username:
+        type: string
+      passwordChanged:
+        type: boolean
+      accountNonLocked:
+        type: boolean
+      password:
+        type: string
+  Collaborateurs:
+    type: array
+    items:
+      $ref: '#/definitions/Collaborateur'
+  NiveauLangue:
+    type: "object"
+    required:
+      - id
+      - libelle
+      - code
+      - style
+      - description
+    properties:
+      id:
+        type: int
+      libelle:
+        type: string
+      code:
+        type: string
+      style:
+        type: string
+      description:
+        type: string
+  NiveauLangues:
+    type: array
+    items:
+      $ref: '#/definitions/NiveauLangue'
+  Metier:
+    type: "object"
+    required:
+      - id
+      - libelle
+      - code
+      - style
+      - description
+    properties:
+      id:
+        type: int
+      libelle:
+        type: string
+      code:
+        type: string
+      style:
+        type: string
+      description:
+        type: string
+  Metiers:
+    type: array
+    items:
+      $ref: '#/definitions/Metier'
+
+  Error:
+    type: "object"
+    required:
+      - code
+      - message
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string

@@ -1,0 +1,19 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
+
+            <include file="classpath:db/migration/changelog/accompagnement/EtatReunion.xml"/>
+        <include file="classpath:db/migration/changelog/accompagnement/Reunion.xml"/>
+        <include file="classpath:db/migration/changelog/profil/EtatInscription.xml"/>
+        <include file="classpath:db/migration/changelog/profil/Langue.xml"/>
+        <include file="classpath:db/migration/changelog/transaction/StatusPaiement.xml"/>
+        <include file="classpath:db/migration/changelog/profil/ReferentielMetier.xml"/>
+        <include file="classpath:db/migration/changelog/profil/Inscription.xml"/>
+        <include file="classpath:db/migration/changelog/transaction/Paiement.xml"/>
+        <include file="classpath:db/migration/changelog/transaction/MoyenPaiement.xml"/>
+        <include file="classpath:db/migration/changelog/utilisateurs/Collaborateur.xml"/>
+        <include file="classpath:db/migration/changelog/profil/NiveauLangue.xml"/>
+        <include file="classpath:db/migration/changelog/profil/Metier.xml"/>
+
+</databaseChangeLog>

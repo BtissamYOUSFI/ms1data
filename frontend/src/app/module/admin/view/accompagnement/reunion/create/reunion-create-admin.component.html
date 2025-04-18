@@ -1,0 +1,73 @@
+        <p-dialog [(visible)]="createDialog" [style]="{width: '70vw'}" header="{{'reunion.tabPan' | translate}}" [modal]="true" styleClass="p-fluid" [maximizable]="true" [draggable]="false" [resizable]="false">
+            <ng-template pTemplate="content" >
+                        <p-tabView>
+                            <p-tabPanel header="{{'reunion.tabPan' | translate}}">
+                                <div class="grid">
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="1">{{'reunion.libelle' | translate}}<span style="color: red;">*</span></label>
+                                                    <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'reunion.libelle' | translate}}" id="1" [(ngModel)]="item.libelle"
+                                                            [ngClass]="{'ng-invalid ng-dirty' : !validReunionLibelle}"  />
+                                                    <small class='p-error' *ngIf='!validReunionLibelle'>Libelle is obligatory.</small>
+                                                </div>
+
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="2">{{'reunion.code' | translate}}<span style="color: red;">*</span></label>
+                                                    <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'reunion.code' | translate}}" id="2" [(ngModel)]="item.code"
+                                                            [ngClass]="{'ng-invalid ng-dirty' : !validReunionCode}"  />
+                                                    <small class='p-error' *ngIf='!validReunionCode'>Code is obligatory.</small>
+                                                </div>
+
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="3">{{'reunion.style' | translate}}</label>
+                                                    <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'reunion.style' | translate}}" id="3" [(ngModel)]="item.style"
+                                                             />
+                                                    
+                                                </div>
+
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="4">{{'reunion.description' | translate}}</label>
+                                                    <textarea id="4" pInputTextarea rows="5" cols="30" placeholder="{{'reunion.description' | translate}}"  [(ngModel)]="item.description"
+                                                             ></textarea>
+                                                    
+                                                </div>
+
+                                            <div class="field col-11 md:col-6">
+                                                <label for="5">{{'reunion.collaborateur' | translate}}</label>
+                                                <p-dropdown  appendTo="body"  [options]="collaborateurs" [(ngModel)]="item.collaborateur" id="5" [filter]="true" filterMatchMode="contains"
+                                                        [showClear]="true" optionLabel="email" placeholder="{{'reunion.collaborateur' | translate}}"  >
+                                                </p-dropdown>
+                                                
+                                            </div>
+
+                                            <div class="field col-11 md:col-6">
+                                                <label for="6">{{'reunion.etatReunion' | translate}}</label>
+                                                <p-dropdown  appendTo="body"  [options]="etatReunions" [(ngModel)]="item.etatReunion" id="6" [filter]="true" filterMatchMode="contains"
+                                                        [showClear]="true" optionLabel="libelle" placeholder="{{'reunion.etatReunion' | translate}}"  >
+                                                </p-dropdown>
+                                                
+                                            </div>
+
+                                </div>
+                            </p-tabPanel>
+
+                        </p-tabView>
+
+            </ng-template>
+
+            <ng-template pTemplate="footer" >
+                <div class="p-flexbox">
+
+                            <button pButton pRipple  label="{{'validate' | translate}}"  icon="pi pi-check"  (click)="save()"></button>
+
+
+                            <button pButton pRipple  label="{{'cancel' | translate}}" icon="pi pi-times" class="p-button-outlined" (click)="hideCreateDialog()"></button>
+
+
+                </div>
+            </ng-template>
+
+    </p-dialog>

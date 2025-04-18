@@ -1,0 +1,93 @@
+        <p-dialog [(visible)]="createDialog" [style]="{width: '70vw'}" header="{{'referentielMetier.tabPan' | translate}}" [modal]="true" styleClass="p-fluid" [maximizable]="true" [draggable]="false" [resizable]="false">
+            <ng-template pTemplate="content" >
+                        <p-tabView>
+                            <p-tabPanel header="{{'referentielMetier.tabPan' | translate}}">
+                                <div class="grid">
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="1">{{'referentielMetier.libelle' | translate}}<span style="color: red;">*</span></label>
+                                                    <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'referentielMetier.libelle' | translate}}" id="1" [(ngModel)]="item.libelle"
+                                                            [ngClass]="{'ng-invalid ng-dirty' : !validReferentielMetierLibelle}"  />
+                                                    <small class='p-error' *ngIf='!validReferentielMetierLibelle'>Libelle is obligatory.</small>
+                                                </div>
+
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="2">{{'referentielMetier.code' | translate}}<span style="color: red;">*</span></label>
+                                                    <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'referentielMetier.code' | translate}}" id="2" [(ngModel)]="item.code"
+                                                            [ngClass]="{'ng-invalid ng-dirty' : !validReferentielMetierCode}"  />
+                                                    <small class='p-error' *ngIf='!validReferentielMetierCode'>Code is obligatory.</small>
+                                                </div>
+
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="3">{{'referentielMetier.description' | translate}}</label>
+                                                    <textarea id="3" pInputTextarea rows="5" cols="30" placeholder="{{'referentielMetier.description' | translate}}"  [(ngModel)]="item.description"
+                                                             ></textarea>
+                                                    
+                                                </div>
+
+                                            <div class="field col-11 md:col-6">
+                                                <label for="4">{{'referentielMetier.metier' | translate}}</label>
+                                                <p-dropdown  appendTo="body"  [options]="metiers" [(ngModel)]="item.metier" id="4" [filter]="true" filterMatchMode="contains"
+                                                        [showClear]="true" optionLabel="libelle" placeholder="{{'referentielMetier.metier' | translate}}"  >
+                                                </p-dropdown>
+                                                
+                                            </div>
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="5">{{'referentielMetier.nombreHeuresExperienceMin' | translate}}</label>
+                                                    <p-inputNumber class="mb-2 mr-2" id="5" placeholder="{{'referentielMetier.nombreHeuresExperienceMin' | translate}}" [(ngModel)]="item.nombreHeuresExperienceMin"  >
+                                                    </p-inputNumber>
+                                                    
+                                                </div>
+
+                                            <div class="field col-11 md:col-6">
+                                                <label for="6">{{'referentielMetier.langue' | translate}}</label>
+                                                <p-dropdown  appendTo="body"  [options]="langues" [(ngModel)]="item.langue" id="6" [filter]="true" filterMatchMode="contains"
+                                                        [showClear]="true" optionLabel="libelle" placeholder="{{'referentielMetier.langue' | translate}}"  >
+                                                </p-dropdown>
+                                                
+                                            </div>
+
+                                            <div class="field col-11 md:col-6">
+                                                <label for="7">{{'referentielMetier.niveauLangue' | translate}}</label>
+                                                <p-dropdown  appendTo="body"  [options]="niveauLangues" [(ngModel)]="item.niveauLangue" id="7" [filter]="true" filterMatchMode="contains"
+                                                        [showClear]="true" optionLabel="libelle" placeholder="{{'referentielMetier.niveauLangue' | translate}}"  >
+                                                </p-dropdown>
+                                                
+                                            </div>
+
+                                                <div class="field align-inputswitch col-12  md:col-6">
+                                                    <div  class="label-inputswitch">
+                                                        <label for="8">{{'referentielMetier.scelleRouge' | translate}}</label>
+                                                    </div>
+                                                    <div class="input-switch">
+                                                        <p-inputSwitch id="8"  [(ngModel)]="item.scelleRouge"
+                                                                 >
+                                                        </p-inputSwitch>
+                                                        
+                                                    </div>
+                                                </div>
+
+
+                                </div>
+                            </p-tabPanel>
+
+                        </p-tabView>
+
+            </ng-template>
+
+            <ng-template pTemplate="footer" >
+                <div class="p-flexbox">
+
+                            <button pButton pRipple  label="{{'validate' | translate}}"  icon="pi pi-check"  (click)="save()"></button>
+
+
+                            <button pButton pRipple  label="{{'cancel' | translate}}" icon="pi pi-times" class="p-button-outlined" (click)="hideCreateDialog()"></button>
+
+
+                </div>
+            </ng-template>
+
+    </p-dialog>
