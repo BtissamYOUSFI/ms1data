@@ -1,0 +1,42 @@
+<div class="navbar-container">
+    <div class="div">
+    <p-menubar >
+        <ng-template pTemplate="start">
+            <div class="logo-container" routerLink="/">
+                <img src="https://flagcdn.com/ca.svg" alt="Canada Flag" height="60">
+                <span class="logo-text">Artisan Portal</span>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="end">
+            <div class="navbar-end-items">
+<!--                <div class="language-selector">-->
+<!--                    <p-dropdown-->
+<!--                        [options]="languages"-->
+<!--                        [(ngModel)]="selectedLanguage"-->
+<!--                        optionLabel="label"-->
+<!--                        (onChange)="onLanguageChange($event)"-->
+<!--                        styleClass="language-dropdown"-->
+<!--                        appendTo="body">-->
+<!--                        <ng-template pTemplate="selectedItem">-->
+<!--                            <div class="language-item">-->
+<!--                                <span *ngIf="selectedLanguage === 'en'">🇨🇦 EN</span>-->
+<!--                                <span *ngIf="selectedLanguage === 'fr'">🇨🇦 FR</span>-->
+<!--                            </div>-->
+<!--                        </ng-template>-->
+<!--                        <ng-template let-language pTemplate="item">-->
+<!--                            <div class="language-item">-->
+<!--                                <span *ngIf="language.value === 'en'">🇨🇦 English</span>-->
+<!--                                <span *ngIf="language.value === 'fr'">🇨🇦 Français</span>-->
+<!--                            </div>-->
+<!--                        </ng-template>-->
+<!--                    </p-dropdown>-->
+<!--                </div>-->
+<!--                <button pButton pRipple label="Register" icon="pi pi-user-plus" class="p-button-rounded register-button-sm"></button>-->
+<!--                <button pButton pRipple label="Login" icon="pi pi-sign-in" class="p-button-rounded p-button-outlined login-button-sm ml-2"></button>-->
+                <p-dropdown (onChange)="useLanguage(selectedLanguage)" [options]="languageOptions" [(ngModel)]="selectedLanguage"   [appendTo]="'body'"></p-dropdown>
+
+            </div>
+        </ng-template>
+    </p-menubar>
+    </div>
+</div>

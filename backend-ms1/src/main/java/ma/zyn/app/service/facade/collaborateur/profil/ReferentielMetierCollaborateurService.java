@@ -11,7 +11,7 @@ public interface ReferentielMetierCollaborateurService {
 
 
 
-    List<ReferentielMetier> findByMetierCode(String code);
+    ReferentielMetier findByMetierCode(String code);
     List<ReferentielMetier> findByMetierId(Long id);
     int deleteByMetierId(Long id);
     int deleteByMetierCode(String code);

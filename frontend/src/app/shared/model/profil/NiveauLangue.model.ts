@@ -11,6 +11,7 @@ export class NiveauLangueDto extends BaseDto{
     public style: string;
 
     public description: string;
+    public valeur: number;
 
 
 
@@ -21,6 +22,7 @@ export class NiveauLangueDto extends BaseDto{
         this.code = '';
         this.style = '';
         this.description = '';
+        this.valeur=0;
 
         }
 

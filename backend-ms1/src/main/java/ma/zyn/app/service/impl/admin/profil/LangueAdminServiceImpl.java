@@ -7,7 +7,7 @@ import ma.zyn.app.dao.criteria.core.profil.LangueCriteria;
 import ma.zyn.app.dao.facade.core.profil.LangueDao;
 import ma.zyn.app.dao.specification.core.profil.LangueSpecification;
 import ma.zyn.app.service.facade.admin.profil.LangueAdminService;
-import ma.zyn.app.zynerator.service.AbstractServiceImpl;
+
 import static ma.zyn.app.zynerator.util.ListUtil.*;
 
 import org.springframework.stereotype.Service;
@@ -20,12 +20,9 @@ import org.springframework.data.domain.Sort;
 import ma.zyn.app.zynerator.util.RefelexivityUtil;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-
-import java.util.List;
 @Service
 public class LangueAdminServiceImpl implements LangueAdminService {
 
@@ -176,7 +173,10 @@ public class LangueAdminServiceImpl implements LangueAdminService {
     public Langue findByReferenceEntity(Langue t){
         return t==null? null : dao.findByCode(t.getCode());
     }
-
+    @Override
+    public Langue findByCode(String code){
+        return dao.findByCode(code);
+    }
 
 
     public List<Langue> findAllOptimized() {

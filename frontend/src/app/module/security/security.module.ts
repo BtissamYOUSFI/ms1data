@@ -50,6 +50,7 @@ import {RoleViewComponent} from './role/view/role-view.component';
 import {PaginatorModule} from 'primeng/paginator';
 import {TranslateModule} from '@ngx-translate/core';
 import {CardModule} from 'primeng/card';
+import {RippleModule} from "primeng/ripple";
 
 
 @NgModule({
@@ -104,6 +105,7 @@ import {CardModule} from 'primeng/card';
         PaginatorModule,
         TranslateModule,
         CardModule,
+        RippleModule,
 
     ],
     exports: [

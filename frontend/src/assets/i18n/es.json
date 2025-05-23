@@ -24,7 +24,7 @@
     "Mot de passe" : "Contraseña",
     "prenom":"Nombre de Pila",
     "Changer": "Cambiar",
-	
+
 	"actionPermission": {
     "reference": "Referencia",
     "libelle": "Etiqueta",
@@ -205,6 +205,7 @@
         "style": "Style",
         "description": "Description",
         "nom": "Nom",
+        "nomComplet": "Nom",
         "prenom": "Prenom",
         "email": "Email",
         "password": "Password",
@@ -313,7 +314,26 @@
         "deleteMetierConfirmationMessage": "Are you sure you want to delete metier",
         "deleteMetiersConfirmationMessage": "Are you sure you want to delete the selected elements"
     },
+    "home": {
+        "title": "Conéctense, Crezcan & Triunfen en los Oficios",
+        "description": "Únase a la Red Canadiense de Excelencia para Profesionales de Oficios Especializados",
+        "register": "Registro profesional",
+        "login": "Ingresar"
+    },
+    "registration": {
+        "lastName": "Apellido",
+        "firstName": "Nombre",
+        "email": "Correo electrónico",
+        "password": "Contraseña",
+        "language": "Idioma",
+        "languageLevel": "Nivel de idioma",
+        "job": "Oficio",
+        "nbr": "Horas de experiencia",
+        "phone": "Número de teléfono",
+        "description": "Descripción",
+        "registrationForm": "Formulario de registro"
 
+    },
 "appName": "GED"
 }
 

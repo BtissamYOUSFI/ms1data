@@ -62,9 +62,15 @@ export class UserCreateComponent extends AbstractCreateController<UserDto, UserC
     }
 
     override save() {
-        this.modelPermissionUsersElements.forEach(e => this.item.modelPermissionUsers.push(e));
-        this.modelSecurityPermissionUsersElements.forEach(e => this.item.modelPermissionUsers.push(e));
+        var modelPermissionUserDtos = this.modelPermissionUsersElements;
+        var modelPermissionUserDtos1 = this.modelSecurityPermissionUsersElements;
+
+        if (modelPermissionUserDtos && modelPermissionUserDtos1) {
+            modelPermissionUserDtos.forEach(e => this.item.modelPermissionUsers.push(e));
+            modelPermissionUserDtos1.forEach(e => this.item.modelPermissionUsers.push(e));
+        }
         super.save();
+        console.log('hhhhh')
     }
 
     preparePermissionUsers(): Array<ModelPermissionUserDto>{

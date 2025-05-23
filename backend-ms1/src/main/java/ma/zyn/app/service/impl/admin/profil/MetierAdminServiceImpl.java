@@ -224,11 +224,10 @@ public class MetierAdminServiceImpl implements MetierAdminService {
         return null;
     }
 
-
-
-
-
-
+    @Override
+    public Metier findByCode(String code) {
+        return dao.findByCode(code);
+    }
 
 
     public MetierAdminServiceImpl(MetierDao dao) {

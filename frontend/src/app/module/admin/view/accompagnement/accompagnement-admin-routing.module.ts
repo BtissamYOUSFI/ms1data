@@ -19,6 +19,7 @@ import {AuthGuard} from 'src/app/zynerator/security/guards/auth.guard';
 
 import { EtatReunionListAdminComponent } from './etat-reunion/list/etat-reunion-list-admin.component';
 import { ReunionListAdminComponent } from './reunion/list/reunion-list-admin.component';
+import {ReunionCreateAdminComponent} from "./reunion/create/reunion-create-admin.component";
 @NgModule({
     imports: [
         RouterModule.forChild(

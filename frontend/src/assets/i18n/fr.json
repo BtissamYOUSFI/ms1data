@@ -26,7 +26,7 @@
     "Mot de passe" : "Mot de passe",
     "prenom": "Prenom",
     "Changer": "Changer",
-	
+
 	"actionPermission": {
     "reference": "Référence",
     "libelle": "Libellé",
@@ -207,6 +207,7 @@
         "style": "Style",
         "description": "Description",
         "nom": "Nom",
+        "nomComplet": "Nom",
         "prenom": "Prenom",
         "email": "Email",
         "password": "Password",
@@ -314,6 +315,26 @@
         "header": "Liste des metiers",
         "deleteMetierConfirmationMessage": "Are you sure you want to delete metier",
         "deleteMetiersConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+    "home": {
+        "title": "Connectez-vous, Grandissez & Réussissez dans les Métiers",
+        "description": "Rejoignez le Réseau Canadien d'Excellence pour les Professionnels des Métiers Spécialisés",
+        "register": "Inscription professionnelle",
+        "login": "Se connecter"
+    },
+    "registration": {
+        "lastName": "Nom",
+        "firstName": "Prénom",
+        "email": "Adresse email",
+        "password": "Mot de passe",
+        "language": "Langue",
+        "languageLevel": "Niveau de langue",
+        "job": "Métier",
+        "nbr": "Nombre d'heures d'expérience",
+        "phone": "Numéro de téléphone",
+        "description": "Description",
+        "registrationForm": "Formulaire d'inscription"
+
     },
 
 "appName": "GED"

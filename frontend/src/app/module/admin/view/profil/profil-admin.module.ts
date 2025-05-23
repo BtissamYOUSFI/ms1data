@@ -58,12 +58,14 @@ import { SplitButtonModule } from 'primeng/splitbutton';
 import { MessageModule } from 'primeng/message';
 import {MessagesModule} from 'primeng/messages';
 import {PaginatorModule} from 'primeng/paginator';
-
-
+import {AccompagnementAdminModule} from "../accompagnement/accompagnement-admin.module";
+import {
+    ProfileReunionCreateAdminComponent,
+} from "./inscription/reunion/create/profile-reunion-create-admin.component";
 
 @NgModule({
   declarations: [
-
+    ProfileReunionCreateAdminComponent,
     EtatInscriptionCreateAdminComponent,
     EtatInscriptionListAdminComponent,
     EtatInscriptionViewAdminComponent,
@@ -89,42 +91,43 @@ import {PaginatorModule} from 'primeng/paginator';
     MetierViewAdminComponent,
     MetierEditAdminComponent,
   ],
-  imports: [
-    CommonModule,
-    ToastModule,
-    ToolbarModule,
-    TableModule,
-    ConfirmDialogModule,
-    DialogModule,
-    PasswordModule,
-    InputTextModule,
-    ButtonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    RouterModule,
-    SplitButtonModule,
-    BrowserAnimationsModule,
-    DropdownModule,
-    TabViewModule,
-    InputSwitchModule,
-    InputTextareaModule,
-    CalendarModule,
-    PanelModule,
-    MessageModule,
-    MessagesModule,
-    InputNumberModule,
-    BadgeModule,
-    MultiSelectModule,
-    PaginatorModule,
-    TranslateModule,
-    FileUploadModule,
-    FullCalendarModule,
-    CardModule,
-    EditorModule,
-    TagModule,
+    imports: [
+        CommonModule,
+        ToastModule,
+        ToolbarModule,
+        TableModule,
+        ConfirmDialogModule,
+        DialogModule,
+        PasswordModule,
+        InputTextModule,
+        ButtonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        RouterModule,
+        SplitButtonModule,
+        BrowserAnimationsModule,
+        DropdownModule,
+        TabViewModule,
+        InputSwitchModule,
+        InputTextareaModule,
+        CalendarModule,
+        PanelModule,
+        MessageModule,
+        MessagesModule,
+        InputNumberModule,
+        BadgeModule,
+        MultiSelectModule,
+        PaginatorModule,
+        TranslateModule,
+        FileUploadModule,
+        FullCalendarModule,
+        CardModule,
+        EditorModule,
+        TagModule,
+        AccompagnementAdminModule,
 
 
-  ],
+    ],
   exports: [
   EtatInscriptionCreateAdminComponent,
   EtatInscriptionListAdminComponent,

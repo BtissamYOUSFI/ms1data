@@ -11,12 +11,11 @@ import ma.zyn.app.ws.dto.utilisateurs.CollaborateurDto;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class InscriptionDto  extends AuditBaseDto {
 
-    private String libelle  ;
-    private String code  ;
     private String style  ;
     private String description  ;
     private String nom  ;
     private String prenom  ;
+    private String phone;
     private String email  ;
     private String password  ;
     private Integer nombreHeureExperience  = 0 ;
@@ -33,23 +32,6 @@ public class InscriptionDto  extends AuditBaseDto {
         super();
     }
 
-
-
-
-    public String getLibelle(){
-        return this.libelle;
-    }
-    public void setLibelle(String libelle){
-        this.libelle = libelle;
-    }
-
-
-    public String getCode(){
-        return this.code;
-    }
-    public void setCode(String code){
-        this.code = code;
-    }
 
 
     public String getStyle(){
@@ -91,6 +73,13 @@ public class InscriptionDto  extends AuditBaseDto {
         this.email = email;
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 
     public String getPassword(){
         return this.password;
@@ -143,9 +132,6 @@ public class InscriptionDto  extends AuditBaseDto {
     public void setCollaborateur(CollaborateurDto collaborateur){
         this.collaborateur = collaborateur;
     }
-
-
-
 
 
 

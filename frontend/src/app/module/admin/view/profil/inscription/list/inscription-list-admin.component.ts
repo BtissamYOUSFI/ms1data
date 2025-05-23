@@ -30,9 +30,13 @@ import {NiveauLangueAdminService} from 'src/app/shared/service/admin/profil/Nive
 import {EtatInscriptionDto} from 'src/app/shared/model/profil/EtatInscription.model';
 import {EtatInscriptionAdminService} from 'src/app/shared/service/admin/profil/EtatInscriptionAdmin.service';
 import {LangueDto} from 'src/app/shared/model/profil/Langue.model';
-import {LangueAdminService} from 'src/app/shared/service/admin/profil/LangueAdmin.service';
+import {LangueAdminService} from 'src/app/shared/service/admin/profil/langueAdmin.service';
 import {CollaborateurDto} from 'src/app/shared/model/utilisateurs/Collaborateur.model';
 import {CollaborateurAdminService} from 'src/app/shared/service/admin/utilisateurs/CollaborateurAdmin.service';
+import {ReunionDto} from "../../../../../../shared/model/accompagnement/Reunion.model";
+import {ReunionAdminService} from "../../../../../../shared/service/admin/accompagnement/ReunionAdmin.service";
+import {UserService} from "../../../../../../zynerator/security/shared/service/User.service";
+import {UserDto} from "../../../../../../zynerator/security/shared/model/User.model";
 
 
 @Component({
@@ -62,7 +66,7 @@ export class InscriptionListAdminComponent implements OnInit {
     protected exportService: ExportService;
     protected excelFile: File | undefined;
     protected enableSecurity = false;
-
+    private _managers: UserDto[];
 
     langues: Array<LangueDto>;
     niveauLangues: Array<NiveauLangueDto>;
@@ -70,8 +74,12 @@ export class InscriptionListAdminComponent implements OnInit {
     etatInscriptions: Array<EtatInscriptionDto>;
     collaborateurs: Array<CollaborateurDto>;
 
+    showCreateReunion:Boolean = false;
+    inscriptionCreateReunion: any;
 
-    constructor( private service: InscriptionAdminService  , private metierService: MetierAdminService, private niveauLangueService: NiveauLangueAdminService, private etatInscriptionService: EtatInscriptionAdminService, private langueService: LangueAdminService, private collaborateurService: CollaborateurAdminService, @Inject(PLATFORM_ID) private platformId?) {
+    private _reunion: ReunionDto;
+
+    constructor(private userService:UserService,private reunionService:ReunionAdminService,private service: InscriptionAdminService  , private metierService: MetierAdminService, private niveauLangueService: NiveauLangueAdminService, private etatInscriptionService: EtatInscriptionAdminService, private langueService: LangueAdminService, private collaborateurService: CollaborateurAdminService, @Inject(PLATFORM_ID) private platformId?) {
         this.datePipe = ServiceLocator.injector.get(DatePipe);
         this.messageService = ServiceLocator.injector.get(MessageService);
         this.confirmationService = ServiceLocator.injector.get(ConfirmationService);
@@ -93,6 +101,17 @@ export class InscriptionListAdminComponent implements OnInit {
 
     }
 
+    // getManagers() {
+    //     this.userService.getManagers().subscribe({
+    //         next: (data) => {
+    //             this.managers = data;
+    //             console.log(data);
+    //         },
+    //         error: (err) => {
+    //             console.error('Erreur lors de la récupération des managers :', err);
+    //         }
+    //     });
+    // }
 
 
 
@@ -161,6 +180,14 @@ export class InscriptionListAdminComponent implements OnInit {
         this.item = new InscriptionDto();
         this.createDialog = true;
     }
+
+    public async openCreateReunion(element) {
+        this.reunion = new ReunionDto();
+        this.reunion.collaborateur=element.collaborateur;
+        this.createDialogReunion = true;
+        console.log(this.authService.authenticatedUser)
+    }
+
 
     public async deleteMultiple() {
         this.confirmationService.confirm({
@@ -346,8 +373,7 @@ export class InscriptionListAdminComponent implements OnInit {
             (allItems) =>{
                 this.exportData = allItems.map(e => {
 					return {
-						'Libelle': e.libelle ,
-						'Code': e.code ,
+						'Phone': e.phone ,
 						'Style': e.style ,
 						'Description': e.description ,
 						'Nom': e.nom ,
@@ -364,8 +390,7 @@ export class InscriptionListAdminComponent implements OnInit {
 				});
 
             this.criteriaData = [{
-                'Libelle': this.criteria.libelle ? this.criteria.libelle : environment.emptyForExport ,
-                'Code': this.criteria.code ? this.criteria.code : environment.emptyForExport ,
+                'Code': this.criteria.phone ? this.criteria.phone : environment.emptyForExport ,
                 'Style': this.criteria.style ? this.criteria.style : environment.emptyForExport ,
                 'Description': this.criteria.description ? this.criteria.description : environment.emptyForExport ,
                 'Nom': this.criteria.nom ? this.criteria.nom : environment.emptyForExport ,
@@ -416,6 +441,14 @@ export class InscriptionListAdminComponent implements OnInit {
 
     set createDialog(value: boolean) {
         this.service.createDialog = value;
+    }
+
+    get createDialogReunion(): boolean {
+        return this.reunionService.createDialog;
+    }
+
+    set createDialogReunion(value: boolean) {
+        this.reunionService.createDialog = value;
     }
 
     get editDialog(): boolean {
@@ -567,5 +600,31 @@ export class InscriptionListAdminComponent implements OnInit {
 
     set entityName(value: string) {
         this.service.entityName = value;
+    }
+
+
+    get reunion(): ReunionDto {
+        return this.reunionService.item;
+    }
+
+    set reunion(value: ReunionDto) {
+        this.reunionService.item = value;
+    }
+
+    get createActionReunionIsValid(): boolean {
+        return this.reunionService.createActionIsValid;
+    }
+
+    set createActionReunionIsValid(value: boolean) {
+        this.reunionService.createActionIsValid = value;
+    }
+
+
+    get managers(): UserDto[] {
+        return this._managers;
+    }
+
+    set managers(value: UserDto[]) {
+        this._managers = value;
     }
 }

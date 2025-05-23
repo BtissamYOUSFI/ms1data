@@ -224,11 +224,10 @@ public class NiveauLangueAdminServiceImpl implements NiveauLangueAdminService {
         return null;
     }
 
-
-
-
-
-
+    @Override
+    public NiveauLangue findByCode(String code) {
+        return dao.findByCode(code);
+    }
 
 
     public NiveauLangueAdminServiceImpl(NiveauLangueDao dao) {

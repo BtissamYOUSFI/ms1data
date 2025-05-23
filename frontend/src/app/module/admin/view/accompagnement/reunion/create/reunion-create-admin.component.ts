@@ -57,7 +57,11 @@ export class ReunionCreateAdminComponent  implements OnInit {
 
     ngOnInit(): void {
         this.collaborateurService.findAll().subscribe((data) => this.collaborateurs = data);
-        this.etatReunionService.findAll().subscribe((data) => this.etatReunions = data);
+        // this.etatReunionService.findAll().subscribe((data) => this.etatReunions = data);
+        this.etatReunionService.findAll().subscribe((data) => {
+            this.etatReunions = data;
+            this.item.etatReunion = this.etatReunions.find(e => e.libelle === 'APlanifier');
+        });
     }
 
 

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {LangueAdminService} from 'src/app/shared/service/admin/profil/LangueAdmin.service';
+import {LangueAdminService} from 'src/app/shared/service/admin/profil/langueAdmin.service';
 import {LangueDto} from 'src/app/shared/model/profil/Langue.model';
 import {LangueCriteria} from 'src/app/shared/criteria/profil/LangueCriteria.model';
 
@@ -56,7 +56,7 @@ export class LangueListAdminComponent implements OnInit {
 
 
 
-    constructor( private service: LangueAdminService  , @Inject(PLATFORM_ID) private platformId?) {
+    constructor(private service: LangueAdminService  , @Inject(PLATFORM_ID) private platformId?) {
         this.datePipe = ServiceLocator.injector.get(DatePipe);
         this.messageService = ServiceLocator.injector.get(MessageService);
         this.confirmationService = ServiceLocator.injector.get(ConfirmationService);

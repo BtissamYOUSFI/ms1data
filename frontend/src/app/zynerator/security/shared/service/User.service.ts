@@ -29,6 +29,10 @@ export class UserService extends AbstractService<UserDto, UserCriteria> {
     public constrcutCriteria(): UserCriteria {
         return new UserCriteria();
     }
+
+    getManagers(): Observable<UserDto[]>{
+         return this.http.get<UserDto[]>(this.API+"/managers")
+    }
     get API() {
         return environment.apiUrl + 'api/user/';
     }

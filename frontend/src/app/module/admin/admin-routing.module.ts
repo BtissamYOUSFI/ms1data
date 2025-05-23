@@ -7,6 +7,7 @@ import { LoginAdminComponent } from './login-admin/login-admin.component';
 import { RegisterAdminComponent } from './register-admin/register-admin.component';
 import { ForgetPasswordAdminComponent } from './forget-password-admin/forget-password-admin.component';
 import { ChangePasswordAdminComponent } from './change-password-admin/change-password-admin.component';
+import {ProfileComponent} from "./profile/profile.component";
 
 @NgModule({
     imports: [
@@ -52,6 +53,16 @@ import { ChangePasswordAdminComponent } from './change-password-admin/change-pas
                                     canActivate: [AuthGuard]
                                 }
                               ]
+                        },
+                        {
+                            path: 'profile',
+                            children: [
+                                {
+                                    path: '',
+                                    component: ProfileComponent ,
+                                    canActivate: [AuthGuard]
+                                }
+                            ]
                         },
                         {
                             path: 'activation',

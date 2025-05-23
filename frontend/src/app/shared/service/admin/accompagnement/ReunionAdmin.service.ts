@@ -62,7 +62,40 @@ export class ReunionAdminService {
     }
 
     public save(): Observable<ReunionDto> {
-        return this.http.post<ReunionDto>(this.API, this.item);
+        return new Observable<ReunionDto>(observer=>{
+            this.http.post<ReunionDto>(this.API, this.item).subscribe({
+                next: (createdReunion) => {
+                    const emailPayload = {
+                        to: createdReunion.collaborateur.email,
+                        subject: 'Nouvelle réunion programmée',
+                        message: `
+                              Bonjour ${createdReunion.collaborateur.username},
+
+                              Une réunion a été programmée.
+
+                              📅 Description : ${createdReunion.description}
+                              🔗 Lien : ${createdReunion.style}
+
+                              Merci.
+                            `
+                    };
+                    this.http.post(this.API+"send-email/", emailPayload).subscribe({
+                        next: () => {
+                            console.log('Email envoyé au collaborateur.');
+                            observer.next(createdReunion);
+                            observer.complete();
+                        },
+                        error: (err) => {
+                            console.error('Erreur lors de l’envoi de l’email', err);
+                            observer.error(err);
+                        }
+                    });
+                },
+                error: (err) => {
+                    observer.error(err);
+                }
+            });
+        })
     }
 
     public delete(dto: ReunionDto) {

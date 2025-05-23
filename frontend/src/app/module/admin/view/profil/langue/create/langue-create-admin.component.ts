@@ -15,7 +15,7 @@ import {ServiceLocator} from 'src/app/zynerator/service/ServiceLocator';
 
 
 
-import {LangueAdminService} from 'src/app/shared/service/admin/profil/LangueAdmin.service';
+import {LangueAdminService} from 'src/app/shared/service/admin/profil/langueAdmin.service';
 import {LangueDto} from 'src/app/shared/model/profil/Langue.model';
 import {LangueCriteria} from 'src/app/shared/criteria/profil/LangueCriteria.model';
 @Component({

@@ -26,7 +26,7 @@ import {NiveauLangueAdminService} from 'src/app/shared/service/admin/profil/Nive
 import {EtatInscriptionDto} from 'src/app/shared/model/profil/EtatInscription.model';
 import {EtatInscriptionAdminService} from 'src/app/shared/service/admin/profil/EtatInscriptionAdmin.service';
 import {LangueDto} from 'src/app/shared/model/profil/Langue.model';
-import {LangueAdminService} from 'src/app/shared/service/admin/profil/LangueAdmin.service';
+import {LangueAdminService} from 'src/app/shared/service/admin/profil/langueAdmin.service';
 import {CollaborateurDto} from 'src/app/shared/model/utilisateurs/Collaborateur.model';
 import {CollaborateurAdminService} from 'src/app/shared/service/admin/utilisateurs/CollaborateurAdmin.service';
 
@@ -52,7 +52,7 @@ export class InscriptionEditAdminComponent implements OnInit {
 
 
 
-    private _validInscriptionLibelle = true;
+    private _validInscriptionPhone = true;
     private _validInscriptionCode = true;
 
     private _validLangueLibelle = true;
@@ -125,35 +125,24 @@ export class InscriptionEditAdminComponent implements OnInit {
 
 
     public setValidation(value: boolean){
-        this.validInscriptionLibelle = value;
+        this.validInscriptionPhone = value;
         this.validInscriptionCode = value;
     }
 
 
     public validateForm(): void{
         this.errorMessages = new Array<string>();
-        this.validateInscriptionLibelle();
-        this.validateInscriptionCode();
+        this.validateInscriptionPhone();
     }
 
-    public validateInscriptionLibelle(){
-        if (this.stringUtilService.isEmpty(this.item.libelle)) {
+    public validateInscriptionPhone(){
+        if (this.stringUtilService.isEmpty(this.item.phone)) {
             this.errorMessages.push('Libelle non valide');
-            this.validInscriptionLibelle = false;
+            this.validInscriptionPhone = false;
         } else {
-            this.validInscriptionLibelle = true;
+            this.validInscriptionPhone = true;
         }
     }
-
-    public validateInscriptionCode(){
-        if (this.stringUtilService.isEmpty(this.item.code)) {
-            this.errorMessages.push('Code non valide');
-            this.validInscriptionCode = false;
-        } else {
-            this.validInscriptionCode = true;
-        }
-    }
-
 
 
 
@@ -294,11 +283,11 @@ export class InscriptionEditAdminComponent implements OnInit {
     }
 
 
-    get validInscriptionLibelle(): boolean {
-        return this._validInscriptionLibelle;
+    get validInscriptionPhone(): boolean {
+        return this._validInscriptionPhone;
     }
-    set validInscriptionLibelle(value: boolean) {
-        this._validInscriptionLibelle = value;
+    set validInscriptionPhone(value: boolean) {
+        this._validInscriptionPhone = value;
     }
     get validInscriptionCode(): boolean {
         return this._validInscriptionCode;

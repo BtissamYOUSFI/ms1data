@@ -27,6 +27,8 @@ public class NiveauLangue  extends BaseEntity     {
     @Column(length = 500)
     private String code;
 
+    private  Integer valeur;
+
     @Column(length = 500)
     private String style;
 
@@ -92,6 +94,14 @@ public class NiveauLangue  extends BaseEntity     {
     }
     public void setDescription(String description){
         this.description = description;
+    }
+
+    public Integer getValeur() {
+        return valeur;
+    }
+
+    public void setValeur(Integer valeur) {
+        this.valeur = valeur;
     }
 
     @Override

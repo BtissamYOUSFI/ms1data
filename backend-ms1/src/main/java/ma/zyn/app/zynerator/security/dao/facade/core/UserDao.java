@@ -3,6 +3,7 @@ package ma.zyn.app.zynerator.security.dao.facade.core;
 import ma.zyn.app.zynerator.repository.AbstractRepository;
 import ma.zyn.app.zynerator.security.bean.User;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -19,5 +20,8 @@ public interface UserDao extends AbstractRepository<User,Long>  {
 
     @Query("SELECT NEW User(item.id,item.email) FROM User item")
     List<User> findAllOptimized();
+
+    @Query("SELECT DISTINCT ru.userApp FROM RoleUser ru WHERE ru.role.authority = :authority")
+    List<User> findUsersByRole(@Param("authority") String authority);
 
 }

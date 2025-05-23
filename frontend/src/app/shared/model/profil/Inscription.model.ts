@@ -9,10 +9,8 @@ import {BaseDto} from 'src/app/zynerator/dto/BaseDto.model';
 
 export class InscriptionDto extends BaseDto{
 
-    public libelle: string;
 
-    public code: string;
-
+    public phone: string;
     public style: string;
 
     public description: string;
@@ -37,8 +35,7 @@ export class InscriptionDto extends BaseDto{
     constructor() {
         super();
 
-        this.libelle = '';
-        this.code = '';
+        this.phone = '';
         this.style = '';
         this.description = '';
         this.nom = '';

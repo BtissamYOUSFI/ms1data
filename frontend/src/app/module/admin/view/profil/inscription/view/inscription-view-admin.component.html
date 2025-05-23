@@ -5,22 +5,6 @@
             <p-tabPanel header="{{'inscription.tabPan' | translate}}">
                 <div class="grid">
                     <div class="field col-12 md:col-6">
-                        <label for="1">{{'inscription.libelle' | translate}}</label>
-                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'inscription.libelle' | translate}}" autofocus  id="1" [ngModel]="item.libelle">
-                    </div>
-                    <div class="field col-12 md:col-6">
-                        <label for="2">{{'inscription.code' | translate}}</label>
-                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'inscription.code' | translate}}" autofocus  id="2" [ngModel]="item.code">
-                    </div>
-                    <div class="field col-12 md:col-6">
-                        <label for="3">{{'inscription.style' | translate}}</label>
-                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'inscription.style' | translate}}" autofocus  id="3" [ngModel]="item.style">
-                    </div>
-                    <div class="field col-12 md:col-6">
-                        <label for="4">{{'inscription.description' | translate}}</label>
-                        <textarea id="4" pInputTextarea rows="5" cols="30" [disabled]="true" placeholder="{{'inscription.description' | translate}}"  [ngModel]="item.description"></textarea>
-                    </div>
-                    <div class="field col-12 md:col-6">
                         <label for="5">{{'inscription.nom' | translate}}</label>
                         <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'inscription.nom' | translate}}" autofocus  id="5" [ngModel]="item.nom">
                     </div>
@@ -59,6 +43,10 @@
                     <div class="field col-12 md:col-6">
                         <label for="14">{{'inscription.collaborateur' | translate}}</label>
                         <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'inscription.collaborateur' | translate}}" autofocus  id="14" [ngModel]="item.collaborateur?.email">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="4">{{'inscription.description' | translate}}</label>
+                        <textarea id="4" pInputTextarea rows="5" cols="30" [disabled]="true" placeholder="{{'inscription.description' | translate}}"  [ngModel]="item.description"></textarea>
                     </div>
                 </div>
             </p-tabPanel>

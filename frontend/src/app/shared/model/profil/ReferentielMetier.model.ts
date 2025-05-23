@@ -31,6 +31,8 @@ export class ReferentielMetierDto extends BaseDto{
         this.nombreHeuresExperienceMin = null;
         this.scelleRouge = null;
         this.langue = new LangueDto() ;
+        this.metier= new MetierDto();
+        this.niveauLangue= new NiveauLangueDto()
 
         }
 

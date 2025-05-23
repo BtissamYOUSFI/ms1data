@@ -23,12 +23,6 @@ public class Inscription  extends BaseEntity     {
 
 
     @Column(length = 500)
-    private String libelle;
-
-    @Column(length = 500)
-    private String code;
-
-    @Column(length = 500)
     private String style;
 
     private String description;
@@ -38,6 +32,7 @@ public class Inscription  extends BaseEntity     {
 
     @Column(length = 500)
     private String prenom;
+    private String phone;
 
     @Column(length = 500)
     private String email;
@@ -62,14 +57,6 @@ public class Inscription  extends BaseEntity     {
         this.id = id;
     }
 
-    public Inscription(Long id,String libelle){
-        this.id = id;
-        this.libelle = libelle ;
-    }
-    public Inscription(String libelle){
-        this.libelle = libelle ;
-    }
-
 
 
 
@@ -84,18 +71,7 @@ public class Inscription  extends BaseEntity     {
     public void setId(Long id){
         this.id = id;
     }
-    public String getLibelle(){
-        return this.libelle;
-    }
-    public void setLibelle(String libelle){
-        this.libelle = libelle;
-    }
-    public String getCode(){
-        return this.code;
-    }
-    public void setCode(String code){
-        this.code = code;
-    }
+
     public String getStyle(){
         return this.style;
     }
@@ -133,6 +109,9 @@ public class Inscription  extends BaseEntity     {
     public void setPassword(String password){
         this.password = password;
     }
+    public String getPhone() {return phone;}
+    public void setPhone(String phone) {this.phone = phone;}
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "langue")
     public Langue getLangue(){

@@ -53,9 +53,6 @@ export class InscriptionAdminService {
         return this.http.get<Array<InscriptionDto>>(this.API);
     }
 
-    public findAllOptimized() {
-        return this.http.get<Array<InscriptionDto>>(this.API + 'optimized');
-    }
 
     public findPaginatedByCriteria(criteria: InscriptionCriteria): Observable<PaginatedList<InscriptionDto>> {
         return this.http.post<PaginatedList<InscriptionDto>>(this.API + 'find-paginated-by-criteria', criteria);

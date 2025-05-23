@@ -224,11 +224,10 @@ public class EtatInscriptionAdminServiceImpl implements EtatInscriptionAdminServ
         return null;
     }
 
-
-
-
-
-
+    @Override
+    public EtatInscription findByCode(String code) {
+        return dao.findByCode(code);
+    }
 
 
     public EtatInscriptionAdminServiceImpl(EtatInscriptionDao dao) {

@@ -45,6 +45,10 @@ import { UtilisateursAdminRoutingModule } from './view/utilisateurs/utilisateurs
 
 import {SecurityModule} from 'src/app/module/security/security.module';
 import {SecurityRoutingModule} from 'src/app/module/security/security-routing.module';
+import { ProfileComponent } from './profile/profile.component';
+import {CardModule} from "primeng/card";
+import {AvatarModule} from "primeng/avatar";
+import {ChipModule} from "primeng/chip";
 
 
 @NgModule({
@@ -53,45 +57,49 @@ import {SecurityRoutingModule} from 'src/app/module/security/security-routing.mo
    RegisterAdminComponent,
    ChangePasswordAdminComponent,
    ActivationAdminComponent,
-   ForgetPasswordAdminComponent
+   ForgetPasswordAdminComponent,
+   ProfileComponent
   ],
-  imports: [
-    CommonModule,
-    ToastModule,
-    ToolbarModule,
-    TableModule,
-    ConfirmDialogModule,
-    DialogModule,
-    PasswordModule,
-    InputTextModule,
-    ButtonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    RouterModule,
-    SplitButtonModule,
-    BrowserAnimationsModule,
-    DropdownModule,
-    TabViewModule,
-    InputSwitchModule,
-    InputTextareaModule,
-    CalendarModule,
-    PanelModule,
-    MessageModule,
-    MessagesModule,
-    InputNumberModule,
-    BadgeModule,
-    MultiSelectModule,
-  ProfilAdminModule,
-  ProfilAdminRoutingModule,
-  AccompagnementAdminModule,
-  AccompagnementAdminRoutingModule,
-  TransactionAdminModule,
-  TransactionAdminRoutingModule,
-  UtilisateursAdminModule,
-  UtilisateursAdminRoutingModule,
-   SecurityModule,
-   SecurityRoutingModule
-  ],
+    imports: [
+        CommonModule,
+        ToastModule,
+        ToolbarModule,
+        TableModule,
+        ConfirmDialogModule,
+        DialogModule,
+        PasswordModule,
+        InputTextModule,
+        ButtonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        RouterModule,
+        SplitButtonModule,
+        BrowserAnimationsModule,
+        DropdownModule,
+        TabViewModule,
+        InputSwitchModule,
+        InputTextareaModule,
+        CalendarModule,
+        PanelModule,
+        MessageModule,
+        MessagesModule,
+        InputNumberModule,
+        BadgeModule,
+        MultiSelectModule,
+        ProfilAdminModule,
+        ProfilAdminRoutingModule,
+        AccompagnementAdminModule,
+        AccompagnementAdminRoutingModule,
+        TransactionAdminModule,
+        TransactionAdminRoutingModule,
+        UtilisateursAdminModule,
+        UtilisateursAdminRoutingModule,
+        SecurityModule,
+        SecurityRoutingModule,
+        CardModule,
+        AvatarModule,
+        ChipModule
+    ],
   exports: [
     LoginAdminComponent,
     RegisterAdminComponent,

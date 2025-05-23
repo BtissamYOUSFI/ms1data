@@ -9,12 +9,6 @@ import ma.zyn.app.zynerator.service.IService;
 
 public interface MetierAdminService {
 
-
-
-
-
-
-
 	Metier create(Metier t);
 
     Metier update(Metier t);
@@ -47,4 +41,5 @@ public interface MetierAdminService {
 
     public String uploadFile(String checksumOld, String tempUpladedFile,String destinationFilePath) throws Exception ;
 
+    Metier findByCode(String code);
 }

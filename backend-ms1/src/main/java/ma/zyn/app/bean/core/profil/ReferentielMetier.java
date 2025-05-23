@@ -1,12 +1,4 @@
 package ma.zyn.app.bean.core.profil;
-
-
-
-
-
-
-
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import ma.zyn.app.zynerator.bean.BaseEntity;
 import jakarta.persistence.*;
@@ -17,9 +9,6 @@ import java.util.Objects;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SequenceGenerator(name="referentiel_metier_seq",sequenceName="referentiel_metier_seq",allocationSize=1, initialValue = 1)
 public class ReferentielMetier  extends BaseEntity     {
-
-
-
 
     @Column(length = 500)
     private String libelle;
@@ -55,7 +44,16 @@ public class ReferentielMetier  extends BaseEntity     {
         this.libelle = libelle ;
     }
 
-
+    public ReferentielMetier(String code, String description, String libelle, int nombreHeuresExperienceMin, Boolean scelleRouge, Langue langue, Metier metier, NiveauLangue niveauLangue) {
+        this.code=code;
+        this.description=description;
+        this.libelle = libelle;
+        this.nombreHeuresExperienceMin=nombreHeuresExperienceMin;
+        this.scelleRouge=scelleRouge;
+        this.langue=langue;
+        this.niveauLangue=niveauLangue;
+        this.metier=metier;
+    }
 
 
     @Id

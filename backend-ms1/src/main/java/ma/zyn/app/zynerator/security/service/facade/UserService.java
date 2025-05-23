@@ -6,6 +6,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import ma.zyn.app.zynerator.service.IService;
 
+import java.util.List;
+
 public interface UserService extends IService<User, UserCriteria>, UserDetailsService {
 
     User findByUsername(String username);
@@ -29,4 +31,5 @@ public interface UserService extends IService<User, UserCriteria>, UserDetailsSe
     User createAndDisable(User t);
 
 
+    List<User> findAllManagers();
 }

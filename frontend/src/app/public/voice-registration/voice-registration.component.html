@@ -1,0 +1,217 @@
+<div class="voice-registration-container" [dir]="currentLanguage === 'ar' ? 'rtl' : 'ltr'">
+    <div class="language-selector">
+        <label>{{
+                currentLanguage === 'fr' ? 'Choisir la langue' :
+                    currentLanguage === 'en' ? 'Select language' :
+                        currentLanguage === 'es' ? 'Seleccionar idioma' : 'اختر اللغة'
+            }}</label>
+        <select [(ngModel)]="currentLanguage" (change)="changeLanguage(currentLanguage)">
+            <option *ngFor="let lang of availableLanguages" [value]="lang.code">{{ lang.name }}</option>
+        </select>
+    </div>
+
+    <div class="chat-container">
+        <div class="chat-messages">
+            <div *ngFor="let message of chatMessages" [ngClass]="{'bot-message': message.isBot, 'user-message': !message.isBot}">
+                <div class="message-content">
+                    <i *ngIf="message.isBot" class="pi pi-robot"></i>
+                    <i *ngIf="!message.isBot" class="pi pi-user"></i>
+                    <span [innerHTML]="message.text | nl2br"></span>
+                </div>
+                <div class="message-time">{{ message.timestamp | date:'shortTime' }}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="voice-controls" *ngIf="!registrationCompleted">
+        <button
+            class="mic-button"
+            [ngClass]="{'listening': isListening}"
+            (click)="isListening ? stopListening() : startListening()"
+            [disabled]="processingRegistration">
+            <i class="pi" [ngClass]="isListening ? 'pi-microphone-fill' : 'pi-microphone'"></i>
+            {{
+                currentLanguage === 'fr' ? (isListening ? 'En écoute...' : 'Appuyez pour parler') :
+                    currentLanguage === 'en' ? (isListening ? 'Listening...' : 'Tap to speak') :
+                        currentLanguage === 'es' ? (isListening ? 'Escuchando...' : 'Toque para hablar') :
+                            (isListening ? 'جاري الاستماع...' : 'انقر للتحدث')
+            }}
+        </button>
+
+        <button
+            class="next-button"
+            (click)="manuallyAdvance()"
+            *ngIf="currentFieldIndex >= 0 && currentFieldIndex < registrationFields.length && !processingRegistration">
+            {{
+                currentLanguage === 'fr' ? 'Suivant' :
+                    currentLanguage === 'en' ? 'Next' :
+                        currentLanguage === 'es' ? 'Siguiente' : 'التالي'
+            }}
+        </button>
+    </div>
+
+    <div class="manual-input" *ngIf="currentFieldIndex >= 0 && currentFieldIndex < registrationFields.length && !processingRegistration">
+        <label>{{
+                currentLanguage === 'fr' ? 'Ou tapez votre réponse:' :
+                    currentLanguage === 'en' ? 'Or type your answer:' :
+                        currentLanguage === 'es' ? 'O escriba su respuesta:' : 'أو اكتب إجابتك:'
+            }}</label>
+
+        <div *ngIf="registrationFields[currentFieldIndex].options">
+            <select
+                [formControl]="registrationForm.get(registrationFields[currentFieldIndex].name)"
+                (change)="onManualInput($event, currentFieldIndex)">
+                <option value="" disabled selected>{{
+                        currentLanguage === 'fr' ? 'Choisissez une option' :
+                            currentLanguage === 'en' ? 'Choose an option' :
+                                currentLanguage === 'es' ? 'Elija una opción' : 'اختر خيارًا'
+                    }}</option>
+                <option *ngFor="let option of registrationFields[currentFieldIndex].options" [value]="option">
+                    {{ option }}
+                </option>
+            </select>
+        </div>
+
+        <div *ngIf="!registrationFields[currentFieldIndex].options">
+            <input
+                type="text"
+                [formControl]="registrationForm.get(registrationFields[currentFieldIndex].name)"
+                (input)="onManualInput($event, currentFieldIndex)"
+                [type]="registrationFields[currentFieldIndex].name === 'password' ? 'password' : 'text'"
+                [placeholder]="
+                    currentLanguage === 'fr' ? 'Entrez votre réponse' :
+                    currentLanguage === 'en' ? 'Enter your answer' :
+                    currentLanguage === 'es' ? 'Introduzca su respuesta' : 'أدخل إجابتك'
+                ">
+        </div>
+    </div>
+
+    <div class="registration-completed" *ngIf="registrationCompleted">
+        <div class="success-message">
+            <i class="pi pi-check-circle"></i>
+            {{
+                currentLanguage === 'fr' ? 'Inscription réussie !' :
+                    currentLanguage === 'en' ? 'Registration successful!' :
+                        currentLanguage === 'es' ? '¡Registro exitoso!' : 'تم التسجيل بنجاح!'
+            }}
+        </div>
+        <button class="restart-button" (click)="restartRegistration()">
+            {{
+                currentLanguage === 'fr' ? 'Nouvelle inscription' :
+                    currentLanguage === 'en' ? 'New registration' :
+                        currentLanguage === 'es' ? 'Nuevo registro' : 'تسجيل جديد'
+            }}
+        </button>
+    </div>
+
+    <p-toast></p-toast>
+</div>
+<!--<div class="voice-registration-container">-->
+<!--    <div class="language-selector">-->
+<!--        <label>{{-->
+<!--                currentLanguage === 'fr' ? 'Choisir la langue' :-->
+<!--                    currentLanguage === 'en' ? 'Select language' :-->
+<!--                        currentLanguage === 'es' ? 'Seleccionar idioma' : 'اختر اللغة'-->
+<!--            }}</label>-->
+<!--        <select [(ngModel)]="currentLanguage" (change)="changeLanguage(currentLanguage)">-->
+<!--            <option *ngFor="let lang of availableLanguages" [value]="lang.code">{{ lang.name }}</option>-->
+<!--        </select>-->
+<!--    </div>-->
+
+<!--    <div class="chat-container">-->
+<!--        <div class="chat-messages">-->
+<!--            <div *ngFor="let message of chatMessages" [ngClass]="{'bot-message': message.isBot, 'user-message': !message.isBot}">-->
+<!--                <div class="message-content">-->
+<!--                    <i *ngIf="message.isBot" class="pi pi-robot"></i>-->
+<!--                    <i *ngIf="!message.isBot" class="pi pi-user"></i>-->
+<!--                    <span [innerHTML]="message.text | nl2br"></span>-->
+<!--                </div>-->
+<!--                <div class="message-time">{{ message.timestamp | date:'shortTime' }}</div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--    <div class="voice-controls" *ngIf="!registrationCompleted">-->
+<!--        <button-->
+<!--            class="mic-button"-->
+<!--            [ngClass]="{'listening': isListening}"-->
+<!--            (click)="isListening ? stopListening() : startListening()"-->
+<!--            [disabled]="processingRegistration">-->
+<!--            <i class="pi" [ngClass]="isListening ? 'pi-microphone-fill' : 'pi-microphone'"></i>-->
+<!--            {{-->
+<!--                currentLanguage === 'fr' ? (isListening ? 'En écoute...' : 'Appuyez pour parler') :-->
+<!--                    currentLanguage === 'en' ? (isListening ? 'Listening...' : 'Tap to speak') :-->
+<!--                        currentLanguage === 'es' ? (isListening ? 'Escuchando...' : 'Toque para hablar') :-->
+<!--                            (isListening ? 'جاري الاستماع...' : 'انقر للتحدث')-->
+<!--            }}-->
+<!--        </button>-->
+
+<!--        <button-->
+<!--            class="next-button"-->
+<!--            (click)="manuallyAdvance()"-->
+<!--            *ngIf="currentFieldIndex >= 0 && currentFieldIndex < registrationFields.length && !processingRegistration">-->
+<!--            {{-->
+<!--                currentLanguage === 'fr' ? 'Suivant' :-->
+<!--                    currentLanguage === 'en' ? 'Next' :-->
+<!--                        currentLanguage === 'es' ? 'Siguiente' : 'التالي'-->
+<!--            }}-->
+<!--        </button>-->
+<!--    </div>-->
+
+<!--    &lt;!&ndash; Manual input fallback &ndash;&gt;-->
+<!--    <div class="manual-input" *ngIf="currentFieldIndex >= 0 && currentFieldIndex < registrationFields.length && !processingRegistration">-->
+<!--        <label>{{-->
+<!--                currentLanguage === 'fr' ? 'Ou tapez votre réponse:' :-->
+<!--                    currentLanguage === 'en' ? 'Or type your answer:' :-->
+<!--                        currentLanguage === 'es' ? 'O escriba su respuesta:' : 'أو اكتب إجابتك:'-->
+<!--            }}</label>-->
+
+<!--        <div *ngIf="registrationFields[currentFieldIndex].options">-->
+<!--            <select-->
+<!--                [formControl]="registrationForm.get(registrationFields[currentFieldIndex].name)"-->
+<!--                (change)="onManualInput($event, currentFieldIndex)">-->
+<!--                <option value="" disabled selected>{{-->
+<!--                        currentLanguage === 'fr' ? 'Choisissez une option' :-->
+<!--                            currentLanguage === 'en' ? 'Choose an option' :-->
+<!--                                currentLanguage === 'es' ? 'Elija una opción' : 'اختر خيارًا'-->
+<!--                    }}</option>-->
+<!--                <option *ngFor="let option of registrationFields[currentFieldIndex].options" [value]="option">-->
+<!--                    {{ option }}-->
+<!--                </option>-->
+<!--            </select>-->
+<!--        </div>-->
+
+<!--        <div *ngIf="!registrationFields[currentFieldIndex].options">-->
+<!--            <input-->
+<!--                type="text"-->
+<!--                [formControl]="registrationForm.get(registrationFields[currentFieldIndex].name)"-->
+<!--                (input)="onManualInput($event, currentFieldIndex)"-->
+<!--                [type]="registrationFields[currentFieldIndex].name === 'password' ? 'password' : 'text'"-->
+<!--                [placeholder]="-->
+<!--                    currentLanguage === 'fr' ? 'Entrez votre réponse' :-->
+<!--                    currentLanguage === 'en' ? 'Enter your answer' :-->
+<!--                    currentLanguage === 'es' ? 'Introduzca su respuesta' : 'أدخل إجابتك'-->
+<!--                ">-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--    <div class="registration-completed" *ngIf="registrationCompleted">-->
+<!--        <div class="success-message">-->
+<!--            <i class="pi pi-check-circle"></i>-->
+<!--            {{-->
+<!--                currentLanguage === 'fr' ? 'Inscription réussie !' :-->
+<!--                    currentLanguage === 'en' ? 'Registration successful!' :-->
+<!--                        currentLanguage === 'es' ? '¡Registro exitoso!' : 'تم التسجيل بنجاح!'-->
+<!--            }}-->
+<!--        </div>-->
+<!--        <button class="restart-button" (click)="restartRegistration()">-->
+<!--            {{-->
+<!--                currentLanguage === 'fr' ? 'Nouvelle inscription' :-->
+<!--                    currentLanguage === 'en' ? 'New registration' :-->
+<!--                        currentLanguage === 'es' ? 'Nuevo registro' : 'تسجيل جديد'-->
+<!--            }}-->
+<!--        </button>-->
+<!--    </div>-->
+
+<!--    <p-toast></p-toast>-->
+<!--</div>-->

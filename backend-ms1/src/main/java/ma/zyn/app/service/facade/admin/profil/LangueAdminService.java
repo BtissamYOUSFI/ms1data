@@ -29,6 +29,8 @@ public interface LangueAdminService {
 
     Langue findWithAssociatedLists(Long id);
 
+    Langue findByCode(String code);
+
     List<Langue> findAllOptimized();
 
     List<Langue> findAll();

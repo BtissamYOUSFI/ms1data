@@ -20,8 +20,6 @@ import java.util.List;
 @RequestMapping("/api/role/")
 public class RoleRest  extends AbstractController<Role, RoleDto, RoleCriteria, RoleService, RoleConverter> {
 
-
-
     @Operation(summary = "upload one role")
     @RequestMapping(value = "upload", method = RequestMethod.POST, consumes = "multipart/form-data")
     public ResponseEntity<FileTempDto> uploadFileAndGetChecksum(@RequestBody MultipartFile file) throws Exception {

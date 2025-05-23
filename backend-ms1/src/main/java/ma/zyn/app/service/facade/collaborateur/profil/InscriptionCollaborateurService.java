@@ -52,7 +52,7 @@ public interface InscriptionCollaborateurService {
 
     Inscription findWithAssociatedLists(Long id);
 
-    List<Inscription> findAllOptimized();
+
 
     List<Inscription> findAll();
 

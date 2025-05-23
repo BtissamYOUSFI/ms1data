@@ -3,12 +3,14 @@ import { PrimeNGConfig } from 'primeng/api';
 import {RoleService} from "./zynerator/security/shared/service/Role.service";
 import {TranslateService} from "@ngx-translate/core";
 import {Observable} from "rxjs";
+import {NavigationEnd, Router} from "@angular/router";
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
+    showNavbar = true;
     layoutMode = 'static';
     lightMenu = true;
     topbarColor = 'layout-topbar-blue';
@@ -25,14 +27,26 @@ export class AppComponent implements OnInit {
     //     translateService.use(browserLang.match(/en|fr/) ? browserLang : 'fr');
     // }
 
-    constructor(private primengConfig: PrimeNGConfig, private roleService: RoleService, private translateService: TranslateService) {
+    constructor(private primengConfig: PrimeNGConfig, private roleService: RoleService, private translateService: TranslateService, private router: Router) {
         translateService.addLangs(['ar','en', 'fr']);
         translateService.setDefaultLang('en');
         const browserLang = translateService.getBrowserLang();
         console.log('browser lang ==>  ' +browserLang);
         translateService.use('en');
         //translateService.use(browserLang.match(/ar|en|fr/) ? browserLang : 'eng');
+
+        this.router.events.subscribe(event => {
+            if (event instanceof NavigationEnd) {
+                const currentUrl = event.urlAfterRedirects;
+                this.showNavbar = !(
+                    currentUrl.startsWith('/app/admin') ||
+                    currentUrl.startsWith('/app/collaborateur')
+                );
+            }
+        });
     }
+
+
 
     ngOnInit() {
         this.primengConfig.ripple = true;

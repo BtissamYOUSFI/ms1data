@@ -97,4 +97,11 @@ export class LayoutService {
         this.configUpdate.next(this.config);
     }
 
+    get menuIcon(): string {
+        if (this.isDesktop()) {
+            return this.state.staticMenuDesktopInactive ? 'pi-chevron-right' : 'pi-chevron-left';
+        }
+        return this.state.overlayMenuActive ? 'pi-times' : 'pi-bars';
+    }
+
 }

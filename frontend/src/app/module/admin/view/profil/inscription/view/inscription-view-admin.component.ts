@@ -29,7 +29,7 @@ import {NiveauLangueAdminService} from 'src/app/shared/service/admin/profil/Nive
 import {EtatInscriptionDto} from 'src/app/shared/model/profil/EtatInscription.model';
 import {EtatInscriptionAdminService} from 'src/app/shared/service/admin/profil/EtatInscriptionAdmin.service';
 import {LangueDto} from 'src/app/shared/model/profil/Langue.model';
-import {LangueAdminService} from 'src/app/shared/service/admin/profil/LangueAdmin.service';
+import {LangueAdminService} from 'src/app/shared/service/admin/profil/langueAdmin.service';
 import {CollaborateurDto} from 'src/app/shared/model/utilisateurs/Collaborateur.model';
 import {CollaborateurAdminService} from 'src/app/shared/service/admin/utilisateurs/CollaborateurAdmin.service';
 @Component({

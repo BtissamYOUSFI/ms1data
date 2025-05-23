@@ -10,8 +10,7 @@ import java.util.List;
 
 @Repository
 public interface InscriptionDao extends AbstractRepository<Inscription,Long>  {
-    Inscription findByCode(String code);
-    int deleteByCode(String code);
+    Inscription findByEmail(String email);
 
     List<Inscription> findByLangueCode(String code);
     List<Inscription> findByLangueId(Long id);
@@ -37,7 +36,6 @@ public interface InscriptionDao extends AbstractRepository<Inscription,Long>  {
     int deleteByCollaborateurId(Long id);
     long countByCollaborateurEmail(String email);
 
-    @Query("SELECT NEW Inscription(item.id,item.libelle) FROM Inscription item")
-    List<Inscription> findAllOptimized();
+
 
 }

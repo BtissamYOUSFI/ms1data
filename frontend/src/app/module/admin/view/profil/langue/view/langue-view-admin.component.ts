@@ -18,7 +18,7 @@ import {ConfirmationService, MessageService,MenuItem} from 'primeng/api';
 import {FileTempDto} from 'src/app/zynerator/dto/FileTempDto.model';
 
 
-import {LangueAdminService} from 'src/app/shared/service/admin/profil/LangueAdmin.service';
+import {LangueAdminService} from 'src/app/shared/service/admin/profil/langueAdmin.service';
 import {LangueDto} from 'src/app/shared/model/profil/Langue.model';
 import {LangueCriteria} from 'src/app/shared/criteria/profil/LangueCriteria.model';
 

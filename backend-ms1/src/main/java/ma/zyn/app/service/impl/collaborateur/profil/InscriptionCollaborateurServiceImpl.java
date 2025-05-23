@@ -1,8 +1,8 @@
 package ma.zyn.app.service.impl.collaborateur.profil;
 
 
+import ma.zyn.app.bean.core.profil.*;
 import ma.zyn.app.zynerator.exception.EntityNotFoundException;
-import ma.zyn.app.bean.core.profil.Inscription;
 import ma.zyn.app.dao.criteria.core.profil.InscriptionCriteria;
 import ma.zyn.app.dao.facade.core.profil.InscriptionDao;
 import ma.zyn.app.dao.specification.core.profil.InscriptionSpecification;
@@ -25,13 +25,9 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import ma.zyn.app.service.facade.collaborateur.profil.MetierCollaborateurService ;
-import ma.zyn.app.bean.core.profil.Metier ;
 import ma.zyn.app.service.facade.collaborateur.profil.NiveauLangueCollaborateurService ;
-import ma.zyn.app.bean.core.profil.NiveauLangue ;
 import ma.zyn.app.service.facade.collaborateur.profil.EtatInscriptionCollaborateurService ;
-import ma.zyn.app.bean.core.profil.EtatInscription ;
 import ma.zyn.app.service.facade.collaborateur.profil.LangueCollaborateurService ;
-import ma.zyn.app.bean.core.profil.Langue ;
 import ma.zyn.app.service.facade.collaborateur.utilisateurs.CollaborateurCollaborateurService ;
 import ma.zyn.app.bean.core.utilisateurs.Collaborateur ;
 
@@ -200,11 +196,42 @@ public class InscriptionCollaborateurServiceImpl implements InscriptionCollabora
 		return result;
     }
 
+
+    private EtatInscription validateInscription(Inscription inscription) {
+        EtatInscription etatInscription=etatInscriptionService.findByCode("Refused");
+        if (inscription != null) {
+            ReferentielMetier byMetierCode = referentielMetierService.findByMetierCode(inscription.getMetier().getCode());
+            if (byMetierCode != null) {
+                boolean equals = byMetierCode.getLangue().equals(inscription.getLangue());
+                if (equals) {
+                    int niveauUtilisateur = inscription.getNiveauLangue().getValeur();
+                    int niveauRef = byMetierCode.getNiveauLangue().getValeur();
+
+                    if (niveauUtilisateur >= niveauRef) {
+                        Integer expUtilisateur = inscription.getNombreHeureExperience();
+                        Integer expRequise = byMetierCode.getNombreHeuresExperienceMin();
+
+                        if (expUtilisateur != null && expRequise != null && expUtilisateur >= expRequise) {
+                            return etatInscriptionService.findByCode("Validated");
+                        }
+                    }
+
+                }
+
+            }
+        }
+
+        return etatInscription;
+
+    }
+
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class, readOnly = false)
     public Inscription create(Inscription t) {
         Inscription loaded = findByReferenceEntity(t);
         Inscription saved;
         if (loaded == null) {
+            EtatInscription etatInscription = validateInscription(t);
+            t.setEtatInscription(etatInscription);
             saved = dao.save(t);
         }else {
             saved = null;
@@ -246,15 +273,8 @@ public class InscriptionCollaborateurServiceImpl implements InscriptionCollabora
     }
 
 
-
-
-
-
-
-
-
     public Inscription findByReferenceEntity(Inscription t){
-        return t==null? null : dao.findByCode(t.getCode());
+        return t==null? null : dao.findByEmail(t.getEmail());
     }
     public void findOrSaveAssociatedObject(Inscription t){
         if( t != null) {
@@ -266,11 +286,6 @@ public class InscriptionCollaborateurServiceImpl implements InscriptionCollabora
         }
     }
 
-
-
-    public List<Inscription> findAllOptimized() {
-        return dao.findAllOptimized();
-    }
 
     @Override
     public List<List<Inscription>> getToBeSavedAndToBeDeleted(List<Inscription> oldList, List<Inscription> newList) {
@@ -329,6 +344,8 @@ public class InscriptionCollaborateurServiceImpl implements InscriptionCollabora
     private LangueCollaborateurService langueService ;
     @Autowired
     private CollaborateurCollaborateurService collaborateurService ;
+    @Autowired
+    private ReferentielMetierCollaborateurServiceImpl referentielMetierService;
 
     public InscriptionCollaborateurServiceImpl(InscriptionDao dao) {
         this.dao = dao;

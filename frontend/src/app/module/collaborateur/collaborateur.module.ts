@@ -47,13 +47,15 @@ import {SecurityModule} from 'src/app/module/security/security.module';
 import {SecurityRoutingModule} from 'src/app/module/security/security-routing.module';
 
 
+
 @NgModule({
   declarations: [
    LoginCollaborateurComponent,
    RegisterCollaborateurComponent,
    ChangePasswordCollaborateurComponent,
    ActivationCollaborateurComponent,
-   ForgetPasswordCollaborateurComponent
+   ForgetPasswordCollaborateurComponent,
+      LoginCollaborateurComponent
   ],
   imports: [
     CommonModule,
@@ -103,7 +105,8 @@ import {SecurityRoutingModule} from 'src/app/module/security/security-routing.mo
     AccompagnementCollaborateurModule,
     TransactionCollaborateurModule,
     UtilisateursCollaborateurModule,
-    SecurityModule
+    SecurityModule,
+
   ],
 
 })

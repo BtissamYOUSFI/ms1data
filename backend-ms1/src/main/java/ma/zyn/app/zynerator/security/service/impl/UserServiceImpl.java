@@ -39,6 +39,9 @@ import ma.zyn.app.bean.core.utilisateurs.Collaborateur;
 public class UserServiceImpl extends AbstractServiceImpl<User, UserCriteria, UserDao> implements UserService {
 
 
+    public List<User> findAllManagers() {
+        return dao.findUsersByRole("ROLE_MANAGER");
+    }
 
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class, readOnly = false)
     public User create(User t) {

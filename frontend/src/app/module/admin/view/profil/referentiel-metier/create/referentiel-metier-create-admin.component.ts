@@ -23,7 +23,7 @@ import {MetierAdminService} from 'src/app/shared/service/admin/profil/MetierAdmi
 import {NiveauLangueDto} from 'src/app/shared/model/profil/NiveauLangue.model';
 import {NiveauLangueAdminService} from 'src/app/shared/service/admin/profil/NiveauLangueAdmin.service';
 import {LangueDto} from 'src/app/shared/model/profil/Langue.model';
-import {LangueAdminService} from 'src/app/shared/service/admin/profil/LangueAdmin.service';
+import {LangueAdminService} from 'src/app/shared/service/admin/profil/langueAdmin.service';
 @Component({
   selector: 'app-referentiel-metier-create-admin',
   templateUrl: './referentiel-metier-create-admin.component.html'

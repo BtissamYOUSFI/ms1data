@@ -1,6 +1,8 @@
 package ma.zyn.app.service.facade.admin.profil;
 
 import java.util.List;
+import java.util.Map;
+
 import ma.zyn.app.bean.core.profil.ReferentielMetier;
 import ma.zyn.app.dao.criteria.core.profil.ReferentielMetierCriteria;
 import ma.zyn.app.zynerator.service.IService;
@@ -11,7 +13,7 @@ public interface ReferentielMetierAdminService {
 
 
 
-    List<ReferentielMetier> findByMetierCode(String code);
+    ReferentielMetier findByMetierCode(String code);
     List<ReferentielMetier> findByMetierId(Long id);
     int deleteByMetierId(Long id);
     int deleteByMetierCode(String code);
@@ -31,6 +33,8 @@ public interface ReferentielMetierAdminService {
 
 
 	ReferentielMetier create(ReferentielMetier t);
+
+    String importExcelData(List<Map<String, Object>> rows);
 
     ReferentielMetier update(ReferentielMetier t);
 

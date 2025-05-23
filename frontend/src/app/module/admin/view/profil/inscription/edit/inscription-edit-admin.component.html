@@ -5,53 +5,16 @@
                         <div class="grid">
 
                                         <div class="field col-12 md:col-6">
-                                            <label for="1">{{'inscription.libelle' | translate}}<span style="color: red;">*</span></label>
-                                            <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'inscription.libelle' | translate}}" id="1" [(ngModel)]="item.libelle"
-                                                   [ngClass]="{'ng-invalid ng-dirty' : !validInscriptionLibelle}"  />
-                                            <small class='p-error' *ngIf='!validInscriptionLibelle'>Libelle est obligatoire.</small>
-                                        </div>
-
-
-
-                                        <div class="field col-12 md:col-6">
-                                            <label for="2">{{'inscription.code' | translate}}<span style="color: red;">*</span></label>
-                                            <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'inscription.code' | translate}}" id="2" [(ngModel)]="item.code"
-                                                   [ngClass]="{'ng-invalid ng-dirty' : !validInscriptionCode}"  />
-                                            <small class='p-error' *ngIf='!validInscriptionCode'>Code est obligatoire.</small>
-                                        </div>
-
-
-
-                                        <div class="field col-12 md:col-6">
-                                            <label for="3">{{'inscription.style' | translate}}</label>
-                                            <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'inscription.style' | translate}}" id="3" [(ngModel)]="item.style"
-                                                    />
-                                            
-                                        </div>
-
-
-
-                                        <div class="field col-12 md:col-6">
-                                            <label for="4">{{'inscription.description' | translate}}</label>
-                                            <textarea id="4" pInputTextarea rows="5" cols="30" placeholder="{{'inscription.description' | translate}}"  [(ngModel)]="item.description"
-                                                       ></textarea>
-                                            
-                                        </div>
-
-                                        <div class="field col-12 md:col-6">
                                             <label for="5">{{'inscription.nom' | translate}}</label>
                                             <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'inscription.nom' | translate}}" id="5" [(ngModel)]="item.nom"
                                                     />
-                                            
                                         </div>
-
-
 
                                         <div class="field col-12 md:col-6">
                                             <label for="6">{{'inscription.prenom' | translate}}</label>
                                             <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'inscription.prenom' | translate}}" id="6" [(ngModel)]="item.prenom"
                                                     />
-                                            
+
                                         </div>
 
 
@@ -60,7 +23,7 @@
                                             <label for="7">{{'inscription.email' | translate}}</label>
                                             <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'inscription.email' | translate}}" id="7" [(ngModel)]="item.email"
                                                     />
-                                            
+
                                         </div>
 
 
@@ -69,7 +32,7 @@
                                             <label for="8">{{'inscription.password' | translate}}</label>
                                             <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'inscription.password' | translate}}" id="8" [(ngModel)]="item.password"
                                                     />
-                                            
+
                                         </div>
 
 
@@ -79,7 +42,7 @@
                                         <p-dropdown  appendTo="body"  [options]="langues" [(ngModel)]="item.langue" id="9" [filter]="true" filterMatchMode="contains"
                                                      [showClear]="true" optionLabel="libelle" placeholder="{{'inscription.langue' | translate}}"  >
                                         </p-dropdown>
-                                        
+
                                     </div>
 
                                     <div class="field col-11 md:col-6">
@@ -87,7 +50,7 @@
                                         <p-dropdown  appendTo="body"  [options]="niveauLangues" [(ngModel)]="item.niveauLangue" id="10" [filter]="true" filterMatchMode="contains"
                                                      [showClear]="true" optionLabel="libelle" placeholder="{{'inscription.niveauLangue' | translate}}"  >
                                         </p-dropdown>
-                                        
+
                                     </div>
 
                                     <div class="field col-11 md:col-6">
@@ -95,14 +58,14 @@
                                         <p-dropdown  appendTo="body"  [options]="metiers" [(ngModel)]="item.metier" id="11" [filter]="true" filterMatchMode="contains"
                                                      [showClear]="true" optionLabel="libelle" placeholder="{{'inscription.metier' | translate}}"  >
                                         </p-dropdown>
-                                        
+
                                     </div>
 
                                         <div class="field col-12 md:col-6">
                                             <label for="12">{{'inscription.nombreHeureExperience' | translate}}</label>
                                             <p-inputNumber class="mb-2 mr-2" id="12" placeholder="{{'inscription.nombreHeureExperience' | translate}}" [(ngModel)]="item.nombreHeureExperience"  >
                                             </p-inputNumber>
-                                            
+
                                         </div>
 
                                     <div class="field col-11 md:col-6">
@@ -110,7 +73,7 @@
                                         <p-dropdown  appendTo="body"  [options]="etatInscriptions" [(ngModel)]="item.etatInscription" id="13" [filter]="true" filterMatchMode="contains"
                                                      [showClear]="true" optionLabel="libelle" placeholder="{{'inscription.etatInscription' | translate}}"  >
                                         </p-dropdown>
-                                        
+
                                     </div>
 
                                     <div class="field col-11 md:col-6">
@@ -118,7 +81,14 @@
                                         <p-dropdown  appendTo="body"  [options]="collaborateurs" [(ngModel)]="item.collaborateur" id="14" [filter]="true" filterMatchMode="contains"
                                                      [showClear]="true" optionLabel="email" placeholder="{{'inscription.collaborateur' | translate}}"  >
                                         </p-dropdown>
-                                        
+
+                                    </div>
+
+                                    <div class="field col-12 md:col-6">
+                                        <label for="4">{{'inscription.description' | translate}}</label>
+                                        <textarea id="4" pInputTextarea rows="5" cols="30" placeholder="{{'inscription.description' | translate}}"  [(ngModel)]="item.description"
+                                        ></textarea>
+
                                     </div>
 
                         </div>

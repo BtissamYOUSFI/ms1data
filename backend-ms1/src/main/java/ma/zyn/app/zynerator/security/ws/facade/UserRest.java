@@ -145,6 +145,10 @@ public class UserRest  extends AbstractController<User, UserDto, UserCriteria, U
         return service.findByUsername(username);
     }
 
+    @GetMapping("/managers")
+    public ResponseEntity<List<User>> getAllManagers() {
+        return ResponseEntity.ok(service.findAllManagers());
+    }
 
     public UserRest (UserService service, UserConverter converter) {
         super(service, converter);

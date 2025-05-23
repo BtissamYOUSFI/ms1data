@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ReferentielMetierAdminService} from 'src/app/shared/service/admin/profil/ReferentielMetierAdmin.service';
 import {ReferentielMetierDto} from 'src/app/shared/model/profil/ReferentielMetier.model';
 import {ReferentielMetierCriteria} from 'src/app/shared/criteria/profil/ReferentielMetierCriteria.model';
-
+import * as XLSX from 'xlsx';
 
 import {ConfirmationService, MessageService,MenuItem} from 'primeng/api';
 import {FileTempDto} from 'src/app/zynerator/dto/FileTempDto.model';
@@ -28,8 +28,7 @@ import {MetierAdminService} from 'src/app/shared/service/admin/profil/MetierAdmi
 import {NiveauLangueDto} from 'src/app/shared/model/profil/NiveauLangue.model';
 import {NiveauLangueAdminService} from 'src/app/shared/service/admin/profil/NiveauLangueAdmin.service';
 import {LangueDto} from 'src/app/shared/model/profil/Langue.model';
-import {LangueAdminService} from 'src/app/shared/service/admin/profil/LangueAdmin.service';
-
+import {LangueAdminService} from 'src/app/shared/service/admin/profil/langueAdmin.service';
 
 @Component({
   selector: 'app-referentiel-metier-list-admin',
@@ -66,7 +65,7 @@ export class ReferentielMetierListAdminComponent implements OnInit {
     niveauLangues: Array<NiveauLangueDto>;
 
 
-    constructor( private service: ReferentielMetierAdminService  , private metierService: MetierAdminService, private niveauLangueService: NiveauLangueAdminService, private langueService: LangueAdminService, @Inject(PLATFORM_ID) private platformId?) {
+    constructor(private service: ReferentielMetierAdminService  , private metierService: MetierAdminService, private niveauLangueService: NiveauLangueAdminService, private langueService: LangueAdminService, @Inject(PLATFORM_ID) private platformId?) {
         this.datePipe = ServiceLocator.injector.get(DatePipe);
         this.messageService = ServiceLocator.injector.get(MessageService);
         this.confirmationService = ServiceLocator.injector.get(ConfirmationService);
@@ -87,6 +86,72 @@ export class ReferentielMetierListAdminComponent implements OnInit {
 
     }
 
+    onFileSelected(event: any): void {
+        const file = event.target.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = (e: any) => {
+            const data = new Uint8Array(e.target.result);
+            const workbook = XLSX.read(data, { type: 'array' });
+
+            const sheetName = workbook.SheetNames[0];
+            const worksheet = workbook.Sheets[sheetName];
+            const jsonData = XLSX.utils.sheet_to_json(worksheet, { defval: '' });
+
+            console.log('Données Excel lues :', jsonData);
+
+            this.service.importExcelData(jsonData).subscribe(
+                {
+                    next: res => {
+                        console.log('Importation réussie')
+                        window.location.reload();
+                    },
+                    error: err => console.error('Erreur importation', err)
+                }
+            )
+        };
+
+        reader.readAsArrayBuffer(file);
+    }
+
+
+
+    // onFileSelected(event: any): void {
+    //     const file = event.target.files[0];
+    //     if (!file) return;
+    //
+    //     const reader = new FileReader();
+    //     reader.onload = (e: any) => {
+    //         const data = new Uint8Array(e.target.result);
+    //         const workbook = XLSX.read(data, { type: 'array' });
+    //
+    //         const sheetName = workbook.SheetNames[0];
+    //         const worksheet = workbook.Sheets[sheetName];
+    //         const jsonData = XLSX.utils.sheet_to_json(worksheet, { defval: '' });
+    //
+    //         const referentiels: ReferentielMetierDto[] = jsonData.map((row: any) => ({
+    //             id: row['id'] ?? null,
+    //             code: row['code'] ?? '',
+    //             description: row['description'] ?? '',
+    //             libelle: row['libelle'] ?? '',
+    //             nombreHeuresExperienceMin: row['nombreHeuresExperienceMin'] ?? 0,
+    //             scelleRouge: row['scelleRouge'] ?? false,
+    //             langue: { code: row['langue'] ?? '' },
+    //             metier: { code: row['metier'] ?? '' },
+    //             niveauLangue: { code: row['niveauLangue'] ?? '' }
+    //         }));
+    //
+    //         console.log('Référentiels à importer :', referentiels);
+    //
+    //         this.service.importExcelData(referentiels).subscribe({
+    //             next: () => console.log('Importation réussie'),
+    //             error: err => console.error('Erreur lors de l\'importation', err)
+    //         });
+    //     };
+    //
+    //     reader.readAsArrayBuffer(file);
+    // }
 
 
 

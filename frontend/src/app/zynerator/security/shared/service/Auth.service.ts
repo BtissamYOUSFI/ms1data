@@ -36,9 +36,6 @@ export class AuthService {
     constructor(private http: HttpClient, private tokenService: TokenService, private router: Router, private messageService: MessageService, private userService: UserService) {
     }
 
-
-
-
     // @ts-ignore
 	public login(username: string, password: string) {
         console.log(username, password);

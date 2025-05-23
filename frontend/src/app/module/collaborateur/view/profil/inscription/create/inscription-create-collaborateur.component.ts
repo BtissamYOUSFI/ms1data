@@ -47,8 +47,7 @@ export class InscriptionCreateCollaborateurComponent  implements OnInit {
 
 
 
-   private _validInscriptionLibelle = true;
-   private _validInscriptionCode = true;
+
     private _validLangueLibelle = true;
     private _validLangueCode = true;
     private _validNiveauLangueLibelle = true;
@@ -57,6 +56,7 @@ export class InscriptionCreateCollaborateurComponent  implements OnInit {
     private _validMetierCode = true;
     private _validEtatInscriptionLibelle = true;
     private _validEtatInscriptionCode = true;
+    private _validInscriptionPhone= true;
 
 	constructor(private service: InscriptionCollaborateurService , private metierService: MetierCollaborateurService, private niveauLangueService: NiveauLangueCollaborateurService, private etatInscriptionService: EtatInscriptionCollaborateurService, private langueService: LangueCollaborateurService, private collaborateurService: CollaborateurCollaborateurService, @Inject(PLATFORM_ID) private platformId? ) {
         this.datePipe = ServiceLocator.injector.get(DatePipe);
@@ -114,8 +114,8 @@ export class InscriptionCreateCollaborateurComponent  implements OnInit {
 
 
     public  setValidation(value: boolean){
-        this.validInscriptionLibelle = value;
-        this.validInscriptionCode = value;
+        this.validInscriptionPhone = value;
+
     }
 
 
@@ -123,23 +123,15 @@ export class InscriptionCreateCollaborateurComponent  implements OnInit {
     public  validateForm(): void{
         this.errorMessages = new Array<string>();
         this.validateInscriptionLibelle();
-        this.validateInscriptionCode();
+
     }
 
     public validateInscriptionLibelle(){
-        if (this.stringUtilService.isEmpty(this.item.libelle)) {
-        this.errorMessages.push('Libelle non valide');
-        this.validInscriptionLibelle = false;
+        if (this.stringUtilService.isEmpty(this.item.phone)) {
+        this.errorMessages.push('phone non valide');
+        this.validInscriptionPhone = false;
         } else {
-            this.validInscriptionLibelle = true;
-        }
-    }
-    public validateInscriptionCode(){
-        if (this.stringUtilService.isEmpty(this.item.code)) {
-        this.errorMessages.push('Code non valide');
-        this.validInscriptionCode = false;
-        } else {
-            this.validInscriptionCode = true;
+            this.validInscriptionPhone = true;
         }
     }
 
@@ -282,20 +274,14 @@ export class InscriptionCreateCollaborateurComponent  implements OnInit {
 
 
 
-    get validInscriptionLibelle(): boolean {
-        return this._validInscriptionLibelle;
+    get validInscriptionPhone(): boolean {
+        return this._validInscriptionPhone;
     }
 
-    set validInscriptionLibelle(value: boolean) {
-         this._validInscriptionLibelle = value;
-    }
-    get validInscriptionCode(): boolean {
-        return this._validInscriptionCode;
+    set validInscriptionPhone(value: boolean) {
+         this._validInscriptionPhone = value;
     }
 
-    set validInscriptionCode(value: boolean) {
-         this._validInscriptionCode = value;
-    }
 
     get validLangueLibelle(): boolean {
         return this._validLangueLibelle;

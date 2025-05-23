@@ -47,4 +47,5 @@ public interface EtatInscriptionAdminService {
 
     public String uploadFile(String checksumOld, String tempUpladedFile,String destinationFilePath) throws Exception ;
 
+    EtatInscription findByCode(String refused);
 }

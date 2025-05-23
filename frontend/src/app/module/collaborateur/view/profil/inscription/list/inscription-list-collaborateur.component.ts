@@ -346,8 +346,7 @@ export class InscriptionListCollaborateurComponent implements OnInit {
             (allItems) =>{
                 this.exportData = allItems.map(e => {
 					return {
-						'Libelle': e.libelle ,
-						'Code': e.code ,
+						'Phone': e.phone ,
 						'Style': e.style ,
 						'Description': e.description ,
 						'Nom': e.nom ,
@@ -364,8 +363,7 @@ export class InscriptionListCollaborateurComponent implements OnInit {
 				});
 
             this.criteriaData = [{
-                'Libelle': this.criteria.libelle ? this.criteria.libelle : environment.emptyForExport ,
-                'Code': this.criteria.code ? this.criteria.code : environment.emptyForExport ,
+                'Phone': this.criteria.phone ? this.criteria.phone : environment.emptyForExport ,
                 'Style': this.criteria.style ? this.criteria.style : environment.emptyForExport ,
                 'Description': this.criteria.description ? this.criteria.description : environment.emptyForExport ,
                 'Nom': this.criteria.nom ? this.criteria.nom : environment.emptyForExport ,

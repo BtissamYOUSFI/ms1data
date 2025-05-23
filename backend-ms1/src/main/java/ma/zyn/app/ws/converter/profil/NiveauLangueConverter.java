@@ -20,8 +20,6 @@ import ma.zyn.app.ws.dto.profil.NiveauLangueDto;
 @Component
 public class NiveauLangueConverter {
 
-
-
     public NiveauLangue toItem(NiveauLangueDto dto) {
         if (dto == null) {
             return null;
@@ -37,8 +35,8 @@ public class NiveauLangueConverter {
                 item.setStyle(dto.getStyle());
             if(StringUtil.isNotEmpty(dto.getDescription()))
                 item.setDescription(dto.getDescription());
-
-
+            if(StringUtil.isNotEmpty(dto.getValeur()))
+                item.setValeur(dto.getValeur());
 
         return item;
         }
@@ -60,7 +58,8 @@ public class NiveauLangueConverter {
                 dto.setStyle(item.getStyle());
             if(StringUtil.isNotEmpty(item.getDescription()))
                 dto.setDescription(item.getDescription());
-
+            if(StringUtil.isNotEmpty(item.getValeur()))
+                dto.setValeur(item.getValeur());
 
         return dto;
         }

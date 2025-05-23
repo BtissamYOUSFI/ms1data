@@ -200,6 +200,7 @@
         "code": "Code",
         "style": "Style",
         "description": "Description",
+        "nomComplet": "Nom",
         "nom": "Nom",
         "prenom": "Prenom",
         "email": "Email",
@@ -308,6 +309,26 @@
         "header": "Liste des metiers",
         "deleteMetierConfirmationMessage": "Are you sure you want to delete metier",
         "deleteMetiersConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+    "home": {
+        "title": "تواصلوا، تطوروا، وازدهروا في المهن الحرفية",
+        "description": "انضم إلى الشبكة الرائدة في كندا لمحترفي المهن الحرفية الماهرة",
+        "register": "التسجيل كمحترف",
+        "login": "تسجيل الدخول"
+    },
+    "registration": {
+        "lastName": "الاسم العائلي",
+        "firstName": "الاسم الشخصي",
+        "email": "البريد الإلكتروني",
+        "password": "كلمة المرور",
+        "language": "اللغة",
+        "languageLevel": "مستوى اللغة",
+        "job": "المهنة",
+        "nbr": "عدد ساعات الخبرة",
+        "phone": "رقم الهاتف",
+        "description": "الوصف",
+        "registrationForm": "نموذج التسجيل"
+
     },
 
 "appName": "GED"

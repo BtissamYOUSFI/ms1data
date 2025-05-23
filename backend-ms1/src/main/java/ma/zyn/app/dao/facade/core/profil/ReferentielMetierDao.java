@@ -13,7 +13,7 @@ public interface ReferentielMetierDao extends AbstractRepository<ReferentielMeti
     ReferentielMetier findByCode(String code);
     int deleteByCode(String code);
 
-    List<ReferentielMetier> findByMetierCode(String code);
+    ReferentielMetier findByMetierCode(String code);
     List<ReferentielMetier> findByMetierId(Long id);
     int deleteByMetierId(Long id);
     int deleteByMetierCode(String code);

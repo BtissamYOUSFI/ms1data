@@ -1,44 +1,41 @@
 package  ma.zyn.app.ws.facade.admin.profil;
 
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.http.HttpStatus;
-import java.util.Arrays;
-import java.util.ArrayList;
 
 import ma.zyn.app.bean.core.profil.ReferentielMetier;
 import ma.zyn.app.dao.criteria.core.profil.ReferentielMetierCriteria;
 import ma.zyn.app.service.facade.admin.profil.ReferentielMetierAdminService;
 import ma.zyn.app.ws.converter.profil.ReferentielMetierConverter;
 import ma.zyn.app.ws.dto.profil.ReferentielMetierDto;
-import ma.zyn.app.zynerator.controller.AbstractController;
-import ma.zyn.app.zynerator.dto.AuditEntityDto;
 import ma.zyn.app.zynerator.util.PaginatedList;
 
 
-import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
-import ma.zyn.app.zynerator.process.Result;
-
-
-import org.springframework.web.multipart.MultipartFile;
-import ma.zyn.app.zynerator.dto.FileTempDto;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/admin/referentielMetier/")
 public class ReferentielMetierRestAdmin {
 
 
+
+    @PostMapping("import/")
+    public String importExcelData(@RequestBody List<Map<String, Object>> rows) {
+        System.out.println(rows);
+        return service.importExcelData(rows);
+    }
+
+//    @PostMapping("import/")
+//    public ResponseEntity<String> importExcelData(@RequestBody List<ReferentielMetierDto> dtos) {
+//        service.importExcelData(dtos);
+//        return ResponseEntity.ok("Importation réussie");
+//    }
 
 
     @Operation(summary = "Finds a list of all referentielMetiers")

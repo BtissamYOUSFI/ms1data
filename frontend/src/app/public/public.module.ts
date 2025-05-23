@@ -34,6 +34,16 @@ import {FooterComponent} from './footer/footer.component';
 import {HomePublicComponent} from './home/home-public.component';
 import {ContactUsComponent} from './contact-us/contact-us.component';
 import {TopComponent} from './top/top.component';
+import {CarouselModule} from "primeng/carousel";
+import { InscriptionComponent } from './inscription/inscription.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import {MenubarModule} from "primeng/menubar";
+import {RippleModule} from "primeng/ripple";
+import {CardModule} from "primeng/card";
+import {DividerModule} from "primeng/divider";
+import {TranslateModule} from "@ngx-translate/core";
+import { VoiceRegistrationComponent } from './voice-registration/voice-registration.component';
+import {SelectButtonModule} from "primeng/selectbutton";
 
 
 @NgModule({
@@ -45,9 +55,16 @@ import {TopComponent} from './top/top.component';
         FooterComponent,
         HomePublicComponent,
         ContactUsComponent,
-        TopComponent
+        TopComponent,
+        InscriptionComponent,
+        NavbarComponent,
+        VoiceRegistrationComponent
     ],
     imports: [
+        CarouselModule,
+        RippleModule,
+        CardModule,
+        DividerModule,
         CommonModule,
         ToastModule,
         ToolbarModule,
@@ -73,10 +90,15 @@ import {TopComponent} from './top/top.component';
         InputNumberModule,
         BadgeModule,
         MultiSelectModule,
+        CarouselModule,
+        MenubarModule,
+        TranslateModule,
+        SelectButtonModule,
     ],
     exports: [
         PreloadpageComponent,
-        MainComponent
+        MainComponent,
+        NavbarComponent
 
     ],
 

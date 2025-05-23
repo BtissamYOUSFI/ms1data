@@ -47,4 +47,5 @@ public interface NiveauLangueAdminService {
 
     public String uploadFile(String checksumOld, String tempUpladedFile,String destinationFilePath) throws Exception ;
 
+    NiveauLangue findByCode(String code);
 }

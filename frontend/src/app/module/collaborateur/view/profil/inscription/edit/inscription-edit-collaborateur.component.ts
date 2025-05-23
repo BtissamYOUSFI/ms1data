@@ -1,9 +1,8 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit, Input, Inject, PLATFORM_ID} from '@angular/core';
 import {ConfirmationService, MessageService} from 'primeng/api';
 import {FileTempDto} from 'src/app/zynerator/dto/FileTempDto.model';
 import {DatePipe} from '@angular/common';
 import {Router} from '@angular/router';
-import {Inject, Injectable, PLATFORM_ID} from '@angular/core';
 
 import {environment} from 'src/environments/environment';
 
@@ -29,6 +28,8 @@ import {LangueDto} from 'src/app/shared/model/profil/Langue.model';
 import {LangueCollaborateurService} from 'src/app/shared/service/collaborateur/profil/LangueCollaborateur.service';
 import {CollaborateurDto} from 'src/app/shared/model/utilisateurs/Collaborateur.model';
 import {CollaborateurCollaborateurService} from 'src/app/shared/service/collaborateur/utilisateurs/CollaborateurCollaborateur.service';
+// import * as console from "console";
+import {error} from "protractor";
 
 @Component({
   selector: 'app-inscription-edit-collaborateur',
@@ -52,8 +53,7 @@ export class InscriptionEditCollaborateurComponent implements OnInit {
 
 
 
-    private _validInscriptionLibelle = true;
-    private _validInscriptionCode = true;
+    private _validInscriptionPhone = true;
 
     private _validLangueLibelle = true;
     private _validLangueCode = true;
@@ -125,32 +125,22 @@ export class InscriptionEditCollaborateurComponent implements OnInit {
 
 
     public setValidation(value: boolean){
-        this.validInscriptionLibelle = value;
-        this.validInscriptionCode = value;
+        this.validInscriptionPhone = value;
     }
 
 
     public validateForm(): void{
         this.errorMessages = new Array<string>();
-        this.validateInscriptionLibelle();
-        this.validateInscriptionCode();
+        this.validateInscriptionPhone();
     }
 
-    public validateInscriptionLibelle(){
-        if (this.stringUtilService.isEmpty(this.item.libelle)) {
-            this.errorMessages.push('Libelle non valide');
-            this.validInscriptionLibelle = false;
-        } else {
-            this.validInscriptionLibelle = true;
-        }
-    }
 
-    public validateInscriptionCode(){
-        if (this.stringUtilService.isEmpty(this.item.code)) {
-            this.errorMessages.push('Code non valide');
-            this.validInscriptionCode = false;
+    public validateInscriptionPhone(){
+        if (this.stringUtilService.isEmpty(this.item.phone)) {
+            this.errorMessages.push('phone non valide');
+            this.validInscriptionPhone = false;
         } else {
-            this.validInscriptionCode = true;
+            this.validInscriptionPhone = true;
         }
     }
 
@@ -294,17 +284,12 @@ export class InscriptionEditCollaborateurComponent implements OnInit {
     }
 
 
-    get validInscriptionLibelle(): boolean {
-        return this._validInscriptionLibelle;
+    get validInscriptionPhone(): boolean {
+        return this._validInscriptionPhone;
     }
-    set validInscriptionLibelle(value: boolean) {
-        this._validInscriptionLibelle = value;
-    }
-    get validInscriptionCode(): boolean {
-        return this._validInscriptionCode;
-    }
-    set validInscriptionCode(value: boolean) {
-        this._validInscriptionCode = value;
+
+    set validInscriptionPhone(value: boolean) {
+        this._validInscriptionPhone = value;
     }
 
     get validLangueLibelle(): boolean {

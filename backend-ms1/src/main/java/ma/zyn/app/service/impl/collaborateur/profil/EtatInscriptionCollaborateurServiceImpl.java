@@ -44,7 +44,7 @@ public class EtatInscriptionCollaborateurServiceImpl implements EtatInscriptionC
         return dao.findById(id).orElse(null);
     }
 
-
+    public EtatInscription findByCode(String code) {return dao.findByCode(code);}
     public EtatInscription findOrSave(EtatInscription t) {
         if (t != null) {
             EtatInscription result = findByReferenceEntity(t);

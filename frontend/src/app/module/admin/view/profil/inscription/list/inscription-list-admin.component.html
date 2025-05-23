@@ -4,7 +4,7 @@
         <div class="card">
             <p-toolbar styleClass="mb-4">
                 <ng-template pTemplate="left">
-                                        <button pButton pRipple label=" {{'new' | translate}}" icon="pi pi-plus" class="p-button-info mr-2 mb-2" (click)="openCreate()" *ngIf="createActionIsValid"></button>
+                    <button pButton pRipple label=" {{'new' | translate}}" icon="pi pi-plus" class="p-button-info mr-2 mb-2" (click)="openCreate()" *ngIf="createActionIsValid"></button>
                     <button [disabled]="isSelectionDisabled()" pButton pRipple label=" {{'delete' | translate}}" icon="pi pi-trash" class="p-button-danger mr-2 mb-2" (click)=deleteMultiple()  *ngIf="deleteActionIsValid"></button>
                     <button pButton pRipple label=" {{'search' | translate}}" icon="pi pi-{{findByCriteriaShow?'angle-down':'angle-right'}}" class="p-button-secondary mr-2 mb-2" (click)="this.showSearch()"></button>
                 </ng-template>
@@ -19,18 +19,7 @@
 
                 <div class="col-12">
                     <div class="flex flex-wrap p-fluid col-12">
-                       <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
-                            <label  class="font-bold block mb-2" for="1">{{'inscription.libelle' | translate}}</label>
-                            <input  class="w-full"  pInputText id="1" type="text"  [(ngModel)]="criteria.libelleLike">
-                        </div>
-                       <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
-                            <label  class="font-bold block mb-2" for="2">{{'inscription.code' | translate}}</label>
-                            <input  class="w-full"  pInputText id="2" type="text"  [(ngModel)]="criteria.codeLike">
-                        </div>
-                       <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
-                            <label  class="font-bold block mb-2" for="3">{{'inscription.style' | translate}}</label>
-                            <input  class="w-full"  pInputText id="3" type="text"  [(ngModel)]="criteria.styleLike">
-                        </div>
+
                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
                             <label  class="font-bold block mb-2" for="5">{{'inscription.nom' | translate}}</label>
                             <input  class="w-full"  pInputText id="5" type="text"  [(ngModel)]="criteria.nomLike">
@@ -113,52 +102,25 @@
                             <th style="width: 3rem">
                                 <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
                             </th>
-                                    
-                        <th pSortableColumn="libelle">
-                            <div class="p-d-flex p-jc-between p-ai-center">
-                                <span>{{'inscription.libelle' | translate}}</span>
-                                <p-sortIcon field="libelle"></p-sortIcon>
-                                <p-columnFilter type="text" field="element.libelle" display="menu" class="ml-auto"></p-columnFilter>
-                            </div>
-                        </th>
-                                
-                                    
-                        <th pSortableColumn="code">
-                            <div class="p-d-flex p-jc-between p-ai-center">
-                                <span>{{'inscription.code' | translate}}</span>
-                                <p-sortIcon field="code"></p-sortIcon>
-                                <p-columnFilter type="text" field="element.code" display="menu" class="ml-auto"></p-columnFilter>
-                            </div>
-                        </th>
-                                
-                                    
-                        <th pSortableColumn="style">
-                            <div class="p-d-flex p-jc-between p-ai-center">
-                                <span>{{'inscription.style' | translate}}</span>
-                                <p-sortIcon field="style"></p-sortIcon>
-                                <p-columnFilter type="text" field="element.style" display="menu" class="ml-auto"></p-columnFilter>
-                            </div>
-                        </th>
-                                
-                                    
+
                         <th pSortableColumn="nom">
                             <div class="p-d-flex p-jc-between p-ai-center">
-                                <span>{{'inscription.nom' | translate}}</span>
+                                <span>{{'inscription.nomComplet' | translate}}</span>
                                 <p-sortIcon field="nom"></p-sortIcon>
                                 <p-columnFilter type="text" field="element.nom" display="menu" class="ml-auto"></p-columnFilter>
                             </div>
                         </th>
-                                
-                                    
-                        <th pSortableColumn="prenom">
-                            <div class="p-d-flex p-jc-between p-ai-center">
-                                <span>{{'inscription.prenom' | translate}}</span>
-                                <p-sortIcon field="prenom"></p-sortIcon>
-                                <p-columnFilter type="text" field="element.prenom" display="menu" class="ml-auto"></p-columnFilter>
-                            </div>
-                        </th>
-                                
-                                    
+
+
+<!--                        <th pSortableColumn="prenom">-->
+<!--                            <div class="p-d-flex p-jc-between p-ai-center">-->
+<!--                                <span>{{'inscription.prenom' | translate}}</span>-->
+<!--                                <p-sortIcon field="prenom"></p-sortIcon>-->
+<!--                                <p-columnFilter type="text" field="element.prenom" display="menu" class="ml-auto"></p-columnFilter>-->
+<!--                            </div>-->
+<!--                        </th>-->
+
+
                         <th pSortableColumn="email">
                             <div class="p-d-flex p-jc-between p-ai-center">
                                 <span>{{'inscription.email' | translate}}</span>
@@ -166,65 +128,40 @@
                                 <p-columnFilter type="text" field="element.email" display="menu" class="ml-auto"></p-columnFilter>
                             </div>
                         </th>
-                                
-                                    
-                        <th pSortableColumn="password">
-                            <div class="p-d-flex p-jc-between p-ai-center">
-                                <span>{{'inscription.password' | translate}}</span>
-                                <p-sortIcon field="password"></p-sortIcon>
-                                <p-columnFilter type="text" field="element.password" display="menu" class="ml-auto"></p-columnFilter>
-                            </div>
-                        </th>
-                                
-                                    
+
+
+<!--                        <th pSortableColumn="password">-->
+<!--                            <div class="p-d-flex p-jc-between p-ai-center">-->
+<!--                                <span>{{'inscription.password' | translate}}</span>-->
+<!--                                <p-sortIcon field="password"></p-sortIcon>-->
+<!--                                <p-columnFilter type="text" field="element.password" display="menu" class="ml-auto"></p-columnFilter>-->
+<!--                            </div>-->
+<!--                        </th>-->
+
+
                         <th pSortableColumn="langue">
                             <div class="p-d-flex p-jc-between p-ai-center">
                                 <span>{{'inscription.langue' | translate}}</span>
                                 <p-sortIcon field="langue"></p-sortIcon>
                             </div>
                         </th>
-                                
-                                    
+
+
                         <th pSortableColumn="niveauLangue">
                             <div class="p-d-flex p-jc-between p-ai-center">
                                 <span>{{'inscription.niveauLangue' | translate}}</span>
                                 <p-sortIcon field="niveauLangue"></p-sortIcon>
                             </div>
                         </th>
-                                
-                                    <!-- 
+
                         <th pSortableColumn="metier">
                             <div class="p-d-flex p-jc-between p-ai-center">
                                 <span>{{'inscription.metier' | translate}}</span>
                                 <p-sortIcon field="metier"></p-sortIcon>
                             </div>
                         </th>
-                                --> 
-                                    <!-- 
-                        <th pSortableColumn="nombreHeureExperience">
-                            <div class="p-d-flex p-jc-between p-ai-center">
-                                <span>{{'inscription.nombreHeureExperience' | translate}}</span>
-                                <p-sortIcon field="nombreHeureExperience"></p-sortIcon>
-                            </div>
-                        </th>
-                                --> 
-                                    <!-- 
-                        <th pSortableColumn="etatInscription">
-                            <div class="p-d-flex p-jc-between p-ai-center">
-                                <span>{{'inscription.etatInscription' | translate}}</span>
-                                <p-sortIcon field="etatInscription"></p-sortIcon>
-                            </div>
-                        </th>
-                                --> 
-                                    <!-- 
-                        <th pSortableColumn="collaborateur">
-                            <div class="p-d-flex p-jc-between p-ai-center">
-                                <span>{{'inscription.collaborateur' | translate}}</span>
-                                <p-sortIcon field="collaborateur"></p-sortIcon>
-                            </div>
-                        </th>
-                                --> 
-                            <th>Actions</th>
+
+                        <th>Actions</th>
                         </tr>
                     </ng-template>
                     <ng-template pTemplate="body" let-element>
@@ -232,58 +169,52 @@
                             <td>
                                 <p-tableCheckbox [value]="element"></p-tableCheckbox>
                             </td>
-                                    
-                        <td>{{element.libelle}}</td>
-                            
-                                    
-                        <td>{{element.code}}</td>
-                            
-                                    
-                        <td>{{element.style}}</td>
-                            
-                                    
-                        <td>{{element.nom}}</td>
-                            
-                                    
-                        <td>{{element.prenom}}</td>
-                            
-                                    
+
+                        <td>{{element.nom}} {{element.prenom}}</td>
+
+
                         <td>{{element.email}}</td>
-                            
-                                    
-                        <td>{{element.password}}</td>
-                            
-                                    
+
+
                         <td>
-                            <p-tag severity="{{element.langue?.code}}" value="{{element.langue?.libelle}}" [rounded]="true" />
+                            <p-tag severity="{{element.langue?.style}}" value="{{element.langue?.libelle}}" [rounded]="true" />
                         </td>
-                            
-                                    
-                        <td>
-                            <p-tag severity="{{element.niveauLangue?.code}}" value="{{element.niveauLangue?.libelle}}" [rounded]="true" />
+
+
+                        <td style="text-align:center;">
+                            <p-tag severity="{{element.niveauLangue?.style}}" value="{{element.niveauLangue?.libelle}}" [rounded]="true" />
                         </td>
-                            
-                                     <!-- 
-                        <td>
-                            <p-tag severity="{{element.metier?.code}}" value="{{element.metier?.libelle}}" [rounded]="true" />
+
+                        <td style="text-align:center;">
+                            <p-tag severity="{{element.metier?.style}}" value="{{element.metier?.libelle}}" [rounded]="true" />
                         </td>
-                             --> 
-                                     <!-- 
+
+                                     <!--
                         <td>{{element.nombreHeureExperience}}</td>
-                             --> 
-                                     <!-- 
+                             -->
+                                     <!--
                         <td>
                             <p-tag severity="{{element.etatInscription?.code}}" value="{{element.etatInscription?.libelle}}" [rounded]="true" />
                         </td>
-                             --> 
-                                     <!-- 
+                             -->
+                                     <!--
                         <td>{{element.collaborateur?.email}}</td>
-                             --> 
+                             -->
                             <td>
                                 <button pButton pRipple icon="pi pi-pencil"  class="p-button-rounded p-button-info mr-2" (click)="edit(element)"  *ngIf="editActionIsValid"></button>
                                 <button pButton pRipple icon="pi pi-list" class="p-button-rounded p-button-secondary mr-2" (click)="view(element)"  *ngIf="viewActionIsValid"></button>
-                                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger mr-2" (click)="delete(element)"  *ngIf="deleteActionIsValid"></button>
-                                <button pButton pRipple icon="pi pi-copy" class="p-button-rounded p-button-raised p-button-warning mr-2" (click)="duplicate(element)"  *ngIf="duplicateActionIsValid"></button>
+                                <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger mr-2" (click)="delete(element)"  *ngIf="deleteActionIsValid"></button>
+<!--                                <button pButton pRipple icon="pi pi-copy" class="p-button-rounded p-button-raised p-button-warning mr-2" (click)="duplicate(element)"  *ngIf="duplicateActionIsValid"></button>-->
+                                <button
+                                    pButton
+                                    pRipple
+                                    icon="pi pi-calendar"
+                                    class="p-button-rounded p-button-raised p-button-success mr-2"
+                                    (click)="openCreateReunion(element)" *ngIf="createActionReunionIsValid"
+                                    >
+                                </button>
+                                <button pButton pRipple icon="pi pi-user-plus" class="p-button-rounded p-button-raised p-button-warning mr-2"  *ngIf="duplicateActionIsValid"></button>
+
                             </td>
                         </tr>
                     </ng-template>
@@ -299,9 +230,11 @@
 
         </div>
 
+
         <app-inscription-create-admin  *ngIf="createDialog  && createActionIsValid"></app-inscription-create-admin>
         <app-inscription-edit-admin  *ngIf="editDialog  && editActionIsValid"></app-inscription-edit-admin>
         <app-inscription-view-admin  *ngIf="viewDialog  && viewActionIsValid"></app-inscription-view-admin>
+        <app-reunion-create-admin  *ngIf="createDialogReunion  && createActionReunionIsValid"></app-reunion-create-admin>
         <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
     </div>
 </div>

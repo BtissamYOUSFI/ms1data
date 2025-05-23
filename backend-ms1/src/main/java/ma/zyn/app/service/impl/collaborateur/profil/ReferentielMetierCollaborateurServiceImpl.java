@@ -7,7 +7,7 @@ import ma.zyn.app.dao.criteria.core.profil.ReferentielMetierCriteria;
 import ma.zyn.app.dao.facade.core.profil.ReferentielMetierDao;
 import ma.zyn.app.dao.specification.core.profil.ReferentielMetierSpecification;
 import ma.zyn.app.service.facade.collaborateur.profil.ReferentielMetierCollaborateurService;
-import ma.zyn.app.zynerator.service.AbstractServiceImpl;
+
 import static ma.zyn.app.zynerator.util.ListUtil.*;
 
 import org.springframework.stereotype.Service;
@@ -25,13 +25,9 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import ma.zyn.app.service.facade.collaborateur.profil.MetierCollaborateurService ;
-import ma.zyn.app.bean.core.profil.Metier ;
 import ma.zyn.app.service.facade.collaborateur.profil.NiveauLangueCollaborateurService ;
-import ma.zyn.app.bean.core.profil.NiveauLangue ;
 import ma.zyn.app.service.facade.collaborateur.profil.LangueCollaborateurService ;
-import ma.zyn.app.bean.core.profil.Langue ;
 
-import java.util.List;
 @Service
 public class ReferentielMetierCollaborateurServiceImpl implements ReferentielMetierCollaborateurService {
 
@@ -100,7 +96,7 @@ public class ReferentielMetierCollaborateurServiceImpl implements ReferentielMet
         return ((Long) dao.count(mySpecification)).intValue();
     }
 
-    public List<ReferentielMetier> findByMetierCode(String code){
+    public ReferentielMetier findByMetierCode(String code){
         return dao.findByMetierCode(code);
     }
     public List<ReferentielMetier> findByMetierId(Long id){

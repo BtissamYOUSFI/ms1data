@@ -48,6 +48,9 @@ export class ReferentielMetierAdminService {
         this.API_PERMISSION = environment.apiUrl + 'modelPermissionUser/';
     }
 
+    public importExcelData(data: any[]){
+        return this.http.post(this.API+"import/", data);
+    }
 
     public findAll() {
         return this.http.get<Array<ReferentielMetierDto>>(this.API);

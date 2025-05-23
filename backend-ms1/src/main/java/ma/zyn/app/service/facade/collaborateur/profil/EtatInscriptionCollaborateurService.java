@@ -47,4 +47,6 @@ public interface EtatInscriptionCollaborateurService {
 
     public String uploadFile(String checksumOld, String tempUpladedFile,String destinationFilePath) throws Exception ;
 
+    EtatInscription findByCode(String code);
+
 }

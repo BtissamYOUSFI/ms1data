@@ -38,9 +38,6 @@ import ma.zyn.app.zynerator.dto.FileTempDto;
 @RequestMapping("/api/collaborateur/inscription/")
 public class InscriptionRestCollaborateur {
 
-
-
-
     @Operation(summary = "Finds a list of all inscriptions")
     @GetMapping("")
     public ResponseEntity<List<InscriptionDto>> findAll() throws Exception {
@@ -55,19 +52,6 @@ public class InscriptionRestCollaborateur {
         return res;
     }
 
-    @Operation(summary = "Finds an optimized list of all inscriptions")
-    @GetMapping("optimized")
-    public ResponseEntity<List<InscriptionDto>> findAllOptimized() throws Exception {
-        ResponseEntity<List<InscriptionDto>> res = null;
-        List<Inscription> list = service.findAllOptimized();
-        HttpStatus status = HttpStatus.NO_CONTENT;
-        converter.initObject(true);
-        List<InscriptionDto> dtos  = converter.toDto(list);
-        if (dtos != null && !dtos.isEmpty())
-            status = HttpStatus.OK;
-        res = new ResponseEntity<>(dtos, status);
-        return res;
-    }
 
     @Operation(summary = "Finds a inscription by id")
     @GetMapping("id/{id}")
@@ -81,17 +65,7 @@ public class InscriptionRestCollaborateur {
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
 
-    @Operation(summary = "Finds a inscription by libelle")
-    @GetMapping("libelle/{libelle}")
-    public ResponseEntity<InscriptionDto> findByLibelle(@PathVariable String libelle) {
-	    Inscription t = service.findByReferenceEntity(new Inscription(libelle));
-        if (t != null) {
-            converter.init(true);
-            InscriptionDto dto = converter.toDto(t);
-            return getDtoResponseEntity(dto);
-        }
-        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
-    }
+
 
     @Operation(summary = "Saves the specified  inscription")
     @PostMapping("")

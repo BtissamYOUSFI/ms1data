@@ -1,5 +1,5 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import { SelectItem } from 'primeng/api';
+import {MenuItem, SelectItem} from 'primeng/api';
 import { LayoutService } from './service/app.layout.service';
 import {AppLayoutComponent} from './app.layout.component';
 import {AppComponent} from 'src/app/app.component';
@@ -7,6 +7,7 @@ import {TranslateService} from '@ngx-translate/core';
 import {UserService} from 'src/app/zynerator/security/shared/service/User.service';
 import {UserDto} from 'src/app/zynerator/security/shared/model/User.model';
 import {AuthService} from 'src/app/zynerator/security/shared/service/Auth.service';
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'app-topbar',
@@ -17,7 +18,7 @@ export class AppTopBarComponent implements OnInit{
     editDialog = false ;
     languageOptions: SelectItem[];
     selectedLanguage: string;
-
+    userMenuItems: MenuItem[] = [];
 
 
 
@@ -36,6 +37,7 @@ export class AppTopBarComponent implements OnInit{
     public editUser(){
         this.userService.edit().subscribe(data => this.authenticatedUser = data);
         this.authService.loadInfos();
+        console.log(this.authService.loadInfos());
         this.editDialog = false;
     }
 
@@ -45,7 +47,7 @@ export class AppTopBarComponent implements OnInit{
 
 
 
-    constructor(public  layoutService:LayoutService ,public app: AppComponent, public appMain: AppLayoutComponent, private authService: AuthService, private translateService: TranslateService, private userService: UserService) {
+    constructor(public  layoutService:LayoutService ,public app: AppComponent, public appMain: AppLayoutComponent, private authService: AuthService, private translateService: TranslateService, private userService: UserService, private router: Router) {
         this.languageOptions = [
             { label: 'English', value: 'en' },
             { label: 'Français', value: 'fr' },
@@ -61,6 +63,28 @@ export class AppTopBarComponent implements OnInit{
         if ( this.authService.authenticatedUser.roleUsers[0].role.authority === 'ROLE_ADMIN') {
             this.roleAdmin = true;
         }
+        this.initUserMenu();
+    }
+
+    initUserMenu() {
+        this.userMenuItems = [
+            {
+                label: 'View Profile',
+                icon: 'pi pi-user',
+                command: () => {
+                    this.router.navigate(['/profile']);
+                }
+            },
+            {
+                label: 'Log Out',
+                icon: 'pi pi-sign-out',
+                command: () => {
+                    this.logout();
+                    console.log('Logging out');
+                    this.router.navigate(['/login']);
+                }
+            }
+        ];
     }
 
     logout(){

@@ -7,7 +7,7 @@ import ma.zyn.app.dao.criteria.core.profil.ReferentielMetierCriteria;
 import ma.zyn.app.dao.facade.core.profil.ReferentielMetierDao;
 import ma.zyn.app.dao.specification.core.profil.ReferentielMetierSpecification;
 import ma.zyn.app.service.facade.admin.profil.ReferentielMetierAdminService;
-import ma.zyn.app.zynerator.service.AbstractServiceImpl;
+
 import static ma.zyn.app.zynerator.util.ListUtil.*;
 
 import org.springframework.stereotype.Service;
@@ -31,9 +31,71 @@ import ma.zyn.app.bean.core.profil.NiveauLangue ;
 import ma.zyn.app.service.facade.admin.profil.LangueAdminService ;
 import ma.zyn.app.bean.core.profil.Langue ;
 
-import java.util.List;
+import java.util.Map;
+
 @Service
 public class ReferentielMetierAdminServiceImpl implements ReferentielMetierAdminService {
+
+    @Override
+    public String importExcelData(List<Map<String, Object>> rows) {
+        for (Map<String, Object> row : rows) {
+            String code =row.get("code").toString();
+            String description = (String) row.get("description");
+            String libelle = (String) row.get("libelle");
+            Integer nombreHeuresExperienceMin = (Integer) row.get("nombreHeuresExperienceMin");
+            Object scelleValue = row.get("scelleRouge");
+            Boolean scelleRouge = scelleValue != null && Boolean.parseBoolean(scelleValue.toString());
+            String langueCode = (String) row.get("langue");
+            String metierCode = (String) row.get("metier");
+            String niveauLangueCode = (String) row.get("niveauLangue");
+            Langue langue = langueService.findByCode(langueCode);
+            Metier metier = metierService.findByCode(metierCode);
+            NiveauLangue niveauLangue = niveauLangueService.findByCode(niveauLangueCode);
+
+            ReferentielMetier existing = dao.findByCode(code);
+            if (existing != null) {
+                continue;
+            }
+
+            ReferentielMetier referentielMetier = new ReferentielMetier(
+                    code,
+                    description,
+                    libelle,
+                    nombreHeuresExperienceMin,
+                    scelleRouge,
+                    langue,
+                    metier,
+                    niveauLangue
+            );
+
+            dao.save(referentielMetier);
+        }
+
+        return "Import réussi";
+    }
+//    public String importExcelData(List<ReferentielMetier> list) {
+//        for (ReferentielMetier element : list) {
+//            Langue langue = langueService.findByCode(element.getLangue().getCode());
+//            Metier metier = metierService.findByCode(element.getMetier().getCode());
+//            NiveauLangue niveauLangue = niveauLangueService.findByCode(element.getNiveauLangue().getCode());
+//
+//            ReferentielMetier referentielMetier = new ReferentielMetier(
+//                    element.getId(),
+//                    element.getCode(),
+//                    element.getDescription(),
+//                    element.getLibelle(),
+//                    element.getNombreHeuresExperienceMin(),
+//                    element.getScelleRouge(),
+//                    langue,
+//                    metier,
+//                    niveauLangue
+//            );
+//
+//            dao.save(referentielMetier);
+//        }
+//
+//        return "Données importées avec succès";
+//    }
 
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class, readOnly = false)
     public ReferentielMetier update(ReferentielMetier t) {
@@ -100,7 +162,7 @@ public class ReferentielMetierAdminServiceImpl implements ReferentielMetierAdmin
         return ((Long) dao.count(mySpecification)).intValue();
     }
 
-    public List<ReferentielMetier> findByMetierCode(String code){
+    public ReferentielMetier findByMetierCode(String code){
         return dao.findByMetierCode(code);
     }
     public List<ReferentielMetier> findByMetierId(Long id){

@@ -21,6 +21,7 @@ export class CollaborateurDto extends BaseDto{
    public accountNonLocked: null | boolean;
 
     public password: string;
+    public phone: string;
 
 
 
@@ -36,6 +37,7 @@ export class CollaborateurDto extends BaseDto{
         this.passwordChanged = null;
         this.accountNonLocked = null;
         this.password = '';
+        this.phone=''
 
         }
 

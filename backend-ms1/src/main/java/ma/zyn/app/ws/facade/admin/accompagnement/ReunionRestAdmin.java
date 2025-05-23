@@ -5,8 +5,11 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import ma.zyn.app.service.impl.admin.accompagnement.EmailService;
+import ma.zyn.app.ws.dto.accompagnement.EmailDto;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import java.util.Arrays;
 import java.util.ArrayList;
@@ -38,7 +41,11 @@ import ma.zyn.app.zynerator.dto.FileTempDto;
 @RequestMapping("/api/admin/reunion/")
 public class ReunionRestAdmin {
 
-
+    @PostMapping("send-email/")
+    public ResponseEntity<?> sendEmail(@RequestBody EmailDto email) {
+        emailService.sendSimpleMessage(email.getTo(), email.getSubject(), email.getMessage());
+        return ResponseEntity.ok().build();
+    }
 
 
     @Operation(summary = "Finds a list of all reunions")
@@ -235,7 +242,9 @@ public class ReunionRestAdmin {
     private final ReunionAdminService service;
     private final ReunionConverter converter;
 
-
+    @Autowired
+    @Qualifier("customEmailService")
+    private  EmailService emailService;
 
 
 

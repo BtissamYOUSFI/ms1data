@@ -23,6 +23,7 @@ import { ReferentielMetierListCollaborateurComponent } from './referentiel-metie
 import { InscriptionListCollaborateurComponent } from './inscription/list/inscription-list-collaborateur.component';
 import { NiveauLangueListCollaborateurComponent } from './niveau-langue/list/niveau-langue-list-collaborateur.component';
 import { MetierListCollaborateurComponent } from './metier/list/metier-list-collaborateur.component';
+import {InscriptionCreateCollaborateurComponent} from "./inscription/create/inscription-create-collaborateur.component";
 @NgModule({
     imports: [
         RouterModule.forChild(
@@ -126,9 +127,13 @@ import { MetierListCollaborateurComponent } from './metier/list/metier-list-coll
                         },
 
                         {
-
                             path: 'inscription',
                             children: [
+                                {
+                                    path: 'create',
+                                    component: InscriptionCreateCollaborateurComponent ,
+                                    canActivate: [AuthGuard]
+                                },
                                 {
                                     path: 'list',
                                     component: InscriptionListCollaborateurComponent ,

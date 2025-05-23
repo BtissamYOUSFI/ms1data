@@ -22,12 +22,12 @@ constructor(public layoutService: LayoutService, public app: AppComponent, publi
       [
 
 				{
-                    label: 'Pages',
+                    // label: 'Pages',
                     icon: 'pi pi-fw pi-briefcase',
                     items: [
 					  {
 						label: 'Gestion des Collaborateurs',
-						icon: 'pi pi-wallet',
+						icon: 'pi pi-user-edit',
 						items: [
 								  {
 									label: 'Liste collaborateur',
@@ -38,7 +38,7 @@ constructor(public layoutService: LayoutService, public app: AppComponent, publi
 					  },
 					  {
 						label: 'Paiements',
-						icon: 'pi pi-wallet',
+						icon: 'pi pi-credit-card',
 						items: [
 								  {
 									label: 'Liste status paiement',
@@ -59,7 +59,7 @@ constructor(public layoutService: LayoutService, public app: AppComponent, publi
 					  },
 					  {
 						label: 'Gestion des Inscriptions',
-						icon: 'pi pi-wallet',
+						icon: 'pi pi-user-plus',
 						items: [
 								  {
 									label: 'Liste inscription',
@@ -70,7 +70,7 @@ constructor(public layoutService: LayoutService, public app: AppComponent, publi
 					  },
 					  {
 						label: 'Profil Utilisateur',
-						icon: 'pi pi-wallet',
+						icon: 'pi pi-cog',
 						items: [
 								  {
 									label: 'Liste etat inscription',
@@ -101,7 +101,7 @@ constructor(public layoutService: LayoutService, public app: AppComponent, publi
 					  },
 					  {
 						label: 'Gestion des Réunions',
-						icon: 'pi pi-wallet',
+						icon: 'pi pi-calendar',
 						items: [
 								  {
 									label: 'Liste etat reunion',
@@ -118,7 +118,7 @@ constructor(public layoutService: LayoutService, public app: AppComponent, publi
 
 				   {
 					  label: 'Security Management',
-					  icon: 'pi pi-wallet',
+					  icon: 'pi pi-lock',
 					  items: [
 						  {
 							  label: 'List User',
@@ -144,7 +144,7 @@ constructor(public layoutService: LayoutService, public app: AppComponent, publi
       [
 
 				{
-                    label: 'Pages',
+                    // label: 'Pages',
                     icon: 'pi pi-fw pi-briefcase',
                     items: [
 					  {

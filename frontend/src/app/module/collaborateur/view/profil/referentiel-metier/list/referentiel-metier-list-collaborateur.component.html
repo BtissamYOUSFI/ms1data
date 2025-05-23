@@ -87,7 +87,7 @@
                             <th style="width: 3rem">
                                 <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
                             </th>
-                                    
+
                         <th pSortableColumn="libelle">
                             <div class="p-d-flex p-jc-between p-ai-center">
                                 <span>{{'referentielMetier.libelle' | translate}}</span>
@@ -95,8 +95,8 @@
                                 <p-columnFilter type="text" field="element.libelle" display="menu" class="ml-auto"></p-columnFilter>
                             </div>
                         </th>
-                                
-                                    
+
+
                         <th pSortableColumn="code">
                             <div class="p-d-flex p-jc-between p-ai-center">
                                 <span>{{'referentielMetier.code' | translate}}</span>
@@ -104,47 +104,47 @@
                                 <p-columnFilter type="text" field="element.code" display="menu" class="ml-auto"></p-columnFilter>
                             </div>
                         </th>
-                                
-                                    
+
+
                         <th pSortableColumn="metier">
                             <div class="p-d-flex p-jc-between p-ai-center">
                                 <span>{{'referentielMetier.metier' | translate}}</span>
                                 <p-sortIcon field="metier"></p-sortIcon>
                             </div>
                         </th>
-                                
-                                    
+
+
                         <th pSortableColumn="nombreHeuresExperienceMin">
                             <div class="p-d-flex p-jc-between p-ai-center">
                                 <span>{{'referentielMetier.nombreHeuresExperienceMin' | translate}}</span>
                                 <p-sortIcon field="nombreHeuresExperienceMin"></p-sortIcon>
                             </div>
                         </th>
-                                
-                                    
+
+
                         <th pSortableColumn="langue">
                             <div class="p-d-flex p-jc-between p-ai-center">
                                 <span>{{'referentielMetier.langue' | translate}}</span>
                                 <p-sortIcon field="langue"></p-sortIcon>
                             </div>
                         </th>
-                                
-                                    
+
+
                         <th pSortableColumn="niveauLangue">
                             <div class="p-d-flex p-jc-between p-ai-center">
                                 <span>{{'referentielMetier.niveauLangue' | translate}}</span>
                                 <p-sortIcon field="niveauLangue"></p-sortIcon>
                             </div>
                         </th>
-                                
-                                    
+
+
                         <th pSortableColumn="scelleRouge">
                             <div class="p-d-flex p-jc-between p-ai-center">
                                 <span>{{'referentielMetier.scelleRouge' | translate}}</span>
                                 <p-sortIcon field="scelleRouge"></p-sortIcon>
                             </div>
                         </th>
-                                
+
                             <th>Actions</th>
                         </tr>
                     </ng-template>
@@ -153,35 +153,35 @@
                             <td>
                                 <p-tableCheckbox [value]="element"></p-tableCheckbox>
                             </td>
-                                    
+
                         <td>{{element.libelle}}</td>
-                            
-                                    
+
+
                         <td>{{element.code}}</td>
-                            
-                                    
+
+
                         <td>
                             <p-tag severity="{{element.metier?.code}}" value="{{element.metier?.libelle}}" [rounded]="true" />
                         </td>
-                            
-                                    
+
+
                         <td>{{element.nombreHeuresExperienceMin}}</td>
-                            
-                                    
+
+
                         <td>
                             <p-tag severity="{{element.langue?.code}}" value="{{element.langue?.libelle}}" [rounded]="true" />
                         </td>
-                            
-                                    
+
+
                         <td>
                             <p-tag severity="{{element.niveauLangue?.code}}" value="{{element.niveauLangue?.libelle}}" [rounded]="true" />
                         </td>
-                            
-                                    
+
+
                         <td><i *ngIf="element.scelleRouge" class="pi pi-check checked-toogle"></i>
                             <i *ngIf="!element.scelleRouge" class="pi pi-times unchecked-toogle"></i>
                         </td>
-                            
+
                             <td>
                                 <button pButton pRipple icon="pi pi-pencil"  class="p-button-rounded p-button-info mr-2" (click)="edit(element)"  *ngIf="editActionIsValid"></button>
                                 <button pButton pRipple icon="pi pi-list" class="p-button-rounded p-button-secondary mr-2" (click)="view(element)"  *ngIf="viewActionIsValid"></button>

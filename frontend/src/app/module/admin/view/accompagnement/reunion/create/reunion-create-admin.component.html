@@ -21,10 +21,10 @@
 
 
                                                 <div class="field col-12 md:col-6">
-                                                    <label for="3">{{'reunion.style' | translate}}</label>
-                                                    <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'reunion.style' | translate}}" id="3" [(ngModel)]="item.style"
+                                                    <label for="3">Link</label>
+                                                    <input class="mb-2 mr-2" type="text" pInputText  placeholder="Link" id="3" [(ngModel)]="item.style"
                                                              />
-                                                    
+
                                                 </div>
 
 
@@ -32,7 +32,7 @@
                                                     <label for="4">{{'reunion.description' | translate}}</label>
                                                     <textarea id="4" pInputTextarea rows="5" cols="30" placeholder="{{'reunion.description' | translate}}"  [(ngModel)]="item.description"
                                                              ></textarea>
-                                                    
+
                                                 </div>
 
                                             <div class="field col-11 md:col-6">
@@ -40,16 +40,23 @@
                                                 <p-dropdown  appendTo="body"  [options]="collaborateurs" [(ngModel)]="item.collaborateur" id="5" [filter]="true" filterMatchMode="contains"
                                                         [showClear]="true" optionLabel="email" placeholder="{{'reunion.collaborateur' | translate}}"  >
                                                 </p-dropdown>
-                                                
+
                                             </div>
 
-                                            <div class="field col-11 md:col-6">
-                                                <label for="6">{{'reunion.etatReunion' | translate}}</label>
-                                                <p-dropdown  appendTo="body"  [options]="etatReunions" [(ngModel)]="item.etatReunion" id="6" [filter]="true" filterMatchMode="contains"
-                                                        [showClear]="true" optionLabel="libelle" placeholder="{{'reunion.etatReunion' | translate}}"  >
-                                                </p-dropdown>
-                                                
-                                            </div>
+<!--                                            <div class="field col-11 md:col-6">-->
+<!--                                                <label for="6">{{'reunion.etatReunion' | translate}}</label>-->
+<!--                                                <p-dropdown  appendTo="body"  [options]="etatReunions" [(ngModel)]="item.etatReunion" id="6" [filter]="true" filterMatchMode="contains"-->
+<!--                                                        [showClear]="true" optionLabel="libelle" placeholder="{{'reunion.etatReunion' | translate}}"  >-->
+<!--                                                </p-dropdown>-->
+
+<!--                                            </div>-->
+                                    <div class="field col-11 md:col-6">
+                                        <label for="6">{{'reunion.etatReunion' | translate}}</label>
+                                        <p-dropdown appendTo="body" [options]="etatReunions" [(ngModel)]="item.etatReunion" id="6" [filter]="true"
+                                                    filterMatchMode="contains" [showClear]="true" optionLabel="libelle"
+                                                    placeholder="{{'reunion.etatReunion' | translate}}">
+                                        </p-dropdown>
+                                    </div>
 
                                 </div>
                             </p-tabPanel>

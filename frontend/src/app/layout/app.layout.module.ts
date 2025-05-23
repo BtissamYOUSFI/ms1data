@@ -26,6 +26,7 @@ import {PasswordModule} from "primeng/password";
 import {MenuModule} from "primeng/menu";
 import {SplitButtonModule} from "primeng/splitbutton";
 import {DropdownModule} from "primeng/dropdown";
+import {MenubarModule} from "primeng/menubar";
 
 @NgModule({
     declarations: [
@@ -57,7 +58,8 @@ import {DropdownModule} from "primeng/dropdown";
         PasswordModule,
         MenuModule,
         SplitButtonModule,
-        DropdownModule
+        DropdownModule,
+        MenubarModule
     ],
     exports: [AppLayoutComponent]
 })

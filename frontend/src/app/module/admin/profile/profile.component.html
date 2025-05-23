@@ -1,0 +1,125 @@
+<div class="profile-container">
+    <div class="grid">
+        <!-- Profile Header -->
+        <div class="col-12">
+            <div class="profile-header card">
+                <div class="flex flex-column md:flex-row align-items-center justify-content-between">
+                    <div class="flex flex-column sm:flex-row align-items-center mb-3 md:mb-0">
+                        <div class="profile-avatar mb-3 sm:mb-0">
+                            <p-avatar icon="pi pi-user" size="xlarge" [style]="{'background-color':'var(--primary-color)', 'color': '#ffffff'}"></p-avatar>
+                        </div>
+                        <div class="profile-info sm:ml-4 text-center sm:text-left">
+                            <h1 class="m-0">{{ user.firstName || 'N/A' }}</h1>
+                            <p class="text-500 m-0">{{ user.email || 'N/A' }}</p>
+                            <div class="flex flex-wrap justify-content-center sm:justify-content-start">
+                                <p-chip *ngFor="let roleUser of user.roleUsers"
+                                        [label]="roleUser.role?.authority || 'No Role'"
+                                        styleClass="mr-2 mt-2"
+                                        [style]="{'background-color': '#E3F2FD'}"></p-chip>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-column sm:flex-row w-full sm:w-auto">
+                        <p-button *ngIf="!isEditing" label="Edit Profile" icon="pi pi-pencil"
+                                  styleClass="p-button-outlined p-button-light mb-2 sm:mb-0 sm:mr-2 w-full sm:w-auto text-red-500"
+                                  (click)="startEditing()"></p-button>
+                        <p-button *ngIf="isEditing" label="Cancel" icon="pi pi-times"
+                                  styleClass="p-button-outlined p-button-danger mb-2 sm:mb-0 sm:mr-2 w-full sm:w-auto"
+                                  (click)="cancelEditing()"></p-button>
+                        <p-button *ngIf="isEditing" label="Update" icon="pi pi-check"
+                                  styleClass="p-button-outlined p-button-success mb-2 sm:mb-0 sm:mr-2 w-full sm:w-auto"
+                                  (click)="updateProfile()"></p-button>
+                        <p-button label="Change Password" icon="pi pi-lock"
+                                  styleClass="p-button-outlined p-button-light w-full sm:w-auto"></p-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Details -->
+        <div class="col-12">
+            <p-panel header="Account Information" styleClass="mb-3">
+                <div class="grid">
+                    <div class="col-12 md:col-6 field">
+                        <label for="username">Username</label>
+                        <div class="p-inputgroup">
+                            <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                            <input id="username" type="text" pInputText [(ngModel)]="user.username" [readonly]="!isEditing">
+                        </div>
+                    </div>
+
+                    <div class="col-12 md:col-6 field">
+                        <label for="email">Email</label>
+                        <div class="p-inputgroup">
+                            <span class="p-inputgroup-addon"><i class="pi pi-envelope"></i></span>
+                            <input id="email" type="text" pInputText [(ngModel)]="user.email" [readonly]="!isEditing">
+                        </div>
+                    </div>
+
+                    <div class="col-12 md:col-6 field">
+                        <label for="firstName">First Name</label>
+                        <div class="p-inputgroup">
+                            <span class="p-inputgroup-addon"><i class="pi pi-id-card"></i></span>
+                            <input id="firstName" type="text" pInputText [(ngModel)]="user.firstName" [readonly]="!isEditing">
+                        </div>
+                    </div>
+
+                    <div class="col-12 md:col-6 field">
+                        <label for="lastName">Last Name</label>
+                        <div class="p-inputgroup">
+                            <span class="p-inputgroup-addon"><i class="pi pi-id-card"></i></span>
+                            <input id="lastName" type="text" pInputText [(ngModel)]="user.lastName" [readonly]="!isEditing">
+                        </div>
+                    </div>
+                </div>
+            </p-panel>
+
+            <p-panel header="Account Status" styleClass="mb-3">
+                <div class="grid">
+                    <div class="col-12 md:col-6 field">
+                        <div class="flex align-items-center justify-content-between">
+                            <label for="enabled">Account Enabled</label>
+                            <p-inputSwitch [(ngModel)]="user.enabled" [disabled]="true"></p-inputSwitch>
+                        </div>
+                    </div>
+
+                    <div class="col-12 md:col-6 field">
+                        <div class="flex align-items-center justify-content-between">
+                            <label for="accountNonLocked">Account Not Locked</label>
+                            <p-inputSwitch [(ngModel)]="user.accountNonLocked" [disabled]="true"></p-inputSwitch>
+                        </div>
+                    </div>
+
+                    <div class="col-12 md:col-6 field">
+                        <div class="flex align-items-center justify-content-between">
+                            <label for="accountNonExpired">Account Not Expired</label>
+                            <p-inputSwitch [(ngModel)]="user.accountNonExpired" [disabled]="true"></p-inputSwitch>
+                        </div>
+                    </div>
+
+                    <div class="col-12 md:col-6 field">
+                        <div class="flex align-items-center justify-content-between">
+                            <label for="credentialsNonExpired">Credentials Not Expired</label>
+                            <p-inputSwitch [(ngModel)]="user.credentialsNonExpired" [disabled]="true"></p-inputSwitch>
+                        </div>
+                    </div>
+                </div>
+            </p-panel>
+
+            <p-panel header="Permissions" styleClass="mb-3">
+                <p-table [value]="user.modelPermissionUsers" [tableStyle]="{'min-width': '50rem'}" styleClass="p-datatable-sm">
+                    <ng-template pTemplate="body" let-permission>
+                        <tr>
+                            <td>{{ permission?.name }}</td>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="emptymessage">
+                        <tr>
+                            <td>No permissions found.</td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </p-panel>
+        </div>
+    </div>
+</div>

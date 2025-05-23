@@ -57,10 +57,8 @@ public class InscriptionConverter {
         Inscription item = new Inscription();
             if(StringUtil.isNotEmpty(dto.getId()))
                 item.setId(dto.getId());
-            if(StringUtil.isNotEmpty(dto.getLibelle()))
-                item.setLibelle(dto.getLibelle());
-            if(StringUtil.isNotEmpty(dto.getCode()))
-                item.setCode(dto.getCode());
+            if(StringUtil.isNotEmpty(dto.getPhone()))
+                item.setPhone(dto.getPhone());
             if(StringUtil.isNotEmpty(dto.getStyle()))
                 item.setStyle(dto.getStyle());
             if(StringUtil.isNotEmpty(dto.getDescription()))
@@ -105,10 +103,8 @@ public class InscriptionConverter {
             InscriptionDto dto = new InscriptionDto();
             if(StringUtil.isNotEmpty(item.getId()))
                 dto.setId(item.getId());
-            if(StringUtil.isNotEmpty(item.getLibelle()))
-                dto.setLibelle(item.getLibelle());
-            if(StringUtil.isNotEmpty(item.getCode()))
-                dto.setCode(item.getCode());
+            if(StringUtil.isNotEmpty(item.getPhone()))
+                dto.setPhone(item.getPhone());
             if(StringUtil.isNotEmpty(item.getStyle()))
                 dto.setStyle(item.getStyle());
             if(StringUtil.isNotEmpty(item.getDescription()))

@@ -204,6 +204,7 @@
         "style": "Style",
         "description": "Description",
         "nom": "Nom",
+        "nomComplet": "Nom",
         "prenom": "Prenom",
         "email": "Email",
         "password": "Password",
@@ -311,6 +312,27 @@
         "header": "Liste des metiers",
         "deleteMetierConfirmationMessage": "Are you sure you want to delete metier",
         "deleteMetiersConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+    "home": {
+        "title": "Connect, Grow & Succeed in the Trades",
+        "description": "Join Canada's Premier Network for Skilled Trade Professionals",
+        "register": "Register as a Professional",
+        "login": "Login"
+    },
+
+    "registration": {
+        "lastName" : "Last Name",
+        "firstName": "First Name",
+        "email": "Email",
+        "password": "Password",
+        "language": "Language",
+        "languageLevel": "Language Level",
+        "job": "Job",
+        "nbr": "Number of Hours of Experience",
+        "phone": "Phone number",
+        "description": "Description",
+        "registrationForm": "Registration Form"
     },
 
 "appName": "GED"

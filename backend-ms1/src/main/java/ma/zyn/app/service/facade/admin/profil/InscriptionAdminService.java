@@ -52,7 +52,6 @@ public interface InscriptionAdminService {
 
     Inscription findWithAssociatedLists(Long id);
 
-    List<Inscription> findAllOptimized();
 
     List<Inscription> findAll();
 
