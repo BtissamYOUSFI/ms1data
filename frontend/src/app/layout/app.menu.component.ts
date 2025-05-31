@@ -6,6 +6,7 @@ import {AppComponent} from "../app.component";
 import {AuthService} from "../zynerator/security/shared/service/Auth.service";
 import {Router} from "@angular/router";
 import {AppLayoutComponent} from "./app.layout.component";
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-menu',
@@ -26,8 +27,8 @@ constructor(public layoutService: LayoutService, public app: AppComponent, publi
                     icon: 'pi pi-fw pi-briefcase',
                     items: [
 					  {
-						label: 'Gestion des Collaborateurs',
-						icon: 'pi pi-user-edit',
+						label: 'Collaborators',
+						icon: 'pi pi-user',
 						items: [
 								  {
 									label: 'Liste collaborateur',
@@ -58,7 +59,7 @@ constructor(public layoutService: LayoutService, public app: AppComponent, publi
 						]
 					  },
 					  {
-						label: 'Gestion des Inscriptions',
+						label: 'Inscriptions',
 						icon: 'pi pi-user-plus',
 						items: [
 								  {
@@ -69,7 +70,7 @@ constructor(public layoutService: LayoutService, public app: AppComponent, publi
 						]
 					  },
 					  {
-						label: 'Profil Utilisateur',
+						label: 'User Profile',
 						icon: 'pi pi-cog',
 						items: [
 								  {
@@ -100,7 +101,7 @@ constructor(public layoutService: LayoutService, public app: AppComponent, publi
 						]
 					  },
 					  {
-						label: 'Gestion des Réunions',
+						label: 'Meetings',
 						icon: 'pi pi-calendar',
 						items: [
 								  {
@@ -115,9 +116,25 @@ constructor(public layoutService: LayoutService, public app: AppComponent, publi
 								  },
 						]
 					  },
+                        {
+                            label: 'Template Email',
+                            icon: 'pi pi-envelope',
+                            items: [
+                                {
+                                    label: 'Liste Template Email Manager',
+                                    icon: 'pi pi-fw pi-plus-circle',
+                                    routerLink: ['/app/admin/accompagnement/template-email-manager/list']
+                                },
+                                {
+                                    label: 'Liste Template Email Collaborator',
+                                    icon: 'pi pi-fw pi-plus-circle',
+                                    routerLink: ['/app/admin/accompagnement/template-email-collaborator/list']
+                                },
+                            ]
+                        },
 
 				   {
-					  label: 'Security Management',
+					  label: 'Security',
 					  icon: 'pi pi-lock',
 					  items: [
 						  {
@@ -136,7 +153,15 @@ constructor(public layoutService: LayoutService, public app: AppComponent, publi
 							  routerLink: ['/app/admin/security/action-permission/list']
 						  },
 					  ]
-				  }
+				  },
+                        // {
+                        //     label: 'Log out',
+                        //     icon: 'pi pi-fw pi-sign-in',
+                        //     styleClass: 'logout-menu-item',
+                        //     command: () => {
+                        //         this.authService.logout();
+                        //     }
+                        // }
 			]
 	    }
     ];
@@ -287,4 +312,21 @@ constructor(public layoutService: LayoutService, public app: AppComponent, publi
     onMenuClick(event) {
         this.appMain.onMenuClick(event);
     }
+
+    public logout(): void {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You are about to logout.",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, logout'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                this.authService.logout();
+            }
+        });
+    }
+
 }

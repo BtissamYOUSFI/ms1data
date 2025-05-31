@@ -1,15 +1,15 @@
 <div class="layout-topbar">
-        <button #menubutton class="p-link layout-menu-button layout-topbar-button" (click)="layoutService.onMenuToggle()">
-            <i class="pi pi-bars"></i>
-        </button>
+<!--        <button #menubutton class="p-link layout-menu-button layout-topbar-button" (click)="layoutService.onMenuToggle()">-->
+<!--            <i class="pi pi-bars"></i>-->
+<!--        </button>-->
     <a class="layout-topbar-logo" style="display: flex; align-items: center;" routerLink="">
-        <img src="https://flagcdn.com/ca.svg" alt="Canada Flag" height="60">
+        <img src="assets/layout/images/logo.png" alt="Canada Flag" style="height:50px;">
         <span class="logo-text">Artisan Portal</span>
     </a>
 
-<!--    <button #menubutton class="p-link layout-menu-button layout-topbar-button" (click)="layoutService.onMenuToggle()">-->
-<!--        <i class="pi pi-bars"></i>-->
-<!--    </button>-->
+    <button #menubutton class="p-link layout-menu-button layout-topbar-button" (click)="layoutService.onMenuToggle()">
+        <i class="pi pi-bars"></i>
+    </button>
 
     <button #topbarmenubutton class="p-link layout-topbar-menu-button layout-topbar-button" (click)="layoutService.showProfileSidebar()">
         <i class="pi pi-ellipsis-v"></i>

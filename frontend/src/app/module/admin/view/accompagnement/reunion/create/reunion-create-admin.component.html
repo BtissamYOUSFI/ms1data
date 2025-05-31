@@ -61,6 +61,59 @@
                                 </div>
                             </p-tabPanel>
 
+                            <p-tabPanel header="Email Manager">
+                                <div class="grid">
+                                    <div class="field col-12 md:col-6">
+                                        <label for="1">To<span style="color: red;">*</span></label>
+                                        <input class="mb-2 mr-2" type="text" pInputText  placeholder="To" id="1"
+                                               value="ibtissamyousfi111@gmail.com" readonly />
+<!--                                        <small class='p-error' *ngIf='!validReunionLibelle'>Libelle is obligatory.</small>-->
+                                    </div>
+
+                                    <div class="field col-12 md:col-6">
+                                        <label for="2">Subject<span style="color: red;">*</span></label>
+                                        <input class="mb-2 mr-2" type="text" pInputText  placeholder="Subject" id="2"
+                                                [value]="emailManager?.subject" readonly/>
+                                    </div>
+
+                                    <div class="field col-12 md:col-6">
+                                        <label for="4">Message</label>
+                                        <textarea id="4" pInputTextarea rows="5" cols="30" placeholder="Message" [value]="emailManager?.body" readonly
+                                        ></textarea>
+
+                                    </div>
+
+                                </div>
+                            </p-tabPanel>
+
+                            <p-tabPanel header="Email Collaborator">
+                                <div class="grid">
+                                    <div class="field col-12 md:col-6">
+                                        <label for="1">To<span style="color: red;">*</span></label>
+                                        <input class="mb-2 mr-2" type="text" pInputText  placeholder="To" id="1"
+                                               [value]="item.collaborateur?.email" readonly/>
+<!--                                        <small class='p-error' *ngIf='!validReunionLibelle'>Libelle is obligatory.</small>-->
+                                    </div>
+
+
+                                    <div class="field col-12 md:col-6">
+                                        <label for="2">Subject<span style="color: red;">*</span></label>
+                                        <input class="mb-2 mr-2" type="text" pInputText  placeholder="Subject" id="2"
+                                               [value]="emailCollaborator?.subject" readonly/>
+                                    </div>
+
+                                    <div class="field col-12 md:col-6">
+                                        <label for="4">Message</label>
+                                        <textarea id="4" pInputTextarea rows="5" cols="30" placeholder="Message"  [value]="emailCollaborator?.body" readonly
+                                        ></textarea>
+
+                                    </div>
+
+                                </div>
+                            </p-tabPanel>
+
+
+
                         </p-tabView>
 
             </ng-template>

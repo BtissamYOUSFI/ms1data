@@ -334,6 +334,31 @@
         "registrationForm": "Formulario de registro"
 
     },
+
+    "templateEmailCollaborator":{
+        "to": "To",
+        "collaborator": "Collaborator",
+        "subject": "Subject",
+        "body": "Body",
+        "templateEmailCollaborator": "Template email collaborator",
+        "tabPan": "Template email collaborator",
+        "header": "Liste des template email collaborators",
+        "deleteTemplateEmailCollaboratorConfirmationMessage": "Are you sure you want to delete template email collaborator",
+        "deleteTemplateEmailCollaboratorsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "templateEmailManager":{
+        "to": "To",
+        "manager": "Manager",
+        "subject": "Subject",
+        "body": "Body",
+        "templateEmailManager": "Template email manager",
+        "tabPan": "Template email manager",
+        "header": "Liste des template email managers",
+        "deleteTemplateEmailManagerConfirmationMessage": "Are you sure you want to delete template email manager",
+        "deleteTemplateEmailManagersConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
 "appName": "GED"
 }
 

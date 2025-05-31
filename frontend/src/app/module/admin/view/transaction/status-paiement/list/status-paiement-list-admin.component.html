@@ -56,10 +56,18 @@
                     </ng-template>
                     <ng-template pTemplate="header">
                         <tr>
-                            <th style="width: 3rem">
-                                <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
-                            </th>
-                                    
+                        <th style="width: 3rem">
+                            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                        </th>
+
+<!--                        <th pSortableColumn="code">-->
+<!--                            <div class="p-d-flex p-jc-between p-ai-center">-->
+<!--                                <span>{{'statusPaiement.code' | translate}}</span>-->
+<!--                                <p-sortIcon field="code"></p-sortIcon>-->
+<!--                                <p-columnFilter type="text" field="element.code" display="menu" class="ml-auto"></p-columnFilter>-->
+<!--                            </div>-->
+<!--                        </th>-->
+
                         <th pSortableColumn="libelle">
                             <div class="p-d-flex p-jc-between p-ai-center">
                                 <span>{{'statusPaiement.libelle' | translate}}</span>
@@ -67,49 +75,38 @@
                                 <p-columnFilter type="text" field="element.libelle" display="menu" class="ml-auto"></p-columnFilter>
                             </div>
                         </th>
-                                
-                                    
-                        <th pSortableColumn="code">
-                            <div class="p-d-flex p-jc-between p-ai-center">
-                                <span>{{'statusPaiement.code' | translate}}</span>
-                                <p-sortIcon field="code"></p-sortIcon>
-                                <p-columnFilter type="text" field="element.code" display="menu" class="ml-auto"></p-columnFilter>
-                            </div>
-                        </th>
-                                
-                                    
-                        <th pSortableColumn="style">
-                            <div class="p-d-flex p-jc-between p-ai-center">
-                                <span>{{'statusPaiement.style' | translate}}</span>
-                                <p-sortIcon field="style"></p-sortIcon>
-                                <p-columnFilter type="text" field="element.style" display="menu" class="ml-auto"></p-columnFilter>
-                            </div>
-                        </th>
-                                
+
+<!--                        <th pSortableColumn="style">-->
+<!--                            <div class="p-d-flex p-jc-between p-ai-center">-->
+<!--                                <span>{{'statusPaiement.style' | translate}}</span>-->
+<!--                                <p-sortIcon field="style"></p-sortIcon>-->
+<!--                                <p-columnFilter type="text" field="element.style" display="menu" class="ml-auto"></p-columnFilter>-->
+<!--                            </div>-->
+<!--                        </th>-->
+
                             <th>Actions</th>
                         </tr>
                     </ng-template>
                     <ng-template pTemplate="body" let-element>
                         <tr>
-                            <td>
-                                <p-tableCheckbox [value]="element"></p-tableCheckbox>
-                            </td>
-                                    
+                        <td>
+                            <p-tableCheckbox [value]="element"></p-tableCheckbox>
+                        </td>
+<!--                        <td>{{element.code}}</td>-->
+
                         <td>
                             <p-tag severity="{{element.style}}" value="{{element.libelle}}" [rounded]="true" />
                         </td>
-                            
-                                    
-                        <td>{{element.code}}</td>
-                            
-                                    
-                        <td>{{element.style}}</td>
-                            
+
+
+
+<!--                        <td>{{element.style}}</td>-->
+
                             <td>
                                 <button pButton pRipple icon="pi pi-pencil"  class="p-button-rounded p-button-info mr-2" (click)="edit(element)"  *ngIf="editActionIsValid"></button>
                                 <button pButton pRipple icon="pi pi-list" class="p-button-rounded p-button-secondary mr-2" (click)="view(element)"  *ngIf="viewActionIsValid"></button>
-                                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger mr-2" (click)="delete(element)"  *ngIf="deleteActionIsValid"></button>
-                                <button pButton pRipple icon="pi pi-copy" class="p-button-rounded p-button-raised p-button-warning mr-2" (click)="duplicate(element)"  *ngIf="duplicateActionIsValid"></button>
+                                <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger mr-2" (click)="delete(element)"  *ngIf="deleteActionIsValid"></button>
+<!--                                <button pButton pRipple icon="pi pi-copy" class="p-button-rounded p-button-raised p-button-warning mr-2" (click)="duplicate(element)"  *ngIf="duplicateActionIsValid"></button>-->
                             </td>
                         </tr>
                     </ng-template>

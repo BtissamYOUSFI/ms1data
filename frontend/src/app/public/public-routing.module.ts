@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
 import {HomePublicComponent} from 'src/app/public/home/home-public.component';
-import {ContactUsComponent} from 'src/app/public/contact-us/contact-us.component';
+// import {ContactUsComponent} from 'src/app/public/contact-us/contact-us.component';
 import {
     InscriptionCreateCollaborateurComponent
 } from "../module/collaborateur/view/profil/inscription/create/inscription-create-collaborateur.component";
@@ -42,15 +42,15 @@ import {VoiceRegistrationComponent} from "./voice-registration/voice-registratio
                                 }
                             ]
                         },
-                        {
-                            path: 'contact',
-                            children: [
-                                {
-                                    path: '',
-                                    component: ContactUsComponent,
-                                }
-                            ]
-                        }
+                        // {
+                        //     path: 'contact',
+                        //     children: [
+                        //         {
+                        //             path: '',
+                        //             component: ContactUsComponent,
+                        //         }
+                        //     ]
+                        // }
                     ]
                 },
             ]

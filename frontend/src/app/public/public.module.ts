@@ -26,14 +26,14 @@ import {TabViewModule} from 'primeng/tabview';
 import {SplitButtonModule} from 'primeng/splitbutton';
 import {MessageModule} from 'primeng/message';
 import {MessagesModule} from 'primeng/messages';
-import {PreloadpageComponent} from './preloadpage/preloadpage.component';
-import {MainComponent} from './main/main.component';
-import {StepsComponent} from './main/steps/steps.component';
-import {FrameworksComponent} from './main/frameworks/frameworks.component';
-import {FooterComponent} from './footer/footer.component';
+// import {PreloadpageComponent} from './preloadpage/preloadpage.component';
+// import {MainComponent} from './main/main.component';
+// import {StepsComponent} from './main/steps/steps.component';
+// import {FrameworksComponent} from './main/frameworks/frameworks.component';
+// import {FooterComponent} from './footer/footer.component';
 import {HomePublicComponent} from './home/home-public.component';
-import {ContactUsComponent} from './contact-us/contact-us.component';
-import {TopComponent} from './top/top.component';
+// import {ContactUsComponent} from './contact-us/contact-us.component';
+// import {TopComponent} from './top/top.component';
 import {CarouselModule} from "primeng/carousel";
 import { InscriptionComponent } from './inscription/inscription.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -48,14 +48,14 @@ import {SelectButtonModule} from "primeng/selectbutton";
 
 @NgModule({
     declarations: [
-        PreloadpageComponent,
-        MainComponent,
-        StepsComponent,
-        FrameworksComponent,
-        FooterComponent,
+        // PreloadpageComponent,
+        // MainComponent,
+        // StepsComponent,
+        // FrameworksComponent,
+        // FooterComponent,
         HomePublicComponent,
-        ContactUsComponent,
-        TopComponent,
+        // ContactUsComponent,
+        // TopComponent,
         InscriptionComponent,
         NavbarComponent,
         VoiceRegistrationComponent
@@ -96,8 +96,8 @@ import {SelectButtonModule} from "primeng/selectbutton";
         SelectButtonModule,
     ],
     exports: [
-        PreloadpageComponent,
-        MainComponent,
+        // PreloadpageComponent,
+        // MainComponent,
         NavbarComponent
 
     ],

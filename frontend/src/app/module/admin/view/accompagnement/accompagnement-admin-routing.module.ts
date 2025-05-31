@@ -20,6 +20,12 @@ import {AuthGuard} from 'src/app/zynerator/security/guards/auth.guard';
 import { EtatReunionListAdminComponent } from './etat-reunion/list/etat-reunion-list-admin.component';
 import { ReunionListAdminComponent } from './reunion/list/reunion-list-admin.component';
 import {ReunionCreateAdminComponent} from "./reunion/create/reunion-create-admin.component";
+import {
+    TemplateEmailManagerListAdminComponent
+} from "./template-email-manager/list/template-email-manager-list-admin.component";
+import {
+    TemplateEmailCollaboratorListAdminComponent
+} from "./template-email-collaborator/list/template-email-collaborator-list-admin.component";
 @NgModule({
     imports: [
         RouterModule.forChild(
@@ -97,7 +103,6 @@ import {ReunionCreateAdminComponent} from "./reunion/create/reunion-create-admin
                                 }
                             ]
                         },
-
                         {
 
                             path: 'reunion',
@@ -105,6 +110,30 @@ import {ReunionCreateAdminComponent} from "./reunion/create/reunion-create-admin
                                 {
                                     path: 'list',
                                     component: ReunionListAdminComponent ,
+                                    canActivate: [AuthGuard]
+                                }
+                            ]
+                        },
+
+
+                        {
+
+                            path: 'template-email-manager',
+                            children: [
+                                {
+                                    path: 'list',
+                                    component: TemplateEmailManagerListAdminComponent ,
+                                    canActivate: [AuthGuard]
+                                }
+                            ]
+                        },
+                        {
+
+                            path: 'template-email-collaborator',
+                            children: [
+                                {
+                                    path: 'list',
+                                    component: TemplateEmailCollaboratorListAdminComponent ,
                                     canActivate: [AuthGuard]
                                 }
                             ]

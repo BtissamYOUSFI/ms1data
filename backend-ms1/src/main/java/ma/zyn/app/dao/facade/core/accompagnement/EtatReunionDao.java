@@ -13,7 +13,6 @@ public interface EtatReunionDao extends AbstractRepository<EtatReunion,Long>  {
     EtatReunion findByCode(String code);
     int deleteByCode(String code);
 
-
     @Query("SELECT NEW EtatReunion(item.id,item.libelle) FROM EtatReunion item")
     List<EtatReunion> findAllOptimized();
 

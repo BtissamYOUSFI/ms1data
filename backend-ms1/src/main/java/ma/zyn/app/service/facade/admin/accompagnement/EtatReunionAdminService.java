@@ -9,12 +9,6 @@ import ma.zyn.app.zynerator.service.IService;
 
 public interface EtatReunionAdminService {
 
-
-
-
-
-
-
 	EtatReunion create(EtatReunion t);
 
     EtatReunion update(EtatReunion t);

@@ -8,6 +8,8 @@ import * as moment from 'moment/moment';
 
 import {ReunionDto} from 'src/app/shared/model/accompagnement/Reunion.model';
 import {ReunionCriteria} from 'src/app/shared/criteria/accompagnement/ReunionCriteria.model';
+import {TemplateEmailCollaboratorDto} from "../../../model/accompagnement/TemplateEmailCollaborator.model";
+import {TemplateEmailManagerDto} from "../../../model/accompagnement/TemplateEmailManager.model";
 
 
 @Injectable({
@@ -61,42 +63,150 @@ export class ReunionAdminService {
         return this.http.post<PaginatedList<ReunionDto>>(this.API + 'find-paginated-by-criteria', criteria);
     }
 
-    public save(): Observable<ReunionDto> {
-        return new Observable<ReunionDto>(observer=>{
+    public save() :Observable<ReunionDto>{
+        return this.http.post<ReunionDto>(this.API, this.item);
+    }
+
+    // public sendEmail(email: { to: string; subject: string; message: string }): Observable<any> {
+    //     return this.http.post(this.API + 'send-email/', email);
+    // }
+    //
+    // public saveAndSendEmail(emailCollaborateur: { collaborator: string; subject: string; body: string }, emailManager: { manager: string; subject: string; body: string }): Observable<ReunionDto> {
+    //     return new Observable<ReunionDto>(observer => {
+    //         this.http.post<ReunionDto>(this.API, this.item).subscribe({
+    //             next: (createdReunion) => {
+    //                 // 1. Envoyer l’email au collaborateur
+    //                 this.sendEmail(emailCollaborateur).subscribe({
+    //                     next: () => {
+    //                         console.log('Email envoyé au collaborateur.');
+    //
+    //                         // 2. Ensuite, envoyer l’email au manager
+    //                         this.sendEmail(emailManager).subscribe({
+    //                             next: () => {
+    //                                 console.log('Email envoyé au manager.');
+    //                                 observer.next(createdReunion);
+    //                                 observer.complete();
+    //                             },
+    //                             error: (err) => {
+    //                                 console.error('Erreur lors de l’envoi de l’email au manager', err);
+    //                                 observer.error(err);
+    //                             }
+    //                         });
+    //
+    //                     },
+    //                     error: (err) => {
+    //                         console.error('Erreur lors de l’envoi de l’email au collaborateur', err);
+    //                         observer.error(err);
+    //                     }
+    //                 });
+    //             },
+    //             error: (err) => {
+    //                 observer.error(err);
+    //             }
+    //         });
+    //     });
+    // }
+
+// Service corrigé
+    public sendEmail(email: { to: string; subject: string; message: string }): Observable<any> {
+        return this.http.post(this.API + 'send-email/', email);
+    }
+
+    public saveAndSendEmail(emailCollaborateur: TemplateEmailCollaboratorDto, emailManager: TemplateEmailManagerDto): Observable<ReunionDto> {
+        return new Observable<ReunionDto>(observer => {
+            // 1. D'abord sauvegarder la réunion
             this.http.post<ReunionDto>(this.API, this.item).subscribe({
                 next: (createdReunion) => {
-                    const emailPayload = {
-                        to: createdReunion.collaborateur.email,
-                        subject: 'Nouvelle réunion programmée',
-                        message: `
-                              Bonjour ${createdReunion.collaborateur.username},
+                    console.log('Réunion créée:', createdReunion);
 
-                              Une réunion a été programmée.
-
-                              📅 Description : ${createdReunion.description}
-                              🔗 Lien : ${createdReunion.style}
-
-                              Merci.
-                            `
+                    // 2. Préparer les emails avec les bonnes propriétés
+                    const emailToCollaborator = {
+                        to: this.item.collaborateur?.email || emailCollaborateur.collaborator,
+                        subject: emailCollaborateur.subject,
+                        message: emailCollaborateur.body // Utiliser 'message' au lieu de 'body'
                     };
-                    this.http.post(this.API+"send-email/", emailPayload).subscribe({
-                        next: () => {
-                            console.log('Email envoyé au collaborateur.');
-                            observer.next(createdReunion);
-                            observer.complete();
+
+                    const emailToManager = {
+                        to: "ibtissamyousfi111@gmail.com", // ou emailManager.manager
+                        subject: emailManager.subject,
+                        message: emailManager.body // Utiliser 'message' au lieu de 'body'
+                    };
+
+                    console.log('Email collaborateur:', emailToCollaborator);
+                    console.log('Email manager:', emailToManager);
+
+                    // 3. Envoyer l'email au collaborateur
+                    this.sendEmail(emailToCollaborator).subscribe({
+                        next: (response1) => {
+                            console.log('Email envoyé au collaborateur:', response1);
+
+                            // 4. Envoyer l'email au manager
+                            this.sendEmail(emailToManager).subscribe({
+                                next: (response2) => {
+                                    console.log('Email envoyé au manager:', response2);
+                                    observer.next(createdReunion);
+                                    observer.complete();
+                                },
+                                error: (err) => {
+                                    console.error('Erreur lors de lenvoi de lemail au manager:', err);
+                                    // Même si l'email manager échoue, on peut considérer que la réunion est créée
+                                    observer.next(createdReunion);
+                                    observer.complete();
+                                }
+                            });
                         },
                         error: (err) => {
-                            console.error('Erreur lors de l’envoi de l’email', err);
-                            observer.error(err);
+                            console.error('Erreur lors de lenvoi de lemail au collaborateur:', err);
+                            // Même si l'email collaborateur échoue, on peut considérer que la réunion est créée
+                            observer.next(createdReunion);
+                            observer.complete();
                         }
                     });
                 },
                 error: (err) => {
+                    console.error('Erreur lors de la création de la réunion:', err);
                     observer.error(err);
                 }
             });
-        })
+        });
     }
+
+    // public save(): Observable<ReunionDto> {
+    //     return new Observable<ReunionDto>(observer=>{
+    //         this.http.post<ReunionDto>(this.API, this.item).subscribe({
+    //             next: (createdReunion) => {
+    //                 const emailPayload = {
+    //                     to: createdReunion.collaborateur.email,
+    //                     subject: 'Nouvelle réunion programmée',
+    //                     message: `
+    //                           Bonjour ${createdReunion.collaborateur.username},
+    //
+    //                           Une réunion a été programmée.
+    //
+    //                           📅 Description : ${createdReunion.description}
+    //                           🔗 Lien : ${createdReunion.style}
+    //
+    //                           Merci.
+    //                         `
+    //                 };
+    //                 this.http.post(this.API+"send-email/", emailPayload).subscribe({
+    //                     next: () => {
+    //                         console.log('Email envoyé au collaborateur.');
+    //                         observer.next(createdReunion);
+    //                         observer.complete();
+    //                     },
+    //                     error: (err) => {
+    //                         console.error('Erreur lors de l’envoi de l’email', err);
+    //                         observer.error(err);
+    //                     }
+    //                 });
+    //             },
+    //             error: (err) => {
+    //                 observer.error(err);
+    //             }
+    //         });
+    //     })
+    // }
 
     public delete(dto: ReunionDto) {
         return this.http.delete<number>(this.API + 'id/' + dto.id);

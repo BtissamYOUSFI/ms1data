@@ -22,6 +22,19 @@ import {EtatReunionDto} from 'src/app/shared/model/accompagnement/EtatReunion.mo
 import {EtatReunionAdminService} from 'src/app/shared/service/admin/accompagnement/EtatReunionAdmin.service';
 import {CollaborateurDto} from 'src/app/shared/model/utilisateurs/Collaborateur.model';
 import {CollaborateurAdminService} from 'src/app/shared/service/admin/utilisateurs/CollaborateurAdmin.service';
+import {EmailDto} from "../../../../../../shared/model/accompagnement/Email.model";
+// import * as console from "console";
+import {error} from "protractor";
+import {
+    TemplateEmailManagerAdminService
+} from "../../../../../../shared/service/admin/accompagnement/TemplateEmailManagerAdmin.service";
+import {
+    TemplateEmailCollaboratorAdminService
+} from "../../../../../../shared/service/admin/accompagnement/TemplateEmailCollaboratorAdmin.service";
+import {TemplateEmailManagerDto} from "../../../../../../shared/model/accompagnement/TemplateEmailManager.model";
+import {
+    TemplateEmailCollaboratorDto
+} from "../../../../../../shared/model/accompagnement/TemplateEmailCollaborator.model";
 @Component({
   selector: 'app-reunion-create-admin',
   templateUrl: './reunion-create-admin.component.html'
@@ -40,13 +53,24 @@ export class ReunionCreateAdminComponent  implements OnInit {
     private _activeTab = 0;
 
 
-
    private _validReunionLibelle = true;
    private _validReunionCode = true;
-    private _validEtatReunionLibelle = true;
-    private _validEtatReunionCode = true;
+   private _validEtatReunionLibelle = true;
+   private _validEtatReunionCode = true;
+   emailManager: TemplateEmailManagerDto ={
+       "id": null,
+       "manager": '',
+       "subject": '',
+       "body": ''
+   }
+    emailCollaborator: TemplateEmailCollaboratorDto={
+        "id": null,
+        "collaborator": '',
+        "subject": '',
+        "body": ''
+    }
 
-	constructor(private service: ReunionAdminService , private etatReunionService: EtatReunionAdminService, private collaborateurService: CollaborateurAdminService, @Inject(PLATFORM_ID) private platformId? ) {
+	constructor(private emailManagerService: TemplateEmailManagerAdminService,private emailCollaboratorService: TemplateEmailCollaboratorAdminService,private service: ReunionAdminService , private etatReunionService: EtatReunionAdminService, private collaborateurService: CollaborateurAdminService, @Inject(PLATFORM_ID) private platformId? ) {
         this.datePipe = ServiceLocator.injector.get(DatePipe);
         this.messageService = ServiceLocator.injector.get(MessageService);
         this.confirmationService = ServiceLocator.injector.get(ConfirmationService);
@@ -62,6 +86,13 @@ export class ReunionCreateAdminComponent  implements OnInit {
             this.etatReunions = data;
             this.item.etatReunion = this.etatReunions.find(e => e.libelle === 'APlanifier');
         });
+        this.emailManagerService.findAll().subscribe(data=> {
+            this.emailManager=data[0];
+            console.log(this.emailManager);
+        })
+        this.emailCollaboratorService.findAll().subscribe(data=>{
+            this.emailCollaborator=data[0];
+        })
     }
 
 
@@ -77,18 +108,80 @@ export class ReunionCreateAdminComponent  implements OnInit {
     }
 
     public saveWithShowOption(showList: boolean) {
-        this.service.save().subscribe(item => {
-            if (item != null) {
-                this.items.push({...item});
-                this.createDialog = false;
-                this.submitted = false;
-                this.item = new ReunionDto();
-            } else {
-                this.messageService.add({severity: 'error', summary: 'Erreurs', detail: 'Element existant'});
-            }
+        // this.service.saveAndSendEmail( this.emailCollaborator, this.emailManager).subscribe(item => {
+        //     if (item != null) {
+        //         this.items.push({...item});
+        //         this.createDialog = false;
+        //         this.submitted = false;
+        //         this.item = new ReunionDto();
+        //     } else {
+        //         this.messageService.add({severity: 'error', summary: 'Erreurs', detail: 'Element existant'});
+        //     }
+        //
+        // }, error => {
+        //     // console.log(error);
+        // });
+        this.service.saveAndSendEmail(this.emailCollaborator, this.emailManager).subscribe({
+            next: (item) => {
+                if (item != null) {
+                    this.items.push({...item});
+                    this.createDialog = false;
+                    this.submitted = false;
+                    this.item = new ReunionDto();
 
-        }, error => {
-            console.log(error);
+                    this.messageService.add({
+                        severity: 'success',
+                        summary: 'Succès',
+                        detail: 'Réunion créée et emails envoyés avec succès'
+                    });
+                } else {
+                    this.messageService.add({
+                        severity: 'error',
+                        summary: 'Erreur',
+                        detail: 'Element existant'
+                    });
+                }
+            },
+            error: (error) => {
+                console.error('Erreur complète:', error);
+                this.messageService.add({
+                    severity: 'error',
+                    summary: 'Erreur',
+                    detail: 'Erreur lors de la création de la réunion ou de l\'envoi des emails'
+                });
+            }
+        });
+    }
+
+// Méthode pour charger les templates (à appeler dans ngOnInit ou lors de l'ouverture du dialog)
+    loadEmailTemplates(): void {
+        // Charger les templates d'email
+        this.emailManagerService.findAll().subscribe({
+            next: (data) => {
+                if (data && data.length > 0) {
+                    this.emailManager = data[0];
+                    console.log('Template email manager chargé:', this.emailManager);
+                } else {
+                    console.warn('Aucun template email manager trouvé');
+                }
+            },
+            error: (err) => {
+                console.error('Erreur lors du chargement du template email manager:', err);
+            }
+        });
+
+        this.emailCollaboratorService.findAll().subscribe({
+            next: (data) => {
+                if (data && data.length > 0) {
+                    this.emailCollaborator = data[0];
+                    console.log('Template email collaborator chargé:', this.emailCollaborator);
+                } else {
+                    console.warn('Aucun template email collaborator trouvé');
+                }
+            },
+            error: (err) => {
+                console.error('Erreur lors du chargement du template email collaborator:', err);
+            }
         });
     }
 
@@ -98,16 +191,10 @@ export class ReunionCreateAdminComponent  implements OnInit {
         this.setValidation(true);
     }
 
-
-
-
-
     public  setValidation(value: boolean){
         this.validReunionLibelle = value;
         this.validReunionCode = value;
     }
-
-
 
     public  validateForm(): void{
         this.errorMessages = new Array<string>();
@@ -288,5 +375,7 @@ export class ReunionCreateAdminComponent  implements OnInit {
     set activeTab(value: number) {
         this._activeTab = value;
     }
+
+
 
 }

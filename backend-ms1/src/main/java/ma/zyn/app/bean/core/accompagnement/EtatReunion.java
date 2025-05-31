@@ -18,9 +18,6 @@ import java.util.Objects;
 @SequenceGenerator(name="etat_reunion_seq",sequenceName="etat_reunion_seq",allocationSize=1, initialValue = 1)
 public class EtatReunion  extends BaseEntity     {
 
-
-
-
     @Column(length = 500)
     private String libelle;
 

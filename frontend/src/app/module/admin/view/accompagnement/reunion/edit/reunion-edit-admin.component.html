@@ -11,8 +11,6 @@
                                             <small class='p-error' *ngIf='!validReunionLibelle'>Libelle est obligatoire.</small>
                                         </div>
 
-
-
                                         <div class="field col-12 md:col-6">
                                             <label for="2">{{'reunion.code' | translate}}<span style="color: red;">*</span></label>
                                             <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'reunion.code' | translate}}" id="2" [(ngModel)]="item.code"
@@ -21,12 +19,11 @@
                                         </div>
 
 
-
                                         <div class="field col-12 md:col-6">
                                             <label for="3">{{'reunion.style' | translate}}</label>
                                             <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'reunion.style' | translate}}" id="3" [(ngModel)]="item.style"
                                                     />
-                                            
+
                                         </div>
 
 
@@ -35,7 +32,7 @@
                                             <label for="4">{{'reunion.description' | translate}}</label>
                                             <textarea id="4" pInputTextarea rows="5" cols="30" placeholder="{{'reunion.description' | translate}}"  [(ngModel)]="item.description"
                                                        ></textarea>
-                                            
+
                                         </div>
 
                                     <div class="field col-11 md:col-6">
@@ -43,7 +40,7 @@
                                         <p-dropdown  appendTo="body"  [options]="collaborateurs" [(ngModel)]="item.collaborateur" id="5" [filter]="true" filterMatchMode="contains"
                                                      [showClear]="true" optionLabel="email" placeholder="{{'reunion.collaborateur' | translate}}"  >
                                         </p-dropdown>
-                                        
+
                                     </div>
 
                                     <div class="field col-11 md:col-6">
@@ -51,7 +48,7 @@
                                         <p-dropdown  appendTo="body"  [options]="etatReunions" [(ngModel)]="item.etatReunion" id="6" [filter]="true" filterMatchMode="contains"
                                                      [showClear]="true" optionLabel="libelle" placeholder="{{'reunion.etatReunion' | translate}}"  >
                                         </p-dropdown>
-                                        
+
                                     </div>
 
                         </div>

@@ -18,7 +18,7 @@
         color: var(--surface-900);
         font-size: 1.5rem;
         font-weight: 500;
-        width: 300px;
+        width: 250px;
         border-radius: 12px;
 
         img {
@@ -26,9 +26,9 @@
             margin-right: .5rem;
         }
 
-        &:focus {
-            @include focused();
-        }
+        //&:focus {
+        //    @include focused();
+        //}
     }
 
     .layout-topbar-button {
@@ -48,9 +48,9 @@
             background-color: var(--surface-hover);
         }
 
-        &:focus {
-            @include focused();
-        }
+        //&:focus {
+        //    @include focused();
+        //}
 
         i {
             font-size: 1.5rem;

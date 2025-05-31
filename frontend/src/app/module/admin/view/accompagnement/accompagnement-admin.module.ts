@@ -42,6 +42,30 @@ import { SplitButtonModule } from 'primeng/splitbutton';
 import { MessageModule } from 'primeng/message';
 import {MessagesModule} from 'primeng/messages';
 import {PaginatorModule} from 'primeng/paginator';
+import {
+    TemplateEmailCollaboratorListAdminComponent
+} from "./template-email-collaborator/list/template-email-collaborator-list-admin.component";
+import {
+    TemplateEmailManagerListAdminComponent
+} from "./template-email-manager/list/template-email-manager-list-admin.component";
+import {
+    TemplateEmailCollaboratorEditAdminComponent
+} from "./template-email-collaborator/edit/template-email-collaborator-edit-admin.component";
+import {
+    TemplateEmailManagerEditAdminComponent
+} from "./template-email-manager/edit/template-email-manager-edit-admin.component";
+import {
+    TemplateEmailCollaboratorCreateAdminComponent
+} from "./template-email-collaborator/create/template-email-collaborator-create-admin.component";
+import {
+    TemplateEmailManagerCreateAdminComponent
+} from "./template-email-manager/create/template-email-manager-create-admin.component";
+import {
+    TemplateEmailCollaboratorViewAdminComponent
+} from "./template-email-collaborator/view/template-email-collaborator-view-admin.component";
+import {
+    TemplateEmailManagerViewAdminComponent
+} from "./template-email-manager/view/template-email-manager-view-admin.component";
 
 
 
@@ -56,6 +80,14 @@ import {PaginatorModule} from 'primeng/paginator';
     ReunionListAdminComponent,
     ReunionViewAdminComponent,
     ReunionEditAdminComponent,
+      TemplateEmailCollaboratorListAdminComponent,
+      TemplateEmailManagerListAdminComponent,
+      TemplateEmailCollaboratorEditAdminComponent,
+      TemplateEmailManagerEditAdminComponent,
+      TemplateEmailCollaboratorCreateAdminComponent,
+      TemplateEmailManagerCreateAdminComponent,
+      TemplateEmailCollaboratorViewAdminComponent,
+      TemplateEmailManagerViewAdminComponent
   ],
   imports: [
     CommonModule,
@@ -102,6 +134,14 @@ import {PaginatorModule} from 'primeng/paginator';
   ReunionListAdminComponent,
   ReunionViewAdminComponent,
   ReunionEditAdminComponent,
+      TemplateEmailCollaboratorListAdminComponent,
+      TemplateEmailManagerListAdminComponent,
+      TemplateEmailCollaboratorEditAdminComponent,
+      TemplateEmailManagerEditAdminComponent,
+      TemplateEmailCollaboratorCreateAdminComponent,
+      TemplateEmailManagerCreateAdminComponent,
+      TemplateEmailCollaboratorViewAdminComponent,
+      TemplateEmailManagerViewAdminComponent
   ],
 })
 export class AccompagnementAdminModule { }

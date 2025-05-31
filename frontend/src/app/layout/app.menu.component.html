@@ -3,3 +3,13 @@
         <li app-menuitem  [item]="item" [index]="i" [root]="true"></li>
     </ng-container>
 </ul>
+<div class="menu-footer">
+    <button class="menu-footer-item profile" routerLink="/app/admin/profile/">
+        <i class="pi pi-user-edit"></i>
+        <span>View Profile</span>
+    </button>
+    <button class="menu-footer-item logout" (click)="logout()">
+        <i class="pi pi-sign-out"></i>
+        <span>Log Out</span>
+    </button>
+</div>
