@@ -313,7 +313,7 @@
 .layout-sidebar {
     position: fixed;
     width: 260px;
-    height: calc(300vh - 9rem);
+    height: 100%;
     z-index: 999;
     overflow-y: auto;
     user-select: none;

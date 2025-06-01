@@ -172,17 +172,17 @@ constructor(public layoutService: LayoutService, public app: AppComponent, publi
                     // label: 'Pages',
                     icon: 'pi pi-fw pi-briefcase',
                     items: [
-					  {
-						label: 'Gestion des Collaborateurs',
-						icon: 'pi pi-wallet',
-						items: [
-								  {
-									label: 'Liste collaborateur',
-									icon: 'pi pi-fw pi-plus-circle',
-									routerLink: ['/app/collaborateur/utilisateurs/collaborateur/list']
-								  },
-						]
-					  },
+					  // {
+						// label: 'Gestion des Collaborateurs',
+						// icon: 'pi pi-wallet',
+						// items: [
+						// 		  {
+						// 			label: 'Liste collaborateur',
+						// 			icon: 'pi pi-fw pi-plus-circle',
+						// 			routerLink: ['/app/collaborateur/utilisateurs/collaborateur/list']
+						// 		  },
+						// ]
+					  // },
 					  {
 						label: 'Paiements',
 						icon: 'pi pi-wallet',

@@ -33,21 +33,19 @@
                     </button>
                 </div>
             </div>
-
+            <div class="card p-0 shadow-2 border-round">
+                <div class="p-card-header p-3 flex justify-content-between align-items-center">
+                    <h5 class="m-0 text-primary font-medium">{{'templateEmailManager.header' | translate}}</h5>
+                    <span class="p-input-icon-left">
+                        <i class="pi pi-search"></i>
+                        <input pInputText type="text" placeholder="{{'searchInput' | translate}}" (input)="dt.filterGlobal($event.target.value, 'contains')" class="p-inputtext-sm"/>
+                    </span>
+                </div>
                 <p-table #dt [value]="items" [columns]="cols" [rows]="8" [paginator]="false"
                          [globalFilterFields]="['manager', 'subject']" [(selection)]="selections"
                          [rowHover]="true" dataKey="id" styleClass="p-datatable-customers"
                          currentPageReportTemplate="{{'les éléments de {first} à {last} sur {totalRecords} ' | translate}}"
                          [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" selectionMode="multiple">
-                    <ng-template pTemplate="caption">
-                        <div class="flex flex-column flex-row justify-content-between table-header">
-                            <h5 class="p-m-0">{{'templateEmailManager.header' | translate}}</h5>
-                            <span class="p-input-icon-left ml-auto">
-                            <i class="pi pi-search"></i>
-                            <input pInputText type="text" placeholder="{{'searchInput' | translate}}" (input)="dt.filterGlobal($event.target.value, 'contains')"/>
-                        </span>
-                        </div>
-                    </ng-template>
                     <ng-template pTemplate="header">
                         <tr>
                             <th style="width: 3rem">
@@ -102,14 +100,25 @@
                         </tr>
                     </ng-template>
 
+                    <ng-template pTemplate="emptymessage">
+                        <tr>
+                            <td colspan="11" class="text-center p-4">
+                                <i class="pi pi-info-circle text-primary" style="font-size: 2rem"></i>
+                                <p>{{'noRecordsFound' | translate}}</p>
+                            </td>
+                        </tr>
+                    </ng-template>
+
                     <ng-template pTemplate="summary">
-                        <p-paginator  [rows]="10" [totalRecords]="totalRecords" (onPageChange)="onPage($event)"></p-paginator>
-                        <div class="p-d-flex p-ai-center p-jc-between">
-                            En totale il {{items ? totalRecords == 1 ? 'y a' : 'y a' : 'y a' }} {{items ? totalRecords : 0 }} {{items ? totalRecords == 1 ? 'template email manager' : 'template email managers' : 0 }}.
+                        <div class="flex flex-wrap justify-content-between align-items-center">
+                            <p-paginator [rows]="10" [totalRecords]="totalRecords" (onPageChange)="onPage($event)" [rowsPerPageOptions]="[10, 20, 30]"></p-paginator>
+                            <div class="text-muted">
+                                Total: {{totalRecords}} Templates email managers
+                            </div>
                         </div>
                     </ng-template>
                 </p-table>
-
+            </div>
 
         </div>
 
