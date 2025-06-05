@@ -359,6 +359,84 @@
         "deleteTemplateEmailManagerConfirmationMessage": "Are you sure you want to delete template email manager",
         "deleteTemplateEmailManagersConfirmationMessage": "Are you sure you want to delete the selected elements"
     },
+
+    "WELCOME": "🇨🇦 Bienvenido a Canadá",
+    "HERO": {
+        "TITLE": "Haz que tus <span class=\"text-highlight\">habilidades</span> sean reconocidas en Canadá",
+        "before": "Haz que reconozcan tus",
+        "highlight": "habilidades",
+        "after": "en Canadá",
+        "DESCRIPTION": "Apoyo personalizado para los recién llegados en el reconocimiento de sus cualificaciones profesionales y la integración en oficios especializados.",
+        "BUTTONS": {
+            "EVALUATE": "Evaluar mis habilidades",
+            "LEARN_MORE": "Saber más"
+        }
+    },
+    "SERVICES": {
+        "TITLE": "Nuestros Servicios",
+        "SUBTITLE": "Un acompañamiento completo para tu éxito",
+        "DESCRIPTION": "Desde la evaluación de tus habilidades hasta tu integración profesional, te guiamos en cada paso de tu camino en Canadá."
+    },
+    "PROCESS": {
+        "TITLE": "Nuestro Proceso",
+        "SUBTITLE": "4 pasos simples hacia tu éxito"
+    },
+    "CTA": {
+        "TITLE": "¿Listo para hacer reconocer tus habilidades en Canadá?",
+        "DESCRIPTION": "Únete a miles de profesionales que han tenido éxito con nuestro acompañamiento personalizado.",
+        "BUTTONS": {
+            "START_NOW": "Comenzar ahora",
+            "PLAN_CONSULT": "Programar una consulta"
+        }
+    },
+    "FOOTER": {
+        "BRAND_DESC": "Tu socio confiable para el reconocimiento de habilidades en Canadá.",
+        "SERVICES": "Servicios",
+        "RESOURCES": "Recursos",
+        "CONTACT": "Contacto",
+        "PHONE": "1-800-HABILIDADES",
+        "EMAIL": "info@competencescanada.ca",
+        "COPYRIGHT": "© {{year}} CompetenciasCanadá. Todos los derechos reservados."
+    },
+
+    "CONTACT": {
+        "TITLE": "Contáctanos",
+        "SUBTITLE": "Nuestro equipo de expertos está aquí para ayudarte en tu integración profesional en Canadá",
+        "FORM": {
+            "HEADER": "Envíanos un mensaje",
+            "SUBHEADER": "Completa el siguiente formulario y te responderemos rápidamente",
+            "FIRST_NAME": "Nombre *",
+            "LAST_NAME": "Apellido *",
+            "EMAIL": "Correo electrónico *",
+            "PHONE": "Teléfono",
+            "MESSAGE": "Mensaje *",
+            "PLACEHOLDER": {
+                "FIRST_NAME": "Tu nombre",
+                "LAST_NAME": "Tu apellido",
+                "EMAIL": "tu@email.com",
+                "PHONE": "+1 (555) 123-4567",
+                "MESSAGE": "Describe tu solicitud en detalle..."
+            },
+            "SEND_BUTTON": "Enviar mensaje"
+        },
+        "OFFICES": {
+            "TITLE": "Nuestras oficinas",
+            "SUBTITLE": "Encuéntranos en las principales ciudades de Canadá"
+        },
+        "FAQ": {
+            "TITLE": "Preguntas frecuentes",
+            "Q1": "¿Cuánto tiempo tarda la evaluación?",
+            "A1": "La evaluación completa de tus habilidades suele tardar entre 2 y 4 semanas según la complejidad de tu expediente.",
+            "Q2": "¿Qué documentos debo proporcionar?",
+            "A2": "Debes proporcionar tus diplomas, certificados, cartas de experiencia y cualquier documento que demuestre tus habilidades profesionales.",
+            "Q3": "¿El servicio es gratuito?",
+            "A3": "La consulta inicial es gratuita. Los servicios de acompañamiento son de pago según el nivel de apoyo elegido.",
+            "Q4": "¿En qué idiomas ofrecen sus servicios?",
+            "A4": "Ofrecemos nuestros servicios en francés, inglés y varios otros idiomas según la disponibilidad de nuestros asesores."
+        },
+        "HOME_LINK": "Volver al inicio"
+    }
+,
 "appName": "GED"
 }
 

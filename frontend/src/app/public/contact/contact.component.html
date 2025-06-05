@@ -1,0 +1,229 @@
+<div class="contact-container">
+    <p-toast></p-toast>
+    <div class="contact-header">
+        <h1 class="contact-title">{{ 'CONTACT.TITLE' | translate }}</h1>
+        <p class="contact-subtitle">
+            {{ 'CONTACT.SUBTITLE' | translate }}
+        </p>
+    </div>
+
+    <div class="contact-content">
+        <!-- Informations de contact rapide -->
+        <div class="contact-info-section">
+            <div class="contact-info-grid">
+                <div
+                    *ngFor="let info of contactInfo"
+                    class="contact-info-card"
+                    (click)="onContactInfoClick(info)"
+                    [class.clickable]="info.link">
+                    <div class="info-icon">
+                        <i [class]="info.icon"></i>
+                    </div>
+                    <div class="info-content">
+<!--                        <h3 class="info-title">{{ info.title }}</h3>-->
+                        <p class="info-text">{{ info.content }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-content">
+
+            <!-- Formulaire de contact -->
+            <div class="contact-form-section">
+                <p-card styleClass="contact-form-card">
+                    <ng-template pTemplate="header">
+                        <div class="form-header">
+                            <h2>{{ 'CONTACT.FORM.HEADER' | translate }}</h2>
+                            <p>{{ 'CONTACT.FORM.SUBHEADER' | translate }}</p>
+                        </div>
+                    </ng-template>
+
+                    <ng-template pTemplate="content">
+                        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+
+                            <!-- Nom et Prénom -->
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label for="firstName">{{ 'CONTACT.FORM.FIRST_NAME' | translate }}</label>
+                                    <span class="p-input-icon-left">
+                                        <i class="pi pi-user"></i>
+                                        <input
+                                            id="firstName"
+                                            type="text"
+                                            pInputText
+                                            style="width: 100%"
+                                            formControlName="firstName"
+                                            [placeholder]=" 'CONTACT.FORM.PLACEHOLDER.FIRST_NAME' | translate "
+                                            [class.p-invalid]="isFieldInvalid('firstName')">
+                                    </span>
+                                    <small *ngIf="isFieldInvalid('firstName')" class="p-error">
+                                        {{ getFieldError('firstName') }}
+                                    </small>
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="lastName">{{ 'CONTACT.FORM.LAST_NAME' | translate }}</label>
+                                    <span class="p-input-icon-left">
+                                        <i class="pi pi-user"></i>
+                                        <input
+                                            id="lastName"
+                                            type="text"
+                                            pInputText
+                                            style="width: 100%"
+                                            formControlName="lastName"
+                                            [placeholder]=" 'CONTACT.FORM.PLACEHOLDER.LAST_NAME' | translate "
+                                            [class.p-invalid]="isFieldInvalid('lastName')">
+                                    </span>
+                                    <small *ngIf="isFieldInvalid('lastName')" class="p-error">
+                                        {{ getFieldError('lastName') }}
+                                    </small>
+                                </div>
+                            </div>
+
+                            <!-- Email et Téléphone -->
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label for="email">{{ 'CONTACT.FORM.EMAIL' | translate }}</label>
+                                    <span class="p-input-icon-left">
+                                        <i class="pi pi-envelope"></i>
+                                        <input
+                                            id="email"
+                                            type="email"
+                                            pInputText
+                                            style="width: 100%"
+                                            formControlName="email"
+                                            [placeholder]=" 'CONTACT.FORM.PLACEHOLDER.EMAIL' | translate "
+                                            [class.p-invalid]="isFieldInvalid('email')">
+                                    </span>
+                                    <small *ngIf="isFieldInvalid('email')" class="p-error">
+                                        {{ getFieldError('email') }}
+                                    </small>
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="phone">{{ 'CONTACT.FORM.PHONE' | translate }}</label>
+                                    <span class="p-input-icon-left">
+                                        <i class="pi pi-phone"></i>
+                                        <input
+                                            id="phone"
+                                            type="tel"
+                                            pInputText
+                                            style="width: 100%"
+                                            formControlName="phone"
+                                            placeholder="Your phone"
+                                            [class.p-invalid]="isFieldInvalid('phone')">
+                                    </span>
+                                    <small *ngIf="isFieldInvalid('phone')" class="p-error">
+                                        {{ getFieldError('phone') }}
+                                    </small>
+                                </div>
+                            </div>
+                            <!-- Message -->
+                            <div class="form-field">
+                                <label for="message">{{ 'CONTACT.FORM.MESSAGE' | translate }}</label>
+                                <span class="textarea-wrapper">
+                                      <i class="pi pi-comment"></i>
+                                      <textarea
+                                          id="message"
+                                          pInputTextarea
+                                          [rows]="6"
+                                          style="width: 100%"
+                                          formControlName="message"
+                                          [placeholder]=" 'CONTACT.FORM.PLACEHOLDER.MESSAGE' | translate "
+                                          [class.p-invalid]="isFieldInvalid('message')">
+                                      </textarea>
+                                </span>
+                                <small *ngIf="isFieldInvalid('message')" class="p-error">
+                                    {{ getFieldError('message') }}
+                                </small>
+                            </div>
+
+                            <!-- Bouton d'envoi -->
+                            <div class="form-actions">
+                                <p-button
+                                    type="submit"
+                                    [label]=" 'CONTACT.FORM.SEND_BUTTON' | translate "
+                                    icon="pi pi-send"
+                                    styleClass="contact-btn"
+                                    [loading]="loading"
+                                    [disabled]="contactForm.invalid">
+                                </p-button>
+                            </div>
+
+                        </form>
+                    </ng-template>
+                </p-card>
+            </div>
+
+            <!-- Nos bureaux -->
+            <div class="offices-section">
+                <h2 class="offices-title">{{ 'CONTACT.OFFICES.TITLE' | translate }}</h2>
+                <p class="offices-subtitle">{{ 'CONTACT.OFFICES.SUBTITLE' | translate }}</p>
+
+                <div class="offices-grid">
+                    <p-card *ngFor="let office of offices" styleClass="office-card">
+                        <ng-template pTemplate="header">
+                            <div class="office-header">
+                                <i class="pi pi-building office-icon"></i>
+                                <h3 class="office-city">{{ office.city }}</h3>
+                            </div>
+                        </ng-template>
+
+                        <ng-template pTemplate="content">
+                            <div class="office-details">
+                                <div class="office-detail">
+                                    <i class="pi pi-map-marker"></i>
+                                    <span>{{ office.address }}</span>
+                                </div>
+                                <div class="office-detail">
+                                    <i class="pi pi-phone"></i>
+                                    <a [href]="'tel:' + office.phone">{{ office.phone }}</a>
+                                </div>
+                                <div class="office-detail">
+                                    <i class="pi pi-envelope"></i>
+                                    <a [href]="'mailto:' + office.email">{{ office.email }}</a>
+                                </div>
+                                <div class="office-detail">
+                                    <i class="pi pi-clock"></i>
+                                    <span>{{ office.hours }}</span>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </p-card>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Section FAQ rapide -->
+        <div class="faq-section">
+            <h2 class="faq-title">{{ 'CONTACT.FAQ.TITLE' | translate }}</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>{{ 'CONTACT.FAQ.Q1' | translate }}</h3>
+                    <p>{{ 'CONTACT.FAQ.A1' | translate }}</p>
+                </div>
+                <div class="faq-item">
+                    <h3>{{ 'CONTACT.FAQ.Q2' | translate }}</h3>
+                    <p>{{ 'CONTACT.FAQ.A2' | translate }}</p>
+                </div>
+                <div class="faq-item">
+                    <h3>{{ 'CONTACT.FAQ.Q3' | translate }}</h3>
+                    <p>{{ 'CONTACT.FAQ.A3' | translate }}</p>
+                </div>
+                <div class="faq-item">
+                    <h3>{{ 'CONTACT.FAQ.Q4' | translate }}</h3>
+                    <p>{{ 'CONTACT.FAQ.A4' | translate }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="home-link-section">
+            <a routerLink="/" class="home-link">
+                <i class="pi pi-home"></i>
+                <p>{{ 'CONTACT.HOME_LINK' | translate }}</p>
+            </a>
+        </div>
+
+    </div>
+</div>

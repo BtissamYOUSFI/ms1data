@@ -47,7 +47,6 @@ public class ReunionRestAdmin {
         return ResponseEntity.ok().build();
     }
 
-
     @Operation(summary = "Finds a list of all reunions")
     @GetMapping("")
     public ResponseEntity<List<ReunionDto>> findAll() throws Exception {

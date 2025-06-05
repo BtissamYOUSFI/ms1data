@@ -23,8 +23,7 @@ public class Collaborateur  extends User    {
     public Collaborateur(String username) {
         super(username);
     }
-
-
+    
     private String description;
 
 

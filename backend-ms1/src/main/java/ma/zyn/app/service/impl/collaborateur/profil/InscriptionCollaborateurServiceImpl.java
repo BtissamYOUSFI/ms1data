@@ -169,6 +169,12 @@ public class InscriptionCollaborateurServiceImpl implements InscriptionCollabora
     public long countByCollaborateurEmail(String email){
         return dao.countByCollaborateurEmail(email);
     }
+
+    @Override
+    public Inscription findByEmail(String email) {
+        return dao.findByEmail(email);
+    }
+
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class, readOnly = false)
 	public boolean deleteById(Long id) {
         boolean condition = (id != null);

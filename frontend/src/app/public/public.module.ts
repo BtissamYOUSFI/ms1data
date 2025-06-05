@@ -44,6 +44,9 @@ import {DividerModule} from "primeng/divider";
 import {TranslateModule} from "@ngx-translate/core";
 import { VoiceRegistrationComponent } from './voice-registration/voice-registration.component';
 import {SelectButtonModule} from "primeng/selectbutton";
+import {TagModule} from "primeng/tag";
+import { ContactComponent } from './contact/contact.component';
+import {RadioButtonModule} from "primeng/radiobutton";
 
 
 @NgModule({
@@ -58,7 +61,8 @@ import {SelectButtonModule} from "primeng/selectbutton";
         // TopComponent,
         InscriptionComponent,
         NavbarComponent,
-        VoiceRegistrationComponent
+        VoiceRegistrationComponent,
+        ContactComponent
     ],
     imports: [
         CarouselModule,
@@ -94,6 +98,8 @@ import {SelectButtonModule} from "primeng/selectbutton";
         MenubarModule,
         TranslateModule,
         SelectButtonModule,
+        TagModule,
+        RadioButtonModule,
     ],
     exports: [
         // PreloadpageComponent,

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem, SelectItem } from 'primeng/api';
 import {TranslateService} from "@ngx-translate/core";
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'app-navbar',
@@ -12,12 +13,19 @@ export class NavbarComponent implements OnInit {
     languageOptions: SelectItem[];
     selectedLanguage: string ;
 
+    scrollToSection(sectionId: string) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+
     constructor(private translateService: TranslateService) {
         this.items = [];
         this.languageOptions = [
-            { label: 'English', value: 'en' },
-            { label: 'Français', value: 'fr' },
-            { label: 'العربية', value: 'ar' }
+            { label: '🇬🇧 English', value: 'en' },
+            { label: '🇫🇷 Français', value: 'fr' },
+            { label: '🇲🇦 العربية', value: 'ar' }
         ];
     }
 

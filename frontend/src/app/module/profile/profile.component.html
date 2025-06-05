@@ -9,7 +9,7 @@
                             <p-avatar icon="pi pi-user" size="xlarge" [style]="{'background-color':'var(--primary-color)', 'color': '#ffffff'}"></p-avatar>
                         </div>
                         <div class="profile-info sm:ml-4 text-center sm:text-left">
-                            <h1 class="m-0">{{ user.firstName+ ' ' + user.lastName || 'N/A' }}</h1>
+                            <h1 class="m-0">{{ user.firstName || 'N/A' }}</h1>
                             <p class="text-500 m-0">{{ user.email || 'N/A' }}</p>
                             <div class="flex flex-wrap justify-content-center sm:justify-content-start">
                                 <p-chip *ngFor="let roleUser of user.roleUsers"

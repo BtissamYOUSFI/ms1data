@@ -7,6 +7,7 @@ import {
 } from "../module/collaborateur/view/profil/inscription/create/inscription-create-collaborateur.component";
 import {InscriptionComponent} from "./inscription/inscription.component";
 import {VoiceRegistrationComponent} from "./voice-registration/voice-registration.component";
+import {ContactComponent} from "./contact/contact.component";
 
 @NgModule({
     imports: [
@@ -15,6 +16,15 @@ import {VoiceRegistrationComponent} from "./voice-registration/voice-registratio
                 {
                     path: '',
                     children: [
+                        {
+                            path: 'contact',
+                            children: [
+                                {
+                                    path: '',
+                                    component: ContactComponent,
+                                }
+                            ]
+                        },
                         {
                             path: 'inscription',
                             children: [

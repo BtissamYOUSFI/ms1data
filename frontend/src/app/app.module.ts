@@ -53,12 +53,14 @@ import {AdminModule} from './module/admin/admin.module';
 import {AdminRoutingModule} from './module/admin/admin-routing.module';
 import {CollaborateurModule} from './module/collaborateur/collaborateur.module';
 import {CollaborateurRoutingModule} from './module/collaborateur/collaborateur-routing.module';
+import {TagModule} from "primeng/tag";
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http);
 }
 @NgModule({
 imports: [
+    TagModule,
     AppRoutingModule,
     AppLayoutModule,
     ButtonModule,

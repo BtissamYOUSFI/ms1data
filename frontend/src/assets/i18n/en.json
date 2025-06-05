@@ -358,6 +358,84 @@
         "deleteTemplateEmailManagerConfirmationMessage": "Are you sure you want to delete template email manager",
         "deleteTemplateEmailManagersConfirmationMessage": "Are you sure you want to delete the selected elements"
     },
+    "WELCOME": "🇨🇦 Welcome to Canada",
+    "HERO": {
+        "TITLE": "Get your <span class=\"text-highlight\">skills</span> recognized in Canada",
+        "before": "Get your",
+        "highlight": "skills",
+        "after": "recognized in Canada",
+        "DESCRIPTION": "Personalized support for newcomers in recognizing their professional qualifications and integrating into skilled trades.",
+        "BUTTONS": {
+            "EVALUATE": "Evaluate my skills",
+            "LEARN_MORE": "Learn more"
+        }
+    },
+    "SERVICES": {
+        "TITLE": "Our Services",
+        "SUBTITLE": "Comprehensive support for your success",
+        "DESCRIPTION": "From skill assessment to professional integration, we guide you every step of your journey in Canada."
+    },
+    "PROCESS": {
+        "TITLE": "Our Process",
+        "SUBTITLE": "4 simple steps to your success"
+    },
+    "CTA": {
+        "TITLE": "Ready to get your skills recognized in Canada?",
+        "DESCRIPTION": "Join thousands of professionals who have succeeded with our personalized support.",
+        "BUTTONS": {
+            "START_NOW": "Start now",
+            "PLAN_CONSULT": "Schedule a consultation"
+        }
+    },
+    "FOOTER": {
+        "BRAND_DESC": "Your trusted partner for skills recognition in Canada.",
+        "SERVICES": "Services",
+        "RESOURCES": "Resources",
+        "CONTACT": "Contact",
+        "PHONE": "1-800-SKILLS",
+        "EMAIL": "info@competencescanada.ca",
+        "COPYRIGHT": "© {{year}} CompetencesCanada. All rights reserved."
+    },
+
+    "CONTACT": {
+        "TITLE": "Contact Us",
+        "SUBTITLE": "Our team of experts is here to support you in your professional integration journey in Canada",
+        "FORM": {
+            "HEADER": "Send Us a Message",
+            "SUBHEADER": "Fill out the form below and we will get back to you quickly",
+            "FIRST_NAME": "First Name *",
+            "LAST_NAME": "Last Name *",
+            "EMAIL": "Email *",
+            "PHONE": "Phone",
+            "MESSAGE": "Message *",
+            "PLACEHOLDER": {
+                "FIRST_NAME": "Your first name",
+                "LAST_NAME": "Your last name",
+                "EMAIL": "your@email.com",
+                "PHONE": "Your phone",
+                "MESSAGE": "Describe your request in detail..."
+            },
+            "SEND_BUTTON": "Send Message"
+        },
+        "OFFICES": {
+            "TITLE": "Our Offices",
+            "SUBTITLE": "Find us in major Canadian cities"
+        },
+        "FAQ": {
+            "TITLE": "Frequently Asked Questions",
+            "Q1": "How long does the evaluation take?",
+            "A1": "The complete evaluation of your skills usually takes between 2 to 4 weeks depending on the complexity of your file.",
+            "Q2": "What documents should I provide?",
+            "A2": "You must provide your diplomas, certificates, experience letters, and any document proving your professional skills.",
+            "Q3": "Is the service free?",
+            "A3": "The initial consultation is free. Accompaniment services are paid based on the level of support selected.",
+            "Q4": "In which languages do you offer services?",
+            "A4": "We offer our services in French, English, and several other languages depending on advisor availability."
+        },
+        "HOME_LINK": "Back to Home"
+
+}
+,
 
 "appName": "GED"
 }

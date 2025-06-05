@@ -48,6 +48,9 @@ export class InscriptionCollaborateurService {
         this.API_PERMISSION = environment.apiUrl + 'modelPermissionUser/';
     }
 
+    public findByEmail( email: string) {
+        return this.http.get<InscriptionDto>(this.API+"email/"+email);
+    }
 
     public findAll() {
         return this.http.get<Array<InscriptionDto>>(this.API);

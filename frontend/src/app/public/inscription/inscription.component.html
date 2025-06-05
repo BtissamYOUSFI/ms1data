@@ -1,110 +1,249 @@
-<!--<app-voice-registration></app-voice-registration>-->
-<p>Remarque :  <a [routerLink]="['/voiceRegistration']">
-     Cliquer ici si vous voulez s'inscrire oralement
-</a></p>
-<div class="card">
+<!--&lt;!&ndash;<app-voice-registration></app-voice-registration>&ndash;&gt;-->
+<!--<p>Remarque :  <a [routerLink]="['/voiceRegistration']">-->
+<!--     Cliquer ici si vous voulez s'inscrire oralement-->
+<!--</a></p>-->
+<!--<div class="card">-->
 
-    <h2>{{ 'registration.registrationForm' | translate }}</h2>
+<!--    <h2>{{ 'registration.registrationForm' | translate }}</h2>-->
 
-    <form [formGroup]="inscriptionForm" (ngSubmit)="onSubmit()">
-        <p-toast></p-toast>
+<!--    <form [formGroup]="inscriptionForm" (ngSubmit)="onSubmit()">-->
+<!--        <p-toast></p-toast>-->
 
-        <div class="p-fluid p-formgrid p-grid">
+<!--        <div class="p-fluid p-formgrid p-grid">-->
 
-            <div class="p-field p-col-12 p-md-4">
-                <label for="nom">{{ 'registration.lastName' | translate }}</label>
-                <input id="nom" type="text" pInputText formControlName="nom">
-            </div>
+<!--            <div class="p-field p-col-12 p-md-4">-->
+<!--                <label for="nom">{{ 'registration.lastName' | translate }}</label>-->
+<!--                <input id="nom" type="text" pInputText formControlName="nom">-->
+<!--            </div>-->
 
-            <div class="p-field p-col-12 p-md-4">
-                <label for="prenom">{{ 'registration.firstName' | translate }}</label>
-                <input id="prenom" type="text" pInputText formControlName="prenom">
-            </div>
+<!--            <div class="p-field p-col-12 p-md-4">-->
+<!--                <label for="prenom">{{ 'registration.firstName' | translate }}</label>-->
+<!--                <input id="prenom" type="text" pInputText formControlName="prenom">-->
+<!--            </div>-->
 
-            <div class="p-field p-col-12 p-md-4">
-                <label for="email">{{ 'registration.email' | translate }}</label>
-                <input id="email" type="email" pInputText formControlName="email">
-                <small *ngIf="inscriptionForm.get('email')?.invalid && inscriptionForm.get('email')?.touched" class="p-error">
-                    Veuillez entrer une adresse email valide
-                </small>
-            </div>
+<!--            <div class="p-field p-col-12 p-md-4">-->
+<!--                <label for="email">{{ 'registration.email' | translate }}</label>-->
+<!--                <input id="email" type="email" pInputText formControlName="email">-->
+<!--                <small *ngIf="inscriptionForm.get('email')?.invalid && inscriptionForm.get('email')?.touched" class="p-error">-->
+<!--                    Veuillez entrer une adresse email valide-->
+<!--                </small>-->
+<!--            </div>-->
 
-            <div class="p-field p-col-12 p-md-4">
-                <label for="password">{{ 'registration.password' | translate }}</label>
-                <p-password id="password" formControlName="password" [toggleMask]="true" [feedback]="true"></p-password>
-                <small *ngIf="inscriptionForm.get('password')?.invalid && inscriptionForm.get('password')?.touched" class="p-error">
-                    Le mot de passe doit contenir au moins 8 caractères
-                </small>
-            </div>
-
-
-            <div class="p-field p-col-12 p-md-4">
-                <label for="9">{{'registration.language' | translate}}</label>
-                <p-dropdown  appendTo="body"  [options]="langues" [(ngModel)]="item.langue" id="9" [filter]="true" filterMatchMode="contains"
-                             formControlName="langue" [showClear]="true" optionLabel="libelle" placeholder="{{'registration.language' | translate}}"  >
-                </p-dropdown>
-
-            </div>
-
-            <div class="p-field p-col-12 p-md-4">
-                <label for="10">{{'registration.languageLevel' | translate}}</label>
-                <p-dropdown  appendTo="body"  [options]="niveauLangues" [(ngModel)]="item.niveauLangue" id="10" [filter]="true" filterMatchMode="contains"
-                             formControlName="niveauLangue" [showClear]="true" optionLabel="libelle" placeholder="{{'registration.languageLevel' | translate}}"  >
-                </p-dropdown>
-
-            </div>
-
-            <div class="p-field p-col-12 p-md-4">
-                <label for="11">{{'registration.job' | translate}}</label>
-                <p-dropdown  appendTo="body"  [options]="metiers" [(ngModel)]="item.metier" id="11" [filter]="true" filterMatchMode="contains"
-                             formControlName="metier" [showClear]="true" optionLabel="libelle" placeholder="{{'registration.job' | translate}}"  >
-                </p-dropdown>
-
-            </div>
-
-            <div class="p-field p-col-12 p-md-4">
-                <label for="nombreHeureExperience">{{ 'registration.nbr' | translate }}</label>
-                <p-inputNumber id="nombreHeureExperience" formControlName="nombreHeureExperience"></p-inputNumber>
-            </div>
+<!--            <div class="p-field p-col-12 p-md-4">-->
+<!--                <label for="password">{{ 'registration.password' | translate }}</label>-->
+<!--                <p-password id="password" formControlName="password" [toggleMask]="true" [feedback]="true"></p-password>-->
+<!--                <small *ngIf="inscriptionForm.get('password')?.invalid && inscriptionForm.get('password')?.touched" class="p-error">-->
+<!--                    Le mot de passe doit contenir au moins 8 caractères-->
+<!--                </small>-->
+<!--            </div>-->
 
 
-            <div class="p-field p-col-12 p-md-4">
-                <label for="phone">{{ 'registration.phone' | translate }}</label>
-                <input id="phone" type="text" pInputText formControlName="phone">
-                <small *ngIf="inscriptionForm.get('phone')?.invalid && inscriptionForm.get('phone')?.touched" class="p-error">
-                    Le format est incorrecte
-                </small>
-            </div>
+<!--            <div class="p-field p-col-12 p-md-4">-->
+<!--                <label for="9">{{'registration.language' | translate}}</label>-->
+<!--                <p-dropdown  appendTo="body"  [options]="langues" [(ngModel)]="item.langue" id="9" [filter]="true" filterMatchMode="contains"-->
+<!--                             formControlName="langue" [showClear]="true" optionLabel="libelle" placeholder="{{'registration.language' | translate}}"  >-->
+<!--                </p-dropdown>-->
 
-            <div class="p-field p-col-12">
-                <label for="description">{{ 'registration.description' | translate }}</label>
-                <textarea id="description" pInputTextarea [rows]="5" formControlName="description"></textarea>
-            </div>
+<!--            </div>-->
 
+<!--            <div class="p-field p-col-12 p-md-4">-->
+<!--                <label for="10">{{'registration.languageLevel' | translate}}</label>-->
+<!--                <p-dropdown  appendTo="body"  [options]="niveauLangues" [(ngModel)]="item.niveauLangue" id="10" [filter]="true" filterMatchMode="contains"-->
+<!--                             formControlName="niveauLangue" [showClear]="true" optionLabel="libelle" placeholder="{{'registration.languageLevel' | translate}}"  >-->
+<!--                </p-dropdown>-->
+
+<!--            </div>-->
+
+<!--            <div class="p-field p-col-12 p-md-4">-->
+<!--                <label for="11">{{'registration.job' | translate}}</label>-->
+<!--                <p-dropdown  appendTo="body"  [options]="metiers" [(ngModel)]="item.metier" id="11" [filter]="true" filterMatchMode="contains"-->
+<!--                             formControlName="metier" [showClear]="true" optionLabel="libelle" placeholder="{{'registration.job' | translate}}"  >-->
+<!--                </p-dropdown>-->
+
+<!--            </div>-->
+
+<!--            <div class="p-field p-col-12 p-md-4">-->
+<!--                <label for="nombreHeureExperience">{{ 'registration.nbr' | translate }}</label>-->
+<!--                <p-inputNumber id="nombreHeureExperience" formControlName="nombreHeureExperience"></p-inputNumber>-->
+<!--            </div>-->
+
+
+<!--            <div class="p-field p-col-12 p-md-4">-->
+<!--                <label for="phone">{{ 'registration.phone' | translate }}</label>-->
+<!--                <input id="phone" type="text" pInputText formControlName="phone">-->
+<!--                <small *ngIf="inscriptionForm.get('phone')?.invalid && inscriptionForm.get('phone')?.touched" class="p-error">-->
+<!--                    Le format est incorrecte-->
+<!--                </small>-->
+<!--            </div>-->
 
 <!--            <div class="p-field p-col-12">-->
-<!--                <p-button type="submit" label="S'inscrire" styleClass="p-button-primary"></p-button>-->
-<!--                <a href="" class="text-center"-->
-<!--                   style="display: block; width: fit-content; margin: 1rem auto 0 auto; text-decoration: none; color: #007ad9; font-weight: 500;">-->
-<!--                    <i class="pi pi-home"></i> Go home-->
-<!--                </a>-->
+<!--                <label for="description">{{ 'registration.description' | translate }}</label>-->
+<!--                <textarea id="description" pInputTextarea [rows]="5" formControlName="description"></textarea>-->
 <!--            </div>-->
-            <div class="p-field p-col-12 text-center custom-auth-actions">
-                <p-button type="submit" label="Sign up" styleClass="p-button-primary"></p-button>
-
-                <div class="link-group">
-<!--                    <a href="/" class="custom-link">-->
-<!--                        <i class="pi pi-home"></i> Home-->
-<!--                    </a>-->
-                    <span class="divider">|</span>
-                    <span>You already have an account ?
-            <a href="/collaborateur/login" class="custom-link">Log in</a>
-        </span>
-                </div>
-            </div>
 
 
+<!--&lt;!&ndash;            <div class="p-field p-col-12">&ndash;&gt;-->
+<!--&lt;!&ndash;                <p-button type="submit" label="S'inscrire" styleClass="p-button-primary"></p-button>&ndash;&gt;-->
+<!--&lt;!&ndash;                <a href="" class="text-center"&ndash;&gt;-->
+<!--&lt;!&ndash;                   style="display: block; width: fit-content; margin: 1rem auto 0 auto; text-decoration: none; color: #007ad9; font-weight: 500;">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <i class="pi pi-home"></i> Go home&ndash;&gt;-->
+<!--&lt;!&ndash;                </a>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--            <div class="p-field p-col-12 text-center custom-auth-actions">-->
+<!--                <p-button type="submit" label="Sign up" styleClass="p-button-primary"></p-button>-->
+
+<!--                <div class="link-group">-->
+<!--&lt;!&ndash;                    <a href="/" class="custom-link">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <i class="pi pi-home"></i> Home&ndash;&gt;-->
+<!--&lt;!&ndash;                    </a>&ndash;&gt;-->
+<!--                    <span class="divider">|</span>-->
+<!--                    <span>You already have an account ?-->
+<!--            <a href="/collaborateur/login" class="custom-link">Log in</a>-->
+<!--        </span>-->
+<!--                </div>-->
+<!--            </div>-->
+
+
+<!--        </div>-->
+<!--    </form>-->
+<!--</div>-->
+<!--<app-voice-registration></app-voice-registration>-->
+<div class="register-container">
+    <div class="register-card">
+        <!-- Header avec logo -->
+<!--        <div class="register-header">-->
+<!--            <div class="logo">-->
+<!--                <div class="flag-icon">-->
+<!--                    <div class="flag-red"></div>-->
+<!--                    <div class="flag-white"></div>-->
+<!--                    <div class="maple-leaf"></div>-->
+<!--                </div>-->
+<!--                <span class="logo-text">CompétencesCanada</span>-->
+<!--            </div>-->
+<!--            <h2>{{ 'registration.registrationForm' | translate }}</h2>-->
+<!--            <p class="register-subtitle">Créez votre compte pour commencer votre parcours d'intégration professionnelle</p>-->
+<!--        </div>-->
+
+        <!-- Lien inscription vocale -->
+        <div class="voice-registration-link">
+            <p><strong>Remarque :</strong>
+                <a [routerLink]="['/voiceRegistration']" class="voice-link">
+                    <i class="pi pi-microphone"></i>
+                    Cliquer ici si vous voulez vous inscrire oralement
+                </a>
+            </p>
         </div>
-    </form>
-</div>
 
+        <form [formGroup]="inscriptionForm" (ngSubmit)="onSubmit()">
+            <p-toast></p-toast>
+
+            <div class="p-fluid p-formgrid p-grid">
+
+                <div class="p-field p-col-12 p-md-4">
+                    <label for="nom">{{ 'registration.lastName' | translate }}</label>
+                    <span class="p-input-icon-left">
+                        <i class="pi pi-user"></i>
+                        <input id="nom" type="text" pInputText formControlName="nom" placeholder="Nom de famille">
+                    </span>
+                </div>
+
+                <div class="p-field p-col-12 p-md-4">
+                    <label for="prenom">{{ 'registration.firstName' | translate }}</label>
+                    <span class="p-input-icon-left">
+                        <i class="pi pi-user"></i>
+                        <input id="prenom" type="text" pInputText formControlName="prenom" placeholder="Prénom">
+                    </span>
+                </div>
+
+                <div class="p-field p-col-12 p-md-4">
+                    <label for="email">{{ 'registration.email' | translate }}</label>
+                    <span class="p-input-icon-left">
+                        <i class="pi pi-envelope"></i>
+                        <input id="email" type="email" pInputText formControlName="email" placeholder="votre@email.com">
+                    </span>
+                    <small *ngIf="inscriptionForm.get('email')?.invalid && inscriptionForm.get('email')?.touched" class="p-error">
+                        Veuillez entrer une adresse email valide
+                    </small>
+                </div>
+
+                <div class="p-field p-col-12 p-md-4">
+                    <label for="password">{{ 'registration.password' | translate }}</label>
+                    <p-password id="password" formControlName="password" [toggleMask]="true" [feedback]="true"
+                                placeholder="Mot de passe" styleClass="custom-password"></p-password>
+                    <small *ngIf="inscriptionForm.get('password')?.invalid && inscriptionForm.get('password')?.touched" class="p-error">
+                        Le mot de passe doit contenir au moins 8 caractères
+                    </small>
+                </div>
+
+                <div class="p-field p-col-12 p-md-4">
+                    <label for="phone">{{ 'registration.phone' | translate }}</label>
+                    <span class="p-input-icon-left">
+                        <i class="pi pi-phone"></i>
+                        <input id="phone" type="text" pInputText formControlName="phone" placeholder="+1 (555) 123-4567">
+                    </span>
+                    <small *ngIf="inscriptionForm.get('phone')?.invalid && inscriptionForm.get('phone')?.touched" class="p-error">
+                        Le format est incorrect
+                    </small>
+                </div>
+
+                <div class="p-field p-col-12 p-md-4">
+                    <label for="nombreHeureExperience">{{ 'registration.nbr' | translate }}</label>
+                    <span class="p-input-icon-left">
+                        <i class="pi pi-clock"></i>
+                        <p-inputNumber id="nombreHeureExperience" formControlName="nombreHeureExperience"
+                                       placeholder="Heures d'expérience" styleClass="custom-input-number"></p-inputNumber>
+                    </span>
+                </div>
+
+                <div class="p-field p-col-12 p-md-4">
+                    <label for="9">{{'registration.language' | translate}}</label>
+                    <p-dropdown appendTo="body" [options]="langues" [(ngModel)]="item.langue" id="9" [filter]="true"
+                                filterMatchMode="contains" formControlName="langue" [showClear]="true" optionLabel="libelle"
+                                placeholder="{{'registration.language' | translate}}" styleClass="custom-dropdown">
+                    </p-dropdown>
+                </div>
+
+                <div class="p-field p-col-12 p-md-4">
+                    <label for="10">{{'registration.languageLevel' | translate}}</label>
+                    <p-dropdown appendTo="body" [options]="niveauLangues" [(ngModel)]="item.niveauLangue" id="10" [filter]="true"
+                                filterMatchMode="contains" formControlName="niveauLangue" [showClear]="true" optionLabel="libelle"
+                                placeholder="{{'registration.languageLevel' | translate}}" styleClass="custom-dropdown">
+                    </p-dropdown>
+                </div>
+
+                <div class="p-field p-col-12 p-md-4">
+                    <label for="11">{{'registration.job' | translate}}</label>
+                    <p-dropdown appendTo="body" [options]="metiers" [(ngModel)]="item.metier" id="11" [filter]="true"
+                                filterMatchMode="contains" formControlName="metier" [showClear]="true" optionLabel="libelle"
+                                placeholder="{{'registration.job' | translate}}" styleClass="custom-dropdown">
+                    </p-dropdown>
+                </div>
+
+                <div class="p-field p-col-12">
+                    <label for="description">{{ 'registration.description' | translate }}</label>
+                    <span class="p-input-icon-left textarea-wrapper">
+                        <i class="pi pi-file-edit"></i>
+                        <textarea id="description" pInputTextarea [rows]="5" formControlName="description"
+                                  placeholder="Décrivez votre expérience professionnelle et vos objectifs..."></textarea>
+                    </span>
+                </div>
+
+                <div class="p-field p-col-12 text-center custom-auth-actions">
+                    <p-button type="submit" label="Sign up" icon="pi pi-user-plus"
+                              styleClass="register-btn"></p-button>
+
+                    <div class="link-group">
+                        <span>You already have an account?
+                            <a href="/collaborateur/login" class="custom-link">Log in</a>
+                        </span>
+                        <span class="divider">|</span>
+                        <a routerLink="/" class="home-link">
+                            <i class="pi pi-home"></i> Home
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>

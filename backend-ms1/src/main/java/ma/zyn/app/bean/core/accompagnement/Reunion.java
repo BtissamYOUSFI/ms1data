@@ -36,7 +36,6 @@ public class Reunion  extends BaseEntity     {
     private Collaborateur collaborateur ;
     private EtatReunion etatReunion ;
 
-
     public Reunion(){
         super();
     }

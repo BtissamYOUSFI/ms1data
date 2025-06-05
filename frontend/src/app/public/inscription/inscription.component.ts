@@ -73,7 +73,7 @@ export class InscriptionComponent implements OnInit {
                             severity: "success",
                             summary: "Inscription réussie",
                             detail: "On va vous contacter après",
-                            life: 5000,
+                            life: 2000,
                         })
                         setTimeout(() => {
                             this.router.navigate(['/home']);

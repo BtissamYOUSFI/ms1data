@@ -115,13 +115,24 @@ export class ReunionListCollaborateurComponent implements OnInit {
         }
     }
 
+    // public findPaginatedByCriteria() {
+    //     this.service.findPaginatedByCriteria(this.criteria).subscribe(paginatedItems => {
+    //         this.items = paginatedItems.list;
+    //         this.totalRecords = paginatedItems.dataSize;
+    //         this.selections = new Array<ReunionDto>();
+    //     }, error => console.log(error));
+    // }
     public findPaginatedByCriteria() {
         this.service.findPaginatedByCriteria(this.criteria).subscribe(paginatedItems => {
-            this.items = paginatedItems.list;
-            this.totalRecords = paginatedItems.dataSize;
+            const allItems = paginatedItems.list;
+            this.items = allItems.filter(item =>
+                item.collaborateur?.email === this.authService.authenticatedUser.email
+            );
+            this.totalRecords = this.items.length;
             this.selections = new Array<ReunionDto>();
         }, error => console.log(error));
     }
+
 
     public onPage(event: any) {
         this.criteria.page = event.page;

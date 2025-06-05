@@ -52,6 +52,19 @@ public class InscriptionRestCollaborateur {
         return res;
     }
 
+    @Operation(summary = "Finds a inscription by email")
+    @GetMapping("email/{email}")
+    public ResponseEntity<InscriptionDto> findByEmail(@PathVariable String email){
+        Inscription inscription = service.findByEmail(email);
+        if (inscription != null) {
+            converter.initObject(true);
+            InscriptionDto dto = converter.toDto(inscription);
+            return getDtoResponseEntity(dto);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+
 
     @Operation(summary = "Finds a inscription by id")
     @GetMapping("id/{id}")

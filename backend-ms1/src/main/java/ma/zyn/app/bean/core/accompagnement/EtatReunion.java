@@ -1,12 +1,5 @@
 package ma.zyn.app.bean.core.accompagnement;
 
-
-
-
-
-
-
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import ma.zyn.app.zynerator.bean.BaseEntity;
 import jakarta.persistence.*;
@@ -28,8 +21,6 @@ public class EtatReunion  extends BaseEntity     {
     private String style;
 
     private String description;
-
-
 
     public EtatReunion(){
         super();

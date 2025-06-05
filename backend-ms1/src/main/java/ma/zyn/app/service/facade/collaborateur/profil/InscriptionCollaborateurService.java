@@ -34,7 +34,7 @@ public interface InscriptionCollaborateurService {
     List<Inscription> findByCollaborateurId(Long id);
     int deleteByCollaborateurId(Long id);
     long countByCollaborateurEmail(String email);
-
+    Inscription findByEmail(String email);
 
 
 

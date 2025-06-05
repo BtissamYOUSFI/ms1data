@@ -172,26 +172,21 @@ constructor(public layoutService: LayoutService, public app: AppComponent, publi
                     // label: 'Pages',
                     icon: 'pi pi-fw pi-briefcase',
                     items: [
-					  // {
-						// label: 'Gestion des Collaborateurs',
-						// icon: 'pi pi-wallet',
-						// items: [
-						// 		  {
-						// 			label: 'Liste collaborateur',
-						// 			icon: 'pi pi-fw pi-plus-circle',
-						// 			routerLink: ['/app/collaborateur/utilisateurs/collaborateur/list']
-						// 		  },
-						// ]
-					  // },
+                        {
+                            label: 'Inscription',
+                            icon: 'pi pi-wallet',
+                            items: [
+                                {
+                                    label: 'Inscription',
+                                    icon: 'pi pi-fw pi-plus-circle',
+                                    routerLink: ['/app/collaborateur/profil/inscription/list']
+                                },
+                            ]
+                        },
 					  {
 						label: 'Paiements',
 						icon: 'pi pi-wallet',
 						items: [
-								  {
-									label: 'Liste status paiement',
-									icon: 'pi pi-fw pi-plus-circle',
-									routerLink: ['/app/collaborateur/transaction/status-paiement/list']
-								  },
 								  {
 									label: 'Liste paiement',
 									icon: 'pi pi-fw pi-plus-circle',
@@ -204,57 +199,11 @@ constructor(public layoutService: LayoutService, public app: AppComponent, publi
 								  },
 						]
 					  },
+
 					  {
-						label: 'Gestion des Inscriptions',
+						label: 'Meetings',
 						icon: 'pi pi-wallet',
 						items: [
-								  {
-									label: 'Liste inscription',
-									icon: 'pi pi-fw pi-plus-circle',
-									routerLink: ['/app/collaborateur/profil/inscription/list']
-								  },
-						]
-					  },
-					  {
-						label: 'Profil Utilisateur',
-						icon: 'pi pi-wallet',
-						items: [
-								  {
-									label: 'Liste etat inscription',
-									icon: 'pi pi-fw pi-plus-circle',
-									routerLink: ['/app/collaborateur/profil/etat-inscription/list']
-								  },
-								  {
-									label: 'Liste langue',
-									icon: 'pi pi-fw pi-plus-circle',
-									routerLink: ['/app/collaborateur/profil/langue/list']
-								  },
-								  {
-									label: 'Liste referentiel metier',
-									icon: 'pi pi-fw pi-plus-circle',
-									routerLink: ['/app/collaborateur/profil/referentiel-metier/list']
-								  },
-								  {
-									label: 'Liste niveau langue',
-									icon: 'pi pi-fw pi-plus-circle',
-									routerLink: ['/app/collaborateur/profil/niveau-langue/list']
-								  },
-								  {
-									label: 'Liste metier',
-									icon: 'pi pi-fw pi-plus-circle',
-									routerLink: ['/app/collaborateur/profil/metier/list']
-								  },
-						]
-					  },
-					  {
-						label: 'Gestion des Réunions',
-						icon: 'pi pi-wallet',
-						items: [
-								  {
-									label: 'Liste etat reunion',
-									icon: 'pi pi-fw pi-plus-circle',
-									routerLink: ['/app/collaborateur/accompagnement/etat-reunion/list']
-								  },
 								  {
 									label: 'Liste reunion',
 									icon: 'pi pi-fw pi-plus-circle',
@@ -262,28 +211,33 @@ constructor(public layoutService: LayoutService, public app: AppComponent, publi
 								  },
 						]
 					  },
+                        {
+                            label: 'User Profile',
+                            icon: 'pi pi-wallet',
+                            items: [
+                                {
+                                    label: 'Liste langue',
+                                    icon: 'pi pi-fw pi-plus-circle',
+                                    routerLink: ['/app/collaborateur/profil/langue/list']
+                                },
+                                {
+                                    label: 'Liste referentiel metier',
+                                    icon: 'pi pi-fw pi-plus-circle',
+                                    routerLink: ['/app/collaborateur/profil/referentiel-metier/list']
+                                },
+                                {
+                                    label: 'Liste niveau langue',
+                                    icon: 'pi pi-fw pi-plus-circle',
+                                    routerLink: ['/app/collaborateur/profil/niveau-langue/list']
+                                },
+                                {
+                                    label: 'Liste metier',
+                                    icon: 'pi pi-fw pi-plus-circle',
+                                    routerLink: ['/app/collaborateur/profil/metier/list']
+                                },
+                            ]
+                        },
 
-				   {
-					  label: 'Security Management',
-					  icon: 'pi pi-wallet',
-					  items: [
-						  {
-							  label: 'List User',
-							  icon: 'pi pi-fw pi-plus-circle',
-							  routerLink: ['/app/admin/security/user/list']
-						  },
-						  {
-							  label: 'List Model',
-							  icon: 'pi pi-fw pi-plus-circle',
-							  routerLink: ['/app/admin/security/model-permission/list']
-						  },
-						  {
-							  label: 'List Action Permission',
-							  icon: 'pi pi-fw pi-plus-circle',
-							  routerLink: ['/app/admin/security/action-permission/list']
-						  },
-					  ]
-				  }
 			]
 	    }
     ];

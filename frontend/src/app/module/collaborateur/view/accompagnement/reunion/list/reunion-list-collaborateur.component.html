@@ -2,21 +2,20 @@
     <div class="col-12">
         <p-toast></p-toast>
         <div class="card">
-            <p-toolbar styleClass="mb-4">
-                <ng-template pTemplate="left">
-                                        <button pButton pRipple label=" {{'new' | translate}}" icon="pi pi-plus" class="p-button-info mr-2 mb-2" (click)="openCreate()" *ngIf="createActionIsValid"></button>
-                    <button [disabled]="isSelectionDisabled()" pButton pRipple label=" {{'delete' | translate}}" icon="pi pi-trash" class="p-button-danger mr-2 mb-2" (click)=deleteMultiple()  *ngIf="deleteActionIsValid"></button>
-                    <button pButton pRipple label=" {{'search' | translate}}" icon="pi pi-{{findByCriteriaShow?'angle-down':'angle-right'}}" class="p-button-secondary mr-2 mb-2" (click)="this.showSearch()"></button>
-                </ng-template>
-                <ng-template pTemplate="right">
-                    <div class="flex">
-                        <p-splitButton label=" {{'export' | translate}}" icon="pi pi-download" styleClass="p-button-secondary" [model]="excelPdfButons"></p-splitButton>
-                    </div>
-                </ng-template>
+<!--            <p-toolbar styleClass="mb-4">-->
+<!--                <ng-template pTemplate="left">-->
+<!--                                        <button pButton pRipple label=" {{'new' | translate}}" icon="pi pi-plus" class="p-button-info mr-2 mb-2" (click)="openCreate()" *ngIf="createActionIsValid"></button>-->
+<!--                    <button [disabled]="isSelectionDisabled()" pButton pRipple label=" {{'delete' | translate}}" icon="pi pi-trash" class="p-button-danger mr-2 mb-2" (click)=deleteMultiple()  *ngIf="deleteActionIsValid"></button>-->
+<!--                    <button pButton pRipple label=" {{'search' | translate}}" icon="pi pi-{{findByCriteriaShow?'angle-down':'angle-right'}}" class="p-button-secondary mr-2 mb-2" (click)="this.showSearch()"></button>-->
+<!--                </ng-template>-->
+<!--                <ng-template pTemplate="right">-->
+<!--                    <div class="flex">-->
+<!--                        <p-splitButton label=" {{'export' | translate}}" icon="pi pi-download" styleClass="p-button-secondary" [model]="excelPdfButons"></p-splitButton>-->
+<!--                    </div>-->
+<!--                </ng-template>-->
 
-            </p-toolbar>
+<!--            </p-toolbar>-->
             <p-toolbar *ngIf="findByCriteriaShow">
-
                 <div class="col-12">
                     <div class="flex flex-wrap p-fluid col-12">
                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
@@ -28,7 +27,7 @@
                             <input  class="w-full"  pInputText id="2" type="text"  [(ngModel)]="criteria.codeLike">
                         </div>
                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
-                            <label  class="font-bold block mb-2" for="3">{{'reunion.style' | translate}}</label>
+                            <label  class="font-bold block mb-2" for="3">Link</label>
                             <input  class="w-full"  pInputText id="3" type="text"  [(ngModel)]="criteria.styleLike">
                         </div>
                         <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
@@ -70,34 +69,34 @@
                                 <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
                             </th>
 
-                        <th pSortableColumn="libelle">
+<!--                        <th pSortableColumn="libelle">-->
+<!--                            <div class="p-d-flex p-jc-between p-ai-center">-->
+<!--                                <span>{{'reunion.libelle' | translate}}</span>-->
+<!--                                <p-sortIcon field="libelle"></p-sortIcon>-->
+<!--                                <p-columnFilter type="text" field="element.libelle" display="menu" class="ml-auto"></p-columnFilter>-->
+<!--                            </div>-->
+<!--                        </th>-->
+
+
+<!--                        <th pSortableColumn="code">-->
+<!--                            <div class="p-d-flex p-jc-between p-ai-center">-->
+<!--                                <span>{{'reunion.code' | translate}}</span>-->
+<!--                                <p-sortIcon field="code"></p-sortIcon>-->
+<!--                                <p-columnFilter type="text" field="element.code" display="menu" class="ml-auto"></p-columnFilter>-->
+<!--                            </div>-->
+<!--                        </th>-->
+
+
+                        <th pSortableColumn="Link">
                             <div class="p-d-flex p-jc-between p-ai-center">
-                                <span>{{'reunion.libelle' | translate}}</span>
-                                <p-sortIcon field="libelle"></p-sortIcon>
-                                <p-columnFilter type="text" field="element.libelle" display="menu" class="ml-auto"></p-columnFilter>
-                            </div>
-                        </th>
-
-
-                        <th pSortableColumn="code">
-                            <div class="p-d-flex p-jc-between p-ai-center">
-                                <span>{{'reunion.code' | translate}}</span>
-                                <p-sortIcon field="code"></p-sortIcon>
-                                <p-columnFilter type="text" field="element.code" display="menu" class="ml-auto"></p-columnFilter>
-                            </div>
-                        </th>
-
-
-                        <th pSortableColumn="style">
-                            <div class="p-d-flex p-jc-between p-ai-center">
-                                <span>{{'reunion.style' | translate}}</span>
+                                <span>Link</span>
                                 <p-sortIcon field="style"></p-sortIcon>
                                 <p-columnFilter type="text" field="element.style" display="menu" class="ml-auto"></p-columnFilter>
                             </div>
                         </th>
 
 
-                        <th pSortableColumn="collaborateur">
+                        <th pSortableColumn="collaborator">
                             <div class="p-d-flex p-jc-between p-ai-center">
                                 <span>{{'reunion.collaborateur' | translate}}</span>
                                 <p-sortIcon field="collaborateur"></p-sortIcon>
@@ -116,15 +115,15 @@
                         </tr>
                     </ng-template>
                     <ng-template pTemplate="body" let-element>
-                        <tr>
+                        <tr *ngIf="element.collaborateur?.email=== authService.authenticatedUser.email">
                             <td>
                                 <p-tableCheckbox [value]="element"></p-tableCheckbox>
                             </td>
 
-                        <td>{{element.libelle}}</td>
+<!--                        <td>{{element.libelle}}</td>-->
 
 
-                        <td>{{element.code}}</td>
+<!--                        <td>{{element.code}}</td>-->
 
 
                         <td>{{element.style}}</td>
@@ -134,14 +133,14 @@
 
 
                         <td>
-                            <p-tag severity="{{element.etatReunion?.code}}" value="{{element.etatReunion?.libelle}}" [rounded]="true" />
+                            <p-tag severity="{{element.etatReunion?.style}}" value="{{element.etatReunion?.libelle}}" [rounded]="true" />
                         </td>
 
                             <td>
-                                <button pButton pRipple icon="pi pi-pencil"  class="p-button-rounded p-button-info mr-2" (click)="edit(element)"  *ngIf="editActionIsValid"></button>
+<!--                                <button pButton pRipple icon="pi pi-pencil"  class="p-button-rounded p-button-info mr-2" (click)="edit(element)"  *ngIf="editActionIsValid"></button>-->
                                 <button pButton pRipple icon="pi pi-list" class="p-button-rounded p-button-secondary mr-2" (click)="view(element)"  *ngIf="viewActionIsValid"></button>
-                                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger mr-2" (click)="delete(element)"  *ngIf="deleteActionIsValid"></button>
-                                <button pButton pRipple icon="pi pi-copy" class="p-button-rounded p-button-raised p-button-warning mr-2" (click)="duplicate(element)"  *ngIf="duplicateActionIsValid"></button>
+<!--                                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger mr-2" (click)="delete(element)"  *ngIf="deleteActionIsValid"></button>-->
+<!--                                <button pButton pRipple icon="pi pi-copy" class="p-button-rounded p-button-raised p-button-warning mr-2" (click)="duplicate(element)"  *ngIf="duplicateActionIsValid"></button>-->
                             </td>
                         </tr>
                     </ng-template>
@@ -159,7 +158,7 @@
                         <div class="flex flex-wrap justify-content-between align-items-center">
                             <p-paginator [rows]="10" [totalRecords]="totalRecords" (onPageChange)="onPage($event)" [rowsPerPageOptions]="[10, 20, 30]"></p-paginator>
                             <div class="text-muted">
-                                Total: {{totalRecords}} Reunions
+                                Total: {{totalRecords}} Meetings
                             </div>
                         </div>
                     </ng-template>

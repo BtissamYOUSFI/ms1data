@@ -361,8 +361,87 @@
         "deleteTemplateEmailManagersConfirmationMessage": "Are you sure you want to delete the selected elements"
     },
 
+    "WELCOME": "🇨🇦 Bienvenue au Canada",
+    "HERO": {
+        "TITLE": "Faites reconnaître vos <span class='text-highlight'>compétences</span> au Canada",
+        "before": "Faites reconnaître vos",
+        "highlight": "compétences",
+        "after": "au Canada",
+        "DESCRIPTION": "Accompagnement personnalisé pour les nouveaux arrivants dans la reconnaissance de leurs qualifications professionnelles et l'intégration dans les métiers spécialisés.",
+        "BUTTONS": {
+            "EVALUATE": "Évaluer mes compétences",
+            "LEARN_MORE": "En savoir plus"
+        }
+    },
+    "SERVICES": {
+        "TITLE": "Nos Services",
+        "SUBTITLE": "Un accompagnement complet pour votre réussite",
+        "DESCRIPTION": "De l'évaluation de vos compétences à votre intégration professionnelle, nous vous guidons à chaque étape de votre parcours au Canada."
+    },
+    "PROCESS": {
+        "TITLE": "Notre Processus",
+        "SUBTITLE": "4 étapes simples vers votre réussite"
+    },
+    "CTA": {
+        "TITLE": "Prêt à faire reconnaître vos compétences au Canada ?",
+        "DESCRIPTION": "Rejoignez des milliers de professionnels qui ont réussi leur intégration grâce à notre accompagnement personnalisé.",
+        "BUTTONS": {
+            "START_NOW": "Commencer maintenant",
+            "PLAN_CONSULT": "Planifier une consultation"
+        }
+    },
+    "FOOTER": {
+        "BRAND_DESC": "Votre partenaire de confiance pour la reconnaissance de vos compétences au Canada.",
+        "SERVICES": "Services",
+        "RESOURCES": "Ressources",
+        "CONTACT": "Contact",
+        "PHONE": "1-800-COMPETENCES",
+        "EMAIL": "info@competencescanada.ca",
+        "COPYRIGHT": "© {{year}} CompétencesCanada. Tous droits réservés."
+    },
+    "CONTACT": {
+        "TITLE": "Contactez-nous",
+        "SUBTITLE": "Notre équipe d'experts est là pour vous accompagner dans votre parcours d'intégration professionnelle au Canada",
+        "FORM": {
+            "HEADER": "Envoyez-nous un message",
+            "SUBHEADER": "Remplissez le formulaire ci-dessous et nous vous répondrons rapidement",
+            "FIRST_NAME": "Prénom *",
+            "LAST_NAME": "Nom *",
+            "EMAIL": "Email *",
+            "PHONE": "Téléphone",
+            "MESSAGE": "Message *",
+            "PLACEHOLDER": {
+                "FIRST_NAME": "Votre prénom",
+                "LAST_NAME": "Votre nom",
+                "EMAIL": "votre@email.com",
+                "PHONE": "+1 (555) 123-4567",
+                "MESSAGE": "Décrivez votre demande en détail..."
+            },
+            "SEND_BUTTON": "Envoyer le message"
+        },
+        "OFFICES": {
+            "TITLE": "Nos bureaux",
+            "SUBTITLE": "Retrouvez-nous dans les principales villes du Canada"
+        },
+        "FAQ": {
+            "TITLE": "Questions fréquentes",
+            "Q1": "Combien de temps prend l'évaluation ?",
+            "A1": "L'évaluation complète de vos compétences prend généralement entre 2 à 4 semaines selon la complexité de votre dossier.",
+            "Q2": "Quels documents dois-je fournir ?",
+            "A2": "Vous devrez fournir vos diplômes, certificats, lettres d'expérience et tout document prouvant vos compétences professionnelles.",
+            "Q3": "Le service est-il gratuit ?",
+            "A3": "La consultation initiale est gratuite. Les services d'accompagnement sont payants selon le niveau de support choisi.",
+            "Q4": "Dans quelles langues offrez-vous vos services ?",
+            "A4": "Nous offrons nos services en français, anglais, et plusieurs autres langues selon la disponibilité de nos conseillers."
+        },
+        "HOME_LINK": "Retour à l'accueil"
 
-    "appName": "GED"
+},
+
+
+
+
+"appName": "GED"
 }
 
 

@@ -2,35 +2,23 @@
     <div class="col-12">
         <p-toast></p-toast>
         <div class="card">
-            <p-toolbar styleClass="mb-4">
-                <ng-template pTemplate="left">
-                                        <button pButton pRipple label=" {{'new' | translate}}" icon="pi pi-plus" class="p-button-info mr-2 mb-2" (click)="openCreate()" *ngIf="createActionIsValid"></button>
-                    <button [disabled]="isSelectionDisabled()" pButton pRipple label=" {{'delete' | translate}}" icon="pi pi-trash" class="p-button-danger mr-2 mb-2" (click)=deleteMultiple()  *ngIf="deleteActionIsValid"></button>
-                    <button pButton pRipple label=" {{'search' | translate}}" icon="pi pi-{{findByCriteriaShow?'angle-down':'angle-right'}}" class="p-button-secondary mr-2 mb-2" (click)="this.showSearch()"></button>
-                </ng-template>
-                <ng-template pTemplate="right">
-                    <div class="flex">
-                        <p-splitButton label=" {{'export' | translate}}" icon="pi pi-download" styleClass="p-button-secondary" [model]="excelPdfButons"></p-splitButton>
-                    </div>
-                </ng-template>
+<!--            <p-toolbar styleClass="mb-4">-->
+<!--                <ng-template pTemplate="left">-->
+<!--                                        <button pButton pRipple label=" {{'new' | translate}}" icon="pi pi-plus" class="p-button-info mr-2 mb-2" (click)="openCreate()" *ngIf="createActionIsValid"></button>-->
+<!--                    <button [disabled]="isSelectionDisabled()" pButton pRipple label=" {{'delete' | translate}}" icon="pi pi-trash" class="p-button-danger mr-2 mb-2" (click)=deleteMultiple()  *ngIf="deleteActionIsValid"></button>-->
+<!--                    <button pButton pRipple label=" {{'search' | translate}}" icon="pi pi-{{findByCriteriaShow?'angle-down':'angle-right'}}" class="p-button-secondary mr-2 mb-2" (click)="this.showSearch()"></button>-->
+<!--                </ng-template>-->
+<!--                <ng-template pTemplate="right">-->
+<!--                    <div class="flex">-->
+<!--                        <p-splitButton label=" {{'export' | translate}}" icon="pi pi-download" styleClass="p-button-secondary" [model]="excelPdfButons"></p-splitButton>-->
+<!--                    </div>-->
+<!--                </ng-template>-->
 
-            </p-toolbar>
+<!--            </p-toolbar>-->
             <p-toolbar *ngIf="findByCriteriaShow">
 
                 <div class="col-12">
                     <div class="flex flex-wrap p-fluid col-12">
-                       <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
-                            <label  class="font-bold block mb-2" for="1">{{'inscription.libelle' | translate}}</label>
-                            <input  class="w-full"  pInputText id="1" type="text"  [(ngModel)]="criteria.libelleLike">
-                        </div>
-                       <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
-                            <label  class="font-bold block mb-2" for="2">{{'inscription.code' | translate}}</label>
-                            <input  class="w-full"  pInputText id="2" type="text"  [(ngModel)]="criteria.codeLike">
-                        </div>
-                       <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
-                            <label  class="font-bold block mb-2" for="3">{{'inscription.style' | translate}}</label>
-                            <input  class="w-full"  pInputText id="3" type="text"  [(ngModel)]="criteria.styleLike">
-                        </div>
                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
                             <label  class="font-bold block mb-2" for="5">{{'inscription.nom' | translate}}</label>
                             <input  class="w-full"  pInputText id="5" type="text"  [(ngModel)]="criteria.nomLike">
@@ -43,10 +31,10 @@
                             <label  class="font-bold block mb-2" for="7">{{'inscription.email' | translate}}</label>
                             <input  class="w-full"  pInputText id="7" type="text"  [(ngModel)]="criteria.emailLike">
                         </div>
-                       <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
-                            <label  class="font-bold block mb-2" for="8">{{'inscription.password' | translate}}</label>
-                            <input  class="w-full"  pInputText id="8" type="text"  [(ngModel)]="criteria.passwordLike">
-                        </div>
+<!--                       <div class="lg:col-3 md:col-6 sm:col-12 mb-4">-->
+<!--                            <label  class="font-bold block mb-2" for="8">{{'inscription.password' | translate}}</label>-->
+<!--                            <input  class="w-full"  pInputText id="8" type="text"  [(ngModel)]="criteria.passwordLike">-->
+<!--                        </div>-->
                         <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
                             <label  class="font-bold block mb-2" for="9-2">{{'inscription.langue' | translate}}</label>
                             <p-dropdown [options]="langues" [(ngModel)]="criteria.langue" id="9" [filter]="true" class="p-fluid"
@@ -96,10 +84,10 @@
             <div class="card p-0 shadow-2 border-round">
                 <div class="p-card-header p-3 flex justify-content-between align-items-center">
                     <h5 class="m-0 text-primary font-medium">{{'inscription.header' | translate}}</h5>
-                    <span class="p-input-icon-left">
-                        <i class="pi pi-search"></i>
-                        <input pInputText type="text" placeholder="{{'searchInput' | translate}}" (input)="dt.filterGlobal($event.target.value, 'contains')" class="p-inputtext-sm"/>
-                    </span>
+<!--                    <span class="p-input-icon-left">-->
+<!--                        <i class="pi pi-search"></i>-->
+<!--                        <input pInputText type="text" placeholder="{{'searchInput' | translate}}" (input)="dt.filterGlobal($event.target.value, 'contains')" class="p-inputtext-sm"/>-->
+<!--                    </span>-->
                 </div>
                 <p-table #dt [value]="items" [columns]="cols" [rows]="8" [paginator]="false"
                          [globalFilterFields]="['libelle', 'code', 'style', 'nom', 'prenom', 'email', 'password', 'languelibelle', 'niveauLanguelibelle', 'metierlibelle', 'nombreHeureExperience', 'etatInscriptionlibelle', 'collaborateuremail']" [(selection)]="selections"
@@ -111,32 +99,6 @@
                             <th style="width: 3rem">
                                 <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
                             </th>
-
-                        <th pSortableColumn="libelle">
-                            <div class="p-d-flex p-jc-between p-ai-center">
-                                <span>{{'inscription.libelle' | translate}}</span>
-                                <p-sortIcon field="libelle"></p-sortIcon>
-                                <p-columnFilter type="text" field="element.libelle" display="menu" class="ml-auto"></p-columnFilter>
-                            </div>
-                        </th>
-
-
-                        <th pSortableColumn="code">
-                            <div class="p-d-flex p-jc-between p-ai-center">
-                                <span>{{'inscription.code' | translate}}</span>
-                                <p-sortIcon field="code"></p-sortIcon>
-                                <p-columnFilter type="text" field="element.code" display="menu" class="ml-auto"></p-columnFilter>
-                            </div>
-                        </th>
-
-
-                        <th pSortableColumn="style">
-                            <div class="p-d-flex p-jc-between p-ai-center">
-                                <span>{{'inscription.style' | translate}}</span>
-                                <p-sortIcon field="style"></p-sortIcon>
-                                <p-columnFilter type="text" field="element.style" display="menu" class="ml-auto"></p-columnFilter>
-                            </div>
-                        </th>
 
 
                         <th pSortableColumn="nom">
@@ -165,14 +127,6 @@
                             </div>
                         </th>
 
-
-                        <th pSortableColumn="password">
-                            <div class="p-d-flex p-jc-between p-ai-center">
-                                <span>{{'inscription.password' | translate}}</span>
-                                <p-sortIcon field="password"></p-sortIcon>
-                                <p-columnFilter type="text" field="element.password" display="menu" class="ml-auto"></p-columnFilter>
-                            </div>
-                        </th>
 
 
                         <th pSortableColumn="langue">
@@ -226,19 +180,10 @@
                         </tr>
                     </ng-template>
                     <ng-template pTemplate="body" let-element>
-                        <tr>
+                        <tr *ngIf="element.email === authService.authenticatedUser.email">
                             <td>
                                 <p-tableCheckbox [value]="element"></p-tableCheckbox>
                             </td>
-
-                        <td>{{element.libelle}}</td>
-
-
-                        <td>{{element.code}}</td>
-
-
-                        <td>{{element.style}}</td>
-
 
                         <td>{{element.nom}}</td>
 
@@ -249,16 +194,13 @@
                         <td>{{element.email}}</td>
 
 
-                        <td>{{element.password}}</td>
-
-
                         <td>
-                            <p-tag severity="{{element.langue?.code}}" value="{{element.langue?.libelle}}" [rounded]="true" />
+                            <p-tag severity="{{element.langue?.style}}" value="{{element.langue?.libelle}}" [rounded]="true" />
                         </td>
 
 
                         <td>
-                            <p-tag severity="{{element.niveauLangue?.code}}" value="{{element.niveauLangue?.libelle}}" [rounded]="true" />
+                            <p-tag severity="{{element.niveauLangue?.style}}" value="{{element.niveauLangue?.libelle}}" [rounded]="true" />
                         </td>
 
                                      <!--
@@ -278,10 +220,10 @@
                         <td>{{element.collaborateur?.email}}</td>
                              -->
                             <td>
-                                <button pButton pRipple icon="pi pi-pencil"  class="p-button-rounded p-button-info mr-2" (click)="edit(element)"  *ngIf="editActionIsValid"></button>
+<!--                                <button pButton pRipple icon="pi pi-pencil"  class="p-button-rounded p-button-info mr-2" (click)="edit(element)"  *ngIf="editActionIsValid"></button>-->
                                 <button pButton pRipple icon="pi pi-list" class="p-button-rounded p-button-secondary mr-2" (click)="view(element)"  *ngIf="viewActionIsValid"></button>
-                                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger mr-2" (click)="delete(element)"  *ngIf="deleteActionIsValid"></button>
-                                <button pButton pRipple icon="pi pi-copy" class="p-button-rounded p-button-raised p-button-warning mr-2" (click)="duplicate(element)"  *ngIf="duplicateActionIsValid"></button>
+<!--                                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger mr-2" (click)="delete(element)"  *ngIf="deleteActionIsValid"></button>-->
+<!--                                <button pButton pRipple icon="pi pi-copy" class="p-button-rounded p-button-raised p-button-warning mr-2" (click)="duplicate(element)"  *ngIf="duplicateActionIsValid"></button>-->
                             </td>
                         </tr>
                     </ng-template>
@@ -295,14 +237,14 @@
                         </tr>
                     </ng-template>
 
-                    <ng-template pTemplate="summary">
-                        <div class="flex flex-wrap justify-content-between align-items-center">
-                            <p-paginator [rows]="10" [totalRecords]="totalRecords" (onPageChange)="onPage($event)" [rowsPerPageOptions]="[10, 20, 30]"></p-paginator>
-                            <div class="text-muted">
-                                Total: {{totalRecords}} Inscriptioins
-                            </div>
-                        </div>
-                    </ng-template>
+<!--                    <ng-template pTemplate="summary">-->
+<!--                        <div class="flex flex-wrap justify-content-between align-items-center">-->
+<!--                            <p-paginator [rows]="10" [totalRecords]="totalRecords" (onPageChange)="onPage($event)" [rowsPerPageOptions]="[10, 20, 30]"></p-paginator>-->
+<!--                            <div class="text-muted">-->
+<!--                                Total: {{totalRecords}} Inscriptioins-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </ng-template>-->
                 </p-table>
             </div>
 

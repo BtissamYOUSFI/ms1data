@@ -167,7 +167,7 @@ export class LoginCollaborateurComponent implements OnInit {
     }
 
     register() {
-        this.router.navigate(['/collaborateur/register']);
+        this.router.navigate(['/inscription']);
     }
 
     forget() {

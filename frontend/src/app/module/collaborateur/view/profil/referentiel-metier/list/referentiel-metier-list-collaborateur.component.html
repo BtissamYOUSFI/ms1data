@@ -2,19 +2,19 @@
     <div class="col-12">
         <p-toast></p-toast>
         <div class="card">
-            <p-toolbar styleClass="mb-4">
-                <ng-template pTemplate="left">
-                                        <button pButton pRipple label=" {{'new' | translate}}" icon="pi pi-plus" class="p-button-info mr-2 mb-2" (click)="openCreate()" *ngIf="createActionIsValid"></button>
-                    <button [disabled]="isSelectionDisabled()" pButton pRipple label=" {{'delete' | translate}}" icon="pi pi-trash" class="p-button-danger mr-2 mb-2" (click)=deleteMultiple()  *ngIf="deleteActionIsValid"></button>
-                    <button pButton pRipple label=" {{'search' | translate}}" icon="pi pi-{{findByCriteriaShow?'angle-down':'angle-right'}}" class="p-button-secondary mr-2 mb-2" (click)="this.showSearch()"></button>
-                </ng-template>
-                <ng-template pTemplate="right">
-                    <div class="flex">
-                        <p-splitButton label=" {{'export' | translate}}" icon="pi pi-download" styleClass="p-button-secondary" [model]="excelPdfButons"></p-splitButton>
-                    </div>
-                </ng-template>
+<!--            <p-toolbar styleClass="mb-4">-->
+<!--                <ng-template pTemplate="left">-->
+<!--                                        <button pButton pRipple label=" {{'new' | translate}}" icon="pi pi-plus" class="p-button-info mr-2 mb-2" (click)="openCreate()" *ngIf="createActionIsValid"></button>-->
+<!--                    <button [disabled]="isSelectionDisabled()" pButton pRipple label=" {{'delete' | translate}}" icon="pi pi-trash" class="p-button-danger mr-2 mb-2" (click)=deleteMultiple()  *ngIf="deleteActionIsValid"></button>-->
+<!--                    <button pButton pRipple label=" {{'search' | translate}}" icon="pi pi-{{findByCriteriaShow?'angle-down':'angle-right'}}" class="p-button-secondary mr-2 mb-2" (click)="this.showSearch()"></button>-->
+<!--                </ng-template>-->
+<!--                <ng-template pTemplate="right">-->
+<!--                    <div class="flex">-->
+<!--                        <p-splitButton label=" {{'export' | translate}}" icon="pi pi-download" styleClass="p-button-secondary" [model]="excelPdfButons"></p-splitButton>-->
+<!--                    </div>-->
+<!--                </ng-template>-->
 
-            </p-toolbar>
+<!--            </p-toolbar>-->
             <p-toolbar *ngIf="findByCriteriaShow">
 
                 <div class="col-12">
@@ -159,7 +159,7 @@
 
 
                         <td>
-                            <p-tag severity="{{element.metier?.code}}" value="{{element.metier?.libelle}}" [rounded]="true" />
+                            <p-tag severity="{{element.metier?.style}}" value="{{element.metier?.libelle}}" [rounded]="true" />
                         </td>
 
 
@@ -167,12 +167,12 @@
 
 
                         <td>
-                            <p-tag severity="{{element.langue?.code}}" value="{{element.langue?.libelle}}" [rounded]="true" />
+                            <p-tag severity="{{element.langue?.style}}" value="{{element.langue?.libelle}}" [rounded]="true" />
                         </td>
 
 
                         <td>
-                            <p-tag severity="{{element.niveauLangue?.code}}" value="{{element.niveauLangue?.libelle}}" [rounded]="true" />
+                            <p-tag severity="{{element.niveauLangue?.style}}" value="{{element.niveauLangue?.libelle}}" [rounded]="true" />
                         </td>
 
 
@@ -181,10 +181,10 @@
                         </td>
 
                             <td>
-                                <button pButton pRipple icon="pi pi-pencil"  class="p-button-rounded p-button-info mr-2" (click)="edit(element)"  *ngIf="editActionIsValid"></button>
+<!--                                <button pButton pRipple icon="pi pi-pencil"  class="p-button-rounded p-button-info mr-2" (click)="edit(element)"  *ngIf="editActionIsValid"></button>-->
                                 <button pButton pRipple icon="pi pi-list" class="p-button-rounded p-button-secondary mr-2" (click)="view(element)"  *ngIf="viewActionIsValid"></button>
-                                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger mr-2" (click)="delete(element)"  *ngIf="deleteActionIsValid"></button>
-                                <button pButton pRipple icon="pi pi-copy" class="p-button-rounded p-button-raised p-button-warning mr-2" (click)="duplicate(element)"  *ngIf="duplicateActionIsValid"></button>
+<!--                                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger mr-2" (click)="delete(element)"  *ngIf="deleteActionIsValid"></button>-->
+<!--                                <button pButton pRipple icon="pi pi-copy" class="p-button-rounded p-button-raised p-button-warning mr-2" (click)="duplicate(element)"  *ngIf="duplicateActionIsValid"></button>-->
                             </td>
                         </tr>
                     </ng-template>

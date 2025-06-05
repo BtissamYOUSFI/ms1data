@@ -113,56 +113,152 @@
 <!--        </div>-->
 <!--    </div>-->
 <!--</div>-->
+<!--<div class="login-container">-->
+<!--&lt;!&ndash;    <p-toast></p-toast>&ndash;&gt;-->
+
+<!--    <div class="login-card">-->
+<!--        <div class="login-header">-->
+<!--            <h2>Log in</h2>-->
+<!--&lt;!&ndash;            <p>Entrez vos identifiants</p>&ndash;&gt;-->
+<!--        </div>-->
+
+<!--        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">-->
+<!--            <div class="field">-->
+<!--                <label for="username">Username</label>-->
+<!--                <span class="p-input-icon-left w-full">-->
+<!--          <i class="pi pi-user"></i>-->
+<!--          <input-->
+<!--              id="username"-->
+<!--              type="text"-->
+<!--              pInputText-->
+<!--              formControlName="username"-->
+<!--              placeholder="Username"-->
+<!--              class="w-full"-->
+<!--          />-->
+<!--        </span>-->
+<!--                <small-->
+<!--                    *ngIf="loginForm.get('username').invalid && loginForm.get('username').touched"-->
+<!--                    class="p-error"-->
+<!--                >-->
+<!--                    Requis-->
+<!--                </small>-->
+<!--            </div>-->
+
+<!--            <div class="field">-->
+<!--                <label for="password">Password</label>-->
+<!--                <span class="p-input-icon-left w-full">-->
+<!--          <i class="pi pi-lock"></i>-->
+<!--          <input-->
+<!--              id="password"-->
+<!--              type="password"-->
+<!--              pInputText-->
+<!--              formControlName="password"-->
+<!--              placeholder="Password"-->
+<!--              class="w-full"-->
+<!--          />-->
+<!--        </span>-->
+<!--&lt;!&ndash;                <small&ndash;&gt;-->
+<!--&lt;!&ndash;                    *ngIf="loginForm.get('password').invalid && loginForm.get('password').touched"&ndash;&gt;-->
+<!--&lt;!&ndash;                    class="p-error"&ndash;&gt;-->
+<!--&lt;!&ndash;                >&ndash;&gt;-->
+<!--&lt;!&ndash;                    Minimum 6 caractères&ndash;&gt;-->
+<!--&lt;!&ndash;                </small>&ndash;&gt;-->
+<!--            </div>-->
+
+<!--            <div class="forgot-password">-->
+<!--                <a (click)="forget()" style="cursor: pointer;">Forget Your Password?</a>-->
+<!--            </div>-->
+
+<!--            <button-->
+<!--                pButton-->
+<!--                type="submit"-->
+<!--                label="Log in"-->
+<!--                icon="pi pi-sign-in"-->
+<!--                [loading]="loading"-->
+<!--                [disabled]="loginForm.invalid"-->
+<!--                class="w-full"-->
+<!--            ></button>-->
+
+<!--&lt;!&ndash;            <button&ndash;&gt;-->
+<!--&lt;!&ndash;                pButton&ndash;&gt;-->
+<!--&lt;!&ndash;                type="button"&ndash;&gt;-->
+<!--&lt;!&ndash;                label="Google"&ndash;&gt;-->
+<!--&lt;!&ndash;                icon="pi pi-google"&ndash;&gt;-->
+<!--&lt;!&ndash;                (click)="signInWithGoogle()"&ndash;&gt;-->
+<!--&lt;!&ndash;                class="w-full p-button-secondary mt-2"&ndash;&gt;-->
+<!--&lt;!&ndash;            ></button>&ndash;&gt;-->
+<!--        </form>-->
+
+<!--        <div class="login-footer">-->
+<!--            <div class="signup-link">-->
+<!--                You don't have an account? <a (click)="register()" style="cursor: pointer;">Sign up</a>-->
+<!--            </div>-->
+<!--            <div class="home-link">-->
+<!--                <a routerLink="/">-->
+<!--                    <i class="pi pi-home"></i> Home-->
+<!--                </a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 <div class="login-container">
-<!--    <p-toast></p-toast>-->
+    <!-- <p-toast></p-toast> -->
 
     <div class="login-card">
-        <div class="login-header">
-            <h2>Log in</h2>
-<!--            <p>Entrez vos identifiants</p>-->
-        </div>
+<!--        <div class="login-header">-->
+<!--            <div class="logo">-->
+<!--                <div class="flag-icon">-->
+<!--                    <div class="flag-red"></div>-->
+<!--                    <div class="flag-white"></div>-->
+<!--                    <div class="maple-leaf"></div>-->
+<!--                </div>-->
+<!--                <span class="logo-text">CompétencesCanada</span>-->
+<!--            </div>-->
+<!--            <h2>Log in</h2>-->
+<!--            &lt;!&ndash; <p>Entrez vos identifiants</p> &ndash;&gt;-->
+<!--        </div>-->
 
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
             <div class="field">
                 <label for="username">Username</label>
                 <span class="p-input-icon-left w-full">
-          <i class="pi pi-user"></i>
-          <input
-              id="username"
-              type="text"
-              pInputText
-              formControlName="username"
-              placeholder="Username"
-              class="w-full"
-          />
-        </span>
+                    <i class="pi pi-user"></i>
+                    <input
+                        id="username"
+                        type="text"
+                        pInputText
+                        formControlName="username"
+                        placeholder="Username"
+                        class="w-full"
+                    />
+                </span>
                 <small
                     *ngIf="loginForm.get('username').invalid && loginForm.get('username').touched"
                     class="p-error"
                 >
-                    Requis
+                    Required
                 </small>
             </div>
 
             <div class="field">
                 <label for="password">Password</label>
                 <span class="p-input-icon-left w-full">
-          <i class="pi pi-lock"></i>
-          <input
-              id="password"
-              type="password"
-              pInputText
-              formControlName="password"
-              placeholder="Password"
-              class="w-full"
-          />
-        </span>
-<!--                <small-->
-<!--                    *ngIf="loginForm.get('password').invalid && loginForm.get('password').touched"-->
-<!--                    class="p-error"-->
-<!--                >-->
-<!--                    Minimum 6 caractères-->
-<!--                </small>-->
+                    <i class="pi pi-lock"></i>
+                    <input
+                        id="password"
+                        type="password"
+                        pInputText
+                        formControlName="password"
+                        placeholder="Password"
+                        class="w-full"
+                    />
+                </span>
+                <!-- <small
+                    *ngIf="loginForm.get('password').invalid && loginForm.get('password').touched"
+                    class="p-error"
+                >
+                    Minimum 6 caractères
+                </small> -->
             </div>
 
             <div class="forgot-password">
@@ -176,17 +272,17 @@
                 icon="pi pi-sign-in"
                 [loading]="loading"
                 [disabled]="loginForm.invalid"
-                class="w-full"
+                class="w-full login-btn"
             ></button>
 
-<!--            <button-->
-<!--                pButton-->
-<!--                type="button"-->
-<!--                label="Google"-->
-<!--                icon="pi pi-google"-->
-<!--                (click)="signInWithGoogle()"-->
-<!--                class="w-full p-button-secondary mt-2"-->
-<!--            ></button>-->
+            <!-- <button
+                pButton
+                type="button"
+                label="Google"
+                icon="pi pi-google"
+                (click)="signInWithGoogle()"
+                class="w-full p-button-secondary mt-2"
+            ></button> -->
         </form>
 
         <div class="login-footer">

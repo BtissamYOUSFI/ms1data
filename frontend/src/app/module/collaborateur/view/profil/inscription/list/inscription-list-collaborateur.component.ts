@@ -90,7 +90,7 @@ export class InscriptionListCollaborateurComponent implements OnInit {
         this.loadMetier();
         this.loadEtatInscription();
         this.loadCollaborateur();
-
+        // this.inscription;
     }
 
 
@@ -303,18 +303,15 @@ export class InscriptionListCollaborateurComponent implements OnInit {
 
     public initCol() {
         this.cols = [
-            {field: 'libelle', header: 'Libelle'},
-            {field: 'code', header: 'Code'},
-            {field: 'style', header: 'Style'},
             {field: 'nom', header: 'Nom'},
             {field: 'prenom', header: 'Prenom'},
             {field: 'email', header: 'Email'},
             {field: 'password', header: 'Password'},
-            {field: 'langue?.libelle', header: 'Langue'},
-            {field: 'niveauLangue?.libelle', header: 'Niveau langue'},
-            {field: 'metier?.libelle', header: 'Metier'},
+            {field: 'langue?.style', header: 'Langue'},
+            {field: 'niveauLangue?.style', header: 'Niveau langue'},
+            {field: 'metier?.style', header: 'Metier'},
             {field: 'nombreHeureExperience', header: 'Nombre heure experience'},
-            {field: 'etatInscription?.libelle', header: 'Etat inscription'},
+            {field: 'etatInscription?.style', header: 'Etat inscription'},
             {field: 'collaborateur?.email', header: 'Collaborateur'},
         ];
     }
@@ -566,4 +563,12 @@ export class InscriptionListCollaborateurComponent implements OnInit {
     set entityName(value: string) {
         this.service.entityName = value;
     }
+
+    // get inscription() {
+    //     // return this.service.findByEmail(this.authService.authenticatedUser.email)
+    //     //     .subscribe((data: InscriptionDto) => {
+    //     //         console.log(data);
+    //     //     });
+    //
+    // }
 }

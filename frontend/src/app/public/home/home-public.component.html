@@ -1,351 +1,209 @@
-<div class="home-container page-content">
-    <div class="hero-section">
-        <div class="hero-content">
-            <div class="hero-text-container">
-                <h1 class="hero-title">{{'home.title' | translate}}</h1>
-                <p class="hero-subtitle">{{'home.description' | translate}}</p>
-                <div class="hero-buttons">
-                    <button pButton pRipple type="button" [label]="'home.register' | translate" icon="pi pi-user-plus"
-                            style="background: #d52b1e;border-color: #d52b1e;color: white;"
-                            class="p-button-rounded p-button-lg register-button" [routerLink]="['/inscription']"></button>
-                    <button pButton pRipple type="button" [label]="'home.login' | translate" icon="pi pi-sign-in"
-                            class="p-button-rounded p-button-outlined p-button-lg login-button" [routerLink]="['/collaborateur/login']"></button>
-                </div>
-            </div>
-            <div class="hero-image">
-                <img src="assets/layout/images/skilledTradePro.avif" alt="Skilled Trade Professional">
-            </div>
-        </div>
-
-    <!-- Categories Section -->
-    <div class="categories-section">
-        <div class="section-header">
-            <h2>Discover Opportunities in Your Trade</h2>
-            <p>Browse high-demand categories across Canada</p>
-        </div>
-
-        <div class="categories-grid">
-            <div class="category-card" *ngFor="let category of tradeCategories">
-                <div class="category-icon">
-                    <i [class]="category.icon"></i>
-                </div>
-                <h3>{{category.name}}</h3>
-                <span class="jobs-available">{{category.jobs}} Jobs Available</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- Features Section with Modern Cards -->
-    <div class="features-section">
-        <div class="section-header">
-            <h2>Why Top Professionals Choose Us</h2>
-            <p>Exclusive benefits designed to help you thrive</p>
-        </div>
-
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="pi pi-users"></i>
-                </div>
-                <h3>Direct Client Connections</h3>
-                <p>Connect with verified clients seeking your specific expertise and services</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="pi pi-verified"></i>
-                </div>
-                <h3>Professional Verification</h3>
-                <p>Stand out with verified credentials and qualifications that clients trust</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="pi pi-chart-line"></i>
-                </div>
-                <h3>Business Growth Tools</h3>
-                <p>Access analytics, scheduling tools, and resources to expand your business</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="pi pi-wallet"></i>
-                </div>
-                <h3>Secure Payments</h3>
-                <p>Receive payments promptly through our secure transaction system</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- How It Works Section with Timeline -->
-    <div class="how-it-works-section">
-        <div class="section-header">
-            <h2>Simple Process to Get Started</h2>
-            <p>Four easy steps to join our network and start receiving job requests</p>
-        </div>
-
-        <div class="timeline-container">
-            <div class="timeline-item">
-                <div class="timeline-step">1</div>
-                <div class="timeline-content">
-                    <h3>Create Your Profile</h3>
-                    <p>Register and build your professional profile showcasing your expertise</p>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-step">2</div>
-                <div class="timeline-content">
-                    <h3>Verification</h3>
-                    <p>Our team reviews and verifies your credentials and experience</p>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-step">3</div>
-                <div class="timeline-content">
-                    <h3>Accept Projects</h3>
-                    <p>Receive and accept job requests that match your skills and availability</p>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-step">4</div>
-                <div class="timeline-content">
-                    <h3>Build Your Reputation</h3>
-                    <p>Collect reviews and grow your reputation within the network</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Testimonials Section with Modern Cards -->
-    <div class="testimonials-section">
-        <div class="section-header">
-            <h2>Success Stories from Our Network</h2>
-            <p>Hear what professionals like you have to say</p>
-        </div>
-
-        <p-carousel [value]="testimonials" [numVisible]="1" [numScroll]="1" [circular]="true" [autoplayInterval]="6000" [responsiveOptions]="[
-      {
-        breakpoint: '1024px',
-        numVisible: 1,
-        numScroll: 1
-      }
-    ]">
-            <ng-template let-testimonial pTemplate="item">
-                <div class="testimonial-card">
-                    <div class="testimonial-quote">"</div>
-                    <p class="testimonial-text">{{testimonial.text}}</p>
-                    <div class="testimonial-author">
-                        <div class="author-image">
-                            <img [src]="testimonial.image" alt="{{testimonial.name}}">
+<div class="home-container">
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-bg-flag"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <p-tag
+                            [value]="'WELCOME' | translate"
+                            styleClass="welcome-tag">
+                        </p-tag>
+<!--                        <h1 class="hero-title" [innerHTML]="'HERO.TITLE' | translate"></h1>-->
+                        <h1 class="hero-title">
+                            {{ 'HERO.before' | translate }}
+                            <span class="text-highlight">{{ 'HERO.highlight' | translate }}</span>
+                            {{ 'HERO.after' | translate }}
+                        </h1>
+                        <p class="hero-description">
+                            {{ 'HERO.DESCRIPTION' | translate }}
+                        </p>
+                        <div class="hero-buttons">
+                            <p-button
+                                [label]="'HERO.BUTTONS.EVALUATE' | translate"
+                                icon="pi pi-arrow-right"
+                                iconPos="right"
+                                styleClass="btn-primary"
+                                routerLink="/inscription" >
+                            </p-button>
+                            <p-button
+                                [label]="'HERO.BUTTONS.LEARN_MORE' | translate"
+                                styleClass="btn-outline"
+                                (onClick)="scrollToSection('services')">
+                            </p-button>
                         </div>
-                        <div class="author-info">
-                            <h4>{{testimonial.name}}</h4>
-                            <p class="author-location">{{testimonial.location}}</p>
-                            <p class="author-profession">{{testimonial.profession}}</p>
+                        <div class="stats-row">
+                            <div class="stat-item" *ngFor="let stat of stats">
+                                <div class="stat-value">{{ stat.value }}</div>
+                                <div class="stat-label">{{ stat.label }}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <img src="assets/layout/images/skilled.png" alt="Professionnels divers au Canada" class="main-image" style="height: 300px; width: 500px">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section avec header -->
+        <section id="services" class="services-section">
+            <div class="container">
+                <!-- Section Header -->
+                <div class="section-header">
+                    <p-tag [value]="'SERVICES.TITLE' | translate" styleClass="section-tag"></p-tag>
+                    <h2 class="section-title">{{ 'SERVICES.SUBTITLE' | translate }}</h2>
+                    <p class="section-description">
+                        {{ 'SERVICES.DESCRIPTION' | translate }}
+                    </p>
+                </div>
+
+                <!-- Services Cards -->
+                <div class="services-container">
+                    <div class="services-grid">
+                        <p-card
+                            *ngFor="let service of services"
+                            styleClass="service-card"
+                            (click)="onServiceClick(service)">
+
+                            <!-- Header avec icône -->
+                            <ng-template pTemplate="header">
+                                <div class="service-header">
+                                    <div class="service-icon" [style.background-color]="service.iconBg">
+                                        <i [class]="service.icon" class="icon"></i>
+                                    </div>
+                                </div>
+                            </ng-template>
+
+                            <!-- Titre -->
+                            <ng-template pTemplate="title">
+                                <h3 class="service-title">{{ service.title }}</h3>
+                            </ng-template>
+
+                            <!-- Description -->
+                            <ng-template pTemplate="subtitle">
+                                <p class="service-description">{{ service.description }}</p>
+                            </ng-template>
+
+                            <!-- Contenu avec features -->
+                            <ng-template pTemplate="content">
+                                <div class="features-list">
+                                    <div
+                                        *ngFor="let feature of service.features"
+                                        class="feature-item"
+                                        (click)="onFeatureClick(feature, service); $event.stopPropagation()">
+
+                                        <div class="feature-content">
+                                            <i
+                                                class="pi pi-check-circle feature-check"
+                                                [class.completed]="feature.completed">
+                                            </i>
+                                            <span class="feature-text">{{ feature.text }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </p-card>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Process Section -->
+        <section id="processus" class="process-section">
+            <div class="container">
+                <div class="section-header">
+                    <p-tag [value]="'PROCESS.TITLE' | translate" styleClass="section-tag"></p-tag>
+                    <h2 class="section-title">{{ 'PROCESS.SUBTITLE' | translate }}</h2>
+                </div>
+                <div class="process-grid">
+                    <div *ngFor="let step of processSteps" class="process-step">
+                        <div class="step-circle">{{ step.step }}</div>
+                        <h3 class="step-title">{{ step.title }}</h3>
+                        <p class="step-description">{{ step.description }}</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2 class="cta-title">{{ 'CTA.TITLE' | translate }}</h2>
+                    <p class="cta-description">
+                        {{ 'CTA.DESCRIPTION' | translate }}
+                    </p>
+                    <div class="cta-buttons">
+                        <p-button
+                            [label]="'CTA.BUTTONS.START_NOW' | translate"
+                            icon="pi pi-arrow-right"
+                            iconPos="right"
+                            styleClass="cta-btn-primary"
+                            (onClick)="onCommencer()">
+                        </p-button>
+                        <p-button
+                            [label]="'CTA.BUTTONS.PLAN_CONSULT' | translate"
+                            styleClass="cta-btn-outline"
+                            (onClick)="onPlanifierConsultation()">
+                        </p-button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <a class="layout-topbar-logo" style="display: flex; align-items: center;" routerLink="">
+                            <img src="assets/layout/images/logo2.png" alt="Canada Flag" style="height:40px;">
+                            <span class="logo-text" style="color: white;">Artisan Portal</span>
+                        </a>
+                    </div>
+                    <p class="brand-description">
+                        {{ 'FOOTER.BRAND_DESC' | translate }}
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h3 style="color: white;">{{ 'FOOTER.SERVICES' | translate }}</h3>
+                        <ul>
+                            <li *ngFor="let link of footerLinks.services">
+                                <a [href]="link.link">{{ link.label }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <h3 style="color: white;">{{ 'FOOTER.RESOURCES' | translate }}</h3>
+                        <ul>
+                            <li *ngFor="let link of footerLinks.resources">
+                                <a [href]="link.link">{{ link.label }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <h3 style="color: white;">{{ 'FOOTER.CONTACT' | translate }}</h3>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="pi pi-phone"></i>
+                                <span>{{ 'FOOTER.PHONE' | translate }}</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="pi pi-envelope"></i>
+                                <span>{{ 'FOOTER.EMAIL' | translate }}</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </ng-template>
-        </p-carousel>
-    </div>
-
-    <!-- CTA Section with Gradient Background -->
-    <div id="register-section" class="cta-section">
-        <div class="cta-content">
-            <h2>Ready to Transform Your Trade Business?</h2>
-            <p>Join thousands of professionals growing their business across Canada</p>
-            <button pButton pRipple type="button" label="Register Now" icon="pi pi-user-plus"
-                    class="p-button-rounded p-button-lg p-button-raised register-button-large" [routerLink]="['/inscription']"></button>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="site-footer">
-        <div class="footer-content">
-            <div class="footer-logo">
-                <img src="assets/images/logo.png" alt="Artisan & Technician Network">
             </div>
-            <div class="footer-links">
-                <div class="footer-column">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Our Mission</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Press</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Guides</a></li>
-                        <li><a href="#">Community</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Legal</h4>
-                    <ul>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Cookie Policy</a></li>
-                    </ul>
-                </div>
+            <div class="footer-bottom">
+                <p>{{ 'FOOTER.COPYRIGHT' | translate : { year: currentYear } }}</p>
             </div>
-            <div class="footer-social">
-                <h4>Connect With Us</h4>
-                <div class="social-icons">
-                    <a href="#"><i class="pi pi-facebook"></i></a>
-                    <a href="#"><i class="pi pi-twitter"></i></a>
-                    <a href="#"><i class="pi pi-linkedin"></i></a>
-                    <a href="#"><i class="pi pi-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Artisan & Technician Network. All rights reserved.</p>
         </div>
     </footer>
 </div>
-
-
-<!--<div class="home-container">-->
-<!--    <app-navbar></app-navbar>-->
-<!--    <div class="hero-section">-->
-<!--        <div class="p-grid p-justify-center">-->
-<!--            <div class="p-col-12 p-md-10 p-lg-8 text-center">-->
-<!--                <h1 class="hero-title">Artisan & Technician Registration Portal</h1>-->
-<!--&lt;!&ndash;                <h2 class="hero-subtitle">Join Canada's  Premier Network of Skilled Trade Professionals</h2>&ndash;&gt;-->
-<!--                <h2 class="hero-subtitle">-->
-<!--                    Join Canada's <img src="https://flagcdn.com/ca.svg" alt="Canada Flag" width="50" style="vertical-align: middle; margin-right: 10px;">Premier Network of Skilled Trade Professionals-->
-<!--                </h2>-->
-
-<!--                <p class="hero-description">Connect with clients, showcase your expertise, and grow your business</p>-->
-
-<!--                <div class="cta-buttons">-->
-<!--                    <button pButton pRipple label="Register as a Professional" icon="pi pi-user-plus"-->
-<!--                            class="p-button-rounded p-button-lg register-button"-->
-<!--                            [routerLink]="['/inscription']"></button>-->
-<!--                    <button pButton pRipple label="Login" icon="pi pi-sign-in"-->
-<!--                            [routerLink]="['/admin/login']"-->
-<!--                            class="p-button-rounded p-button-outlined p-button-lg learn-more-button"></button>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-
-<!--    <div class="features-section">-->
-<!--        <div class="p-grid">-->
-<!--            <div class="p-col-12 text-center">-->
-<!--                <h2 class="section-title">Why Join Our Network?</h2>-->
-<!--            </div>-->
-
-<!--            <div class="p-col-12 p-md-4">-->
-<!--                <div class="feature-card">-->
-<!--                    <i class="pi pi-users feature-icon"></i>-->
-<!--                    <h3>Connect with Clients</h3>-->
-<!--                    <p>Get direct access to customers looking for qualified professionals in your area</p>-->
-<!--                </div>-->
-<!--            </div>-->
-
-<!--            <div class="p-col-12 p-md-4 mt-4">-->
-<!--                <div class="feature-card">-->
-<!--                    <i class="pi pi-verified feature-icon"></i>-->
-<!--                    <h3>Verified Credentials</h3>-->
-<!--                    <p>Showcase your qualifications and experience to build trust with potential clients</p>-->
-<!--                </div>-->
-<!--            </div>-->
-
-<!--            <div class="p-col-12 p-md-4 mt-4">-->
-<!--                <div class="feature-card">-->
-<!--                    <i class="pi pi-chart-line feature-icon"></i>-->
-<!--                    <h3>Grow Your Business</h3>-->
-<!--                    <p>Increase your visibility and expand your customer base across Canada</p>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-
-<!--    <div class="how-it-works-section">-->
-<!--        <div class="p-grid">-->
-<!--            <div class="p-col-12 text-center">-->
-<!--                <h2 class="section-title">How It Works</h2>-->
-<!--            </div>-->
-
-<!--            <div class="p-col-12 p-md-3">-->
-<!--                <div class="step-card">-->
-<!--                    <div class="step-number">1</div>-->
-<!--                    <h3>Register</h3>-->
-<!--                    <p>Create your professional profile with your credentials and experience</p>-->
-<!--                </div>-->
-<!--            </div>-->
-
-<!--            <div class="p-col-12 p-md-3">-->
-<!--                <div class="step-card">-->
-<!--                    <div class="step-number">2</div>-->
-<!--                    <h3>Verification</h3>-->
-<!--                    <p>Our team verifies your qualifications and approves your profile</p>-->
-<!--                </div>-->
-<!--            </div>-->
-
-<!--            <div class="p-col-12 p-md-3">-->
-<!--                <div class="step-card">-->
-<!--                    <div class="step-number">3</div>-->
-<!--                    <h3>Connect</h3>-->
-<!--                    <p>Start receiving job requests from clients in your service area</p>-->
-<!--                </div>-->
-<!--            </div>-->
-
-<!--            <div class="p-col-12 p-md-3">-->
-<!--                <div class="step-card">-->
-<!--                    <div class="step-number">4</div>-->
-<!--                    <h3>Grow</h3>-->
-<!--                    <p>Build your reputation with reviews and expand your business</p>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-
-<!--    &lt;!&ndash; Testimonials Section &ndash;&gt;-->
-<!--    <div class="testimonials-section">-->
-<!--        <div class="p-grid">-->
-<!--            <div class="p-col-12 text-center">-->
-<!--                <h2 class="section-title">What Plumbers Say About Us</h2>-->
-<!--            </div>-->
-
-<!--            <div class="p-col-12">-->
-<!--                <p-carousel [value]="testimonials" [numVisible]="1" [numScroll]="1" [circular]="true" [autoplayInterval]="5000">-->
-<!--                    <ng-template let-testimonial pTemplate="item">-->
-<!--                        <div class="testimonial-card">-->
-<!--                            <p class="testimonial-text">"{{testimonial.text}}"</p>-->
-<!--                            <div class="testimonial-author">-->
-<!--                                <img [src]="testimonial.image" alt="Testimonial author">-->
-<!--                                <div>-->
-<!--                                    <h4>{{testimonial.name}}</h4>-->
-<!--                                    <p>{{testimonial.location}}</p>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </ng-template>-->
-<!--                </p-carousel>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-
-<!--    <div class="cta-section">-->
-<!--        <div class="p-grid p-justify-center">-->
-<!--            <div class="p-col-12 p-md-8 text-center">-->
-<!--                <h2>Ready to Join Canada's Premier Plumber Network?</h2>-->
-<!--                <p>Start growing your business today by joining our professional community</p>-->
-<!--                <button pButton pRipple label="Register Now" icon="pi pi-user-plus"-->
-<!--                        class="p-button-rounded p-button-lg register-button-large"-->
-<!--                        [routerLink]="['/inscription']"></button>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
 
