@@ -20,6 +20,7 @@ import {AuthGuard} from 'src/app/zynerator/security/guards/auth.guard';
 import { StatusPaiementListAdminComponent } from './status-paiement/list/status-paiement-list-admin.component';
 import { PaiementListAdminComponent } from './paiement/list/paiement-list-admin.component';
 import { MoyenPaiementListAdminComponent } from './moyen-paiement/list/moyen-paiement-list-admin.component';
+import {PaiementManagerListAdminComponent} from "./paiement-manager/list/paiement-manager-list-admin.component";
 @NgModule({
     imports: [
         RouterModule.forChild(
@@ -105,6 +106,17 @@ import { MoyenPaiementListAdminComponent } from './moyen-paiement/list/moyen-pai
                                 {
                                     path: 'list',
                                     component: PaiementListAdminComponent ,
+                                    canActivate: [AuthGuard]
+                                }
+                            ]
+                        },
+                        {
+
+                            path: 'paiement-manager',
+                            children: [
+                                {
+                                    path: 'list',
+                                    component: PaiementManagerListAdminComponent ,
                                     canActivate: [AuthGuard]
                                 }
                             ]

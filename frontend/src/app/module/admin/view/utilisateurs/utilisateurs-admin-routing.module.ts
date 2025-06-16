@@ -18,6 +18,7 @@ import {AuthGuard} from 'src/app/zynerator/security/guards/auth.guard';
 
 
 import { CollaborateurListAdminComponent } from './collaborateur/list/collaborateur-list-admin.component';
+import {ManagerListAdminComponent} from "./manager/list/manager-list-admin.component";
 @NgModule({
     imports: [
         RouterModule.forChild(
@@ -91,6 +92,17 @@ import { CollaborateurListAdminComponent } from './collaborateur/list/collaborat
                                 {
                                     path: 'list',
                                     component: CollaborateurListAdminComponent ,
+                                    canActivate: [AuthGuard]
+                                }
+                            ]
+                        },
+                        {
+
+                            path: 'manager',
+                            children: [
+                                {
+                                    path: 'list',
+                                    component: ManagerListAdminComponent ,
                                     canActivate: [AuthGuard]
                                 }
                             ]

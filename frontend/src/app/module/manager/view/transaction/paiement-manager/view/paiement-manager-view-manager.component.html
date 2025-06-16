@@ -1,0 +1,111 @@
+
+<p-dialog [(visible)]="viewDialog" [style]="{width: '70vw'}" header="{{'paiementManager.tabPan' | translate}}" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <p-tabView>
+            <p-tabPanel header="{{'paiementManager.tabPan' | translate}}">
+                <div class="grid">
+                    <div class="field col-12 md:col-6">
+                        <label for="1">{{'paiementManager.libelle' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'paiementManager.libelle' | translate}}" autofocus  id="1" [ngModel]="item.libelle">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="2">{{'paiementManager.code' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'paiementManager.code' | translate}}" autofocus  id="2" [ngModel]="item.code">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="4">{{'paiementManager.montant' | translate}}</label>
+                        <p-inputNumber class="mb-2 mr-2" id="4" [disabled]="true" placeholder="{{'paiementManager.montant' | translate}}" [ngModel]="item.montant"></p-inputNumber>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="5">{{'paiementManager.datePaiement' | translate}}</label>
+                        <p-calendar id="5" [disabled]="true"  [showTime]="true" [showSeconds]="false" placeholder="{{'paiementManager.datePaiement' | translate}}"  [ngModel]="item.datePaiement" dateFormat="{{dateFormat}}"></p-calendar>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="6">{{'paiementManager.manager' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'paiementManager.manager' | translate}}" autofocus  id="6" [ngModel]="item.manager?.email">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="6">{{'paiementManager.moyenPaiement' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'paiementManager.moyenPaiement' | translate}}" autofocus  id="6" [ngModel]="item.moyenPaiement?.libelle">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="7">{{'paiementManager.statusPaiement' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'paiementManager.statusPaiement' | translate}}" autofocus  id="7" [ngModel]="item.statusPaiement?.libelle">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="3">{{'paiementManager.description' | translate}}</label>
+                        <textarea id="3" pInputTextarea rows="5" cols="30" [disabled]="true" placeholder="{{'paiementManager.description' | translate}}"  [ngModel]="item.description"></textarea>
+                    </div>
+                </div>
+            </p-tabPanel>
+
+        </p-tabView>
+
+    </ng-template>
+
+    <ng-template pTemplate="footer" >
+        <div class="p-flexbox">
+            <div>
+                <button pButton pRipple label="Annuler" icon="pi pi-times" class="p-button-outlined" (click)="hideViewDialog()"></button>
+            </div>
+        </div>
+    </ng-template>
+</p-dialog>
+
+
+
+
+<!--<p-dialog [(visible)]="viewDialog" [style]="{width: '70vw'}" header="{{'paiementManager.tabPan' | translate}}" [modal]="true" styleClass="p-fluid">-->
+<!--    <ng-template pTemplate="content">-->
+<!--        <p-tabView>-->
+<!--            <p-tabPanel header="{{'paiementManager.tabPan' | translate}}">-->
+<!--                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">-->
+<!--                                <div class="flex flex-col gap-2">-->
+<!--                                    <label class="text-sm font-semibold" for="1">{{'paiementManager.libelle' | translate}}</label>-->
+<!--                                    <input  type="text" pInputText [disabled]="true" placeholder="{{'paiementManager.libelle' | translate}}" autofocus  id="1" [ngModel]="item.libelle">-->
+<!--                                </div>-->
+<!--                                <div class="flex flex-col gap-2">-->
+<!--                                    <label class="text-sm font-semibold" for="2">{{'paiementManager.code' | translate}}</label>-->
+<!--                                    <input  type="text" pInputText [disabled]="true" placeholder="{{'paiementManager.code' | translate}}" autofocus  id="2" [ngModel]="item.code">-->
+<!--                                </div>-->
+<!--                                <div class="flex flex-col gap-2">-->
+<!--                                    <label class="text-sm font-semibold" for="3">{{'paiementManager.description' | translate}}</label>-->
+<!--                                    <textarea id="3" pTextarea rows="5" cols="30" [disabled]="true" placeholder="{{'paiementManager.description' | translate}}"  [ngModel]="item.description"></textarea>-->
+<!--                                </div>-->
+<!--                                <div class="flex flex-col gap-2">-->
+<!--                                    <label class="text-sm font-semibold" for="4">{{'paiementManager.montant' | translate}}</label>-->
+<!--                                    <p-inputNumber id="4" [disabled]="true" placeholder="{{'paiementManager.montant' | translate}}" [ngModel]="item.montant"></p-inputNumber>-->
+<!--                                </div>-->
+<!--                                <div class="flex flex-col gap-2">-->
+<!--                                    <label class="text-sm font-semibold" for="5">{{'paiementManager.datePaiement' | translate}}</label>-->
+<!--                                    <p-calendar class="w-full" id="5" [disabled]="true"  [showTime]="true" [showSeconds]="false" placeholder="{{'paiementManager.datePaiement' | translate}}"  [ngModel]="item.datePaiement" dateFormat="{{dateFormat}}"></p-calendar>-->
+<!--                                </div>-->
+<!--                            <div class="flex flex-col gap-2">-->
+<!--                                <label class="text-sm font-semibold" for="6">{{'paiementManager.moyenPaiement' | translate}}</label>-->
+<!--                                <input type="text" pInputText [disabled]="true" placeholder="{{'paiementManager.moyenPaiement' | translate}}" autofocus  id="6" [ngModel]="item.moyenPaiement?.libelle">-->
+<!--                            </div>-->
+<!--                            <div class="flex flex-col gap-2">-->
+<!--                                <label class="text-sm font-semibold" for="7">{{'paiementManager.statusPaiement' | translate}}</label>-->
+<!--                                <input type="text" pInputText [disabled]="true" placeholder="{{'paiementManager.statusPaiement' | translate}}" autofocus  id="7" [ngModel]="item.statusPaiement?.libelle">-->
+<!--                            </div>-->
+<!--                            <div class="flex flex-col gap-2">-->
+<!--                                <label class="text-sm font-semibold" for="8">{{'paiementManager.manager' | translate}}</label>-->
+<!--                                <input type="text" pInputText [disabled]="true" placeholder="{{'paiementManager.manager' | translate}}" autofocus  id="8" [ngModel]="item.manager?.email">-->
+<!--                            </div>-->
+<!--                </div>-->
+<!--            </p-tabPanel>-->
+
+<!--        </p-tabView>-->
+
+<!--    </ng-template>-->
+
+<!--    <ng-template pTemplate="footer" >-->
+<!--        <div class="flex justify-end p-4">-->
+<!--            <div>-->
+<!--                <button class="border border-gray-400 font-semibold py-2 px-4 rounded shadow" (click)="hideViewDialog()">-->
+<!--                    <i class="pi pi-times"></i> Annuler-->
+<!--                </button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </ng-template>-->
+<!--</p-dialog>-->

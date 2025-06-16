@@ -19,16 +19,6 @@ public class Manager extends User    {
 
     private String description;
 
-
-
-
-
-
-
-
-
-
-
     public Manager(){
         super();
     }
@@ -47,7 +37,7 @@ public class Manager extends User    {
 
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy =  GenerationType.SEQUENCE,generator="collaborateur_seq")
+    @GeneratedValue(strategy =  GenerationType.SEQUENCE,generator="manager_seq")
       @Override
     public Long getId(){
         return this.id;
@@ -68,8 +58,8 @@ public class Manager extends User    {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Manager collaborateur = (Manager) o;
-        return id != null && id.equals(collaborateur.id);
+        Manager manager = (Manager) o;
+        return id != null && id.equals(manager.id);
     }
 
     @Override

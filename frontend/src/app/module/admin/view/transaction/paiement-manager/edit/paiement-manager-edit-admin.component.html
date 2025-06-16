@@ -1,0 +1,83 @@
+<p-dialog [(visible)]="editDialog" [style]="{width: '70vw'}" header="{{'paiementManager.tabPan' | translate}}" [modal]="true" styleClass="p-fluid" [maximizable]="true" [draggable]="false" [resizable]="false">
+    <ng-template pTemplate="content" >
+        <p-tabView>
+            <p-tabPanel header="{{'paiementManager.tabPan' | translate}}">
+                <div class="grid">
+
+                    <div class="field col-12 md:col-6">
+                        <label for="1">{{'paiementManager.libelle' | translate}}<span style="color: red;">*</span></label>
+                        <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'paiementManager.libelle' | translate}}" id="1" [(ngModel)]="item.libelle"
+                               [ngClass]="{'ng-invalid ng-dirty' : !validPaiementManagerLibelle}"  />
+                        <small class='p-error' *ngIf='!validPaiementManagerLibelle'>Libelle est obligatoire.</small>
+                    </div>
+
+
+
+                    <div class="field col-12 md:col-6">
+                        <label for="2">{{'paiementManager.code' | translate}}<span style="color: red;">*</span></label>
+                        <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'paiementManager.code' | translate}}" id="2" [(ngModel)]="item.code"
+                               [ngClass]="{'ng-invalid ng-dirty' : !validPaiementManagerCode}"  />
+                        <small class='p-error' *ngIf='!validPaiementManagerCode'>Code est obligatoire.</small>
+                    </div>
+
+
+
+
+
+                    <div class="field col-12 md:col-6">
+                        <label for="4">{{'paiementManager.montant' | translate}}</label>
+                        <p-inputNumber class="mb-2 mr-2" id="4" placeholder="{{'paiementManager.montant' | translate}}" [(ngModel)]="item.montant"  >
+                        </p-inputNumber>
+
+                    </div>
+
+                    <div class="field col-12 md:col-6">
+                        <label for="5">{{'paiementManager.datePaiement' | translate}}</label>
+                        <p-calendar appendTo="body" id="5"  [showTime]="true" [showSeconds]="false" placeholder="{{'paiementManager.datePaiement' | translate}}"  [(ngModel)]="item.datePaiement"
+                                    dateFormat="{{dateFormat}}"  >
+                        </p-calendar>
+                    </div>
+
+                    <div class="field col-11 md:col-6">
+                        <label for="7">{{'paiementManager.manager' | translate}}</label>
+                        <p-dropdown  appendTo="body"  [options]="managers" [(ngModel)]="item.manager" id="7" [filter]="true" filterMatchMode="contains"
+                                     [showClear]="true" optionLabel="email" placeholder="{{'paiementManager.manager' | translate}}"  >
+                        </p-dropdown>
+                    </div>
+
+                    <div class="field col-11 md:col-6">
+                        <label for="6">{{'paiementManager.moyenPaiement' | translate}}</label>
+                        <p-dropdown  appendTo="body"  [options]="moyenPaiements" [(ngModel)]="item.moyenPaiement" id="6" [filter]="true" filterMatchMode="contains"
+                                     [showClear]="true" optionLabel="libelle" placeholder="{{'paiementManager.moyenPaiement' | translate}}"  >
+                        </p-dropdown>
+
+                    </div>
+
+                    <div class="field col-11 md:col-6">
+                        <label for="7">{{'paiementManager.statusPaiement' | translate}}</label>
+                        <p-dropdown  appendTo="body"  [options]="statusPaiements" [(ngModel)]="item.statusPaiement" id="7" [filter]="true" filterMatchMode="contains"
+                                     [showClear]="true" optionLabel="libelle" placeholder="{{'paiementManager.statusPaiement' | translate}}"  >
+                        </p-dropdown>
+
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="3">{{'paiementManager.description' | translate}}</label>
+                        <textarea id="3" pInputTextarea rows="5" cols="30" placeholder="{{'paiementManager.description' | translate}}"  [(ngModel)]="item.description"
+                        ></textarea>
+
+                    </div>
+
+                </div>
+            </p-tabPanel>
+
+        </p-tabView>
+
+    </ng-template>
+
+    <ng-template pTemplate="footer" >
+        <div class="p-flexbox">
+            <button pButton pRipple  label="{{'validate' | translate}}"  icon="pi pi-check"  (click)="edit()"></button>
+            <button pButton pRipple  label="{{'cancel' | translate}}" icon="pi pi-times" class="p-button-outlined" (click)="hideEditDialog()"></button>
+        </div>
+    </ng-template>
+</p-dialog>

@@ -1,0 +1,59 @@
+    <p-dialog [(visible)]="createDialog" [style]="{width: '70vw'}" header="{{'etatReunion.tabPan' | translate}}" [modal]="true" styleClass="p-fluid" [maximizable]="true" [draggable]="false" [resizable]="false">
+<ng-template pTemplate="content" >
+        <p-tabView>
+            <p-tabPanel header="{{'etatReunion.tabPan' | translate}}">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
+
+                                <div class="flex flex-col gap-2">
+                                    <label class="text-sm font-semibold" for="1">{{'etatReunion.libelle' | translate}}<span class="text-red-500">*</span></label>
+                                    <input type="text" pInputText  placeholder="{{'etatReunion.libelle' | translate}}" id="1" [(ngModel)]="item.libelle"
+                                           [ngClass]="{'ng-invalid ng-dirty' : !validEtatReunionLibelle}"  />
+                                    <small class="text-red-500" *ngIf='!validEtatReunionLibelle'>Libelle is obligatory.</small>
+                                </div>
+
+
+                                <div class="flex flex-col gap-2">
+                                    <label class="text-sm font-semibold" for="2">{{'etatReunion.code' | translate}}<span class="text-red-500">*</span></label>
+                                    <input type="text" pInputText  placeholder="{{'etatReunion.code' | translate}}" id="2" [(ngModel)]="item.code"
+                                           [ngClass]="{'ng-invalid ng-dirty' : !validEtatReunionCode}"  />
+                                    <small class="text-red-500" *ngIf='!validEtatReunionCode'>Code is obligatory.</small>
+                                </div>
+
+
+                                <div class="flex flex-col gap-2">
+                                    <label class="text-sm font-semibold" for="3">{{'etatReunion.style' | translate}}</label>
+                                    <input type="text" pInputText  placeholder="{{'etatReunion.style' | translate}}" id="3" [(ngModel)]="item.style"
+                                            />
+                                    
+                                </div>
+
+
+                                <div class="flex flex-col gap-2">
+                                    <label class="text-sm font-semibold" for="4">{{'etatReunion.description' | translate}}</label>
+                                    <textarea id="4" pTextarea rows="5" cols="30" placeholder="{{'etatReunion.description' | translate}}"  [(ngModel)]="item.description"
+                                               ></textarea>
+                                    
+                                </div>
+
+                </div>
+            </p-tabPanel>
+
+        </p-tabView>
+
+</ng-template>
+
+<ng-template pTemplate="footer" >
+    <div class="flex justify-end space-x-3 p-4">
+
+            <button label="{{'validate' | translate}}"   (click)="save()"  class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-primary">
+                <i class="pi pi-check"></i> {{'validate' | translate}}
+            </button>
+
+                <button (click)="hideCreateDialog()" class="border border-gray-400 text-gray-600 hover:bg-gray-200 px-4 py-2 rounded-md">
+                    <i class="pi pi-times"></i> {{'cancel' | translate}}
+                </button>
+
+    </div>
+</ng-template>
+
+    </p-dialog>

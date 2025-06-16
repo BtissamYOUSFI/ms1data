@@ -8,6 +8,8 @@ import {
 import {InscriptionComponent} from "./inscription/inscription.component";
 import {VoiceRegistrationComponent} from "./voice-registration/voice-registration.component";
 import {ContactComponent} from "./contact/contact.component";
+import {LoginComponent} from "./login/login.component";
+import {RegisterManagerComponent} from "./register-manager/register-manager.component";
 
 @NgModule({
     imports: [
@@ -16,6 +18,15 @@ import {ContactComponent} from "./contact/contact.component";
                 {
                     path: '',
                     children: [
+                        {
+                            path: 'login',
+                            children: [
+                                {
+                                    path: '',
+                                    component: LoginComponent,
+                                }
+                            ]
+                        },
                         {
                             path: 'contact',
                             children: [
@@ -31,6 +42,15 @@ import {ContactComponent} from "./contact/contact.component";
                                 {
                                     path: '',
                                     component: InscriptionComponent,
+                                }
+                            ]
+                        },
+                        {
+                            path: 'inscription_manager',
+                            children: [
+                                {
+                                    path: '',
+                                    component: RegisterManagerComponent,
                                 }
                             ]
                         },

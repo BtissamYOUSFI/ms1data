@@ -1,0 +1,112 @@
+<p-dialog [(visible)]="createDialog" [style]="{width: '70vw'}" header="{{'reunion.tabPan' | translate}}" [modal]="true" styleClass="p-fluid" [maximizable]="true" [draggable]="false" [resizable]="false">
+    <ng-template pTemplate="content" >
+        <p-tabView>
+            <p-tabPanel header="{{'reunion.tabPan' | translate}}">
+                <div class="grid">
+
+                    <div class="field col-12 md:col-6">
+                        <label for="1">{{'reunion.libelle' | translate}}<span style="color: red;">*</span></label>
+                        <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'reunion.libelle' | translate}}" id="1" [(ngModel)]="item.libelle"
+                               [ngClass]="{'ng-invalid ng-dirty' : !validReunionLibelle}"  />
+                        <small class='p-error' *ngIf='!validReunionLibelle'>Libelle is obligatory.</small>
+                    </div>
+
+
+                    <div class="field col-12 md:col-6">
+                        <label for="2">{{'reunion.code' | translate}}<span style="color: red;">*</span></label>
+                        <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'reunion.code' | translate}}" id="2" [(ngModel)]="item.code"
+                               [ngClass]="{'ng-invalid ng-dirty' : !validReunionCode}"  />
+                        <small class='p-error' *ngIf='!validReunionCode'>Code is obligatory.</small>
+                    </div>
+
+
+                    <div class="field col-12 md:col-6">
+                        <label for="3">Link</label>
+                        <input class="mb-2 mr-2" type="text" pInputText  placeholder="Link" id="3" [(ngModel)]="item.style"
+                        />
+
+                    </div>
+
+
+
+                    <div class="field col-11 md:col-6">
+                        <label for="5">{{'reunion.collaborateur' | translate}}</label>
+                        <p-dropdown  appendTo="body"  [options]="collaborateurs" [(ngModel)]="item.collaborateur" id="5" [filter]="true" filterMatchMode="contains"
+                                     [showClear]="true" optionLabel="email" placeholder="{{'reunion.collaborateur' | translate}}"  >
+                        </p-dropdown>
+
+                    </div>
+                    <div class="field col-11 md:col-6">
+                        <label for="5">{{'reunion.manager' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText  placeholder="To" id="1"
+                        [value]="item.manager?.email" readonly />
+
+                    </div>
+
+                    <!--                                            <div class="field col-11 md:col-6">-->
+                    <!--                                                <label for="6">{{'reunion.etatReunion' | translate}}</label>-->
+                    <!--                                                <p-dropdown  appendTo="body"  [options]="etatReunions" [(ngModel)]="item.etatReunion" id="6" [filter]="true" filterMatchMode="contains"-->
+                    <!--                                                        [showClear]="true" optionLabel="libelle" placeholder="{{'reunion.etatReunion' | translate}}"  >-->
+                    <!--                                                </p-dropdown>-->
+
+                    <!--                                            </div>-->
+                    <div class="field col-11 md:col-6">
+                        <label for="6">{{'reunion.etatReunion' | translate}}</label>
+                        <p-dropdown appendTo="body" [options]="etatReunions" [(ngModel)]="item.etatReunion" id="6" [filter]="true"
+                                    filterMatchMode="contains" [showClear]="true" optionLabel="libelle"
+                                    placeholder="{{'reunion.etatReunion' | translate}}">
+                        </p-dropdown>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="4">{{'reunion.description' | translate}}</label>
+                        <textarea id="4" pInputTextarea rows="5" cols="30" placeholder="{{'reunion.description' | translate}}"  [(ngModel)]="item.description"
+                        ></textarea>
+
+                    </div>
+
+                </div>
+            </p-tabPanel>
+
+            <p-tabPanel header="Email Collaborator">
+                <div class="grid">
+                    <div class="field col-12 md:col-6">
+                        <label for="1">To<span style="color: red;">*</span></label>
+                        <input class="mb-2 mr-2" type="text" pInputText  placeholder="To" id="1"
+                               [value]="item.collaborateur?.email" readonly/>
+                        <!--                                        <small class='p-error' *ngIf='!validReunionLibelle'>Libelle is obligatory.</small>-->
+                    </div>
+
+
+                    <div class="field col-12 md:col-6">
+                        <label for="2">Subject<span style="color: red;">*</span></label>
+                        <input class="mb-2 mr-2" type="text" pInputText  placeholder="Subject" id="2"
+                               [value]="emailCollaborator?.subject" readonly/>
+                    </div>
+
+                    <div class="field col-12 md:col-6">
+                        <label for="4">Message</label>
+                        <textarea id="4" pInputTextarea rows="5" cols="30" placeholder="Message"  [value]="emailCollaborator?.body" readonly
+                        ></textarea>
+
+                    </div>
+
+                </div>
+            </p-tabPanel>
+
+        </p-tabView>
+
+    </ng-template>
+
+    <ng-template pTemplate="footer" >
+        <div class="p-flexbox">
+
+            <button pButton pRipple  label="{{'validate' | translate}}"  icon="pi pi-check"  (click)="save()"></button>
+
+
+            <button pButton pRipple  label="{{'cancel' | translate}}" icon="pi pi-times" class="p-button-outlined" (click)="hideCreateDialog()"></button>
+
+
+        </div>
+    </ng-template>
+
+</p-dialog>

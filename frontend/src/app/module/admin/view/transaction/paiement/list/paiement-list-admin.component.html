@@ -6,11 +6,11 @@
                 <ng-template pTemplate="left">
                                         <button pButton pRipple label=" {{'new' | translate}}" icon="pi pi-plus" class="p-button-info mr-2 mb-2" (click)="openCreate()" *ngIf="createActionIsValid"></button>
                     <button [disabled]="isSelectionDisabled()" pButton pRipple label=" {{'delete' | translate}}" icon="pi pi-trash" class="p-button-danger mr-2 mb-2" (click)=deleteMultiple()  *ngIf="deleteActionIsValid"></button>
-                    <button pButton pRipple label=" {{'search' | translate}}" icon="pi pi-{{findByCriteriaShow?'angle-down':'angle-right'}}" class="p-button-secondary mr-2 mb-2" (click)="this.showSearch()"></button>
+                    <button pButton pRipple label=" {{'search' | translate}}" icon="pi pi-{{findByCriteriaShow?'angle-down':'angle-right'}}" class="p-button-info mr-2 mb-2" (click)="this.showSearch()"></button>
                 </ng-template>
                 <ng-template pTemplate="right">
                     <div class="flex">
-                        <p-splitButton label=" {{'export' | translate}}" icon="pi pi-download" styleClass="p-button-secondary" [model]="excelPdfButons"></p-splitButton>
+                        <p-splitButton label=" {{'export' | translate}}" icon="pi pi-download" styleClass="p-button-info" [model]="excelPdfButons"></p-splitButton>
                     </div>
                 </ng-template>
 
@@ -60,6 +60,12 @@
                                         [showClear]="true"  placeholder="{{'paiement.statusPaiement' | translate}}" optionLabel="libelle">
                             </p-dropdown>
                         </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="8-2">{{'paiement.collaborateur' | translate}}</label>
+                            <p-dropdown [options]="collaborateurs" [(ngModel)]="criteria.collaborateur" id="7" [filter]="true" class="p-fluid"
+                                        [showClear]="true"  placeholder="{{'paiement.collaborateur' | translate}}" optionLabel="email">
+                            </p-dropdown>
+                        </div>
                     </div>
                     <div [style]="{ marginTop : '1rem', display: 'flex', justifyContent: 'flex-end' }">
                         <button pButton pRipple label="{{'validate' | translate}}" icon="pi pi-sort-amount-down" class="p-button-info mr-2" (click)="findPaginatedByCriteria()"></button>
@@ -86,14 +92,21 @@
                             <th style="width: 3rem">
                                 <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
                             </th>
+                            <th pSortableColumn="Collaborateur">
+                                <div class="p-d-flex p-jc-between p-ai-center">
+                                    <span>{{'paiement.collaborateur' | translate}}</span>
+                                    <p-sortIcon field="email"></p-sortIcon>
+                                    <p-columnFilter type="text" field="element.email" display="menu" class="ml-auto"></p-columnFilter>
+                                </div>
+                            </th>
 
-                        <th pSortableColumn="libelle">
-                            <div class="p-d-flex p-jc-between p-ai-center">
-                                <span>{{'paiement.libelle' | translate}}</span>
-                                <p-sortIcon field="libelle"></p-sortIcon>
-                                <p-columnFilter type="text" field="element.libelle" display="menu" class="ml-auto"></p-columnFilter>
-                            </div>
-                        </th>
+<!--                        <th pSortableColumn="libelle">-->
+<!--                            <div class="p-d-flex p-jc-between p-ai-center">-->
+<!--                                <span>{{'paiement.libelle' | translate}}</span>-->
+<!--                                <p-sortIcon field="libelle"></p-sortIcon>-->
+<!--                                <p-columnFilter type="text" field="element.libelle" display="menu" class="ml-auto"></p-columnFilter>-->
+<!--                            </div>-->
+<!--                        </th>-->
 
 
 <!--                        <th pSortableColumn="code">-->
@@ -145,7 +158,16 @@
                                 <p-tableCheckbox [value]="element"></p-tableCheckbox>
                             </td>
 
-                        <td>{{element.libelle}}</td>
+                            <td>
+                                  <span *ngIf="element.collaborateur?.email && element.collaborateur.email.trim() !== ''">
+                                    {{ element.collaborateur.email }}
+                                  </span>
+                                  <span *ngIf="!element.collaborateur?.email || element.collaborateur.email.trim() === ''" style="color: red;">
+                                    <em>NULL</em>
+                                  </span>
+                            </td>
+
+                            <!--                        <td>{{element.libelle}}</td>-->
 
 
 <!--                        <td>{{element.code}}</td>-->

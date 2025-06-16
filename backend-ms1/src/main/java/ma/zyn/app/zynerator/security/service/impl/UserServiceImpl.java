@@ -1,6 +1,8 @@
 package ma.zyn.app.zynerator.security.service.impl;
 
 
+import ma.zyn.app.bean.core.utilisateurs.Manager;
+import ma.zyn.app.service.facade.admin.utilisateurs.ManagerAdminService;
 import ma.zyn.app.zynerator.security.bean.ModelPermissionUser;
 import ma.zyn.app.zynerator.security.bean.RoleUser;
 import ma.zyn.app.zynerator.security.bean.User;
@@ -81,18 +83,12 @@ public class UserServiceImpl extends AbstractServiceImpl<User, UserCriteria, Use
             if (roleAsString.equals(AuthoritiesConstants.ADMIN)) {
                 saved = super.create(t);
             } 	 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+
 			else if(roleAsString.equals(AuthoritiesConstants.COLLABORATEUR)){
 				saved = collaborateurService.create(convertToCollaborateur(t));
-			}
+			}else if(roleAsString.equals(AuthoritiesConstants.MANAGER)){
+                saved = managerAdminService.create(convertToManager(t));
+            }
  
  
 			
@@ -119,7 +115,13 @@ public class UserServiceImpl extends AbstractServiceImpl<User, UserCriteria, Use
 
     }
 
-	 private Collaborateur convertToCollaborateur(User user) {
+    private Manager convertToManager(User t) {
+        Manager item = new Manager();
+        BeanUtils.copyProperties(t, item);
+        return item;
+    }
+
+    private Collaborateur convertToCollaborateur(User user) {
         Collaborateur item = new Collaborateur();
         BeanUtils.copyProperties(user, item);
         return item;
@@ -250,6 +252,8 @@ public class UserServiceImpl extends AbstractServiceImpl<User, UserCriteria, Use
     private static final String CHARACTERS = "0123456789";
     @Autowired
     private CollaborateurAdminService collaborateurService;
+    @Autowired
+    private ManagerAdminService managerAdminService;
 
 
             public UserServiceImpl(UserDao dao) {

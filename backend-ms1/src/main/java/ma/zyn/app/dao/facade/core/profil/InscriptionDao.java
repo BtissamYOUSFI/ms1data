@@ -36,6 +36,4 @@ public interface InscriptionDao extends AbstractRepository<Inscription,Long>  {
     int deleteByCollaborateurId(Long id);
     long countByCollaborateurEmail(String email);
 
-
-
 }

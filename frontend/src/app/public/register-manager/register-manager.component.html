@@ -1,0 +1,87 @@
+<div class="register-container">
+    <div class="register-card">
+        <form [formGroup]="inscriptionForm" >
+            <p-toast></p-toast>
+
+            <div class="p-fluid p-formgrid p-grid">
+
+                <div class="p-field p-col-12 p-md-4">
+                    <label for="nom">{{ 'registration.lastName' | translate }}</label>
+                    <span class="p-input-icon-left">
+                        <i class="pi pi-user"></i>
+                        <input id="nom" type="text" pInputText formControlName="nom" [placeholder]="'registration.lastName' | translate">
+                    </span>
+                </div>
+
+                <div class="p-field p-col-12 p-md-4">
+                    <label for="prenom">{{ 'registration.firstName' | translate }}</label>
+                    <span class="p-input-icon-left">
+                        <i class="pi pi-user"></i>
+                        <input id="prenom" type="text" pInputText formControlName="prenom" [placeholder]="'registration.firstName' | translate">
+                    </span>
+                </div>
+
+                <div class="p-field p-col-12 p-md-4">
+                    <label for="email">{{ 'registration.email' | translate }}</label>
+                    <span class="p-input-icon-left">
+                        <i class="pi pi-envelope"></i>
+                        <input id="email" type="email" pInputText formControlName="email" placeholder="email@email.com">
+                    </span>
+                    <small *ngIf="inscriptionForm.get('email')?.invalid && inscriptionForm.get('email')?.touched" class="p-error">
+                        Veuillez entrer une adresse email valide
+                    </small>
+                </div>
+
+                <div class="p-field p-col-12 p-md-4">
+                    <label for="password">{{ 'registration.password' | translate }}</label>
+                    <p-password id="password" formControlName="password" [toggleMask]="true" [feedback]="true"
+                                [placeholder]="'registration.password' | translate" styleClass="custom-password"></p-password>
+                    <small *ngIf="inscriptionForm.get('password')?.invalid && inscriptionForm.get('password')?.touched" class="p-error">
+                        Le mot de passe doit contenir au moins 8 caractères
+                    </small>
+                </div>
+
+                <div class="p-field p-col-12 p-md-4">
+                    <label for="phone">{{ 'registration.phone' | translate }}</label>
+                    <span class="p-input-icon-left">
+                        <i class="pi pi-phone"></i>
+                        <input id="phone" type="text" pInputText formControlName="phone" [placeholder]="'registration.phone' | translate">
+                    </span>
+                    <small *ngIf="inscriptionForm.get('phone')?.invalid && inscriptionForm.get('phone')?.touched" class="p-error">
+                        Le format est incorrect
+                    </small>
+                </div>
+
+                <div class="p-field p-col-12">
+                    <label for="description">{{ 'registration.description' | translate }}</label>
+                    <span class="p-input-icon-left textarea-wrapper">
+                        <i class="pi pi-file-edit"></i>
+                        <textarea id="description" pInputTextarea [rows]="5" formControlName="description"
+                                  placeholder="Describe your professional experience and your goals..."></textarea>
+                    </span>
+                </div>
+
+                <div class="p-field p-col-12 text-center custom-auth-actions">
+                    <p-button type="submit" label="Sign up" icon="pi pi-user-plus"
+                              styleClass="register-btn"></p-button>
+
+                    <div class="link-group">
+                        <div>
+                            <span>You already have an account?
+                                <a href="/collaborateur/login" class="custom-link">Log in  </a> <span class="divider">|</span>
+                            </span>
+                            <span>  You are a Collaborator?
+                                <a href="/inscription" class="custom-link">Sign up</a>
+                            </span>
+                        </div>
+                        <span class="divider">|</span>
+                        <a routerLink="/" class="home-link">
+                            <i class="pi pi-home"></i> Home
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>

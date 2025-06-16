@@ -38,6 +38,10 @@ import { SplitButtonModule } from 'primeng/splitbutton';
 import { MessageModule } from 'primeng/message';
 import {MessagesModule} from 'primeng/messages';
 import {PaginatorModule} from 'primeng/paginator';
+import {ManagerCreateAdminComponent} from "./manager/create/manager-create-admin.component";
+import {ManagerEditAdminComponent} from "./manager/edit/manager-edit-admin.component";
+import {ManagerListAdminComponent} from "./manager/list/manager-list-admin.component";
+import {ManagerViewAdminComponent} from "./manager/view/manager-view-admin.component";
 
 
 
@@ -48,6 +52,10 @@ import {PaginatorModule} from 'primeng/paginator';
     CollaborateurListAdminComponent,
     CollaborateurViewAdminComponent,
     CollaborateurEditAdminComponent,
+      ManagerCreateAdminComponent,
+      ManagerEditAdminComponent,
+      ManagerListAdminComponent,
+      ManagerViewAdminComponent
   ],
   imports: [
     CommonModule,
@@ -90,6 +98,10 @@ import {PaginatorModule} from 'primeng/paginator';
   CollaborateurListAdminComponent,
   CollaborateurViewAdminComponent,
   CollaborateurEditAdminComponent,
+      ManagerCreateAdminComponent,
+      ManagerEditAdminComponent,
+      ManagerListAdminComponent,
+      ManagerViewAdminComponent
   ],
 })
 export class UtilisateursAdminModule { }

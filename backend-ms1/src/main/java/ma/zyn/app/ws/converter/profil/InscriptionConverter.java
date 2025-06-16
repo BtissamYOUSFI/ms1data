@@ -1,5 +1,7 @@
 package  ma.zyn.app.ws.converter.profil;
 
+import ma.zyn.app.bean.core.utilisateurs.Manager;
+import ma.zyn.app.ws.converter.utilisateurs.ManagerConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.beans.BeanUtils;
@@ -45,6 +47,9 @@ public class InscriptionConverter {
     private boolean metier;
     private boolean etatInscription;
     private boolean collaborateur;
+    @Autowired
+    private ManagerConverter managerConverter ;
+    private boolean manager;
 
     public  InscriptionConverter() {
         initObject(true);
@@ -87,6 +92,9 @@ public class InscriptionConverter {
 
             if(this.collaborateur && dto.getCollaborateur()!=null)
                 item.setCollaborateur(collaborateurConverter.toItem(dto.getCollaborateur())) ;
+
+            if(this.manager && dto.getManager()!=null)
+                            item.setManager(managerConverter.toItem(dto.getManager())) ;
 
 
 
@@ -137,7 +145,10 @@ public class InscriptionConverter {
             }
             if(this.collaborateur && item.getCollaborateur()!=null) {
                 dto.setCollaborateur(collaborateurConverter.toDto(item.getCollaborateur())) ;
+            }
 
+            if(this.manager && item.getManager()!=null) {
+                dto.setManager(managerConverter.toDto(item.getManager())) ;
             }
 
 
@@ -155,6 +166,7 @@ public class InscriptionConverter {
         this.metier = value;
         this.etatInscription = value;
         this.collaborateur = value;
+        this.manager= value;
     }
 	
     public List<Inscription> toItem(List<InscriptionDto> dtos) {
@@ -211,6 +223,12 @@ public class InscriptionConverter {
             t.setCollaborateur(null);
             t.setCollaborateur(new Collaborateur());
         }
+        if(t.getManager() == null  && dto.getManager() != null){
+            t.setManager(new Manager());
+        }else if (t.getManager() != null  && dto.getManager() != null){
+            t.setManager(null);
+            t.setManager(new Manager());
+        }
         if (dto.getLangue() != null)
         langueConverter.copy(dto.getLangue(), t.getLangue());
         if (dto.getNiveauLangue() != null)
@@ -221,6 +239,9 @@ public class InscriptionConverter {
         etatInscriptionConverter.copy(dto.getEtatInscription(), t.getEtatInscription());
         if (dto.getCollaborateur() != null)
         collaborateurConverter.copy(dto.getCollaborateur(), t.getCollaborateur());
+        if (dto.getManager() != null)
+        managerConverter.copy(dto.getManager(), t.getManager());
+
     }
 
     public List<Inscription> copy(List<InscriptionDto> dtos) {
@@ -295,5 +316,21 @@ public class InscriptionConverter {
     }
     public void  setCollaborateur(boolean collaborateur){
         this.collaborateur = collaborateur;
+    }
+
+    public ManagerConverter getManagerConverter() {
+        return managerConverter;
+    }
+
+    public void setManagerConverter(ManagerConverter managerConverter) {
+        this.managerConverter = managerConverter;
+    }
+
+    public boolean isManager() {
+        return manager;
+    }
+
+    public void setManager(boolean manager) {
+        this.manager = manager;
     }
 }

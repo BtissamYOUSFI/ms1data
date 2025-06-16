@@ -82,7 +82,9 @@ export class PaiementListCollaborateurComponent implements OnInit {
     }
 
 
-
+    isCollaborateur(element: any): boolean {
+        return element.collaborateur?.email === this.authService.authenticatedUser?.email;
+    }
 
     public onExcelFileSelected(event: any): void {
         const input = event.target as HTMLInputElement;
@@ -117,8 +119,13 @@ export class PaiementListCollaborateurComponent implements OnInit {
 
     public findPaginatedByCriteria() {
         this.service.findPaginatedByCriteria(this.criteria).subscribe(paginatedItems => {
-            this.items = paginatedItems.list;
-            this.totalRecords = paginatedItems.dataSize;
+            // this.items = paginatedItems.list;
+            // this.totalRecords = paginatedItems.dataSize;
+            const allItems = paginatedItems.list;
+            this.items = allItems.filter(item =>
+                item.collaborateur?.email === this.authService.authenticatedUser.email
+            );
+            this.totalRecords = this.items.length;
             this.selections = new Array<PaiementDto>();
         }, error => console.log(error));
     }

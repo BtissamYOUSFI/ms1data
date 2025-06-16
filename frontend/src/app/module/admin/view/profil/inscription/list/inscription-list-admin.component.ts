@@ -37,6 +37,8 @@ import {ReunionDto} from "../../../../../../shared/model/accompagnement/Reunion.
 import {ReunionAdminService} from "../../../../../../shared/service/admin/accompagnement/ReunionAdmin.service";
 import {UserService} from "../../../../../../zynerator/security/shared/service/User.service";
 import {UserDto} from "../../../../../../zynerator/security/shared/model/User.model";
+import {ManagerAdminService} from "../../../../../../shared/service/admin/utilisateurs/ManagerAdmin.service";
+import {ManagerDto} from "../../../../../../shared/model/utilisateurs/Manager.model";
 
 
 @Component({
@@ -66,7 +68,7 @@ export class InscriptionListAdminComponent implements OnInit {
     protected exportService: ExportService;
     protected excelFile: File | undefined;
     protected enableSecurity = false;
-    private _managers: UserDto[];
+    private _managers: ManagerDto[];
 
     langues: Array<LangueDto>;
     niveauLangues: Array<NiveauLangueDto>;
@@ -76,10 +78,13 @@ export class InscriptionListAdminComponent implements OnInit {
 
     showCreateReunion:Boolean = false;
     inscriptionCreateReunion: any;
+    showManagers: Boolean = false;
+    selectedInscription: InscriptionDto | null = null;
+    selectedManager: ManagerDto | null = null;
 
     private _reunion: ReunionDto;
 
-    constructor(private userService:UserService,private reunionService:ReunionAdminService,private service: InscriptionAdminService  , private metierService: MetierAdminService, private niveauLangueService: NiveauLangueAdminService, private etatInscriptionService: EtatInscriptionAdminService, private langueService: LangueAdminService, private collaborateurService: CollaborateurAdminService, @Inject(PLATFORM_ID) private platformId?) {
+    constructor(private managerService:ManagerAdminService,private userService:UserService,private reunionService:ReunionAdminService,private service: InscriptionAdminService  , private metierService: MetierAdminService, private niveauLangueService: NiveauLangueAdminService, private etatInscriptionService: EtatInscriptionAdminService, private langueService: LangueAdminService, private collaborateurService: CollaborateurAdminService, @Inject(PLATFORM_ID) private platformId?) {
         this.datePipe = ServiceLocator.injector.get(DatePipe);
         this.messageService = ServiceLocator.injector.get(MessageService);
         this.confirmationService = ServiceLocator.injector.get(ConfirmationService);
@@ -98,21 +103,28 @@ export class InscriptionListAdminComponent implements OnInit {
         this.loadMetier();
         this.loadEtatInscription();
         this.loadCollaborateur();
+        this.managerService.findAll().subscribe((data)=> this.managers=data)
 
     }
 
-    // getManagers() {
-    //     this.userService.getManagers().subscribe({
-    //         next: (data) => {
-    //             this.managers = data;
-    //             console.log(data);
-    //         },
-    //         error: (err) => {
-    //             console.error('Erreur lors de la récupération des managers :', err);
-    //         }
-    //     });
-    // }
+    showDialogManagers(element: InscriptionDto){
+        this.showManagers=true;
+        this.selectedManager=null;
+        this.item = element;
+    }
 
+    onManagerSelected(): void {
+        this.item.manager= this.selectedManager;
+       this.service.edit().subscribe((data) => {
+           console.log(data);
+           this.showManagers=false;
+           this.messageService.add({
+               severity: 'success',
+               summary: 'success',
+               detail: 'Manager attributed successfully'
+           });
+       })
+    }
 
 
     public onExcelFileSelected(event: any): void {
@@ -396,7 +408,7 @@ export class InscriptionListAdminComponent implements OnInit {
                 'Nom': this.criteria.nom ? this.criteria.nom : environment.emptyForExport ,
                 'Prenom': this.criteria.prenom ? this.criteria.prenom : environment.emptyForExport ,
                 'Email': this.criteria.email ? this.criteria.email : environment.emptyForExport ,
-                'Password': this.criteria.password ? this.criteria.password : environment.emptyForExport ,
+                // 'Password': this.criteria.password ? this.criteria.password : environment.emptyForExport ,
             //'Langue': this.criteria.langue?.libelle ? this.criteria.langue?.libelle : environment.emptyForExport ,
             //'Niveau langue': this.criteria.niveauLangue?.libelle ? this.criteria.niveauLangue?.libelle : environment.emptyForExport ,
             //'Metier': this.criteria.metier?.libelle ? this.criteria.metier?.libelle : environment.emptyForExport ,
@@ -620,11 +632,11 @@ export class InscriptionListAdminComponent implements OnInit {
     }
 
 
-    get managers(): UserDto[] {
+    get managers(): ManagerDto[] {
         return this._managers;
     }
 
-    set managers(value: UserDto[]) {
+    set managers(value: ManagerDto[]) {
         this._managers = value;
     }
 }

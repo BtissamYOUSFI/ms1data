@@ -120,10 +120,6 @@ export class InscriptionEditAdminComponent implements OnInit {
         this.setValidation(true);
     }
 
-
-
-
-
     public setValidation(value: boolean){
         this.validInscriptionPhone = value;
         this.validInscriptionCode = value;

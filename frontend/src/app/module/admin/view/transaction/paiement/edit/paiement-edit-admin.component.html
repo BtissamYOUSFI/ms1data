@@ -22,18 +22,13 @@
 
 
 
-                                        <div class="field col-12 md:col-6">
-                                            <label for="3">{{'paiement.description' | translate}}</label>
-                                            <textarea id="3" pInputTextarea rows="5" cols="30" placeholder="{{'paiement.description' | translate}}"  [(ngModel)]="item.description"
-                                                       ></textarea>
-                                            
-                                        </div>
+
 
                                         <div class="field col-12 md:col-6">
                                             <label for="4">{{'paiement.montant' | translate}}</label>
                                             <p-inputNumber class="mb-2 mr-2" id="4" placeholder="{{'paiement.montant' | translate}}" [(ngModel)]="item.montant"  >
                                             </p-inputNumber>
-                                            
+
                                         </div>
 
                                         <div class="field col-12 md:col-6">
@@ -41,15 +36,22 @@
                                             <p-calendar appendTo="body" id="5"  [showTime]="true" [showSeconds]="false" placeholder="{{'paiement.datePaiement' | translate}}"  [(ngModel)]="item.datePaiement"
                                                         dateFormat="{{dateFormat}}"  >
                                             </p-calendar>
-                                            
+
                                         </div>
+                            <div class="field col-11 md:col-6">
+                                <label for="7">{{'paiement.collaborateur' | translate}}</label>
+                                <p-dropdown  appendTo="body"  [options]="collaborateurs" [(ngModel)]="item.collaborateur" id="7" [filter]="true" filterMatchMode="contains"
+                                             [showClear]="true" optionLabel="email" placeholder="{{'paiement.collaborateur' | translate}}"  >
+                                </p-dropdown>
+
+                            </div>
 
                                     <div class="field col-11 md:col-6">
                                         <label for="6">{{'paiement.moyenPaiement' | translate}}</label>
                                         <p-dropdown  appendTo="body"  [options]="moyenPaiements" [(ngModel)]="item.moyenPaiement" id="6" [filter]="true" filterMatchMode="contains"
                                                      [showClear]="true" optionLabel="libelle" placeholder="{{'paiement.moyenPaiement' | translate}}"  >
                                         </p-dropdown>
-                                        
+
                                     </div>
 
                                     <div class="field col-11 md:col-6">
@@ -57,8 +59,14 @@
                                         <p-dropdown  appendTo="body"  [options]="statusPaiements" [(ngModel)]="item.statusPaiement" id="7" [filter]="true" filterMatchMode="contains"
                                                      [showClear]="true" optionLabel="libelle" placeholder="{{'paiement.statusPaiement' | translate}}"  >
                                         </p-dropdown>
-                                        
+
                                     </div>
+                            <div class="field col-12 md:col-6">
+                                <label for="3">{{'paiement.description' | translate}}</label>
+                                <textarea id="3" pInputTextarea rows="5" cols="30" placeholder="{{'paiement.description' | translate}}"  [(ngModel)]="item.description"
+                                ></textarea>
+
+                            </div>
 
                         </div>
                     </p-tabPanel>

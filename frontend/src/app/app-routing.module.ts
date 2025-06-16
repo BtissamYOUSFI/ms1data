@@ -37,6 +37,12 @@ import {ChangePasswordCollaborateurComponent} from 'src/app/module/collaborateur
                             loadChildren: () => import( './module/collaborateur/collaborateur-routing.module').then(x => x.CollaborateurRoutingModule),
                             canActivate: [AuthGuard],
                         },
+                        {
+                            path: 'manager',
+                            loadChildren: () => import( './module/manager/manager-routing.module').then(x => x.ManagerRoutingModule),
+                            canActivate: [AuthGuard],
+                        },
+
                     ],
                     canActivate: [AuthGuard]
                 },

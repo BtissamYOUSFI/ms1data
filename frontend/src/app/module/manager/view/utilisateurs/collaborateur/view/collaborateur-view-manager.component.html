@@ -1,0 +1,69 @@
+<p-dialog [(visible)]="viewDialog" [style]="{width: '70vw'}" header="{{'collaborateur.tabPan' | translate}}" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <p-tabView>
+            <p-tabPanel header="{{'collaborateur.tabPan' | translate}}">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
+                                <div class="flex flex-col gap-2">
+                                    <label class="text-sm font-semibold" for="1">{{'collaborateur.description' | translate}}</label>
+                                    <textarea id="1" pTextarea rows="5" cols="30" [disabled]="true" placeholder="{{'collaborateur.description' | translate}}"  [ngModel]="item.description"></textarea>
+                                </div>
+                                <div class="flex flex-col gap-2">
+
+                                    <label class="text-sm font-semibold" for="2">{{'collaborateur.accountNonLocked' | translate}}</label>
+
+                                    <p-inputSwitch id="2"  [disabled]="true" [ngModel]="item.accountNonLocked"></p-inputSwitch>
+
+                                </div>
+                                <div class="flex flex-col gap-2">
+
+                                    <label class="text-sm font-semibold" for="3">{{'collaborateur.passwordChanged' | translate}}</label>
+
+                                    <p-inputSwitch id="3"  [disabled]="true" [ngModel]="item.passwordChanged"></p-inputSwitch>
+
+                                </div>
+                                <div class="flex flex-col gap-2">
+                                    <label class="text-sm font-semibold" for="4">{{'collaborateur.username' | translate}}</label>
+                                    <input  type="text" pInputText [disabled]="true" placeholder="{{'collaborateur.username' | translate}}" autofocus  id="4" [ngModel]="item.username">
+                                </div>
+                                <div class="flex flex-col gap-2">
+
+                                    <label class="text-sm font-semibold" for="5">{{'collaborateur.accountNonExpired' | translate}}</label>
+
+                                    <p-inputSwitch id="5"  [disabled]="true" [ngModel]="item.accountNonExpired"></p-inputSwitch>
+
+                                </div>
+                                <div class="flex flex-col gap-2">
+
+                                    <label class="text-sm font-semibold" for="6">{{'collaborateur.credentialsNonExpired' | translate}}</label>
+
+                                    <p-inputSwitch id="6"  [disabled]="true" [ngModel]="item.credentialsNonExpired"></p-inputSwitch>
+
+                                </div>
+                                <div class="flex flex-col gap-2">
+
+                                    <label class="text-sm font-semibold" for="7">{{'collaborateur.enabled' | translate}}</label>
+
+                                    <p-inputSwitch id="7"  [disabled]="true" [ngModel]="item.enabled"></p-inputSwitch>
+
+                                </div>
+                                <div class="flex flex-col gap-2">
+                                    <label class="text-sm font-semibold" for="8">{{'collaborateur.email' | translate}}</label>
+                                    <input  type="text" pInputText [disabled]="true" placeholder="{{'collaborateur.email' | translate}}" autofocus  id="8" [ngModel]="item.email">
+                                </div>
+                </div>
+            </p-tabPanel>
+
+        </p-tabView>
+
+    </ng-template>
+
+    <ng-template pTemplate="footer" >
+        <div class="flex justify-end p-4">
+            <div>
+                <button class="border border-gray-400 font-semibold py-2 px-4 rounded shadow" (click)="hideViewDialog()">
+                    <i class="pi pi-times"></i> Annuler
+                </button>
+            </div>
+        </div>
+    </ng-template>
+</p-dialog>

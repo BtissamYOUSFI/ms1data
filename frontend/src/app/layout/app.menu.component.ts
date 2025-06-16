@@ -17,17 +17,17 @@ export class AppMenuComponent implements OnInit {
   modelanonymous: any[];
     modelAdmin: any[];
   modelCollaborateur: any[];
+    modelManager: any[] = [];
 constructor(public layoutService: LayoutService, public app: AppComponent, public appMain: AppLayoutComponent, private roleService: RoleService, private authService: AuthService, private router: Router) { }
   ngOnInit() {
     this.modelAdmin =
       [
-
 				{
                     // label: 'Pages',
                     icon: 'pi pi-fw pi-briefcase',
                     items: [
 					  {
-						label: 'Collaborators',
+						label: 'Users',
 						icon: 'pi pi-user',
 						items: [
 								  {
@@ -35,40 +35,53 @@ constructor(public layoutService: LayoutService, public app: AppComponent, publi
 									icon: 'pi pi-fw pi-plus-circle',
 									routerLink: ['/app/admin/utilisateurs/collaborateur/list']
 								  },
+                                {
+                                    label: 'Liste manager',
+                                    icon: 'pi pi-fw pi-plus-circle',
+                                    routerLink: ['/app/admin/utilisateurs/manager/list']
+                                },
 						]
 					  },
+                        {
+                            label: 'Inscriptions',
+                            icon: 'pi pi-user-plus',
+                            items: [
+                                {
+                                    label: 'Liste inscription',
+                                    icon: 'pi pi-fw pi-plus-circle',
+                                    routerLink: ['/app/admin/profil/inscription/list']
+                                },
+                            ]
+                        },
 					  {
 						label: 'Paiements',
 						icon: 'pi pi-credit-card',
 						items: [
-								  {
+                            {
+                                label: 'Liste paiement collaborator',
+                                icon: 'pi pi-fw pi-plus-circle',
+                                routerLink: ['/app/admin/transaction/paiement/list']
+                            },
+                            {
+                                label: 'Liste paiement manager',
+                                icon: 'pi pi-fw pi-plus-circle',
+                                routerLink: ['/app/admin/transaction/paiement-manager/list']
+                            },
+                            {
+                                label: 'Liste moyen paiement',
+                                icon: 'pi pi-fw pi-plus-circle',
+                                routerLink: ['/app/admin/transaction/moyen-paiement/list']
+                            },
+                            {
 									label: 'Liste status paiement',
 									icon: 'pi pi-fw pi-plus-circle',
 									routerLink: ['/app/admin/transaction/status-paiement/list']
 								  },
-								  {
-									label: 'Liste paiement',
-									icon: 'pi pi-fw pi-plus-circle',
-									routerLink: ['/app/admin/transaction/paiement/list']
-								  },
-								  {
-									label: 'Liste moyen paiement',
-									icon: 'pi pi-fw pi-plus-circle',
-									routerLink: ['/app/admin/transaction/moyen-paiement/list']
-								  },
+
+
 						]
 					  },
-					  {
-						label: 'Inscriptions',
-						icon: 'pi pi-user-plus',
-						items: [
-								  {
-									label: 'Liste inscription',
-									icon: 'pi pi-fw pi-plus-circle',
-									routerLink: ['/app/admin/profil/inscription/list']
-								  },
-						]
-					  },
+
 					  {
 						label: 'User Profile',
 						icon: 'pi pi-cog',
@@ -78,42 +91,45 @@ constructor(public layoutService: LayoutService, public app: AppComponent, publi
 									icon: 'pi pi-fw pi-plus-circle',
 									routerLink: ['/app/admin/profil/etat-inscription/list']
 								  },
+                                    {
+                                        label: 'Liste metier',
+                                        icon: 'pi pi-fw pi-plus-circle',
+                                        routerLink: ['/app/admin/profil/metier/list']
+                                    },
 								  {
 									label: 'Liste langue',
 									icon: 'pi pi-fw pi-plus-circle',
 									routerLink: ['/app/admin/profil/langue/list']
 								  },
+                                    {
+                                        label: 'Liste niveau langue',
+                                        icon: 'pi pi-fw pi-plus-circle',
+                                        routerLink: ['/app/admin/profil/niveau-langue/list']
+                                    },
 								  {
 									label: 'Liste referentiel metier',
 									icon: 'pi pi-fw pi-plus-circle',
 									routerLink: ['/app/admin/profil/referentiel-metier/list']
 								  },
-								  {
-									label: 'Liste niveau langue',
-									icon: 'pi pi-fw pi-plus-circle',
-									routerLink: ['/app/admin/profil/niveau-langue/list']
-								  },
-								  {
-									label: 'Liste metier',
-									icon: 'pi pi-fw pi-plus-circle',
-									routerLink: ['/app/admin/profil/metier/list']
-								  },
+
+
 						]
 					  },
 					  {
 						label: 'Meetings',
 						icon: 'pi pi-calendar',
 						items: [
+                            {
+                                label: 'Liste reunion',
+                                icon: 'pi pi-fw pi-plus-circle',
+                                routerLink: ['/app/admin/accompagnement/reunion/list']
+                            },
 								  {
 									label: 'Liste etat reunion',
 									icon: 'pi pi-fw pi-plus-circle',
 									routerLink: ['/app/admin/accompagnement/etat-reunion/list']
 								  },
-								  {
-									label: 'Liste reunion',
-									icon: 'pi pi-fw pi-plus-circle',
-									routerLink: ['/app/admin/accompagnement/reunion/list']
-								  },
+
 						]
 					  },
                         {
@@ -142,32 +158,23 @@ constructor(public layoutService: LayoutService, public app: AppComponent, publi
 							  icon: 'pi pi-fw pi-plus-circle',
 							  routerLink: ['/app/admin/security/user/list']
 						  },
-						  {
-							  label: 'List Model',
-							  icon: 'pi pi-fw pi-plus-circle',
-							  routerLink: ['/app/admin/security/model-permission/list']
-						  },
-						  {
-							  label: 'List Action Permission',
-							  icon: 'pi pi-fw pi-plus-circle',
-							  routerLink: ['/app/admin/security/action-permission/list']
-						  },
+						  // {
+							//   label: 'List Model',
+							//   icon: 'pi pi-fw pi-plus-circle',
+							//   routerLink: ['/app/admin/security/model-permission/list']
+						  // },
+						  // {
+							//   label: 'List Action Permission',
+							//   icon: 'pi pi-fw pi-plus-circle',
+							//   routerLink: ['/app/admin/security/action-permission/list']
+						  // },
 					  ]
 				  },
-                        // {
-                        //     label: 'Log out',
-                        //     icon: 'pi pi-fw pi-sign-in',
-                        //     styleClass: 'logout-menu-item',
-                        //     command: () => {
-                        //         this.authService.logout();
-                        //     }
-                        // }
 			]
 	    }
     ];
     this.modelCollaborateur =
       [
-
 				{
                     // label: 'Pages',
                     icon: 'pi pi-fw pi-briefcase',
@@ -216,14 +223,14 @@ constructor(public layoutService: LayoutService, public app: AppComponent, publi
                             icon: 'pi pi-wallet',
                             items: [
                                 {
+                                    label: 'Liste metier',
+                                    icon: 'pi pi-fw pi-plus-circle',
+                                    routerLink: ['/app/collaborateur/profil/metier/list']
+                                },
+                                {
                                     label: 'Liste langue',
                                     icon: 'pi pi-fw pi-plus-circle',
                                     routerLink: ['/app/collaborateur/profil/langue/list']
-                                },
-                                {
-                                    label: 'Liste referentiel metier',
-                                    icon: 'pi pi-fw pi-plus-circle',
-                                    routerLink: ['/app/collaborateur/profil/referentiel-metier/list']
                                 },
                                 {
                                     label: 'Liste niveau langue',
@@ -231,16 +238,107 @@ constructor(public layoutService: LayoutService, public app: AppComponent, publi
                                     routerLink: ['/app/collaborateur/profil/niveau-langue/list']
                                 },
                                 {
-                                    label: 'Liste metier',
+                                    label: 'Liste referentiel metier',
                                     icon: 'pi pi-fw pi-plus-circle',
-                                    routerLink: ['/app/collaborateur/profil/metier/list']
+                                    routerLink: ['/app/collaborateur/profil/referentiel-metier/list']
                                 },
+
+
                             ]
                         },
 
 			]
 	    }
     ];
+
+      this.modelManager =
+          [
+              {
+                  icon: 'pi pi-fw pi-briefcase',
+                  items: [
+                      {
+                          label: 'Inscriptions',
+                          icon: 'pi pi-wallet',
+                          items: [
+                              {
+                                  label: 'Liste inscription',
+                                  icon: 'pi pi-fw pi-plus-circle',
+                                  routerLink: ['/app/manager/profil/inscription/list']
+                              },
+                          ]
+                      },
+                      {
+                          label: 'Paiements',
+                          icon: 'pi pi-wallet',
+                          items: [
+                              // {
+                              //     label: 'Liste paiement',
+                              //     icon: 'pi pi-fw pi-plus-circle',
+                              //     routerLink: ['/app/manager/transaction/paiement/list']
+                              // },
+                              {
+                                  label: 'Liste paiement manager',
+                                  icon: 'pi pi-fw pi-plus-circle',
+                                  routerLink: ['/app/manager/transaction/paiement-manager/list']
+                              },
+                              {
+                                  label: 'Liste status paiement',
+                                  icon: 'pi pi-fw pi-plus-circle',
+                                  routerLink: ['/app/manager/transaction/status-paiement/list']
+                              },
+                              {
+                                  label: 'Liste moyen paiement',
+                                  icon: 'pi pi-fw pi-plus-circle',
+                                  routerLink: ['/app/manager/transaction/moyen-paiement/list']
+                              },
+                          ]
+                      },
+                      // {
+                      //     label: 'User Profile',
+                      //     icon: 'pi pi-wallet',
+                      //     items: [
+                      //         {
+                      //             label: 'Liste metier',
+                      //             icon: 'pi pi-fw pi-plus-circle',
+                      //             routerLink: ['/app/manager/profil/metier/list']
+                      //         },
+                      //         {
+                      //             label: 'Liste langue',
+                      //             icon: 'pi pi-fw pi-plus-circle',
+                      //             routerLink: ['/app/manager/profil/langue/list']
+                      //         },
+                      //         {
+                      //             label: 'Liste niveau langue',
+                      //             icon: 'pi pi-fw pi-plus-circle',
+                      //             routerLink: ['/app/manager/profil/niveau-langue/list']
+                      //         },
+                      //         {
+                      //             label: 'Liste referentiel metier',
+                      //             icon: 'pi pi-fw pi-plus-circle',
+                      //             routerLink: ['/app/manager/profil/referentiel-metier/list']
+                      //         },
+                      //
+                      //     ]
+                      // },
+                      {
+                          label: 'Meetings',
+                          icon: 'pi pi-wallet',
+                          items: [
+                              {
+                                  label: 'Liste reunion',
+                                  icon: 'pi pi-fw pi-plus-circle',
+                                  routerLink: ['/app/manager/accompagnement/reunion/list']
+                              },
+                              {
+                                  label: 'Liste etat reunion',
+                                  icon: 'pi pi-fw pi-plus-circle',
+                                  routerLink: ['/app/manager/accompagnement/etat-reunion/list']
+                              },
+                          ]
+                      },
+                  ]
+              }
+          ];
 
         if (this.authService.authenticated) {
             if (this.authService.authenticatedUser.roleUsers) {

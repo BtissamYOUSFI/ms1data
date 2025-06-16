@@ -15,80 +15,81 @@
 <!--                </ng-template>-->
 
 <!--            </p-toolbar>-->
-            <p-toolbar *ngIf="findByCriteriaShow">
+<!--            <p-toolbar *ngIf="findByCriteriaShow">-->
 
-                <div class="col-12">
-                    <div class="flex flex-wrap p-fluid col-12">
-                       <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
-                            <label  class="font-bold block mb-2" for="5">{{'inscription.nom' | translate}}</label>
-                            <input  class="w-full"  pInputText id="5" type="text"  [(ngModel)]="criteria.nomLike">
-                        </div>
-                       <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
-                            <label  class="font-bold block mb-2" for="6">{{'inscription.prenom' | translate}}</label>
-                            <input  class="w-full"  pInputText id="6" type="text"  [(ngModel)]="criteria.prenomLike">
-                        </div>
-                       <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
-                            <label  class="font-bold block mb-2" for="7">{{'inscription.email' | translate}}</label>
-                            <input  class="w-full"  pInputText id="7" type="text"  [(ngModel)]="criteria.emailLike">
-                        </div>
+<!--                <div class="col-12">-->
+<!--                    <div class="flex flex-wrap p-fluid col-12">-->
 <!--                       <div class="lg:col-3 md:col-6 sm:col-12 mb-4">-->
-<!--                            <label  class="font-bold block mb-2" for="8">{{'inscription.password' | translate}}</label>-->
-<!--                            <input  class="w-full"  pInputText id="8" type="text"  [(ngModel)]="criteria.passwordLike">-->
+<!--                            <label  class="font-bold block mb-2" for="5">{{'inscription.nom' | translate}}</label>-->
+<!--                            <input  class="w-full"  pInputText id="5" type="text"  [(ngModel)]="criteria.nomLike">-->
 <!--                        </div>-->
-                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
-                            <label  class="font-bold block mb-2" for="9-2">{{'inscription.langue' | translate}}</label>
-                            <p-dropdown [options]="langues" [(ngModel)]="criteria.langue" id="9" [filter]="true" class="p-fluid"
-                                        [showClear]="true"  placeholder="{{'inscription.langue' | translate}}" optionLabel="libelle">
-                            </p-dropdown>
-                        </div>
-                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
-                            <label  class="font-bold block mb-2" for="10-2">{{'inscription.niveauLangue' | translate}}</label>
-                            <p-dropdown [options]="niveauLangues" [(ngModel)]="criteria.niveauLangue" id="10" [filter]="true" class="p-fluid"
-                                        [showClear]="true"  placeholder="{{'inscription.niveauLangue' | translate}}" optionLabel="libelle">
-                            </p-dropdown>
-                        </div>
-                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
-                            <label  class="font-bold block mb-2" for="11-2">{{'inscription.metier' | translate}}</label>
-                            <p-dropdown [options]="metiers" [(ngModel)]="criteria.metier" id="11" [filter]="true" class="p-fluid"
-                                        [showClear]="true"  placeholder="{{'inscription.metier' | translate}}" optionLabel="libelle">
-                            </p-dropdown>
-                        </div>
-                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
-                            <label  class="font-bold block mb-2" for="12-1">{{'inscription.nombreHeureExperienceMin' | translate}}</label>
-                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.nombreHeureExperienceMin" id="12-1"></p-inputNumber>
-                        </div>
-                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
-                            <label  class="font-bold block mb-2" for="12-2">{{'inscription.nombreHeureExperienceMax' | translate}}</label>
-                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.nombreHeureExperienceMax" id="12-2"></p-inputNumber>
-                       </div>
-                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
-                            <label  class="font-bold block mb-2" for="13-2">{{'inscription.etatInscription' | translate}}</label>
-                            <p-dropdown [options]="etatInscriptions" [(ngModel)]="criteria.etatInscription" id="13" [filter]="true" class="p-fluid"
-                                        [showClear]="true"  placeholder="{{'inscription.etatInscription' | translate}}" optionLabel="libelle">
-                            </p-dropdown>
-                        </div>
-                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
-                            <label  class="font-bold block mb-2" for="14-2">{{'inscription.collaborateur' | translate}}</label>
-                            <p-dropdown [options]="collaborateurs" [(ngModel)]="criteria.collaborateur" id="14" [filter]="true" class="p-fluid"
-                                        [showClear]="true"  placeholder="{{'inscription.collaborateur' | translate}}" optionLabel="email">
-                            </p-dropdown>
-                        </div>
-                    </div>
-                    <div [style]="{ marginTop : '1rem', display: 'flex', justifyContent: 'flex-end' }">
-                        <button pButton pRipple label="{{'validate' | translate}}" icon="pi pi-sort-amount-down" class="p-button-info mr-2" (click)="findPaginatedByCriteria()"></button>
-                    </div>
-                </div>
+<!--                       <div class="lg:col-3 md:col-6 sm:col-12 mb-4">-->
+<!--                            <label  class="font-bold block mb-2" for="6">{{'inscription.prenom' | translate}}</label>-->
+<!--                            <input  class="w-full"  pInputText id="6" type="text"  [(ngModel)]="criteria.prenomLike">-->
+<!--                        </div>-->
+<!--                       <div class="lg:col-3 md:col-6 sm:col-12 mb-4">-->
+<!--                            <label  class="font-bold block mb-2" for="7">{{'inscription.email' | translate}}</label>-->
+<!--                            <input  class="w-full"  pInputText id="7" type="text"  [(ngModel)]="criteria.emailLike">-->
+<!--                        </div>-->
+<!--&lt;!&ndash;                       <div class="lg:col-3 md:col-6 sm:col-12 mb-4">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <label  class="font-bold block mb-2" for="8">{{'inscription.password' | translate}}</label>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <input  class="w-full"  pInputText id="8" type="text"  [(ngModel)]="criteria.passwordLike">&ndash;&gt;-->
+<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
+<!--                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">-->
+<!--                            <label  class="font-bold block mb-2" for="9-2">{{'inscription.langue' | translate}}</label>-->
+<!--                            <p-dropdown [options]="langues" [(ngModel)]="criteria.langue" id="9" [filter]="true" class="p-fluid"-->
+<!--                                        [showClear]="true"  placeholder="{{'inscription.langue' | translate}}" optionLabel="libelle">-->
+<!--                            </p-dropdown>-->
+<!--                        </div>-->
+<!--                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">-->
+<!--                            <label  class="font-bold block mb-2" for="10-2">{{'inscription.niveauLangue' | translate}}</label>-->
+<!--                            <p-dropdown [options]="niveauLangues" [(ngModel)]="criteria.niveauLangue" id="10" [filter]="true" class="p-fluid"-->
+<!--                                        [showClear]="true"  placeholder="{{'inscription.niveauLangue' | translate}}" optionLabel="libelle">-->
+<!--                            </p-dropdown>-->
+<!--                        </div>-->
+<!--                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">-->
+<!--                            <label  class="font-bold block mb-2" for="11-2">{{'inscription.metier' | translate}}</label>-->
+<!--                            <p-dropdown [options]="metiers" [(ngModel)]="criteria.metier" id="11" [filter]="true" class="p-fluid"-->
+<!--                                        [showClear]="true"  placeholder="{{'inscription.metier' | translate}}" optionLabel="libelle">-->
+<!--                            </p-dropdown>-->
+<!--                        </div>-->
+<!--                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">-->
+<!--                            <label  class="font-bold block mb-2" for="12-1">{{'inscription.nombreHeureExperienceMin' | translate}}</label>-->
+<!--                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.nombreHeureExperienceMin" id="12-1"></p-inputNumber>-->
+<!--                        </div>-->
+<!--                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">-->
+<!--                            <label  class="font-bold block mb-2" for="12-2">{{'inscription.nombreHeureExperienceMax' | translate}}</label>-->
+<!--                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.nombreHeureExperienceMax" id="12-2"></p-inputNumber>-->
+<!--                       </div>-->
+<!--                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">-->
+<!--                            <label  class="font-bold block mb-2" for="13-2">{{'inscription.etatInscription' | translate}}</label>-->
+<!--                            <p-dropdown [options]="etatInscriptions" [(ngModel)]="criteria.etatInscription" id="13" [filter]="true" class="p-fluid"-->
+<!--                                        [showClear]="true"  placeholder="{{'inscription.etatInscription' | translate}}" optionLabel="libelle">-->
+<!--                            </p-dropdown>-->
+<!--                        </div>-->
+<!--                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">-->
+<!--                            <label  class="font-bold block mb-2" for="14-2">{{'inscription.collaborateur' | translate}}</label>-->
+<!--                            <p-dropdown [options]="collaborateurs" [(ngModel)]="criteria.collaborateur" id="14" [filter]="true" class="p-fluid"-->
+<!--                                        [showClear]="true"  placeholder="{{'inscription.collaborateur' | translate}}" optionLabel="email">-->
+<!--                            </p-dropdown>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div [style]="{ marginTop : '1rem', display: 'flex', justifyContent: 'flex-end' }">-->
+<!--                        <button pButton pRipple label="{{'validate' | translate}}" icon="pi pi-sort-amount-down" class="p-button-info mr-2" (click)="findPaginatedByCriteria()"></button>-->
+<!--                    </div>-->
+<!--                </div>-->
 
 
-            </p-toolbar>
+<!--            </p-toolbar>-->
             <div class="card p-0 shadow-2 border-round">
                 <div class="p-card-header p-3 flex justify-content-between align-items-center">
-                    <h5 class="m-0 text-primary font-medium">{{'inscription.header' | translate}}</h5>
+                    <h5 class="m-0 text-primary font-medium">Votre Inscription</h5>
 <!--                    <span class="p-input-icon-left">-->
 <!--                        <i class="pi pi-search"></i>-->
 <!--                        <input pInputText type="text" placeholder="{{'searchInput' | translate}}" (input)="dt.filterGlobal($event.target.value, 'contains')" class="p-inputtext-sm"/>-->
 <!--                    </span>-->
                 </div>
+
                 <p-table #dt [value]="items" [columns]="cols" [rows]="8" [paginator]="false"
                          [globalFilterFields]="['libelle', 'code', 'style', 'nom', 'prenom', 'email', 'password', 'languelibelle', 'niveauLanguelibelle', 'metierlibelle', 'nombreHeureExperience', 'etatInscriptionlibelle', 'collaborateuremail']" [(selection)]="selections"
                          [rowHover]="true" dataKey="id" styleClass="p-datatable-customers"
@@ -96,9 +97,9 @@
                          [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" selectionMode="multiple">
                     <ng-template pTemplate="header">
                         <tr>
-                            <th style="width: 3rem">
-                                <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
-                            </th>
+<!--                            <th style="width: 3rem">-->
+<!--                                <p-tableHeaderCheckbox></p-tableHeaderCheckbox>-->
+<!--                            </th>-->
 
 
                         <th pSortableColumn="nom">
@@ -137,21 +138,21 @@
                         </th>
 
 
-                        <th pSortableColumn="niveauLangue">
-                            <div class="p-d-flex p-jc-between p-ai-center">
-                                <span>{{'inscription.niveauLangue' | translate}}</span>
-                                <p-sortIcon field="niveauLangue"></p-sortIcon>
-                            </div>
-                        </th>
+<!--                        <th pSortableColumn="niveauLangue">-->
+<!--                            <div class="p-d-flex p-jc-between p-ai-center">-->
+<!--                                <span>{{'inscription.niveauLangue' | translate}}</span>-->
+<!--                                <p-sortIcon field="niveauLangue"></p-sortIcon>-->
+<!--                            </div>-->
+<!--                        </th>-->
 
-                                    <!--
+
                         <th pSortableColumn="metier">
                             <div class="p-d-flex p-jc-between p-ai-center">
                                 <span>{{'inscription.metier' | translate}}</span>
                                 <p-sortIcon field="metier"></p-sortIcon>
                             </div>
                         </th>
-                                -->
+
                                     <!--
                         <th pSortableColumn="nombreHeureExperience">
                             <div class="p-d-flex p-jc-between p-ai-center">
@@ -181,9 +182,9 @@
                     </ng-template>
                     <ng-template pTemplate="body" let-element>
                         <tr *ngIf="element.email === authService.authenticatedUser.email">
-                            <td>
-                                <p-tableCheckbox [value]="element"></p-tableCheckbox>
-                            </td>
+<!--                            <td>-->
+<!--                                <p-tableCheckbox [value]="element"></p-tableCheckbox>-->
+<!--                            </td>-->
 
                         <td>{{element.nom}}</td>
 
@@ -199,15 +200,14 @@
                         </td>
 
 
-                        <td>
-                            <p-tag severity="{{element.niveauLangue?.style}}" value="{{element.niveauLangue?.libelle}}" [rounded]="true" />
-                        </td>
+<!--                        <td>-->
+<!--                            <p-tag severity="{{element.niveauLangue?.style}}" value="{{element.niveauLangue?.libelle}}" [rounded]="true" />-->
+<!--                        </td>-->
 
-                                     <!--
+
                         <td>
-                            <p-tag severity="{{element.metier?.code}}" value="{{element.metier?.libelle}}" [rounded]="true" />
+                            <p-tag severity="{{element.metier?.style}}" value="{{element.metier?.libelle}}" [rounded]="true" />
                         </td>
-                             -->
                                      <!--
                         <td>{{element.nombreHeureExperience}}</td>
                              -->
@@ -226,6 +226,22 @@
 <!--                                <button pButton pRipple icon="pi pi-copy" class="p-button-rounded p-button-raised p-button-warning mr-2" (click)="duplicate(element)"  *ngIf="duplicateActionIsValid"></button>-->
                             </td>
                         </tr>
+                        <div
+                            *ngIf="element.email === authService.authenticatedUser.email && element.etatInscription"
+                            style="text-align: center; padding: 1rem;">
+
+  <span style="font-weight: bold; margin-right: 0.5rem;">
+    Votre état d'inscription est :
+  </span>
+
+                            <p-tag
+                                [value]="element.etatInscription.libelle"
+                                [severity]="element.etatInscription.style"
+                                style="font-size: 1rem;">
+                            </p-tag>
+
+                        </div>
+
                     </ng-template>
 
                     <ng-template pTemplate="emptymessage">

@@ -1,0 +1,57 @@
+<p-dialog [(visible)]="viewDialog" [style]="{width: '70vw'}" header="{{'referentielMetier.tabPan' | translate}}" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <p-tabView>
+            <p-tabPanel header="{{'referentielMetier.tabPan' | translate}}">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
+                                <div class="flex flex-col gap-2">
+                                    <label class="text-sm font-semibold" for="1">{{'referentielMetier.libelle' | translate}}</label>
+                                    <input  type="text" pInputText [disabled]="true" placeholder="{{'referentielMetier.libelle' | translate}}" autofocus  id="1" [ngModel]="item.libelle">
+                                </div>
+                                <div class="flex flex-col gap-2">
+                                    <label class="text-sm font-semibold" for="2">{{'referentielMetier.code' | translate}}</label>
+                                    <input  type="text" pInputText [disabled]="true" placeholder="{{'referentielMetier.code' | translate}}" autofocus  id="2" [ngModel]="item.code">
+                                </div>
+                                <div class="flex flex-col gap-2">
+                                    <label class="text-sm font-semibold" for="3">{{'referentielMetier.description' | translate}}</label>
+                                    <textarea id="3" pTextarea rows="5" cols="30" [disabled]="true" placeholder="{{'referentielMetier.description' | translate}}"  [ngModel]="item.description"></textarea>
+                                </div>
+                            <div class="flex flex-col gap-2">
+                                <label class="text-sm font-semibold" for="4">{{'referentielMetier.metier' | translate}}</label>
+                                <input type="text" pInputText [disabled]="true" placeholder="{{'referentielMetier.metier' | translate}}" autofocus  id="4" [ngModel]="item.metier?.libelle">
+                            </div>
+                                <div class="flex flex-col gap-2">
+                                    <label class="text-sm font-semibold" for="5">{{'referentielMetier.nombreHeuresExperienceMin' | translate}}</label>
+                                    <p-inputNumber id="5" [disabled]="true" placeholder="{{'referentielMetier.nombreHeuresExperienceMin' | translate}}" [ngModel]="item.nombreHeuresExperienceMin"></p-inputNumber>
+                                </div>
+                            <div class="flex flex-col gap-2">
+                                <label class="text-sm font-semibold" for="6">{{'referentielMetier.langue' | translate}}</label>
+                                <input type="text" pInputText [disabled]="true" placeholder="{{'referentielMetier.langue' | translate}}" autofocus  id="6" [ngModel]="item.langue?.libelle">
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <label class="text-sm font-semibold" for="7">{{'referentielMetier.niveauLangue' | translate}}</label>
+                                <input type="text" pInputText [disabled]="true" placeholder="{{'referentielMetier.niveauLangue' | translate}}" autofocus  id="7" [ngModel]="item.niveauLangue?.libelle">
+                            </div>
+                                <div class="flex flex-col gap-2">
+
+                                    <label class="text-sm font-semibold" for="8">{{'referentielMetier.scelleRouge' | translate}}</label>
+
+                                    <p-inputSwitch id="8"  [disabled]="true" [ngModel]="item.scelleRouge"></p-inputSwitch>
+
+                                </div>
+                </div>
+            </p-tabPanel>
+
+        </p-tabView>
+
+    </ng-template>
+
+    <ng-template pTemplate="footer" >
+        <div class="flex justify-end p-4">
+            <div>
+                <button class="border border-gray-400 font-semibold py-2 px-4 rounded shadow" (click)="hideViewDialog()">
+                    <i class="pi pi-times"></i> Annuler
+                </button>
+            </div>
+        </div>
+    </ng-template>
+</p-dialog>

@@ -71,6 +71,7 @@ export class InscriptionListCollaborateurComponent implements OnInit {
     collaborateurs: Array<CollaborateurDto>;
 
 
+
     constructor( private service: InscriptionCollaborateurService  , private metierService: MetierCollaborateurService, private niveauLangueService: NiveauLangueCollaborateurService, private etatInscriptionService: EtatInscriptionCollaborateurService, private langueService: LangueCollaborateurService, private collaborateurService: CollaborateurCollaborateurService, @Inject(PLATFORM_ID) private platformId?) {
         this.datePipe = ServiceLocator.injector.get(DatePipe);
         this.messageService = ServiceLocator.injector.get(MessageService);
@@ -366,7 +367,7 @@ export class InscriptionListCollaborateurComponent implements OnInit {
                 'Nom': this.criteria.nom ? this.criteria.nom : environment.emptyForExport ,
                 'Prenom': this.criteria.prenom ? this.criteria.prenom : environment.emptyForExport ,
                 'Email': this.criteria.email ? this.criteria.email : environment.emptyForExport ,
-                'Password': this.criteria.password ? this.criteria.password : environment.emptyForExport ,
+                // 'Password': this.criteria.password ? this.criteria.password : environment.emptyForExport ,
             //'Langue': this.criteria.langue?.libelle ? this.criteria.langue?.libelle : environment.emptyForExport ,
             //'Niveau langue': this.criteria.niveauLangue?.libelle ? this.criteria.niveauLangue?.libelle : environment.emptyForExport ,
             //'Metier': this.criteria.metier?.libelle ? this.criteria.metier?.libelle : environment.emptyForExport ,

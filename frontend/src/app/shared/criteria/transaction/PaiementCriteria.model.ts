@@ -2,6 +2,8 @@ import {MoyenPaiementCriteria} from './MoyenPaiementCriteria.model';
 import {StatusPaiementCriteria} from './StatusPaiementCriteria.model';
 
 import {BaseCriteria} from 'src/app/zynerator/criteria/BaseCriteria.model';
+import {CollaborateurDto} from "../../model/utilisateurs/Collaborateur.model";
+import {CollaborateurCriteria} from "../utilisateurs/CollaborateurCriteria.model";
 
 export class PaiementCriteria extends BaseCriteria {
 
@@ -18,7 +20,9 @@ export class PaiementCriteria extends BaseCriteria {
     public datePaiement: Date;
     public datePaiementFrom: Date;
     public datePaiementTo: Date;
+    public moyenPaiement: MoyenPaiementCriteria;
   public statusPaiement: StatusPaiementCriteria ;
   public statusPaiements: Array<StatusPaiementCriteria> ;
+  public collaborateur: CollaborateurCriteria;
 
 }

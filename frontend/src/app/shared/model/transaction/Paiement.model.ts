@@ -2,6 +2,7 @@ import {MoyenPaiementDto} from './MoyenPaiement.model';
 import {StatusPaiementDto} from './StatusPaiement.model';
 
 import {BaseDto} from 'src/app/zynerator/dto/BaseDto.model';
+import {CollaborateurDto} from "../utilisateurs/Collaborateur.model";
 
 
 export class PaiementDto extends BaseDto{
@@ -18,6 +19,7 @@ export class PaiementDto extends BaseDto{
 
     public moyenPaiement: MoyenPaiementDto ;
     public statusPaiement: StatusPaiementDto ;
+    public collaborateur: CollaborateurDto;
 
 
     constructor() {
@@ -29,7 +31,7 @@ export class PaiementDto extends BaseDto{
         this.montant = null;
         this.datePaiement = null;
         this.statusPaiement = new StatusPaiementDto() ;
-
+        this.collaborateur= new CollaborateurDto()
         }
 
 }

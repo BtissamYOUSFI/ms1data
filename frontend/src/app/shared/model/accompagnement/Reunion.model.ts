@@ -2,6 +2,7 @@ import {EtatReunionDto} from './EtatReunion.model';
 import {CollaborateurDto} from '../utilisateurs/Collaborateur.model';
 
 import {BaseDto} from 'src/app/zynerator/dto/BaseDto.model';
+import {ManagerDto} from "../utilisateurs/Manager.model";
 
 
 export class ReunionDto extends BaseDto{
@@ -16,7 +17,7 @@ export class ReunionDto extends BaseDto{
 
     public collaborateur: CollaborateurDto ;
     public etatReunion: EtatReunionDto ;
-
+    public manager: ManagerDto ;
 
     constructor() {
         super();
@@ -26,7 +27,8 @@ export class ReunionDto extends BaseDto{
         this.style = '';
         this.description = '';
         this.etatReunion = new EtatReunionDto() ;
-
+        this.collaborateur = new CollaborateurDto() ;
+        this.manager = new ManagerDto() ;
         }
 
 }

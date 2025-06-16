@@ -6,11 +6,11 @@
                 <ng-template pTemplate="left">
                     <button pButton pRipple label=" {{'new' | translate}}" icon="pi pi-plus" class="p-button-info mr-2 mb-2" (click)="openCreate()" *ngIf="createActionIsValid"></button>
                     <button [disabled]="isSelectionDisabled()" pButton pRipple label=" {{'delete' | translate}}" icon="pi pi-trash" class="p-button-danger mr-2 mb-2" (click)=deleteMultiple()  *ngIf="deleteActionIsValid"></button>
-                    <button pButton pRipple label=" {{'search' | translate}}" icon="pi pi-{{findByCriteriaShow?'angle-down':'angle-right'}}" class="p-button-secondary mr-2 mb-2" (click)="this.showSearch()"></button>
+                    <button pButton pRipple label=" {{'search' | translate}}" icon="pi pi-{{findByCriteriaShow?'angle-down':'angle-right'}}" class="p-button-info mr-2 mb-2" (click)="this.showSearch()"></button>
                 </ng-template>
                 <ng-template pTemplate="right">
                     <div class="flex">
-                        <p-splitButton label=" {{'export' | translate}}" icon="pi pi-download" styleClass="p-button-secondary" [model]="excelPdfButons"></p-splitButton>
+                        <p-splitButton label=" {{'export' | translate}}" icon="pi pi-download" styleClass="p-button-info" [model]="excelPdfButons"></p-splitButton>
                     </div>
                 </ng-template>
 
@@ -70,37 +70,44 @@
                                 <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
                             </th>
 
-                        <th pSortableColumn="libelle">
-                            <div class="p-d-flex p-jc-between p-ai-center">
-                                <span>{{'reunion.libelle' | translate}}</span>
-                                <p-sortIcon field="libelle"></p-sortIcon>
-                                <p-columnFilter type="text" field="element.libelle" display="menu" class="ml-auto"></p-columnFilter>
-                            </div>
-                        </th>
+                            <th pSortableColumn="manager">
+                                <div class="p-d-flex p-jc-between p-ai-center">
+                                    <span>{{'reunion.manager' | translate}}</span>
+                                    <p-sortIcon field="manager"></p-sortIcon>
+                                </div>
+                            </th>
+
+                            <th pSortableColumn="collaborateur">
+                                <div class="p-d-flex p-jc-between p-ai-center">
+                                    <span>{{'reunion.collaborateur' | translate}}</span>
+                                    <p-sortIcon field="collaborateur"></p-sortIcon>
+                                </div>
+                            </th>
 
 
-                        <th pSortableColumn="code">
-                            <div class="p-d-flex p-jc-between p-ai-center">
-                                <span>{{'reunion.code' | translate}}</span>
-                                <p-sortIcon field="code"></p-sortIcon>
-                                <p-columnFilter type="text" field="element.code" display="menu" class="ml-auto"></p-columnFilter>
-                            </div>
-                        </th>
+                            <!--                        <th pSortableColumn="libelle">-->
+<!--                            <div class="p-d-flex p-jc-between p-ai-center">-->
+<!--                                <span>{{'reunion.libelle' | translate}}</span>-->
+<!--                                <p-sortIcon field="libelle"></p-sortIcon>-->
+<!--                                <p-columnFilter type="text" field="element.libelle" display="menu" class="ml-auto"></p-columnFilter>-->
+<!--                            </div>-->
+<!--                        </th>-->
+
+
+<!--                        <th pSortableColumn="code">-->
+<!--                            <div class="p-d-flex p-jc-between p-ai-center">-->
+<!--                                <span>{{'reunion.code' | translate}}</span>-->
+<!--                                <p-sortIcon field="code"></p-sortIcon>-->
+<!--                                <p-columnFilter type="text" field="element.code" display="menu" class="ml-auto"></p-columnFilter>-->
+<!--                            </div>-->
+<!--                        </th>-->
 
 
                         <th pSortableColumn="style">
                             <div class="p-d-flex p-jc-between p-ai-center">
-                                <span>{{'reunion.style' | translate}}</span>
+                                <span>Lien</span>
                                 <p-sortIcon field="style"></p-sortIcon>
                                 <p-columnFilter type="text" field="element.style" display="menu" class="ml-auto"></p-columnFilter>
-                            </div>
-                        </th>
-
-
-                        <th pSortableColumn="collaborateur">
-                            <div class="p-d-flex p-jc-between p-ai-center">
-                                <span>{{'reunion.collaborateur' | translate}}</span>
-                                <p-sortIcon field="collaborateur"></p-sortIcon>
                             </div>
                         </th>
 
@@ -121,16 +128,20 @@
                                 <p-tableCheckbox [value]="element"></p-tableCheckbox>
                             </td>
 
-                        <td>{{element.libelle}}</td>
+                            <td>{{element.manager?.email}}</td>
+
+                            <td>{{element.collaborateur?.email}}</td>
 
 
-                        <td>{{element.code}}</td>
+<!--                        <td>{{element.libelle}}</td>-->
+
+
+<!--                        <td>{{element.code}}</td>-->
 
 
                         <td>{{element.style}}</td>
 
 
-                        <td>{{element.collaborateur?.email}}</td>
 
 
                         <td>

@@ -12,8 +12,6 @@ import {StringUtilService} from 'src/app/zynerator/util/StringUtil.service';
 import {ServiceLocator} from 'src/app/zynerator/service/ServiceLocator';
 
 
-
-
 import {ReunionAdminService} from 'src/app/shared/service/admin/accompagnement/ReunionAdmin.service';
 import {ReunionDto} from 'src/app/shared/model/accompagnement/Reunion.model';
 import {ReunionCriteria} from 'src/app/shared/criteria/accompagnement/ReunionCriteria.model';
@@ -23,6 +21,9 @@ import {EtatReunionDto} from 'src/app/shared/model/accompagnement/EtatReunion.mo
 import {EtatReunionAdminService} from 'src/app/shared/service/admin/accompagnement/EtatReunionAdmin.service';
 import {CollaborateurDto} from 'src/app/shared/model/utilisateurs/Collaborateur.model';
 import {CollaborateurAdminService} from 'src/app/shared/service/admin/utilisateurs/CollaborateurAdmin.service';
+import {ManagerAdminService} from "../../../../../../shared/service/admin/utilisateurs/ManagerAdmin.service";
+import {ManagerDto} from "../../../../../../shared/model/utilisateurs/Manager.model";
+import {ManagerCriteria} from "../../../../../../shared/criteria/utilisateurs/ManagerCriteria.model";
 
 @Component({
   selector: 'app-reunion-edit-admin',
@@ -54,7 +55,7 @@ export class ReunionEditAdminComponent implements OnInit {
 
 
 
-    constructor(private service: ReunionAdminService , private etatReunionService: EtatReunionAdminService, private collaborateurService: CollaborateurAdminService, @Inject(PLATFORM_ID) private platformId?) {
+    constructor(private managerService: ManagerAdminService,private service: ReunionAdminService , private etatReunionService: EtatReunionAdminService, private collaborateurService: CollaborateurAdminService, @Inject(PLATFORM_ID) private platformId?) {
         this.datePipe = ServiceLocator.injector.get(DatePipe);
         this.messageService = ServiceLocator.injector.get(MessageService);
         this.confirmationService = ServiceLocator.injector.get(ConfirmationService);
@@ -66,6 +67,7 @@ export class ReunionEditAdminComponent implements OnInit {
     ngOnInit(): void {
         this.collaborateurService.findAll().subscribe((data) => this.collaborateurs = data);
         this.etatReunionService.findAll().subscribe((data) => this.etatReunions = data);
+        this.managerService.findAll().subscribe((data)=> this.managers=data);
     }
 
     public prepareEdit() {
@@ -191,6 +193,21 @@ export class ReunionEditAdminComponent implements OnInit {
         this.collaborateurService.createDialog= value;
     }
 
+    set manager(value: ManagerDto) {
+        this.managerService.item = value;
+    }
+    get managers(): Array<ManagerDto> {
+        return this.managerService.items;
+    }
+    set managers(value: Array<ManagerDto>) {
+        this.managerService.items = value;
+    }
+    get createManagerDialog(): boolean {
+        return this.managerService.createDialog;
+    }
+    set createManagerDialog(value: boolean) {
+        this.managerService.createDialog= value;
+    }
 
     get validReunionLibelle(): boolean {
         return this._validReunionLibelle;

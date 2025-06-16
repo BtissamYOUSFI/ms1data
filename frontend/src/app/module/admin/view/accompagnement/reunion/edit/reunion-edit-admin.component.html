@@ -18,22 +18,22 @@
                                             <small class='p-error' *ngIf='!validReunionCode'>Code est obligatoire.</small>
                                         </div>
 
-
                                         <div class="field col-12 md:col-6">
-                                            <label for="3">{{'reunion.style' | translate}}</label>
+                                            <label for="3">Lien</label>
                                             <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'reunion.style' | translate}}" id="3" [(ngModel)]="item.style"
                                                     />
 
                                         </div>
 
+                            <div class="field col-11 md:col-6">
+                                <label for="5">{{'reunion.manager' | translate}}</label>
+                                <p-dropdown  appendTo="body"  [options]="managers" [(ngModel)]="item.manager" id="5" [filter]="true" filterMatchMode="contains"
+                                             [showClear]="true" optionLabel="email" placeholder="{{'reunion.manager' | translate}}"  >
+                                </p-dropdown>
+
+                            </div>
 
 
-                                        <div class="field col-12 md:col-6">
-                                            <label for="4">{{'reunion.description' | translate}}</label>
-                                            <textarea id="4" pInputTextarea rows="5" cols="30" placeholder="{{'reunion.description' | translate}}"  [(ngModel)]="item.description"
-                                                       ></textarea>
-
-                                        </div>
 
                                     <div class="field col-11 md:col-6">
                                         <label for="5">{{'reunion.collaborateur' | translate}}</label>
@@ -50,6 +50,12 @@
                                         </p-dropdown>
 
                                     </div>
+                            <div class="field col-12 md:col-6">
+                                <label for="4">{{'reunion.description' | translate}}</label>
+                                <textarea id="4" pInputTextarea rows="5" cols="30" placeholder="{{'reunion.description' | translate}}"  [(ngModel)]="item.description"
+                                ></textarea>
+
+                            </div>
 
                         </div>
                     </p-tabPanel>

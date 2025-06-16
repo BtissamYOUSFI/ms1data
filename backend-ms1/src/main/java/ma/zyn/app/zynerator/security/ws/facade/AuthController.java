@@ -62,6 +62,11 @@ public class AuthController {
         return register(userDto, AuthoritiesConstants.COLLABORATEUR);
     }
 
+    @PostMapping("register/manager")
+    public ResponseEntity<Map<String, String>> registerManager(@RequestBody UserDto userDto) {
+        return register(userDto, AuthoritiesConstants.MANAGER);
+    }
+
     private ResponseEntity<Map<String, String>> register(UserDto userDto, String roleUsers) {
         if (userService.findByUsername(userDto.getUsername()) != null) {
             return ResponseEntity

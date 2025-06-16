@@ -12,10 +12,13 @@
                             <h1 class="m-0">{{ user.firstName+ ' ' + user.lastName || 'N/A' }}</h1>
                             <p class="text-500 m-0">{{ user.email || 'N/A' }}</p>
                             <div class="flex flex-wrap justify-content-center sm:justify-content-start">
-                                <p-chip *ngFor="let roleUser of user.roleUsers"
-                                        [label]="roleUser.role?.authority || 'No Role'"
-                                        styleClass="mr-2 mt-2"
-                                        [style]="{'background-color': '#E3F2FD'}"></p-chip>
+                                <p-chip
+                                    *ngIf="user.roleUsers?.length"
+                                    [label]="user.roleUsers[0]?.role?.authority || 'No Role'"
+                                    styleClass="mr-2 mt-2"
+                                    [style]="{'background-color': '#E3F2FD'}">
+                                </p-chip>
+
                             </div>
                         </div>
                     </div>

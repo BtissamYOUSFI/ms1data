@@ -1,0 +1,78 @@
+<p-dialog [(visible)]="viewDialog" [style]="{width: '70vw'}" header="{{'inscription.tabPan' | translate}}" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <p-tabView>
+            <p-tabPanel header="{{'inscription.tabPan' | translate}}">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
+                                <div class="flex flex-col gap-2">
+                                    <label class="text-sm font-semibold" for="1">{{'inscription.libelle' | translate}}</label>
+                                    <input  type="text" pInputText [disabled]="true" placeholder="{{'inscription.libelle' | translate}}" autofocus  id="1" [ngModel]="item.libelle">
+                                </div>
+                                <div class="flex flex-col gap-2">
+                                    <label class="text-sm font-semibold" for="2">{{'inscription.code' | translate}}</label>
+                                    <input  type="text" pInputText [disabled]="true" placeholder="{{'inscription.code' | translate}}" autofocus  id="2" [ngModel]="item.code">
+                                </div>
+                                <div class="flex flex-col gap-2">
+                                    <label class="text-sm font-semibold" for="3">{{'inscription.style' | translate}}</label>
+                                    <input  type="text" pInputText [disabled]="true" placeholder="{{'inscription.style' | translate}}" autofocus  id="3" [ngModel]="item.style">
+                                </div>
+                                <div class="flex flex-col gap-2">
+                                    <label class="text-sm font-semibold" for="4">{{'inscription.description' | translate}}</label>
+                                    <textarea id="4" pTextarea rows="5" cols="30" [disabled]="true" placeholder="{{'inscription.description' | translate}}"  [ngModel]="item.description"></textarea>
+                                </div>
+                                <div class="flex flex-col gap-2">
+                                    <label class="text-sm font-semibold" for="5">{{'inscription.nom' | translate}}</label>
+                                    <input  type="text" pInputText [disabled]="true" placeholder="{{'inscription.nom' | translate}}" autofocus  id="5" [ngModel]="item.nom">
+                                </div>
+                                <div class="flex flex-col gap-2">
+                                    <label class="text-sm font-semibold" for="6">{{'inscription.prenom' | translate}}</label>
+                                    <input  type="text" pInputText [disabled]="true" placeholder="{{'inscription.prenom' | translate}}" autofocus  id="6" [ngModel]="item.prenom">
+                                </div>
+                                <div class="flex flex-col gap-2">
+                                    <label class="text-sm font-semibold" for="7">{{'inscription.email' | translate}}</label>
+                                    <input  type="text" pInputText [disabled]="true" placeholder="{{'inscription.email' | translate}}" autofocus  id="7" [ngModel]="item.email">
+                                </div>
+                                <div class="flex flex-col gap-2">
+                                    <label class="text-sm font-semibold" for="8">{{'inscription.password' | translate}}</label>
+                                    <input  type="text" pInputText [disabled]="true" placeholder="{{'inscription.password' | translate}}" autofocus  id="8" [ngModel]="item.password">
+                                </div>
+                            <div class="flex flex-col gap-2">
+                                <label class="text-sm font-semibold" for="9">{{'inscription.langue' | translate}}</label>
+                                <input type="text" pInputText [disabled]="true" placeholder="{{'inscription.langue' | translate}}" autofocus  id="9" [ngModel]="item.langue?.libelle">
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <label class="text-sm font-semibold" for="10">{{'inscription.niveauLangue' | translate}}</label>
+                                <input type="text" pInputText [disabled]="true" placeholder="{{'inscription.niveauLangue' | translate}}" autofocus  id="10" [ngModel]="item.niveauLangue?.libelle">
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <label class="text-sm font-semibold" for="11">{{'inscription.metier' | translate}}</label>
+                                <input type="text" pInputText [disabled]="true" placeholder="{{'inscription.metier' | translate}}" autofocus  id="11" [ngModel]="item.metier?.libelle">
+                            </div>
+                                <div class="flex flex-col gap-2">
+                                    <label class="text-sm font-semibold" for="12">{{'inscription.nombreHeureExperience' | translate}}</label>
+                                    <p-inputNumber id="12" [disabled]="true" placeholder="{{'inscription.nombreHeureExperience' | translate}}" [ngModel]="item.nombreHeureExperience"></p-inputNumber>
+                                </div>
+                            <div class="flex flex-col gap-2">
+                                <label class="text-sm font-semibold" for="13">{{'inscription.etatInscription' | translate}}</label>
+                                <input type="text" pInputText [disabled]="true" placeholder="{{'inscription.etatInscription' | translate}}" autofocus  id="13" [ngModel]="item.etatInscription?.libelle">
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <label class="text-sm font-semibold" for="14">{{'inscription.collaborateur' | translate}}</label>
+                                <input type="text" pInputText [disabled]="true" placeholder="{{'inscription.collaborateur' | translate}}" autofocus  id="14" [ngModel]="item.collaborateur?.email">
+                            </div>
+                </div>
+            </p-tabPanel>
+
+        </p-tabView>
+
+    </ng-template>
+
+    <ng-template pTemplate="footer" >
+        <div class="flex justify-end p-4">
+            <div>
+                <button class="border border-gray-400 font-semibold py-2 px-4 rounded shadow" (click)="hideViewDialog()">
+                    <i class="pi pi-times"></i> Annuler
+                </button>
+            </div>
+        </div>
+    </ng-template>
+</p-dialog>

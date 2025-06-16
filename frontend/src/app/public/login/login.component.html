@@ -1,0 +1,76 @@
+<div class="login-container">
+     <p-toast></p-toast>
+    <div class="login-card">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+            <div class="field">
+                <label for="username">Username</label>
+                <span class="p-input-icon-left w-full">
+                    <i class="pi pi-user"></i>
+                    <input
+                        id="username"
+                        type="text"
+                        pInputText
+                        formControlName="username"
+                        placeholder="Username"
+                        class="w-full"
+                    />
+                </span>
+                <small
+                    *ngIf="loginForm.get('username').invalid && loginForm.get('username').touched"
+                    class="p-error"
+                >
+                    Required
+                </small>
+            </div>
+
+            <div class="field">
+                <label for="password">Password</label>
+                <span class="p-input-icon-left w-full">
+                    <i class="pi pi-lock"></i>
+                    <input
+                        id="password"
+                        type="password"
+                        pInputText
+                        formControlName="password"
+                        placeholder="Password"
+                        class="w-full"
+                    />
+                </span>
+            </div>
+
+            <div class="forgot-password">
+                <a (click)="forget()" style="cursor: pointer;">Forget Your Password?</a>
+            </div>
+
+            <button
+                pButton
+                type="submit"
+                label="Log in"
+                icon="pi pi-sign-in"
+                [loading]="loading"
+                [disabled]="loginForm.invalid"
+                class="w-full login-btn"
+            ></button>
+
+            <!-- <button
+                pButton
+                type="button"
+                label="Google"
+                icon="pi pi-google"
+                (click)="signInWithGoogle()"
+                class="w-full p-button-secondary mt-2"
+            ></button> -->
+        </form>
+
+        <div class="login-footer">
+            <div class="signup-link">
+                You don't have an account? <a (click)="register()" style="cursor: pointer;">Sign up</a>
+            </div>
+            <div class="home-link">
+                <a routerLink="/">
+                    <i class="pi pi-home"></i> Home
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

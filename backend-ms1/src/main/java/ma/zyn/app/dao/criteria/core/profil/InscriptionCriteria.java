@@ -3,6 +3,7 @@ package  ma.zyn.app.dao.criteria.core.profil;
 
 import ma.zyn.app.dao.criteria.core.utilisateurs.CollaborateurCriteria;
 
+import ma.zyn.app.dao.criteria.core.utilisateurs.ManagerCriteria;
 import ma.zyn.app.zynerator.criteria.BaseCriteria;
 
 import java.util.List;
@@ -39,6 +40,8 @@ public class InscriptionCriteria extends  BaseCriteria  {
     private List<EtatInscriptionCriteria> etatInscriptions ;
     private CollaborateurCriteria collaborateur ;
     private List<CollaborateurCriteria> collaborateurs ;
+    private ManagerCriteria manager;
+    private List<ManagerCriteria> managers ;
 
 
     public String getLibelle(){
@@ -234,5 +237,21 @@ public class InscriptionCriteria extends  BaseCriteria  {
 
     public void setCollaborateurs(List<CollaborateurCriteria> collaborateurs){
         this.collaborateurs = collaborateurs;
+    }
+
+    public ManagerCriteria getManager() {
+        return manager;
+    }
+
+    public void setManager(ManagerCriteria manager) {
+        this.manager = manager;
+    }
+
+    public List<ManagerCriteria> getManagers() {
+        return managers;
+    }
+
+    public void setManagers(List<ManagerCriteria> managers) {
+        this.managers = managers;
     }
 }

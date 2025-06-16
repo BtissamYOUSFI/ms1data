@@ -5,6 +5,7 @@ import {LangueDto} from './Langue.model';
 import {CollaborateurDto} from '../utilisateurs/Collaborateur.model';
 
 import {BaseDto} from 'src/app/zynerator/dto/BaseDto.model';
+import {ManagerDto} from "../utilisateurs/Manager.model";
 
 
 export class InscriptionDto extends BaseDto{
@@ -30,6 +31,7 @@ export class InscriptionDto extends BaseDto{
     public metier: MetierDto ;
     public etatInscription: EtatInscriptionDto ;
     public collaborateur: CollaborateurDto ;
+    public manager: ManagerDto
 
 
     constructor() {
@@ -45,7 +47,7 @@ export class InscriptionDto extends BaseDto{
         this.nombreHeureExperience = null;
         this.langue = new LangueDto() ;
         this.etatInscription = new EtatInscriptionDto() ;
-
+        this.manager = new ManagerDto();
         }
 
 }

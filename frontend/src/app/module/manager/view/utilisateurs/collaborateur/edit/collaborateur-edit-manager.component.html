@@ -1,0 +1,119 @@
+    <p-dialog [(visible)]="editDialog" [style]="{width: '70vw'}" header="{{'collaborateur.tabPan' | translate}}" [modal]="true" styleClass="p-fluid" [maximizable]="true" [draggable]="false" [resizable]="false">
+<ng-template pTemplate="content" >
+        <p-tabView>
+            <p-tabPanel header="{{'collaborateur.tabPan' | translate}}">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
+
+                                <div class="flex flex-col gap-2">
+                                    <label class="text-sm font-semibold" for="1">{{'collaborateur.description' | translate}}</label>
+                                    <textarea id="1" pTextarea rows="5" cols="30" placeholder="{{'collaborateur.description' | translate}}"  [(ngModel)]="item.description"
+                                               ></textarea>
+                                    
+                                </div>
+
+                                <div class="flex flex-col gap-2">
+
+                                    <label class="text-sm font-semibold" for="2">{{'collaborateur.accountNonLocked' | translate}}</label>
+
+                                    <p-inputSwitch id="2"  [(ngModel)]="item.accountNonLocked"
+                                                    >
+                                    </p-inputSwitch>
+                                    
+
+                                </div>
+
+
+                                <div class="flex flex-col gap-2">
+
+                                    <label class="text-sm font-semibold" for="3">{{'collaborateur.passwordChanged' | translate}}</label>
+
+                                    <p-inputSwitch id="3"  [(ngModel)]="item.passwordChanged"
+                                                    >
+                                    </p-inputSwitch>
+                                    
+
+                                </div>
+
+
+                                <div class="flex flex-col gap-2">
+                                    <label class="text-sm font-semibold" for="4">{{'collaborateur.username' | translate}}</label>
+                                    <input type="text" pInputText  placeholder="{{'collaborateur.username' | translate}}" id="4" [(ngModel)]="item.username"
+                                            />
+                                    
+                                </div>
+
+
+                                <div class="flex flex-col gap-2">
+
+                                    <label class="text-sm font-semibold" for="5">{{'collaborateur.accountNonExpired' | translate}}</label>
+
+                                    <p-inputSwitch id="5"  [(ngModel)]="item.accountNonExpired"
+                                                    >
+                                    </p-inputSwitch>
+                                    
+
+                                </div>
+
+
+                                <div class="flex flex-col gap-2">
+
+                                    <label class="text-sm font-semibold" for="6">{{'collaborateur.credentialsNonExpired' | translate}}</label>
+
+                                    <p-inputSwitch id="6"  [(ngModel)]="item.credentialsNonExpired"
+                                                    >
+                                    </p-inputSwitch>
+                                    
+
+                                </div>
+
+
+                                <div class="flex flex-col gap-2">
+
+                                    <label class="text-sm font-semibold" for="7">{{'collaborateur.enabled' | translate}}</label>
+
+                                    <p-inputSwitch id="7"  [(ngModel)]="item.enabled"
+                                                    >
+                                    </p-inputSwitch>
+                                    
+
+                                </div>
+
+
+                                <div class="flex flex-col gap-2">
+                                    <label class="text-sm font-semibold" for="8">{{'collaborateur.email' | translate}}</label>
+                                    <input type="text" pInputText  placeholder="{{'collaborateur.email' | translate}}" id="8" [(ngModel)]="item.email"
+                                            />
+                                    
+                                </div>
+
+
+                                <div class="flex flex-col gap-2">
+                                    <label class="text-sm font-semibold" for="9">{{'collaborateur.password' | translate}}</label>
+                                    <input type="text" pInputText  placeholder="{{'collaborateur.password' | translate}}" id="9" [(ngModel)]="item.password"
+                                            />
+                                    
+                                </div>
+
+
+                </div>
+            </p-tabPanel>
+
+        </p-tabView>
+
+</ng-template>
+
+<ng-template pTemplate="footer" >
+    <div class="flex justify-end space-x-3 p-4">
+
+            <button class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-primary" label="{{'validate' | translate}}"  (click)="edit()">
+                <i class="pi pi-check"></i> {{'validate' | translate}}
+            </button>
+
+                <button (click)="hideEditDialog()" class="border border-gray-400 text-gray-600 hover:bg-gray-200 px-4 py-2 rounded-md">
+                    <i class="pi pi-times"></i> {{'cancel' | translate}}
+                </button>
+
+    </div>
+</ng-template>
+
+    </p-dialog>

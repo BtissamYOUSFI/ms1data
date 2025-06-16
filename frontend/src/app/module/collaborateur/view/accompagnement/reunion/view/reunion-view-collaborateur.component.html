@@ -13,20 +13,25 @@
                         <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'reunion.code' | translate}}" autofocus  id="2" [ngModel]="item.code">
                     </div>
                     <div class="field col-12 md:col-6">
-                        <label for="3">{{'reunion.style' | translate}}</label>
+                        <label for="3">Lien</label>
                         <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'reunion.style' | translate}}" autofocus  id="3" [ngModel]="item.style">
                     </div>
-                    <div class="field col-12 md:col-6">
-                        <label for="4">{{'reunion.description' | translate}}</label>
-                        <textarea id="4" pInputTextarea rows="5" cols="30" [disabled]="true" placeholder="{{'reunion.description' | translate}}"  [ngModel]="item.description"></textarea>
-                    </div>
+
                     <div class="field col-12 md:col-6">
                         <label for="5">{{'reunion.collaborateur' | translate}}</label>
                         <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'reunion.collaborateur' | translate}}" autofocus  id="5" [ngModel]="item.collaborateur?.email">
                     </div>
                     <div class="field col-12 md:col-6">
+                        <label for="5">{{'reunion.manager' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'reunion.manager' | translate}}" autofocus  id="5" [ngModel]="item.manager?.email">
+                    </div>
+                    <div class="field col-12 md:col-6">
                         <label for="6">{{'reunion.etatReunion' | translate}}</label>
                         <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'reunion.etatReunion' | translate}}" autofocus  id="6" [ngModel]="item.etatReunion?.libelle">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="4">{{'reunion.description' | translate}}</label>
+                        <textarea id="4" pInputTextarea rows="5" cols="30" [disabled]="true" placeholder="{{'reunion.description' | translate}}"  [ngModel]="item.description"></textarea>
                     </div>
                 </div>
             </p-tabPanel>

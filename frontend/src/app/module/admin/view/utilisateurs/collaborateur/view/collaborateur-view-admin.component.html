@@ -5,12 +5,17 @@
             <p-tabPanel header="{{'collaborateur.tabPan' | translate}}">
                 <div class="grid">
                     <div class="field col-12 md:col-6">
-                        <label for="1">{{'collaborateur.description' | translate}}</label>
-                        <textarea id="1" pInputTextarea rows="5" cols="30" [disabled]="true" placeholder="{{'collaborateur.description' | translate}}"  [ngModel]="item.description"></textarea>
+                        <label for="6">{{'collaborateur.username' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'collaborateur.username' | translate}}" autofocus  id="6" [ngModel]="item.username">
                     </div>
+
                     <div class="field col-12 md:col-6">
                         <label for="2">{{'collaborateur.email' | translate}}</label>
                         <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'collaborateur.email' | translate}}" autofocus  id="2" [ngModel]="item.email">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="1">{{'collaborateur.description' | translate}}</label>
+                        <textarea id="1" pInputTextarea rows="5" cols="30" [disabled]="true" placeholder="{{'collaborateur.description' | translate}}"  [ngModel]="item.description"></textarea>
                     </div>
                     <div class="field align-inputswitch col-12  md:col-6">
                         <div  class="label-inputswitch">
@@ -36,10 +41,7 @@
                             <p-inputSwitch id="5"  [disabled]="true" [ngModel]="item.accountNonExpired"></p-inputSwitch>
                         </div>
                     </div>
-                    <div class="field col-12 md:col-6">
-                        <label for="6">{{'collaborateur.username' | translate}}</label>
-                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'collaborateur.username' | translate}}" autofocus  id="6" [ngModel]="item.username">
-                    </div>
+
                     <div class="field align-inputswitch col-12  md:col-6">
                         <div  class="label-inputswitch">
                             <label for="7">{{'collaborateur.passwordChanged' | translate}}</label>

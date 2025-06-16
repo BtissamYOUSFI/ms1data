@@ -4,8 +4,7 @@ import {BehaviorSubject, Observable} from 'rxjs';
 
 import {environment} from 'src/environments/environment';
 import {PaginatedList} from 'src/app/zynerator/dto/PaginatedList.model';
-// import  moment from 'moment/moment';
-
+import * as moment from 'moment/moment';
 import {TemplateEmailManagerDto} from 'src/app/shared/model/accompagnement/TemplateEmailManager.model';
 import {TemplateEmailManagerCriteria} from 'src/app/shared/criteria/accompagnement/TemplateEmailManagerCriteria.model';
 
@@ -104,16 +103,16 @@ export class TemplateEmailManagerAdminService {
     }
 
 
+  public format(myDate: Date): Date {
+        if (myDate != null) {
+            const newdate = new Date(myDate);
+            const formattedDate = moment(newdate).format(environment.dateFormatEdit);
+            console.log(formattedDate);
+            myDate = new Date(formattedDate);
+        }
+        return myDate;
+    }
 
-    // public format(myDate: Date): Date {
-    //     if (myDate != null) {
-    //         const newdate = new Date(myDate);
-    //         const formattedDate = moment(newdate).format(environment.dateFormatEdit);
-    //         console.log(formattedDate);
-    //         myDate = new Date(formattedDate);
-    //     }
-    //     return myDate;
-    // }
 
     get API() {
         return environment.apiUrlMs1datams1 + 'admin/templateEmailManager/';

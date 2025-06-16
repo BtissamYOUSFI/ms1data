@@ -5,6 +5,7 @@ import {LangueCriteria} from './LangueCriteria.model';
 import {CollaborateurCriteria} from '../utilisateurs/CollaborateurCriteria.model';
 
 import {BaseCriteria} from 'src/app/zynerator/criteria/BaseCriteria.model';
+import {ManagerCriteria} from "../utilisateurs/ManagerCriteria.model";
 
 export class InscriptionCriteria extends BaseCriteria {
 
@@ -20,8 +21,8 @@ export class InscriptionCriteria extends BaseCriteria {
     public prenomLike: string;
     public email: string;
     public emailLike: string;
-    public password: string;
-    public passwordLike: string;
+    // public password: string;
+    // public passwordLike: string;
      public nombreHeureExperience: number;
      public nombreHeureExperienceMin: number;
      public nombreHeureExperienceMax: number;
@@ -29,5 +30,10 @@ export class InscriptionCriteria extends BaseCriteria {
   public langues: Array<LangueCriteria> ;
   public etatInscription: EtatInscriptionCriteria ;
   public etatInscriptions: Array<EtatInscriptionCriteria> ;
+  public niveaulangue: NiveauLangueCriteria;
+  public metier: MetierCriteria;
+  public collaborateur: CollaborateurCriteria;
+  public manager: ManagerCriteria
+
 
 }

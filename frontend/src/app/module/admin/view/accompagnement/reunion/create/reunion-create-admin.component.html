@@ -28,17 +28,18 @@
                                                 </div>
 
 
-                                                <div class="field col-12 md:col-6">
-                                                    <label for="4">{{'reunion.description' | translate}}</label>
-                                                    <textarea id="4" pInputTextarea rows="5" cols="30" placeholder="{{'reunion.description' | translate}}"  [(ngModel)]="item.description"
-                                                             ></textarea>
-
-                                                </div>
 
                                             <div class="field col-11 md:col-6">
                                                 <label for="5">{{'reunion.collaborateur' | translate}}</label>
                                                 <p-dropdown  appendTo="body"  [options]="collaborateurs" [(ngModel)]="item.collaborateur" id="5" [filter]="true" filterMatchMode="contains"
                                                         [showClear]="true" optionLabel="email" placeholder="{{'reunion.collaborateur' | translate}}"  >
+                                                </p-dropdown>
+
+                                            </div>
+                                            <div class="field col-11 md:col-6">
+                                                <label for="5">{{'reunion.manager' | translate}}</label>
+                                                <p-dropdown  appendTo="body"  [options]="managers" [(ngModel)]="item.manager" id="5" [filter]="true" filterMatchMode="contains"
+                                                        [showClear]="true" optionLabel="email" placeholder="{{'reunion.manager' | translate}}"  >
                                                 </p-dropdown>
 
                                             </div>
@@ -57,6 +58,12 @@
                                                     placeholder="{{'reunion.etatReunion' | translate}}">
                                         </p-dropdown>
                                     </div>
+                                    <div class="field col-12 md:col-6">
+                                        <label for="4">{{'reunion.description' | translate}}</label>
+                                        <textarea id="4" pInputTextarea rows="5" cols="30" placeholder="{{'reunion.description' | translate}}"  [(ngModel)]="item.description"
+                                        ></textarea>
+
+                                    </div>
 
                                 </div>
                             </p-tabPanel>
@@ -66,7 +73,7 @@
                                     <div class="field col-12 md:col-6">
                                         <label for="1">To<span style="color: red;">*</span></label>
                                         <input class="mb-2 mr-2" type="text" pInputText  placeholder="To" id="1"
-                                               value="ibtissamyousfi111@gmail.com" readonly />
+                                               [value]="item.manager?.email" readonly />
 <!--                                        <small class='p-error' *ngIf='!validReunionLibelle'>Libelle is obligatory.</small>-->
                                     </div>
 
@@ -111,8 +118,6 @@
 
                                 </div>
                             </p-tabPanel>
-
-
 
                         </p-tabView>
 

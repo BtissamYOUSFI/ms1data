@@ -127,7 +127,8 @@
         "tabPan": "Reunion",
         "header": "Liste des reunions",
         "deleteReunionConfirmationMessage": "Are you sure you want to delete reunion",
-        "deleteReunionsConfirmationMessage": "Are you sure you want to delete the selected elements"
+        "deleteReunionsConfirmationMessage": "Are you sure you want to delete the selected elements",
+        "manager": "Manager"
     },
 
 
@@ -251,7 +252,8 @@
         "tabPan": "Paiement",
         "header": "Liste des paiements",
         "deletePaiementConfirmationMessage": "Are you sure you want to delete paiement",
-        "deletePaiementsConfirmationMessage": "Are you sure you want to delete the selected elements"
+        "deletePaiementsConfirmationMessage": "Are you sure you want to delete the selected elements",
+        "collaborateur": "Collaborateur"
     },
 
 
@@ -430,9 +432,49 @@
             "A4": "نقدم خدماتنا بالفرنسية والإنجليزية وعدة لغات أخرى حسب توفر المستشارين."
         },
         "HOME_LINK": "العودة إلى الصفحة الرئيسية"
+    },
+    "paiementManager":{
+        "libelle": "Libelle",
+        "code": "Code",
+        "description": "Description",
+        "montant": "Montant",
+        "montantMin": "Montant Min",
+        "montantMax": "Montant Max",
+        "datePaiement": "Date paiement",
+        "datePaiementMin": "Date paiement Min",
+        "datePaiementMax": "Date paiement Max",
+        "moyenPaiement": "Moyen paiement",
+        "moyenPaiementPlaceHolder": "Select a Moyen paiement",
+        "moyenPaiementPlaceHolderFilter": "Search by Moyen paiement",
+        "statusPaiement": "Status paiement",
+        "statusPaiementPlaceHolder": "Select a Status paiement",
+        "statusPaiementPlaceHolderFilter": "Search by Status paiement",
+        "manager": "Manager",
+        "managerPlaceHolder": "Select a Manager",
+        "managerPlaceHolderFilter": "Search by Manager",
+        "paiementManager": "Paiement manager",
+        "tabPan": "Paiement manager",
+        "header": "Liste des paiement managers",
+        "deletePaiementManagerConfirmationMessage": "Are you sure you want to delete paiement manager",
+        "deletePaiementManagersConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+    "manager":{
+        "description": "Description",
+        "accountNonLocked": "Account non locked",
+        "passwordChanged": "Password changed",
+        "username": "Username",
+        "accountNonExpired": "Account non expired",
+        "credentialsNonExpired": "Credentials non expired",
+        "enabled": "Enabled",
+        "email": "Email",
+        "password": "Password",
+        "manager": "Manager",
+        "tabPan": "Manager",
+        "header": "Liste des managers",
+        "deleteManagerConfirmationMessage": "Are you sure you want to delete manager",
+        "deleteManagersConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
 
-}
-,
 
 
     "appName": "GED"

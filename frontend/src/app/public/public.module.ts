@@ -47,6 +47,8 @@ import {SelectButtonModule} from "primeng/selectbutton";
 import {TagModule} from "primeng/tag";
 import { ContactComponent } from './contact/contact.component';
 import {RadioButtonModule} from "primeng/radiobutton";
+import { LoginComponent } from './login/login.component';
+import { RegisterManagerComponent } from './register-manager/register-manager.component';
 
 
 @NgModule({
@@ -62,7 +64,9 @@ import {RadioButtonModule} from "primeng/radiobutton";
         InscriptionComponent,
         NavbarComponent,
         VoiceRegistrationComponent,
-        ContactComponent
+        ContactComponent,
+        LoginComponent,
+        RegisterManagerComponent
     ],
     imports: [
         CarouselModule,

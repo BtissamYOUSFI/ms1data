@@ -6,11 +6,11 @@
                 <ng-template pTemplate="left">
                     <button pButton pRipple label=" {{'new' | translate}}" icon="pi pi-plus" class="p-button-info mr-2 mb-2" (click)="openCreate()" *ngIf="createActionIsValid"></button>
                     <button [disabled]="isSelectionDisabled()" pButton pRipple label=" {{'delete' | translate}}" icon="pi pi-trash" class="p-button-danger mr-2 mb-2" (click)=deleteMultiple()  *ngIf="deleteActionIsValid"></button>
-                    <button pButton pRipple label=" {{'search' | translate}}" icon="pi pi-{{findByCriteriaShow?'angle-down':'angle-right'}}" class="p-button-secondary mr-2 mb-2" (click)="this.showSearch()"></button>
+                    <button pButton pRipple label=" {{'search' | translate}}" icon="pi pi-{{findByCriteriaShow?'angle-down':'angle-right'}}" class="p-button-info mr-2 mb-2" (click)="this.showSearch()"></button>
                 </ng-template>
                 <ng-template pTemplate="right">
                     <div class="flex">
-                        <p-splitButton label=" {{'export' | translate}}" icon="pi pi-download" styleClass="p-button-secondary" [model]="excelPdfButons"></p-splitButton>
+                        <p-splitButton label=" {{'export' | translate}}" icon="pi pi-download" styleClass="p-button-info" [model]="excelPdfButons"></p-splitButton>
                     </div>
                 </ng-template>
 
@@ -44,7 +44,7 @@
                         </div>
                         <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
                             <label  class="font-bold block mb-2" for="10-2">{{'inscription.niveauLangue' | translate}}</label>
-                            <p-dropdown [options]="niveauLangues" [(ngModel)]="criteria.niveauLangue" id="10" [filter]="true" class="p-fluid"
+                            <p-dropdown [options]="niveauLangues" [(ngModel)]="criteria.niveaulangue" id="10" [filter]="true" class="p-fluid"
                                         [showClear]="true"  placeholder="{{'inscription.niveauLangue' | translate}}" optionLabel="libelle">
                             </p-dropdown>
                         </div>
@@ -211,7 +211,7 @@
                                     (click)="openCreateReunion(element)" *ngIf="createActionReunionIsValid"
                                     >
                                 </button>
-                                <button pButton pRipple icon="pi pi-user-plus" class="p-button-rounded p-button-raised p-button-warning mr-2"  *ngIf="duplicateActionIsValid"></button>
+                                <button pButton pRipple icon="pi pi-user-plus" class="p-button-rounded p-button-raised p-button-warning mr-2" (click)="showDialogManagers(element)"></button>
 
                             </td>
                         </tr>
@@ -245,6 +245,26 @@
         <app-inscription-view-admin  *ngIf="viewDialog  && viewActionIsValid"></app-inscription-view-admin>
         <app-reunion-create-admin  *ngIf="createDialogReunion  && createActionReunionIsValid"></app-reunion-create-admin>
         <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
+        <p-dialog header="Select Manager" [(visible)]="showManagers" [modal]="true"
+                  [style]="{width: '50vw', maxHeight: '100vh'}" [baseZIndex]="10000"
+                  [contentStyle]="{'max-height': '65vh', 'overflow-y': 'auto'}">
+            <div class="p-fluid">
+                <div class="field col-11 md:col-6">
+                    <label for="5">Manager</label>
+                    <p-dropdown appendTo="body" [options]="managers" [(ngModel)]="selectedManager" id="5"
+                                [filter]="true" filterMatchMode="contains" [showClear]="true"
+                                optionLabel="email" placeholder="Manager">
+                    </p-dropdown>
+                </div>
+            </div>
+
+            <ng-template pTemplate="footer">
+                <button pButton pRipple icon="pi pi-times" label="Cancel" class="p-button-text"
+                        (click)="showManagers=false"></button>
+                <button pButton pRipple icon="pi pi-check" label="Validate" class="p-button-success"
+                        (click)="onManagerSelected()" [disabled]="!selectedManager"></button>
+            </ng-template>
+        </p-dialog>
     </div>
 </div>
 

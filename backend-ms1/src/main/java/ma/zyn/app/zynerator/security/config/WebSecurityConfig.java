@@ -69,8 +69,10 @@ public class WebSecurityConfig {
                                 .requestMatchers("/swagger-ui.html", "/swagger-ui/**", "/v3/api-docs/**").permitAll() // Permit access to Swagger UI and API docs
                                 .requestMatchers("/api/admin/login").permitAll()
                                 .requestMatchers("/api/collaborateur/login").permitAll()
+                                .requestMatchers("/api/manager/login").permitAll()
                                 .requestMatchers("/api/admin/**").hasAnyAuthority(AuthoritiesConstants.ADMIN)
                                 .requestMatchers("/api/collaborateur/**").hasAnyAuthority(AuthoritiesConstants.COLLABORATEUR)
+                                .requestMatchers("/api/manager/**").hasAnyAuthority(AuthoritiesConstants.MANAGER)
                                .anyRequest().authenticated()
 
                 );

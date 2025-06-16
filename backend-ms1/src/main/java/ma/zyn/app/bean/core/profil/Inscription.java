@@ -9,6 +9,7 @@ import ma.zyn.app.bean.core.utilisateurs.Collaborateur;
 
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import ma.zyn.app.bean.core.utilisateurs.Manager;
 import ma.zyn.app.zynerator.bean.BaseEntity;
 import jakarta.persistence.*;
 import java.util.Objects;
@@ -47,6 +48,7 @@ public class Inscription  extends BaseEntity     {
     private Metier metier ;
     private EtatInscription etatInscription ;
     private Collaborateur collaborateur ;
+    private Manager manager;
 
 
     public Inscription(){
@@ -157,6 +159,15 @@ public class Inscription  extends BaseEntity     {
     }
     public void setCollaborateur(Collaborateur collaborateur){
         this.collaborateur = collaborateur;
+    }
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "manager")
+    public Manager getManager(){
+        return this.manager;
+    }
+    public void setManager(Manager manager){
+        this.manager = manager;
     }
 
     @Override

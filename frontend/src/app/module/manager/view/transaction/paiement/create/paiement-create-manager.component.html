@@ -1,0 +1,90 @@
+    <p-dialog [(visible)]="createDialog" [style]="{width: '70vw'}" header="{{'paiement.tabPan' | translate}}" [modal]="true" styleClass="p-fluid" [maximizable]="true" [draggable]="false" [resizable]="false">
+<ng-template pTemplate="content" >
+        <p-tabView>
+            <p-tabPanel header="{{'paiement.tabPan' | translate}}">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
+
+                                <div class="flex flex-col gap-2">
+                                    <label class="text-sm font-semibold" for="1">{{'paiement.libelle' | translate}}<span class="text-red-500">*</span></label>
+                                    <input type="text" pInputText  placeholder="{{'paiement.libelle' | translate}}" id="1" [(ngModel)]="item.libelle"
+                                           [ngClass]="{'ng-invalid ng-dirty' : !validPaiementLibelle}"  />
+                                    <small class="text-red-500" *ngIf='!validPaiementLibelle'>Libelle is obligatory.</small>
+                                </div>
+
+
+                                <div class="flex flex-col gap-2">
+                                    <label class="text-sm font-semibold" for="2">{{'paiement.code' | translate}}<span class="text-red-500">*</span></label>
+                                    <input type="text" pInputText  placeholder="{{'paiement.code' | translate}}" id="2" [(ngModel)]="item.code"
+                                           [ngClass]="{'ng-invalid ng-dirty' : !validPaiementCode}"  />
+                                    <small class="text-red-500" *ngIf='!validPaiementCode'>Code is obligatory.</small>
+                                </div>
+
+
+                                <div class="flex flex-col gap-2">
+                                    <label class="text-sm font-semibold" for="3">{{'paiement.description' | translate}}</label>
+                                    <textarea id="3" pTextarea rows="5" cols="30" placeholder="{{'paiement.description' | translate}}"  [(ngModel)]="item.description"
+                                               ></textarea>
+                                    
+                                </div>
+
+                                <div class="flex flex-col gap-2">
+                                    <label class="text-sm font-semibold" for="4">{{'paiement.montant' | translate}}</label>
+                                    <p-inputNumber  id="4" placeholder="{{'paiement.montant' | translate}}" [(ngModel)]="item.montant"  >
+                                    </p-inputNumber>
+                                    
+                                </div>
+
+                                <div class="flex flex-col gap-2">
+                                    <label class="text-sm font-semibold" for="5">{{'paiement.datePaiement' | translate}}</label>
+                                    <p-calendar class="w-full" appendTo="body" id="5"  [showTime]="true" [showSeconds]="false" placeholder="{{'paiement.datePaiement' | translate}}"  [(ngModel)]="item.datePaiement"
+                                                dateFormat="{{dateFormat}}"  >
+                                    </p-calendar>
+                                    
+                                </div>
+
+                            <div class="flex flex-col gap-2">
+                                <label class="text-sm font-semibold" for="6">{{'paiement.moyenPaiement' | translate}}</label>
+                                <p-dropdown class="w-full"  appendTo="body"  [options]="moyenPaiements" [(ngModel)]="item.moyenPaiement" id="6" [filter]="true" filterMatchMode="contains"
+                                            [showClear]="true" optionLabel="libelle" placeholder="{{'paiement.moyenPaiement' | translate}}"  >
+                                </p-dropdown>
+                                
+                            </div>
+
+                            <div class="flex flex-col gap-2">
+                                <label class="text-sm font-semibold" for="7">{{'paiement.statusPaiement' | translate}}</label>
+                                <p-dropdown class="w-full"  appendTo="body"  [options]="statusPaiements" [(ngModel)]="item.statusPaiement" id="7" [filter]="true" filterMatchMode="contains"
+                                            [showClear]="true" optionLabel="libelle" placeholder="{{'paiement.statusPaiement' | translate}}"  >
+                                </p-dropdown>
+                                
+                            </div>
+
+                            <div class="flex flex-col gap-2">
+                                <label class="text-sm font-semibold" for="8">{{'paiement.collaborateur' | translate}}</label>
+                                <p-dropdown class="w-full"  appendTo="body"  [options]="collaborateurs" [(ngModel)]="item.collaborateur" id="8" [filter]="true" filterMatchMode="contains"
+                                            [showClear]="true" optionLabel="email" placeholder="{{'paiement.collaborateur' | translate}}"  >
+                                </p-dropdown>
+                                
+                            </div>
+
+                </div>
+            </p-tabPanel>
+
+        </p-tabView>
+
+</ng-template>
+
+<ng-template pTemplate="footer" >
+    <div class="flex justify-end space-x-3 p-4">
+
+            <button label="{{'validate' | translate}}"   (click)="save()"  class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-primary">
+                <i class="pi pi-check"></i> {{'validate' | translate}}
+            </button>
+
+                <button (click)="hideCreateDialog()" class="border border-gray-400 text-gray-600 hover:bg-gray-200 px-4 py-2 rounded-md">
+                    <i class="pi pi-times"></i> {{'cancel' | translate}}
+                </button>
+
+    </div>
+</ng-template>
+
+    </p-dialog>

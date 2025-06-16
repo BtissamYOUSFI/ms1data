@@ -1,5 +1,6 @@
 package  ma.zyn.app.ws.dto.profil;
 
+import ma.zyn.app.ws.dto.utilisateurs.ManagerDto;
 import ma.zyn.app.zynerator.dto.AuditBaseDto;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
@@ -25,6 +26,7 @@ public class InscriptionDto  extends AuditBaseDto {
     private MetierDto metier ;
     private EtatInscriptionDto etatInscription ;
     private CollaborateurDto collaborateur ;
+    private ManagerDto manager;
 
 
 
@@ -133,6 +135,11 @@ public class InscriptionDto  extends AuditBaseDto {
         this.collaborateur = collaborateur;
     }
 
+    public ManagerDto getManager() {
+        return manager;
+    }
 
-
+    public void setManager(ManagerDto manager) {
+        this.manager = manager;
+    }
 }

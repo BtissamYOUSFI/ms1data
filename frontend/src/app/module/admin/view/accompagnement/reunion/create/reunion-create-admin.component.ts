@@ -35,6 +35,8 @@ import {TemplateEmailManagerDto} from "../../../../../../shared/model/accompagne
 import {
     TemplateEmailCollaboratorDto
 } from "../../../../../../shared/model/accompagnement/TemplateEmailCollaborator.model";
+import {ManagerAdminService} from "../../../../../../shared/service/admin/utilisateurs/ManagerAdmin.service";
+import {ManagerDto} from "../../../../../../shared/model/utilisateurs/Manager.model";
 @Component({
   selector: 'app-reunion-create-admin',
   templateUrl: './reunion-create-admin.component.html'
@@ -70,7 +72,7 @@ export class ReunionCreateAdminComponent  implements OnInit {
         "body": ''
     }
 
-	constructor(private emailManagerService: TemplateEmailManagerAdminService,private emailCollaboratorService: TemplateEmailCollaboratorAdminService,private service: ReunionAdminService , private etatReunionService: EtatReunionAdminService, private collaborateurService: CollaborateurAdminService, @Inject(PLATFORM_ID) private platformId? ) {
+	constructor(private managerService: ManagerAdminService,private emailManagerService: TemplateEmailManagerAdminService,private emailCollaboratorService: TemplateEmailCollaboratorAdminService,private service: ReunionAdminService , private etatReunionService: EtatReunionAdminService, private collaborateurService: CollaborateurAdminService, @Inject(PLATFORM_ID) private platformId? ) {
         this.datePipe = ServiceLocator.injector.get(DatePipe);
         this.messageService = ServiceLocator.injector.get(MessageService);
         this.confirmationService = ServiceLocator.injector.get(ConfirmationService);
@@ -93,6 +95,7 @@ export class ReunionCreateAdminComponent  implements OnInit {
         this.emailCollaboratorService.findAll().subscribe(data=>{
             this.emailCollaborator=data[0];
         })
+        this.managerService.findAll().subscribe(((data)=> this.managers=data))
     }
 
 
@@ -108,19 +111,6 @@ export class ReunionCreateAdminComponent  implements OnInit {
     }
 
     public saveWithShowOption(showList: boolean) {
-        // this.service.saveAndSendEmail( this.emailCollaborator, this.emailManager).subscribe(item => {
-        //     if (item != null) {
-        //         this.items.push({...item});
-        //         this.createDialog = false;
-        //         this.submitted = false;
-        //         this.item = new ReunionDto();
-        //     } else {
-        //         this.messageService.add({severity: 'error', summary: 'Erreurs', detail: 'Element existant'});
-        //     }
-        //
-        // }, error => {
-        //     // console.log(error);
-        // });
         this.service.saveAndSendEmail(this.emailCollaborator, this.emailManager).subscribe({
             next: (item) => {
                 if (item != null) {
@@ -267,6 +257,25 @@ export class ReunionCreateAdminComponent  implements OnInit {
     }
     set createCollaborateurDialog(value: boolean) {
         this.collaborateurService.createDialog= value;
+    }
+
+    get manager(): ManagerDto {
+        return this.managerService.item;
+    }
+    set manager(value: ManagerDto) {
+        this.managerService.item = value;
+    }
+    get managers(): Array<ManagerDto> {
+        return this.managerService.items;
+    }
+    set managers(value: Array<ManagerDto>) {
+        this.managerService.items = value;
+    }
+    get createManagerDialog(): boolean {
+        return this.managerService.createDialog;
+    }
+    set createManagerDialog(value: boolean) {
+        this.managerService.createDialog= value;
     }
 
 

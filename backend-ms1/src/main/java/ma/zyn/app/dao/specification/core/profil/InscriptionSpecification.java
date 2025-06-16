@@ -33,6 +33,7 @@ public class InscriptionSpecification extends  AbstractSpecification<Inscription
         addPredicateFk("collaborateur","id", criteria.getCollaborateur()==null?null:criteria.getCollaborateur().getId());
         addPredicateFk("collaborateur","id", criteria.getCollaborateurs());
         addPredicateFk("collaborateur","email", criteria.getCollaborateur()==null?null:criteria.getCollaborateur().getEmail());
+        addPredicateFk("manager","email", criteria.getManager()==null?null:criteria.getManager().getEmail());
     }
 
     public InscriptionSpecification(InscriptionCriteria criteria) {

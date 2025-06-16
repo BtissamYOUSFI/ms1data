@@ -3,20 +3,28 @@
                 <p-tabView>
                     <p-tabPanel header="{{'collaborateur.tabPan' | translate}}">
                         <div class="grid">
+                            <div class="field col-12 md:col-6">
+                                <label for="6">{{'collaborateur.username' | translate}}</label>
+                                <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'collaborateur.username' | translate}}" id="6" [(ngModel)]="item.username"
+                                />
 
-                                        <div class="field col-12 md:col-6">
+                            </div>
+
+                            <div class="field col-12 md:col-6">
+                                <label for="2">{{'collaborateur.email' | translate}}</label>
+                                <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'collaborateur.email' | translate}}" id="2" [(ngModel)]="item.email"
+                                />
+
+                            </div>
+
+
+                            <div class="field col-12 md:col-6">
                                             <label for="1">{{'collaborateur.description' | translate}}</label>
                                             <textarea id="1" pInputTextarea rows="5" cols="30" placeholder="{{'collaborateur.description' | translate}}"  [(ngModel)]="item.description"
                                                        ></textarea>
-                                            
+
                                         </div>
 
-                                        <div class="field col-12 md:col-6">
-                                            <label for="2">{{'collaborateur.email' | translate}}</label>
-                                            <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'collaborateur.email' | translate}}" id="2" [(ngModel)]="item.email"
-                                                    />
-                                            
-                                        </div>
 
 
 
@@ -28,7 +36,7 @@
                                                 <p-inputSwitch id="3"  [(ngModel)]="item.enabled"
                                                                 >
                                                 </p-inputSwitch>
-                                                
+
                                             </div>
                                         </div>
 
@@ -41,7 +49,7 @@
                                                 <p-inputSwitch id="4"  [(ngModel)]="item.credentialsNonExpired"
                                                                 >
                                                 </p-inputSwitch>
-                                                
+
                                             </div>
                                         </div>
 
@@ -54,17 +62,12 @@
                                                 <p-inputSwitch id="5"  [(ngModel)]="item.accountNonExpired"
                                                                 >
                                                 </p-inputSwitch>
-                                                
+
                                             </div>
                                         </div>
 
 
-                                        <div class="field col-12 md:col-6">
-                                            <label for="6">{{'collaborateur.username' | translate}}</label>
-                                            <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'collaborateur.username' | translate}}" id="6" [(ngModel)]="item.username"
-                                                    />
-                                            
-                                        </div>
+
 
 
 
@@ -76,7 +79,7 @@
                                                 <p-inputSwitch id="7"  [(ngModel)]="item.passwordChanged"
                                                                 >
                                                 </p-inputSwitch>
-                                                
+
                                             </div>
                                         </div>
 
@@ -89,7 +92,7 @@
                                                 <p-inputSwitch id="8"  [(ngModel)]="item.accountNonLocked"
                                                                 >
                                                 </p-inputSwitch>
-                                                
+
                                             </div>
                                         </div>
 
@@ -98,7 +101,7 @@
                                             <label for="9">{{'collaborateur.password' | translate}}</label>
                                             <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'collaborateur.password' | translate}}" id="9" [(ngModel)]="item.password"
                                                     />
-                                            
+
                                         </div>
 
 

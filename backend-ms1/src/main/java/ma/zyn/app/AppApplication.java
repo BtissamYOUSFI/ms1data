@@ -4,6 +4,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
+import ma.zyn.app.bean.core.utilisateurs.Manager;
+import ma.zyn.app.service.facade.admin.utilisateurs.ManagerAdminService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -70,7 +72,7 @@ public class AppApplication {
     }
 
     @Bean
-    public CommandLineRunner demo(UserService userService, RoleService roleService, ModelPermissionService modelPermissionService, ActionPermissionService actionPermissionService, ModelPermissionUserService modelPermissionUserService, CollaborateurAdminService collaborateurService) {
+    public CommandLineRunner demo(UserService userService, RoleService roleService, ModelPermissionService modelPermissionService, ActionPermissionService actionPermissionService, ModelPermissionUserService modelPermissionUserService, CollaborateurAdminService collaborateurService, ManagerAdminService managerService) {
         return (args) -> {
             if (true) {
 
@@ -130,6 +132,26 @@ public class AppApplication {
                 userForCollaborateur.setModelPermissionUsers(modelPermissionUserService.initModelPermissionUser());
 
                 collaborateurService.create(userForCollaborateur);
+
+                // User Manager
+                Manager userForManager = new Manager("manager");
+                userForManager.setPassword("123");
+                // Role Manager
+                Role roleForManager = new Role();
+                roleForManager.setAuthority(AuthoritiesConstants.MANAGER);
+                roleForManager.setCreatedAt(LocalDateTime.now());
+                Role roleForManagerSaved = roleService.create(roleForManager);
+                RoleUser roleUserForManager = new RoleUser();
+                roleUserForManager.setRole(roleForManagerSaved);
+                if (userForManager.getRoleUsers() == null)
+                    userForManager.setRoleUsers(new ArrayList<>());
+
+                userForManager.getRoleUsers().add(roleUserForManager);
+
+
+                userForManager.setModelPermissionUsers(modelPermissionUserService.initModelPermissionUser());
+
+                managerService.create(userForManager);
 
 
                 // User Admin

@@ -45,7 +45,6 @@ export class ReunionAdminService {
 
     protected API_PERMISSION: string ;
 
-
     constructor(private http: HttpClient) {
         this.API_PERMISSION = environment.apiUrl + 'modelPermissionUser/';
     }

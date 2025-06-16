@@ -23,6 +23,8 @@ import {MoyenPaiementDto} from 'src/app/shared/model/transaction/MoyenPaiement.m
 import {MoyenPaiementAdminService} from 'src/app/shared/service/admin/transaction/MoyenPaiementAdmin.service';
 import {StatusPaiementDto} from 'src/app/shared/model/transaction/StatusPaiement.model';
 import {StatusPaiementAdminService} from 'src/app/shared/service/admin/transaction/StatusPaiementAdmin.service';
+import {CollaborateurAdminService} from "../../../../../../shared/service/admin/utilisateurs/CollaborateurAdmin.service";
+import {CollaborateurDto} from "../../../../../../shared/model/utilisateurs/Collaborateur.model";
 
 @Component({
   selector: 'app-paiement-edit-admin',
@@ -56,7 +58,8 @@ export class PaiementEditAdminComponent implements OnInit {
 
 
 
-    constructor(private service: PaiementAdminService , private moyenPaiementService: MoyenPaiementAdminService, private statusPaiementService: StatusPaiementAdminService, @Inject(PLATFORM_ID) private platformId?) {
+
+    constructor(private collaborateurService: CollaborateurAdminService,private service: PaiementAdminService , private moyenPaiementService: MoyenPaiementAdminService, private statusPaiementService: StatusPaiementAdminService, @Inject(PLATFORM_ID) private platformId?) {
         this.datePipe = ServiceLocator.injector.get(DatePipe);
         this.messageService = ServiceLocator.injector.get(MessageService);
         this.confirmationService = ServiceLocator.injector.get(ConfirmationService);
@@ -68,6 +71,7 @@ export class PaiementEditAdminComponent implements OnInit {
     ngOnInit(): void {
         this.moyenPaiementService.findAll().subscribe((data) => this.moyenPaiements = data);
         this.statusPaiementService.findAll().subscribe((data) => this.statusPaiements = data);
+        this.collaborateurService.findAll().subscribe((data) => this.collaborateurs = data);
     }
 
     public prepareEdit() {
@@ -318,6 +322,25 @@ export class PaiementEditAdminComponent implements OnInit {
 
     set activeTab(value: number) {
         this._activeTab = value;
+    }
+
+    get collaborateur(): CollaborateurDto {
+        return this.collaborateurService.item;
+    }
+    set collaborateur(value: CollaborateurDto) {
+        this.collaborateurService.item = value;
+    }
+    get collaborateurs(): Array<CollaborateurDto> {
+        return this.collaborateurService.items;
+    }
+    set collaborateurs(value: Array<CollaborateurDto>) {
+        this.collaborateurService.items = value;
+    }
+    get createCollaborateurDialog(): boolean {
+        return this.collaborateurService.createDialog;
+    }
+    set createCollaborateurDialog(value: boolean) {
+        this.collaborateurService.createDialog= value;
     }
 
 

@@ -46,6 +46,10 @@ import { SplitButtonModule } from 'primeng/splitbutton';
 import { MessageModule } from 'primeng/message';
 import {MessagesModule} from 'primeng/messages';
 import {PaginatorModule} from 'primeng/paginator';
+import {PaiementManagerCreateAdminComponent} from "./paiement-manager/create/paiement-manager-create-admin.component";
+import {PaiementManagerEditAdminComponent} from "./paiement-manager/edit/paiement-manager-edit-admin.component";
+import {PaiementManagerViewAdminComponent} from "./paiement-manager/view/paiement-manager-view-admin.component";
+import { PaiementManagerListAdminComponent } from './paiement-manager/list/paiement-manager-list-admin.component';
 
 
 
@@ -64,6 +68,10 @@ import {PaginatorModule} from 'primeng/paginator';
     MoyenPaiementListAdminComponent,
     MoyenPaiementViewAdminComponent,
     MoyenPaiementEditAdminComponent,
+      PaiementManagerCreateAdminComponent,
+      PaiementManagerEditAdminComponent,
+      PaiementManagerViewAdminComponent,
+      PaiementManagerListAdminComponent
   ],
   imports: [
     CommonModule,
@@ -114,6 +122,10 @@ import {PaginatorModule} from 'primeng/paginator';
   MoyenPaiementListAdminComponent,
   MoyenPaiementViewAdminComponent,
   MoyenPaiementEditAdminComponent,
+      PaiementManagerCreateAdminComponent,
+      PaiementManagerEditAdminComponent,
+      PaiementManagerViewAdminComponent,
+      PaiementManagerListAdminComponent
   ],
 })
 export class TransactionAdminModule { }

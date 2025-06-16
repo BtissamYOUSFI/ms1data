@@ -54,6 +54,8 @@ import {AdminRoutingModule} from './module/admin/admin-routing.module';
 import {CollaborateurModule} from './module/collaborateur/collaborateur.module';
 import {CollaborateurRoutingModule} from './module/collaborateur/collaborateur-routing.module';
 import {TagModule} from "primeng/tag";
+import {ManagerModule} from "./module/manager/manager.module";
+import {ManagerRoutingModule} from "./module/manager/manager-routing.module";
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http);
@@ -99,6 +101,8 @@ imports: [
     AdminRoutingModule,
     CollaborateurModule,
     CollaborateurRoutingModule,
+    ManagerModule,
+    ManagerRoutingModule,
 
   TranslateModule.forRoot({
   loader: {

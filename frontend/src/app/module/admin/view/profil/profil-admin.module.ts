@@ -125,8 +125,6 @@ import {
         EditorModule,
         TagModule,
         AccompagnementAdminModule,
-
-
     ],
   exports: [
   EtatInscriptionCreateAdminComponent,
